@@ -1,0 +1,19 @@
+
+Programming with Python for Engineers
+=====================================
+
+
+
+.. raw:: html
+   :file: frontpage.html
+
+.. toctree::
+   :maxdepth: 2
+
+   chapters/ch0_preface.md
+
+.. toctree::
+   :maxdepth: 2
+   :numbered:
+
+   chapters/ch1_computer_organization.md

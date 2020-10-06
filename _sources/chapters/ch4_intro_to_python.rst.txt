@@ -1,0 +1,105 @@
+
+Chapter 4 - Introduction to Python
+==================================
+
+4.1 What is Programming in Python
+---------------------------------
+
+| Python is an interpretive language. That means (normally) sitting in
+  front of a running program that is called “The Python Interpreter” you
+  type in your computational demands. Those demands have to be expressed
+  in the “Python Language” as a sequence of “Python statements”.
+| A Python statement is:
+
+-  An expression to be evaluated (which will yield some data)
+-  An assignment
+-  A special syntax statement starting with a keyword
+
+The ingradients of an expression are
+
+-  data,
+-  operations among expressions and
+-  functions acting on expressions.
+
+Data classifies as basic data or container data.
+
+In the following sections we will have a gentle introduction to what
+data is and what basic operations can be performed on it.
+
+While you are submitting your demands to the interpreter
+statement-by-statement, it is quite common to save the result of an
+evaluation for further usages (in some following statements). You do
+this by ‘assignments’. Assignment serve you to store the result of an
+evaluation either under a name or as an element of a container (not all
+containers allow assignment to elements, only some of them do).
+
+4.4.3 Aliasing
+~~~~~~~~~~~~~~
+
+There is a peculiarity about lists. First consider the following code:
+
+“The first example”
+
+.. code:: python
+
+    a = 5
+    b = a
+    a = 3
+    print (b)
+
+
+.. parsed-literal::
+    :class: output
+
+    5
+
+
+As you observe b is **not** set to the new value of ``a``. You can think
+of variables as pidgeon holes (living in the memory). Both pidgeon holes
+a and b in this case are stored with integers. \* The first line stores
+5 into ``a``; \* The second line stores a copy of the content of ``a``,
+namely 3, into ``b``; \* The third line alters the value stored into
+``a`` to be 3, now. \* ``b`` is still in hold of its integer content 5,
+which is printed.
+
+Now keep the task the same but change the data from integer to a list:
+
+“The second example”
+
+.. code:: python
+
+    a = [5,1,7]
+    b = a
+    print (b)
+    a = [3,-1]
+    print (b)
+
+
+.. parsed-literal::
+    :class: output
+
+    [5, 1, 7]
+    [5, 1, 7]
+
+
+So it works quite as expected. But now consider the following:
+
+“The third example”
+
+.. code:: python
+
+    a = [5,1,7]
+    b = a
+    print (b)
+    a[0] = 3
+    print (b)
+
+
+.. parsed-literal::
+    :class: output
+
+    [5, 1, 7]
+    [3, 1, 7]
+
+
+@TODO DEVAMINI KOPYALAMADIM
