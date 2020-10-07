@@ -738,3 +738,19 @@ Opcode Affected address
       decode?
    -  What is the maximum number of rows in the memory that can be
       addressed by this CPU?
+
+Further Reading
+---------------
+
+-  Computer Architectures:
+
+   -  Von Neumann Architecture:
+      http://en.wikipedia.org/wiki/Von_Neumann_architecture
+   -  Harvard Architecture:
+      http://en.wikipedia.org/wiki/Harvard_architecture
+   -  Harvard vs. Von Neumann Architecture:
+      http://www.pic24micro.com/harvard_vs_von_neumann.html
+   -  Quantum Computer: http://en.wikipedia.org/wiki/Quantum_computer
+   -  Chemical Computer: http://en.wikipedia.org/wiki/Chemical_computer
+   -  Non-Uniform Memory Access Computer:
+      http://en.wikipedia.org/wiki/Non-Uniform_Memory_Access
