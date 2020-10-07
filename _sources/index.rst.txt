@@ -17,3 +17,4 @@ Programming with Python for Engineers
    :numbered:
 
    chapters/ch1_computer_organization.md
+   chapters/ch2_programming.md

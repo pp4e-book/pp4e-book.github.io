@@ -27,6 +27,7 @@
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2. A Broad Look at Programming and Programming Languages" href="ch2_programming.html" />
     <link rel="prev" title="Preface" href="ch0_preface.html" /> 
   </head>
 <body>
@@ -111,6 +112,7 @@ Show Source
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1. Basic Computer Organization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch2_programming.html">2. A Broad Look at Programming and Programming Languages</a></li>
 </ul>
 
             </nav>
@@ -142,6 +144,7 @@ Show Source
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1. Basic Computer Organization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch2_programming.html">2. A Broad Look at Programming and Programming Languages</a></li>
 </ul>
 
             </nav>
@@ -283,13 +286,17 @@ accessed byte is left intact.</div>
 <p>The information stored in this way at several addresses live in the
 memory happily, until the power is turned off.</p>
 <p>The memory is also referred as Random Access Memory (RAM). Some
-important aspects of this type of memory has to be noted: * Access any
-content in RAM, whether for reading or writing purposes, is <em>only</em>
-possible when the content’s address is provided to the RAM through the
-address bus. * Accessing any content takes exactly the same amount of
-time, irrespective of the address of the content. In todays RAMs, this
-access time is around 50 nanoseconds. * When a content is overwritten,
-it is gone forever and it is not possible to undo this action.</p>
+important aspects of this type of memory has to be noted:</p>
+<ul class="simple">
+<li><p>Access any content in RAM, whether for reading or writing purposes,
+is <em>only</em> possible when the content’s address is provided to the RAM
+through the address bus.</p></li>
+<li><p>Accessing any content takes exactly the same amount of time,
+irrespective of the address of the content. In todays RAMs, this
+access time is around 50 nanoseconds.</p></li>
+<li><p>When a content is overwritten, it is gone forever and it is not
+possible to undo this action.</p></li>
+</ul>
 <p>An important question is who sets the address bus and who communicates
 through the data bus (sends and receives bytes of data). As depicted in
 <a class="reference internal" href="#fig-ch4-cpu"><span class="std std-numref">Fig. 1.1.2</span></a>, the CPU does. How this is done on the CPU side
@@ -483,7 +490,8 @@ data to some internal format, make a detailed memory layout on paper and
 then start writing down each bit of the memory. This is an extremely
 painful job; though it is possible, it is impractical.</p>
 <p>Alternatively, consider the text below:</p>
-<div class="highlight-main: notranslate"><div class="highlight"><pre><span></span>pushq   %rbp
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>main:
+       pushq   %rbp
        movq    %rsp, %rbp
        movl    alice(%rip), %edx
        movl    bob(%rip), %eax
@@ -885,6 +893,13 @@ addressed by this CPU?</p></li>
             <span class="pagenation-direction">Previous</span>
             <div>Preface</div>
          </div>
+     </a>
+     <a id="button-next" href="ch2_programming.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+         <i class="pagenation-arrow-R fas fa-arrow-right fa-lg"></i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>2. A Broad Look at Programming and Programming Languages</div>
+        </div>
      </a>
   </div>
         
