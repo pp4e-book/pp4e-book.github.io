@@ -110,6 +110,9 @@ Although this variety might appear intimidating at first, we will see
 that, by using some ‘solution building blocks’, we can do computations
 and solve various problems with such a wide spectrum of data.
 
+iii. Are all ‘computing machinery’ alike?
+-----------------------------------------
+
 Certainly not! This is a common mistake a layman does. There are diverse
 architectures based on totally different physical phenomena that can
 compute. A good example is the *brain* of living beings, which rely on
@@ -198,20 +201,6 @@ explained above, is a very unique computing ‘machine’ that inspires
 computational sciences.
 
 **A short video on synaptic communication between neurons**
-
-
-
-
-.. raw:: html
-
-    # Hide code
-    <div align="middle">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/WhowH0kb7n0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-    </iframe>
-    </div>
-    <center><p><i>Video 1. A detailed illustration of how neurotransmitters are transmitted at synapses.
-      [Video from <a href="https://www.youtube.com/watch?v=WhowH0kb7n0">https://www.youtube.com/watch?v=WhowH0kb7n0</a>]</i></p></center>
-
 
 
 The brain never stops processing information and the functioning of each
