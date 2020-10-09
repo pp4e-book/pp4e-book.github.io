@@ -199,7 +199,7 @@ Python, Springer,
 </div>
 </div>
 <div class="section" id="algorithm">
-<span id="fig-al-khwarizmi"></span><h2><span class="section-number">2.2. </span>Algorithm<a class="headerlink" href="#algorithm" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.2. </span>Algorithm<a class="headerlink" href="#algorithm" title="Permalink to this headline">¶</a></h2>
 <p>An algorithm is a step-by-step procedure that, when executed, leads to
 an output for the input we provided. If the procedure was correct, we
 expect the output to be the desired output, i.e. the solution we wanted
@@ -228,8 +228,11 @@ of well-defined instructions (e.g. “take all variables to the right.
 divide the coefficients by the coefficient of x…”) – i.e. using what
 we call today as algorithms.</p>
 </div>
-</td><td><center><p><img alt="Muhammad ibn Musa al-Khwarizmi (c. 780 – c. 850)" src="../_images/ch2_al-khwarizmi.jpg" /></p>
-</center></td></tr></table></center><p>** Are algorithms the same thing as programs? **</p>
+</td><td><div class="figure align-default" id="id2">
+<span id="fig-al-khwarizmi"></span><a class="reference internal image-reference" href="../_images/ch2_al-khwarizmi.jpg"><img alt="../_images/ch2_al-khwarizmi.jpg" src="../_images/ch2_al-khwarizmi.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.2.1 </span><span class="caption-text">Muhammad ibn Musa al-Khwarizmi (c. 780 – c. 850)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</td></tr></table></center><p>** Are algorithms the same thing as programs? **</p>
 <p>It is very natural to confuse algorithms with programs as they are both
 step-by-step procedures. However, algorithms can be studied and they
 were invented long before there were computers or programming languages.
@@ -264,20 +267,20 @@ avoid ambigous descriptions.</p></li>
 <li><p><strong>Flowcharts</strong>. As an alternative to pseudocodes, we can use
 flowcharts while designing algorithms. Flowcharts are diagrams
 composed of small computational elements that describe the steps of
-the algorithm. An example in <a class="reference internal" href="#fig-ch2-flowchart"><span class="std std-numref">Fig. 2.2.1</span></a>
+the algorithm. An example in <a class="reference internal" href="#fig-ch2-flowchart"><span class="std std-numref">Fig. 2.2.2</span></a>
 illustrates what kind of elements are used and how they are brought
 together to describe an algorithm.</p></li>
 </ol>
 <p>Flowcharts can be more intuitive to work with. However, for complex
 algorithms, flowcharts can get very large and prohibitive to work with.</p>
-<div class="figure align-default" id="id2">
+<div class="figure align-default" id="id3">
 <span id="fig-ch2-flowchart"></span><a class="reference internal image-reference" href="../_images/ch2_flowchart_example.png"><img alt="../_images/ch2_flowchart_example.png" src="../_images/ch2_flowchart_example.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.2.1 </span><span class="caption-text">Flowcharts describe relationships by using basic geometric symbols
+<p class="caption"><span class="caption-number">Fig. 2.2.2 </span><span class="caption-text">Flowcharts describe relationships by using basic geometric symbols
 and arrows. The program start or end is depicted with an oval. A
 rectangular box denotes a simple action or status. Decision making is
 represented by a diamond and a parallelogram of the Input/Output
 process. A silhouette of a TV tube means displaying a message. The
-Internet is portrayed as a cloud.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+Internet is portrayed as a cloud.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="how-to-compare-algorithms">
@@ -359,12 +362,12 @@ symbolized with <span class="math notranslate nohighlight">\(n\)</span>, then it
 complexity is <span class="math notranslate nohighlight">\(\cal{O}(n)\)</span>.</p>
 <p>Certainly the algorithm that has <span class="math notranslate nohighlight">\(\cal{O}(\log(n))\)</span> is better than
 the one with <span class="math notranslate nohighlight">\(\cal{O}(n)\)</span>, which is illustrated in
-<a class="reference internal" href="#fig-ch2-various-complexities"><span class="std std-numref">Fig. 2.2.2</span></a>. In other words, an
+<a class="reference internal" href="#fig-ch2-various-complexities"><span class="std std-numref">Fig. 2.2.3</span></a>. In other words, an
 <span class="math notranslate nohighlight">\(\cal{O}(\log(n))\)</span> algorithm requires less number of steps and is
 likely to run faster than the one with <span class="math notranslate nohighlight">\(\cal{O}(n)\)</span> complexity.</p>
-<div class="figure align-default" id="id3">
+<div class="figure align-default" id="id4">
 <span id="fig-ch2-various-complexities"></span><img alt="../_images/ch2_various_complexities.png" src="../_images/ch2_various_complexities.png" />
-<p class="caption"><span class="caption-number">Fig. 2.2.2 </span><span class="caption-text">A plot of various complexities.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.2.3 </span><span class="caption-text">A plot of various complexities.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
@@ -393,10 +396,10 @@ rule-search engine).</p>
 of abstraction levels (low-level vs. high-level – see
 <a class="reference internal" href="#fig-ch2-spectrum-of-pl"><span class="std std-numref">Fig. 2.4.1</span></a>) as well as the computational
 benefits they provide.</p>
-<div class="figure align-default" id="id4">
+<div class="figure align-default" id="id5">
 <span id="fig-ch2-spectrum-of-pl"></span><img alt="../_images/ch2_spectrum_of_PL.png" src="../_images/ch2_spectrum_of_PL.png" />
 <p class="caption"><span class="caption-number">Fig. 2.4.1 </span><span class="caption-text">The spectrum of programming languages, ranging from low-level
-languages to high-level languages and natural languages.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+languages to high-level languages and natural languages.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="low-level-languages">
 <h3><span class="section-number">2.4.1. </span>Low-level Languages<a class="headerlink" href="#low-level-languages" title="Permalink to this headline">¶</a></h3>
@@ -514,14 +517,14 @@ code library (it is actually named as <em>library</em>). A program, named
 patches in the parts of the code that are referenced by the
 programmer.</p></li>
 </ol>
-<div class="figure align-default" id="id5">
+<div class="figure align-default" id="id6">
 <span id="fig-ch2-compiler"></span><a class="reference internal image-reference" href="../_images/ch2_compiler.png"><img alt="../_images/ch2_compiler.png" src="../_images/ch2_compiler.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 2.4.2 </span><span class="caption-text">A program code in a high-level language is first translated into
 machine understandable binary code (machine code) which is then
 loaded and executed on the machine to obtain the result. [From: <a class="reference external" href="https://link.springer.com/book/10.1007/978-3-7091-1343-1">G.
 Üçoluk, S. Kalkan, Introduction to Programming Concepts with Case
 Studies in Python, Springer,
-2012</a>]</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+2012</a>]</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
 <ol class="arabic simple" start="2">
 <li><p><strong>Interpretive Approach</strong>. In this approach, a machine code program,
@@ -537,13 +540,13 @@ program. In practice, it is always possible to write down the program
 lines into a file, and make the interpreter read the program lines
 one by one from that file as well.</p></li>
 </ol>
-<div class="figure align-default" id="id6">
+<div class="figure align-default" id="id7">
 <span id="fig-ch2-interpreter"></span><a class="reference internal image-reference" href="../_images/ch2_interpreter.png"><img alt="../_images/ch2_interpreter.png" src="../_images/ch2_interpreter.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 2.4.3 </span><span class="caption-text">Interpreted languages (e.g. Python) come with interpreters that
 process and evaluate each action (statement) from the user on the run
 and returns an answer. [From: <a class="reference external" href="https://link.springer.com/book/10.1007/978-3-7091-1343-1">G. Üçoluk, S. Kalkan, Introduction to
 Programming Concepts with Case Studies in Python, Springer,
-2012</a>]</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+2012</a>]</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </div>
 <p><strong>Which approach is better?</strong></p>
 <p>Both approaches have their benefits. When a specific task is considered,

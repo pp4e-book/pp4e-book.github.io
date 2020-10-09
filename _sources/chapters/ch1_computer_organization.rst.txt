@@ -97,8 +97,10 @@ Reference <https://www.oxfordreference.com/view/10.1093/oi/authority.20110803120
 .. _fig_von_neumann:
 
 .. figure:: ../figures/ch1_von_neumann.jpg
+   :width: 200px
 
    John von Neumann (1903 – 1957)
+
 
 
 .. raw:: html

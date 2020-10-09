@@ -50,8 +50,6 @@ distinction in mind (:numref:`fig_ch2_solving_world_problems`):
 
 
 
-.. _fig_al-khwarizmi:
-
 Algorithm
 ---------
 
@@ -112,15 +110,14 @@ The origins of the world ‘algorithm’
 
    <td>
 
-.. raw:: html
+.. _fig_al-khwarizmi:
 
-   <center>
+.. figure:: ../figures/ch2_al-khwarizmi.jpg
+   :width: 200px
 
-|Muhammad ibn Musa al-Khwarizmi (c. 780 – c. 850)|
+   Muhammad ibn Musa al-Khwarizmi (c. 780 – c. 850)
 
-.. raw:: html
 
-   </center>
 
 .. raw:: html
 
@@ -166,8 +163,6 @@ mechanisms:
 Here is an example pseudo-code:
 
 *Algorithm 1. Calculate the average of numbers provided by the user.*
-
-.. |Muhammad ibn Musa al-Khwarizmi (c. 780 – c. 850)| image:: ../figures/ch2_al-khwarizmi.jpg
 
 ::
 
