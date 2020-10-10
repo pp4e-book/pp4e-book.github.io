@@ -717,8 +717,39 @@ explained below:
    type-able window, which is still very much favored among programming
    professionals.
 
-Exercise
---------
+Important Concepts
+------------------
+
+We would like our readers to have grasped the following crucial concepts
+and keywords from this chapter:
+
+-  The von Neumann Architecture
+-  The interaction between the CPU and the memory via address, R/W and
+   data bus lines.
+-  The crucial components on the CPU: The control unit, the arithmetic
+   logic unit and the registers
+-  The fetch-decode-execute cycle
+-  The stored program concept
+-  Operating system and its responsibilities
+
+Further Reading
+---------------
+
+-  Computer Architectures:
+
+   -  Von Neumann Architecture:
+      http://en.wikipedia.org/wiki/Von_Neumann_architecture
+   -  Harvard Architecture:
+      http://en.wikipedia.org/wiki/Harvard_architecture
+   -  Harvard vs. Von Neumann Architecture:
+      http://www.pic24micro.com/harvard_vs_von_neumann.html
+   -  Quantum Computer: http://en.wikipedia.org/wiki/Quantum_computer
+   -  Chemical Computer: http://en.wikipedia.org/wiki/Chemical_computer
+   -  Non-Uniform Memory Access Computer:
+      http://en.wikipedia.org/wiki/Non-Uniform_Memory_Access
+
+Exercises
+---------
 
 -  To gain more insight, play around with the Von Neuman machine
    simulator at http://vnsimulator.altervista.org
@@ -746,19 +777,3 @@ Opcode Affected address
       decode?
    -  What is the maximum number of rows in the memory that can be
       addressed by this CPU?
-
-Further Reading
----------------
-
--  Computer Architectures:
-
-   -  Von Neumann Architecture:
-      http://en.wikipedia.org/wiki/Von_Neumann_architecture
-   -  Harvard Architecture:
-      http://en.wikipedia.org/wiki/Harvard_architecture
-   -  Harvard vs. Von Neumann Architecture:
-      http://www.pic24micro.com/harvard_vs_von_neumann.html
-   -  Quantum Computer: http://en.wikipedia.org/wiki/Quantum_computer
-   -  Chemical Computer: http://en.wikipedia.org/wiki/Chemical_computer
-   -  Non-Uniform Memory Access Computer:
-      http://en.wikipedia.org/wiki/Non-Uniform_Memory_Access

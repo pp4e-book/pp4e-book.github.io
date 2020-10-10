@@ -595,6 +595,46 @@ Python, the subject language of this book, supports strongly the
 imperative, functional and object-orient paradigms. It also provides
 some functionality in other paradigms by some modules.
 
+Important Concepts
+------------------
+
+We would like our readers to have grasped the following crucial concepts
+and keywords from this chapter:
+
+-  How we solve problems using computers
+-  Algorithms: What they are, how we write them and how we compare them
+-  The spectrum of programming languages
+-  Pros and cons of low-level and high-level languages
+-  Interpretive vs. compilative approach to programming
+-  Programming paradigms
+
+Further Reading
+---------------
+
+-  The World of Programming chapter available at:
+   https://link.springer.com/chapter/10.1007/978-3-7091-1343-1_1
+
+-  Programming Languages:
+
+   -  For a list of programming languages:
+      http://en.wikipedia.org/wiki/Comparison_of_programming_languages
+   -  For a comparison of programming languages:
+      http://en.wikipedia.org/wiki/Comparison_of_programming_languages
+   -  For more details: Daniel P. Friedman, Mitchell Wand, Christopher
+      Thomas Haynes: Essentials of Programming Languages, The MIT Press
+      2001.
+
+-  Programming Paradigms:
+
+   -  Introduction: http://en.wikipedia.org/wiki/Programming_paradigm
+   -  For a detailed discussion and taxonomy of the paradigms: P. Van
+      Roy, Programming Paradigm for Dummies: What Every Programmer
+      Should Know, New Computational Paradigms for Computer Music, G.
+      Assayag and A. Gerzso (eds.), IRCAM/Delatour France, 2009
+      http://www.info.ucl.ac.be/~pvr/VanRoyChapter.pdf
+   -  Comparison between Paradigms:
+      http://en.wikipedia.org/wiki/Comparison_of_programming_paradigms
+
 Exercise
 --------
 
@@ -1045,30 +1085,3 @@ Input Size
 
 -  Writing a document editing program as an alternative to Microsoft
    Word.
-
-Further Reading
----------------
-
--  The World of Programming chapter available at:
-   https://link.springer.com/chapter/10.1007/978-3-7091-1343-1_1
-
--  Programming Languages:
-
-   -  For a list of programming languages:
-      http://en.wikipedia.org/wiki/Comparison_of_programming_languages
-   -  For a comparison of programming languages:
-      http://en.wikipedia.org/wiki/Comparison_of_programming_languages
-   -  For more details: Daniel P. Friedman, Mitchell Wand, Christopher
-      Thomas Haynes: Essentials of Programming Languages, The MIT Press
-      2001.
-
--  Programming Paradigms:
-
-   -  Introduction: http://en.wikipedia.org/wiki/Programming_paradigm
-   -  For a detailed discussion and taxonomy of the paradigms: P. Van
-      Roy, Programming Paradigm for Dummies: What Every Programmer
-      Should Know, New Computational Paradigms for Computer Music, G.
-      Assayag and A. Gerzso (eds.), IRCAM/Delatour France, 2009
-      http://www.info.ucl.ac.be/~pvr/VanRoyChapter.pdf
-   -  Comparison between Paradigms:
-      http://en.wikipedia.org/wiki/Comparison_of_programming_paradigms
