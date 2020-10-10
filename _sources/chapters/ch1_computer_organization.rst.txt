@@ -144,9 +144,9 @@ The CPU communicates with the memory by two sets of wires, namely the
 (:numref:`fig_ch4_CPU`). These busses consist of several wires and
 carry a binary information to/from the memory. Each wire in a bus
 carries one bit of the information (either a zero (``0``) or a
-one(``0``)). Todays von Neumann architecures are working on electricity,
-therefore, these zeros and ones correspond to Voltages. A one in usally
-the presences of a 5V and a zero is the absense of it.
+one(``0``)). Todays von Neumann architectures are working on
+electricity, therefore, these zeros and ones correspond to Voltages. A
+one in usually the presences of a 5V and a zero is the absence of it.
 
 The Memory
 ----------
@@ -295,7 +295,7 @@ cycle.
    electronic circuitry, a subpart of the ALU, that will carry out the
    instruction is performed. In contrary to the ‘addition’ example we
    just introduced, some instructions may require additional data. For
-   example, loading a register with an certain integer or floating point
+   example, loading a register with a certain integer or floating point
    value; or transferring a result obtained in a register to a certain
    place in the memory. Where does this additional data come from? (the
    integer or floating point in the first case; the address of the place
@@ -472,7 +472,7 @@ Pros and Cons of the von Neuman Architecture
    electronically to some address in the memory.
 
 -  The programmer has a considerable control of the memory organization.
-   So, s/he can optimize the memory usage to its full extend.
+   So, s/he can optimize the memory usage to its full extent.
 
 **Disadvantages**
 
@@ -554,9 +554,9 @@ nowadays it is about 1000 times larger, 16MB. When you power up a PC the
 BIOS program will do the following in sequence:
 
 -  Power-On Self Test, abbreviated as POST, determines whether the CPU
-   and memory is intact, identifies and if necessary initializes devices
-   like the video display card, keyboard, hard disk drive, optical disc
-   drive and other basic hardware.
+   and memory is intact, identifies and if necessary, initializes
+   devices like the video display card, keyboard, hard disk drive,
+   optical disc drive and other basic hardware.
 -  In a predefined order locate boot loader software on “boot devices”.
    It is possible to set some parameters of the BIOS, one of which is
    the boot devices (e.g. a hard disk, a floppy disk, a USB flash stick,
@@ -650,7 +650,7 @@ explained below:
    are a few of about a hundred (actually the most common ones). Each of
    them have their pros and cons as far as *max allowed file size,
    security, robustness (repairability), extensibility, metadata, lay
-   out policies* aand some more are concerned. Files are most often
+   out policies* and some more are concerned. Files are most often
    managed in a hierarchy. This is achieved by a concept of directories.
    On the surface (as far as the user sees them) a file system usually
    consist of files separated into groups, so called *directories*,
@@ -714,7 +714,7 @@ explained below:
    , introduced in 1983 with a price of US$10000. Almost three years
    later, by the end of 1985 Microsoft released its first OS with GUI:
    Windows 1.0. The archaic console typing still exists, in the form a
-   type-able window, which is still very much favored among programming
+   type-able window, which is still very much favoured among programming
    professionals.
 
 Important Concepts
@@ -723,14 +723,14 @@ Important Concepts
 We would like our readers to have grasped the following crucial concepts
 and keywords from this chapter:
 
--  The von Neumann Architecture
+-  The von Neumann Architecture.
 -  The interaction between the CPU and the memory via address, R/W and
    data bus lines.
 -  The crucial components on the CPU: The control unit, the arithmetic
-   logic unit and the registers
--  The fetch-decode-execute cycle
--  The stored program concept
--  Operating system and its responsibilities
+   logic unit and the registers.
+-  The fetch-decode-execute cycle.
+-  The stored program concept.
+-  Operating system and its responsibilities.
 
 Further Reading
 ---------------

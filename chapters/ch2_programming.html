@@ -304,8 +304,8 @@ a lesser total turn count wins.</p>
 are three categories of children:</p>
 <ol class="arabic">
 <li><p><em>Random guessers:</em> Worst category. Usually they cannot keep track of
-the answers and just based on the last answer they rondomly utter a
-number that cames to their mind. Quite possibly they repeat
+the answers and just based on the last answer they randomly utter a
+number that comes to their mind. Quite possibly they repeat
 themselves.</p></li>
 <li><p>Sweepers: They start at either 1 or 1000, and then systematically
 increase or decrease their proposal, e.g.:</p>
@@ -332,7 +332,7 @@ in the middle of lower and upper values, e.g.:</p>
 </ol>
 <p>All three categories actually adopt different algorithms, which will
 find the answer in the end. However, as you may have realised even as
-you were a child, the first group peform the worst, then comes the
+you were a child, the first group perform the worst, then comes the
 second group. The third group, if they do not make mistakes, are
 unbeatable.</p>
 <p>In other words, algorithms that aim to solve a certain problem may not
@@ -380,7 +380,7 @@ regarding the problem in a form that is most suitable for our algorithm.</p>
 then before implementing our solution, we need to determine how we are
 going to represent the grades of students. This is what we are going to
 determine in the ‘data representation’ part of our solution and to
-discuss in :numref:chapter_3.</p>
+discuss in Chapter 3.</p>
 </div>
 <div class="section" id="the-world-of-programming-languages">
 <h2><span class="section-number">2.4. </span>The World of Programming Languages<a class="headerlink" href="#the-world-of-programming-languages" title="Permalink to this headline">¶</a></h2>
@@ -392,8 +392,8 @@ languages</a>
 that offer different abstraction levels (hiding the low-level details
 from the programmer) and computational benefits (e.g. providing built-in
 rule-search engine).</p>
-<p>In this section, we will give a flavor of programming languages in terms
-of abstraction levels (low-level vs. high-level – see
+<p>In this section, we will give a flavour of programming languages in
+terms of abstraction levels (low-level vs. high-level – see
 <a class="reference internal" href="#fig-ch2-spectrum-of-pl"><span class="std std-numref">Fig. 2.4.1</span></a>) as well as the computational
 benefits they provide.</p>
 <div class="figure align-default" id="id5">
@@ -419,7 +419,7 @@ we have seen before and illustrated below:</p>
 <p>To overcome this, <em>assembly</em> language and assemblers were invented. An
 assembler is a machine code program that serves as a translator from
 some relatively more readable text, the assembly program, into machine
-code. The key feature of an assembler is that each line of a assembly
+code. The key feature of an assembler is that each line of an assembly
 program corresponds exactly to a single machine code instruction. As an
 example, the binary machine code above can be written in an assembly
 language as follows:</p>
@@ -569,7 +569,7 @@ Certainly some are for academic purposes and some did not gain any
 popularity. But there are about 20 programming languages which are
 commonly used for writing programs. How do we choose one?</p>
 <p>Picking a particular programming language is not just a matter of taste.
-During the course of the evolution of the programing languages,
+During the course of the evolution of the programming languages,
 different strategies or world views about programming have also
 developed. These world views are reflected in the programming languages.
 For example, one world view regards the programming task as transforming
@@ -609,7 +609,7 @@ constructed by the inventor of the logical-declarative programming
 language.</p></li>
 <li><p><strong>Concurrent</strong>: A paradigm where independent computational entities
 work towards the solution of a problem. For problems that can be
-solved by a divide-and-concure strategy this paradigm is very
+solved by a divide-and-conquer strategy this paradigm is very
 suitable.</p></li>
 <li><p><strong>Event driven</strong>: This paradigm considers a world of events into
 programming. Events are assumed to be asynchronous and they have
@@ -635,21 +635,78 @@ imperative, functional and object-orient paradigms. It also provides
 some functionality in other paradigms by some modules.</p>
 </div>
 </div>
+<div class="section" id="introducing-python">
+<h2><span class="section-number">2.5. </span>Introducing Python<a class="headerlink" href="#introducing-python" title="Permalink to this headline">¶</a></h2>
+<p>After having provided background on the world of programming, let us
+introduce Python: Although it is widely known to be a recent programming
+language, Python’s design, by <a class="reference external" href="https://en.wikipedia.org/wiki/Guido_van_Rossum">Guido van
+Rossum</a>, dates back
+to 1980s, as a successor of the ABC programming language. The first
+version was released in 1991 and with the second version released in
+2000, it started gaining a wider interest from the community. After it
+was chosen by some big IT companies as the main programming language,
+Python became one of the most popular programming languages.</p>
+<p>An important reason for Python’s wide acceptance and use is its design
+principles. By design, Python is a programming language that is easier
+to understand and to write but at the same time powerful, functional,
+practical and fun. This has deep roots in its design philosophy (a.k.a.
+<a class="reference external" href="https://en.wikipedia.org/wiki/Zen_of_Python">The Zen of Python</a>):</p>
+<blockquote>
+<div><p>“Beautiful is better than ugly. Explicit is better than implicit.
+Simple is better than complex. Complex is better than complicated.
+Readability counts. [… <em>there are 14 more</em>]”</p>
+</div></blockquote>
+<p>Python is multi-paradigm programming language, supporting imperative,
+functional and object-oriented paradigms, although the last one is not
+one of its strong suits, as we will see in Chapter 9. Thanks to its wide
+acceptance especially in the open-source communities, Python comes with
+or can be extended with an ocean of libraries for practically solving
+any kind of task.</p>
+<p>The word ‘python’ is chosen as the name for the programming language not
+because of the snake species python but because of the comedy group
+<a class="reference external" href="https://en.wikipedia.org/wiki/Monty_Python">Monty Python</a>. While van
+Possum was developing Python, he read the scripts of Monty Python’s
+Flying Circus and thought ‘python’ was <a class="reference external" href="https://docs.python.org/2/faq/general.html#why-is-it-called-python">“short, unique and
+mysterious”</a>
+for the new language. To make Python more fun to learn, earlier releases
+heavily used phrases from Monty Python in example program codes.</p>
+<p>With version 3.9 being released in October 2020 as the latest version,
+Python is one of the most popular programming languages in a wide
+spectrum of disciplines and domains. With an active support from the
+open-source community and big IT companies, this is not likely to change
+in the near future. Therefore, it is in your best interest to get
+familiar with Python if not excel in it.</p>
+<p>This is how the Python interpreter looks like at a Unix terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3
+Python 3.8.5 (default, Jul 21 2020, 10:48:26)
+[Clang 11.0.3 (clang-1103.0.32.62)] on darwin
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt;
+</pre></div>
+</div>
+<p>The three symbols <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code> mean that the interpreter is ready to collect
+our computational demands, e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">21</span><span class="o">+</span><span class="mi">21</span>
+<span class="go">42</span>
+</pre></div>
+</div>
+<p>which is one small step for a man but one giant leap for mankind.</p>
+</div>
 <div class="section" id="important-concepts">
-<h2><span class="section-number">2.5. </span>Important Concepts<a class="headerlink" href="#important-concepts" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.6. </span>Important Concepts<a class="headerlink" href="#important-concepts" title="Permalink to this headline">¶</a></h2>
 <p>We would like our readers to have grasped the following crucial concepts
 and keywords from this chapter:</p>
 <ul class="simple">
-<li><p>How we solve problems using computers</p></li>
-<li><p>Algorithms: What they are, how we write them and how we compare them</p></li>
-<li><p>The spectrum of programming languages</p></li>
-<li><p>Pros and cons of low-level and high-level languages</p></li>
-<li><p>Interpretive vs. compilative approach to programming</p></li>
-<li><p>Programming paradigms</p></li>
+<li><p>How we solve problems using computers.</p></li>
+<li><p>Algorithms: What they are, how we write them and how we compare them.</p></li>
+<li><p>The spectrum of programming languages.</p></li>
+<li><p>Pros and cons of low-level and high-level languages.</p></li>
+<li><p>Interpretive vs. compilative approach to programming.</p></li>
+<li><p>Programming paradigms.</p></li>
 </ul>
 </div>
 <div class="section" id="further-reading">
-<h2><span class="section-number">2.6. </span>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.7. </span>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>The World of Programming chapter available at:
 <a class="reference external" href="https://link.springer.com/chapter/10.1007/978-3-7091-1343-1_1">https://link.springer.com/chapter/10.1007/978-3-7091-1343-1_1</a></p></li>
@@ -679,7 +736,7 @@ Assayag and A. Gerzso (eds.), IRCAM/Delatour France, 2009
 </ul>
 </div>
 <div class="section" id="exercise">
-<h2><span class="section-number">2.7. </span>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.8. </span>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Draw the flowchart for the following algorithm:</p></li>
 </ul>
@@ -764,9 +821,10 @@ Word.</p></li>
 <li><a class="reference internal" href="#programming-language-paradigms">2.4.4. Programming-language Paradigms</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#important-concepts">2.5. Important Concepts</a></li>
-<li><a class="reference internal" href="#further-reading">2.6. Further Reading</a></li>
-<li><a class="reference internal" href="#exercise">2.7. Exercise</a></li>
+<li><a class="reference internal" href="#introducing-python">2.5. Introducing Python</a></li>
+<li><a class="reference internal" href="#important-concepts">2.6. Important Concepts</a></li>
+<li><a class="reference internal" href="#further-reading">2.7. Further Reading</a></li>
+<li><a class="reference internal" href="#exercise">2.8. Exercise</a></li>
 </ul>
 </li>
 </ul>

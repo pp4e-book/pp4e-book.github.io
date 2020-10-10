@@ -220,8 +220,8 @@ Many of you have played this game and certainly have observed that there
 are three categories of children:
 
 1. *Random guessers:* Worst category. Usually they cannot keep track of
-   the answers and just based on the last answer they rondomly utter a
-   number that cames to their mind. Quite possibly they repeat
+   the answers and just based on the last answer they randomly utter a
+   number that comes to their mind. Quite possibly they repeat
    themselves.
 
 2. Sweepers: They start at either 1 or 1000, and then systematically
@@ -247,7 +247,7 @@ are three categories of children:
 
 All three categories actually adopt different algorithms, which will
 find the answer in the end. However, as you may have realised even as
-you were a child, the first group peform the worst, then comes the
+you were a child, the first group perform the worst, then comes the
 second group. The third group, if they do not make mistakes, are
 unbeatable.
 
@@ -304,7 +304,7 @@ If our problem is the calculation of the average of grades in a class,
 then before implementing our solution, we need to determine how we are
 going to represent the grades of students. This is what we are going to
 determine in the ‘data representation’ part of our solution and to
-discuss in :numref:chapter_3.
+discuss in Chapter 3.
 
 The World of Programming Languages
 ----------------------------------
@@ -318,8 +318,8 @@ that offer different abstraction levels (hiding the low-level details
 from the programmer) and computational benefits (e.g. providing built-in
 rule-search engine).
 
-In this section, we will give a flavor of programming languages in terms
-of abstraction levels (low-level vs. high-level – see
+In this section, we will give a flavour of programming languages in
+terms of abstraction levels (low-level vs. high-level – see
 :numref:`fig_ch2_spectrum_of_PL`) as well as the computational
 benefits they provide.
 
@@ -352,7 +352,7 @@ we have seen before and illustrated below:
 To overcome this, *assembly* language and assemblers were invented. An
 assembler is a machine code program that serves as a translator from
 some relatively more readable text, the assembly program, into machine
-code. The key feature of an assembler is that each line of a assembly
+code. The key feature of an assembler is that each line of an assembly
 program corresponds exactly to a single machine code instruction. As an
 example, the binary machine code above can be written in an assembly
 language as follows:
@@ -521,7 +521,7 @@ popularity. But there are about 20 programming languages which are
 commonly used for writing programs. How do we choose one?
 
 Picking a particular programming language is not just a matter of taste.
-During the course of the evolution of the programing languages,
+During the course of the evolution of the programming languages,
 different strategies or world views about programming have also
 developed. These world views are reflected in the programming languages.
 For example, one world view regards the programming task as transforming
@@ -568,7 +568,7 @@ Below is a list of some major paradigms:
 
 -  **Concurrent**: A paradigm where independent computational entities
    work towards the solution of a problem. For problems that can be
-   solved by a divide-and-concure strategy this paradigm is very
+   solved by a divide-and-conquer strategy this paradigm is very
    suitable.
 
 -  **Event driven**: This paradigm considers a world of events into
@@ -595,18 +595,84 @@ Python, the subject language of this book, supports strongly the
 imperative, functional and object-orient paradigms. It also provides
 some functionality in other paradigms by some modules.
 
+Introducing Python
+------------------
+
+After having provided background on the world of programming, let us
+introduce Python: Although it is widely known to be a recent programming
+language, Python’s design, by `Guido van
+Rossum <https://en.wikipedia.org/wiki/Guido_van_Rossum>`__, dates back
+to 1980s, as a successor of the ABC programming language. The first
+version was released in 1991 and with the second version released in
+2000, it started gaining a wider interest from the community. After it
+was chosen by some big IT companies as the main programming language,
+Python became one of the most popular programming languages.
+
+An important reason for Python’s wide acceptance and use is its design
+principles. By design, Python is a programming language that is easier
+to understand and to write but at the same time powerful, functional,
+practical and fun. This has deep roots in its design philosophy (a.k.a.
+`The Zen of Python <https://en.wikipedia.org/wiki/Zen_of_Python>`__):
+
+   “Beautiful is better than ugly. Explicit is better than implicit.
+   Simple is better than complex. Complex is better than complicated.
+   Readability counts. [… *there are 14 more*]”
+
+Python is multi-paradigm programming language, supporting imperative,
+functional and object-oriented paradigms, although the last one is not
+one of its strong suits, as we will see in Chapter 9. Thanks to its wide
+acceptance especially in the open-source communities, Python comes with
+or can be extended with an ocean of libraries for practically solving
+any kind of task.
+
+The word ‘python’ is chosen as the name for the programming language not
+because of the snake species python but because of the comedy group
+`Monty Python <https://en.wikipedia.org/wiki/Monty_Python>`__. While van
+Possum was developing Python, he read the scripts of Monty Python’s
+Flying Circus and thought ‘python’ was `“short, unique and
+mysterious” <https://docs.python.org/2/faq/general.html#why-is-it-called-python>`__
+for the new language. To make Python more fun to learn, earlier releases
+heavily used phrases from Monty Python in example program codes.
+
+With version 3.9 being released in October 2020 as the latest version,
+Python is one of the most popular programming languages in a wide
+spectrum of disciplines and domains. With an active support from the
+open-source community and big IT companies, this is not likely to change
+in the near future. Therefore, it is in your best interest to get
+familiar with Python if not excel in it.
+
+This is how the Python interpreter looks like at a Unix terminal:
+
+::
+
+   $ python3
+   Python 3.8.5 (default, Jul 21 2020, 10:48:26)
+   [Clang 11.0.3 (clang-1103.0.32.62)] on darwin
+   Type "help", "copyright", "credits" or "license" for more information.
+   >>>
+
+The three symbols ``>>>`` mean that the interpreter is ready to collect
+our computational demands, e.g.:
+
+::
+
+   >>> 21+21
+   42
+
+which is one small step for a man but one giant leap for mankind.
+
 Important Concepts
 ------------------
 
 We would like our readers to have grasped the following crucial concepts
 and keywords from this chapter:
 
--  How we solve problems using computers
--  Algorithms: What they are, how we write them and how we compare them
--  The spectrum of programming languages
--  Pros and cons of low-level and high-level languages
--  Interpretive vs. compilative approach to programming
--  Programming paradigms
+-  How we solve problems using computers.
+-  Algorithms: What they are, how we write them and how we compare them.
+-  The spectrum of programming languages.
+-  Pros and cons of low-level and high-level languages.
+-  Interpretive vs. compilative approach to programming.
+-  Programming paradigms.
 
 Further Reading
 ---------------
