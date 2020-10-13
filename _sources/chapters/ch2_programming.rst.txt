@@ -659,6 +659,7 @@ our computational demands, e.g.:
    >>> 21+21
    42
 
+where we asked what was ``21+21`` and Python responded with ``42``,
 which is one small step for a man but one giant leap for mankind.
 
 Important Concepts
