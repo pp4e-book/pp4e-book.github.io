@@ -92,8 +92,6 @@ base-2:
 
 |image1|
 
-   :width: 200px
-
 In other words, :math:`(181)_{10} = (10110101)_2`.
 
 **Converting a decimal number into binary**

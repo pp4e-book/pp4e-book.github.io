@@ -11,12 +11,6 @@ general purpose “calculators”.
 The von Neumann Architecture
 ----------------------------
 
-Basic Computer Organization. In this chapter, we will provide an
-overview of the internals of a modern computer. To do so, we will first
-describe a general architecture on which modern computers are based.
-Then, we will study the main components and the principles that allow
-such machines to function as general purpose “calculators”.
-
 John von Neumann
 ~~~~~~~~~~~~~~~~
 
@@ -124,7 +118,7 @@ Components of the von Neumann Architecture
 
 The von Neumann architecture (:numref:`fig_ch4_CPU`) defines the basic
 structure, or outline, used in most computers today. Proposed in 1945 by
-Von Neumann, it consists of two distinct units: An *addressable memory*
+von Neumann, it consists of two distinct units: An *addressable memory*
 and a *Central Processing Unit* (CPU). All the encoded actions and data
 are stored together in the memory unit. The CPU, querying these actions,
 the so-called *instructions*, executes them one by one, sequentially
@@ -139,14 +133,14 @@ the so-called *instructions*, executes them one by one, sequentially
 
 
 
-The CPU communicates with the memory by two sets of wires, namely the
+The CPU communicates with the memory via two sets of wires, namely the
 *address bus* and the *data bus*, plus a single *R/W* wire
 (:numref:`fig_ch4_CPU`). These busses consist of several wires and
-carry a binary information to/from the memory. Each wire in a bus
-carries one bit of the information (either a zero (``0``) or a
-one(``0``)). Todays von Neumann architectures are working on
-electricity, therefore, these zeros and ones correspond to Voltages. A
-one in usually the presences of a 5V and a zero is the absence of it.
+carry binary information to/from the memory. Each wire in a bus carries
+one bit of the information (either a zero (``0``) or a one (``1``)).
+Today’s von Neumann architectures are working on electricity, and
+therefore, these zeros and ones correspond to voltages. A one indicates
+usually the presence of a 5V and a zero denotes the absence of it.
 
 The Memory
 ----------
@@ -154,9 +148,9 @@ The Memory
 The memory can be imagined as pigeon holes organized as rows
 (:numref:`fig_ch1_memory`). Each row has eight pigeon holes, each
 being able to hold a zero (``0``) or one (``1``) – in electronic terms,
-each of them is capable of storing a Voltage (can you guess what type of
-an electronical component a pigeon hole is?). Each such row is named to
-be of the size *byte*. In computer terms, a byte means 8 bits.
+each pigeon hole is capable of storing a voltage (can you guess what
+type of an electronical component a pigeon hole is?). Each such row is
+named to be of the size *byte*; i.e., a byte means 8 bits.
 
 .. _fig_ch1_memory:
 
@@ -187,11 +181,11 @@ The information stored in this way at several addresses live in the
 memory happily, until the power is turned off.
 
 The memory is also referred as Random Access Memory (RAM). Some
-important aspects of this type of memory has to be noted:
+important aspects of this type of memory have to be noted:
 
--  Access any content in RAM, whether for reading or writing purposes,
-   is *only* possible when the content’s address is provided to the RAM
-   through the address bus.
+-  Accessing any content in RAM, whether for reading or writing
+   purposes, is *only* possible when the content’s address is provided
+   to the RAM through the address bus.
 
 -  Accessing any content takes exactly the same amount of time,
    irrespective of the address of the content. In todays RAMs, this
@@ -200,10 +194,10 @@ important aspects of this type of memory has to be noted:
 -  When a content is overwritten, it is gone forever and it is not
    possible to undo this action.
 
-An important question is who sets the address bus and who communicates
+An important question is who sets the address bus and communicates
 through the data bus (sends and receives bytes of data). As depicted in
 :numref:`fig_ch4_CPU`, the CPU does. How this is done on the CPU side
-will become clear in the section below.
+will become clear in the next section.
 
 The CPU
 -------
@@ -228,31 +222,31 @@ computer, consists of the following units:
    temporary values.
 
 The size and the quantity of the registers differ from CPU model to
-model. They generally have size in a range of [2-64] bytes and today’s
-most popular CPUs most registers have size 64 bits (i.e. 8 bytes). Their
-quantity is not high and in the range of [10-20]. The registers are
-broadly categorized into two: *Special Purpose Registers* and *General
-Purpose Registers*.
+model. They generally have size in the range of [2-64] bytes and most
+registers on today’s most popular CPUs have size 64 bits (i.e. 8 bytes).
+Their quantity is not high and in the range of [10-20]. The registers
+can be broadly categorized into two: *Special Purpose Registers* and
+*General Purpose Registers*.
 
 Two special purpose registers are worth mentioning to understand how a
 CPU’s Fetch-Decode-Execute cycle runs. The first is the so-called
 *Program Counter* (PC) and the second is the *Instruction Register*
 (IR).
 
--  **Inputs/Outputs connections**, which connect the CPU to the other
+-  **Input/Output connections**, which connect the CPU to the other
    components in the computer.
 
 The Fetch-Decode-Execute Cycle
 ------------------------------
 
 The CPU is in fact a *state machine*, a machine that has a
-representation of its current *state*, reads the next instruction and
-executes the instruction according to its current state. The state
-consists what is stored in the registers. Until it is powered off, it
-follows the Fetch-Decode-Execute cycle
+representation of its current *state*. The machine, being in a state,
+reads the next instruction and executes the instruction according to its
+current state. The state consists of what is stored in the registers.
+Until it is powered off, the CPU follows the Fetch-Decode-Execute cycle
 (:numref:`fig_ch1_fetch_decode_execute`) where each step of the cycle
-is based on its state. The *control unit* is responsible for delicate
-cycle.
+is based on its state. The *control unit* is responsible for the
+functioning of the cycle.
 
 .. _fig_ch1_fetch_decode_execute:
 
@@ -264,91 +258,89 @@ cycle.
 
 
 
--  **The Fetch Phase**
+1- **The Fetch Phase**
 
-   The cycle starts with the Fetch Phase. The CPU has the address (the
-   position in the memory) of the next instruction in the PC (Program
-   Counter) Register. During this phase, the address bus is set to this
-   value in the PC register and the R/W wire is set to Read (0). The
-   memory responds to this by providing the memory content at the given
-   address on the data bus.
+The cycle starts with the Fetch Phase. At the beginning of this phase,
+the CPU has the address (the position in the memory) of the next
+instruction in the PC (Program Counter) Register. During this phase, the
+address bus is set to this address in the PC register and the R/W wire
+is set to Read (0). The memory responds to this by providing the memory
+content at the given address on the data bus.
 
-   How many bytes are sent through the data bus? That is architecture
-   dependent. Usually it is 4-8 bytes. These bytes are received into the
-   IR (Instruction Register).
+How many bytes are sent through the data bus is architecture dependent.
+Usually it is 4-8 bytes. These bytes are received into the IR
+(Instruction Register).
 
--  **The Decode Phase**
+2- **The Decode Phase**
 
-   The content of the first part of IR electronically triggers some
-   action. Every CPU has an electronically built-in hard-wired
-   instruction table in which every possible atomic instruction that the
-   CPU can carry out has an associated binary code, called *operation
-   code* (opcode in short). This table differs from CPU brand to brand.
-
-   An example for such an atomic instruction (simply called as
-   *instruction*) is integer addition on two registers. Prior to the
-   instruction, the two registers contain integers, and after the
-   instruction is executed, one of the registers will be incremented by
-   the amount of the other (by means of integer addition).
-
-   In the decode phase, the electronic activation of the specific
-   electronic circuitry, a subpart of the ALU, that will carry out the
-   instruction is performed. In contrary to the ‘addition’ example we
-   just introduced, some instructions may require additional data. For
-   example, loading a register with a certain integer or floating point
-   value; or transferring a result obtained in a register to a certain
-   place in the memory. Where does this additional data come from? (the
-   integer or floating point in the first case; the address of the place
-   that will receive the resulting content of the register, in the
-   second case). This type of data adjunct to an instruction follows
-   right after the instruction byte.
-
-   This is illustrated below in an 8-byte instruction. In this example,
-   the designer of the CPU allocated the first four bits for
-   representing the type of operation the instruction is supposed to
-   execute (e.g. the designer could design the CPU such that ``0001``
-   means that this is an instruction for reading data from memory) and
-   the remaining four bits contain the affected data (in this case, the
-   address of the memory content we are going to read).
-
-====== ========================
-Opcode Affected data or address
-====== ========================
-0001   0100
-====== ========================
+At the beginning of this phase, the IR is assumed to be holding the
+current instruction. The content of the first part of the IR
+electronically triggers some action. Every CPU has an electronically
+built-in hard-wired instruction table in which every possible atomic
+operation that the CPU can carry out has an associated binary code,
+called *operation code* (opcode in short). This table differs from CPU
+brand to brand.
 
 There are three types of instructions:
 
--  *Data manupulation*: Arithmetic/Logic operations on/among registers,
-
+-  *Data manipulation*: Arithmetic/Logic operations on/among registers,
 -  *Data transfer*: Memory-to-Register, Register-to-Memory,
    Register-to-Register transfers,
-
 -  *Control flow of execution*: Instructions that stop execution, jump
    to a different part of the memory for next instruction, instead of
    the next one in the memory.
 
--  **The Execute Phase**
+Let us assume that our instruction looks like this:
 
-   As the name implies, the electronically activated and initialized
-   circuitry carries out the instruction. Depending on the instruction,
-   the registers, the memory or other components are affected. When the
-   instruction completes, the PC is updated by one unless it was a
-   control flow changing instruction in which case PC is updated to
-   point to the to-be-jumped address in the memory. Not all instructions
-   take the same amount of time to be carried out. Floating point
-   division, for example, takes much more time compared to others.
+====== ========================
+Opcode Effected data or address
+====== ========================
+0001   0110
+====== ========================
+
+This is an 8-byte instruction that has the first 4 bits as representing
+the opcode. The designer could have designed the CPU such that the
+opcode ``0001`` denotes an instruction for reading data from the memory,
+writing data to the memory or adding the contents of the two registers
+etc. The remaining four bits then contain the parameters of the
+instruction, which are the data to be operated on, the address in the
+memory or the codes of the registers etc.
+
+Let us assume that this 8-bit example instruction (i.e. the opcode
+``0001``) denotes an addition on two registers and that the remaining 4
+bits encode the registers in question, with ``01`` denoting one register
+and ``10`` the other register. Prior to the instruction, we can assume
+the two registers to contain integers, and after the instruction is
+executed, one of the registers will be incremented by the amount of the
+other (by means of integer addition).
+
+Although this was a simple and hypothetical example, it illustrates how
+modern CPUs can decode an instruction and decipher its elements. Though,
+the length of an instruction and the variety of instructions are clearly
+different.
+
+3- **The Execute Phase**
+
+As the name implies, the electronically activated and initialized
+circuitry carries out the instruction in this phase. Depending on the
+instruction, the registers, the memory or other components are effected.
+When the instruction completes, the PC is updated by one unless it was a
+control flow changing instruction in which case the PC is updated to the
+to-be-jumped address in the memory (in some designs, the PC can be
+updated in the fetch phase, after fetching the instruction). Not all
+instructions take the same amount of time to be carried out. Floating
+point division, for example, takes much more time compared to others.
 
 A CPU goes through the *Fetch-Decode-Execute* cycle until it is powered
 off. What happens at the very beginning? The electronics of the CPU is
 manufactured such that, when powered up, the PC register has a very
-fixed content. Therefore, the first instruction is always fetched from
-that position.
+fixed content. Therefore, the first instruction is always fetched from a
+certain position.
 
 An intelligent question would be “when does the CPU jump from one state
 to another?”. One possible answer is: whenever the previous state is
 completed electronically, a transition to the next state is performed.
-Interestingly, this is *not* true. The reality is that there is an
+Interestingly, this is not true. The reality is that there is an
 external input to the CPU from which electronic pulses are fed. This
 input is called the *system clock* and each period of it is named as a
 *clock cycle*. The best performance would be that each phase of the
@@ -371,12 +363,12 @@ cover them is certainly out of the scope of this course material.
 The Stored Program Concept
 --------------------------
 
-In order for the CPU compute something, the corresponding instructions
-to do the computation have to be placed into the memory (how this is
-achieved will become clear in the next chapter). These instructions and
-data that perform a certain task are called a *Computer Program*. The
-idea of storing a computer program into the memory to be executed is
-coined as the *Stored Program* Concept.
+In order for the CPU to compute something, the corresponding
+instructions to do the computation have to be placed into the memory
+(how this is achieved will become clear in the next chapter). These
+instructions and data that perform a certain task are called a *Computer
+Program*. The idea of storing a computer program into the memory to be
+executed is coined as the *Stored Program* Concept.
 
 What does a stored program look like? Below you see a real extract from
 the memory, a program that multiplies two integer numbers sitting in two
@@ -394,8 +386,8 @@ displayed in a row, the next row displays the next 8 bytes):
    11001000 00000001 00000000 00000000  00000000 00000000
 
 Unless you have a magical talent, this should not be understandable to
-you. It is difficult because it is just a sequence of bytes. Yes the
-first byte is presumably some instruction, but what is it? Furthermore,
+you. It is difficult because it is just a sequence of bytes. Yes, the
+first byte is presumably an instruction, but what is it? Furthermore,
 since we do not know what it is, we do not know whether it is followed
 by some data or not, so we cannot say where the second instruction
 starts. However, the CPU for which these instructions were written for
@@ -404,9 +396,10 @@ would know this, hard-wired in its electronics.
 When a programmer wants to write a program at this level, i.e. in terms
 of binary CPU instructions and binary data, s/he has to understand and
 know each instruction the CPU can perform, should be able to convert
-data to some internal format, make a detailed memory layout on paper and
-then start writing down each bit of the memory. This is an extremely
-painful job; though it is possible, it is impractical.
+data to some internal format, to make a detailed memory layout on paper
+and then to start writing down each bit of the memory. This way of
+programming is an extremely painful job; though it is possible, it is
+impractical.
 
 Alternatively, consider the text below:
 
@@ -429,14 +422,14 @@ Alternatively, consider the text below:
 
 Though ``pushq`` and ``moveq`` are not immediately understandable, the
 rest of the text provides some hints. ``alice`` and ``bob`` must be some
-programmer’s name invention, something like variables with values
-``123`` and ``456`` respectively; ``imull`` must have something to do
-with ‘multiplication’, since only registers can be subject to arithmetic
-operations ``%edx`` and ``%eax`` must be some denotation used for
+programmer’s name invention, e.g. denoting variables with values ``123``
+and ``456`` respectively; ``imull`` must have something to do with
+‘multiplication’, since only registers can be subject to arithmetic
+operations; ``%edx`` and ``%eax`` must be some denotation used for
 registers; having uncovered this, ``movl``\ s start to make some sense:
 they are some commands to move around data… and so on. Even without
-knowing the instruction set, with a small mind gaming we can uncover the
-action sequence.
+knowing the instruction set, with a small brainstorming we can uncover
+the action sequence.
 
 This text is an example *assembly* program. A human invented denotation
 for instructions and data. An important piece of knowledge is that each
@@ -462,6 +455,8 @@ the next chapter.
 Pros and Cons of the von Neuman Architecture
 --------------------------------------------
 
+The von Neumann architecture has certain advantages and disadvantages:
+
 **Advantages**
 
 -  CPU retrieves data and instruction in the same manner from a single
@@ -484,46 +479,52 @@ Pros and Cons of the von Neuman Architecture
 -  Risk of an instruction being unintentionally overwritten due to an
    error in the program.
 
+An alternative to the von Neumann Architecture is the `Harvard
+Architecture <https://en.wikipedia.org/wiki/Harvard_architecture>`__
+which could not resist the test of time due to crucial disadvantages
+compared to the von Neumann architecture.
+
 Peripherals of a computer
 -------------------------
 
-Though it is somewhat contrary to your expectation any device outside of
-the Von Neumann structure, namely the CPU and the Memory is a
-*peripheral*. In this aspect even the keyboard, the mouse and the
-display are peripherals. So are the USB and ethernet connection and the
-internal hard disk. To study the technical details of how those devices
-are connected to the Von Neumann architecture is out of the scope of
-this book. Though we can summarize it in a few words.
+Though it is somewhat contrary to your expectation, any device outside
+of the von Neumann structure, namely the CPU and the Memory, is a
+*peripheral*. In this aspect, even the keyboard, the mouse and the
+display are peripherals. So are the USB and ethernet connections and the
+internal hard disk. Explaining the technical details of how those
+devices are connected to the von Neumann architecture is out of the
+scope of this book. Though, we can summarize it in a few words.
 
 All devices are electronically listening to the busses (the address and
-data bus) and to a wire running out of the CPU (which is *not* pictured
-above) is 1 or 0. This wire is called the *port_io* line and tells the
-memory devices as well as to any other device that listens to the busses
-whether the CPU is talking to the (real) memory or not. If it is talking
-to the memory all the other listeners keep extreme silent. But if the
-port_io line is 1, meaning the CPU doesn’t want to talk to the memory
-but to the device which is electronically sensitive to that specific
-address that was put on the address bus (by the CPU), then that device
-jumps up and responds (through the data bus). The CPU can send as well
-as receive data from that particular device. A computer has some
-precautions to prevent address clashes, i.e. two devices responding to
-the same address information in port_io. Another mechanism aids
-communication requests initiated from the peripherals. Of course it
-would be possible for the CPU from time to time stop and do a port_io on
-all possible devices, asking them for any data they want to send in.
-This technique is called *polling* and is extremely inefficient for
-devices that send asynchronous data (data that is send in irregular
-intervals). You cannot know when there will be a keyboard entry so, in
-polling, you have to ask very frequently the keyboard device for the
-existence of any data. Instead of the dealing with the inefficiency of
-polling another mechanism is built into the CPU. The interrupt mechanism
-is an electronic circuitry of the CPU which has inlets (wires) connected
-to the peripheral devices. When a device wants to communicate with (send
-or receive some data to/from) the CPU then send a signal (1) from that
-specific wire. This gets the attention of the CPU, the CPU stops what it
-is doing at a convenient point in time, and ask the device for a
-port_io. So the device gets a chance to send/receive data to/from the
-CPU.
+data bus) and to a wire running out of the CPU (which is not pictured
+above) which is 1 or 0. This wire is called the *port_io* line and tells
+the memory devices as well as to any other device that listens to the
+busses whether the CPU is talking to the (real) memory or not. If it is
+talking to the memory all the other listeners keep quiet. But if the
+port_io line is 1, meaning the CPU doesn’t talk to the memory but to the
+device which is electronically sensitive to that specific address that
+was put on the address bus (by the CPU), then that device jumps up and
+responds (through the data bus). The CPU can send as well as receive
+data from that particular device. A computer has some precautions to
+prevent address clashes, i.e. two devices responding to the same address
+information in port_io.
+
+Another mechanism aids communication requests initiated from the
+peripherals. Of course it would be possible for the CPU from time to
+time stop and do a port_io on all possible devices, asking them for any
+data they want to send in. This technique is called *polling* and is
+extremely inefficient for devices that send asynchronous data (data that
+is send in irregular intervals): You cannot know when there will be a
+keyboard entry so, in polling, you have to ask very frequently the
+keyboard device for the existence of any data. Instead of dealing with
+the inefficiency of polling, another mechanism is built into the CPU.
+The interrupt mechanism is an electronic circuitry of the CPU which has
+inlets (wires) connected to the peripheral devices. When a device wants
+to communicate with (send or receive some data to/from) the CPU they
+send a signal (1) from that specific wire. This gets the attention of
+the CPU, the CPU stops what it is doing at a convenient point in time,
+and asks the device for a port_io. So the device gets a chance to
+send/receive data to/from the CPU.
 
 The running of a computer
 -------------------------
@@ -535,88 +536,93 @@ loads a program from your disk called Operating System.
 Start up Process
 ~~~~~~~~~~~~~~~~
 
-At the core of a computer sits a Von Neumann architecture. But how a
+At the core of a computer is the von Neumann architecture. But how a
 machine code finds its way into the memory, gets settled there, so that
-the CPU starts executing it, is still unclear. It is obvious that even
-when you buy a brand new computer and turn it on for the first time it
-does some actions which is traceable on its display. So there is a
-machine code in the memory which, even when the power is off, remains.
-Or, of course, there is a portion of the memory which is supplied with
-electricity even when the computer is turned off. It is the first
-option. There is a portion of the memory which does not lose its
-content, very much like a flash drive. It is electronically located
-exactly at the address where the CPU looks for its first instruction.
-This portion of the memory, with its content, is called Basic Input
-Output System, or in short BIOS. In the former days the BIOS was
-manufactured as write-only-once. To change the program a chip had to be
-replaced with a new one. The size of the BIOS of the first PCs was 16KB,
-nowadays it is about 1000 times larger, 16MB. When you power up a PC the
-BIOS program will do the following in sequence:
+the CPU starts executing it, is still unclear.
 
--  Power-On Self Test, abbreviated as POST, determines whether the CPU
-   and memory is intact, identifies and if necessary, initializes
-   devices like the video display card, keyboard, hard disk drive,
-   optical disc drive and other basic hardware.
--  In a predefined order locate boot loader software on “boot devices”.
-   It is possible to set some parameters of the BIOS, one of which is
-   the boot devices (e.g. a hard disk, a floppy disk, a USB flash stick,
-   CD, or DVD) and in which order they will be queried. BIOS will get
-   the Master Boot Record (MBR) from the first available device in the
-   given order. MBR is supposed to contain a short machine code program
-   that will load the *Operating System* (OS). So, BIOS loads the
-   content of the MBR into the memory and start to execute it. This
-   program loads the actual operating system and then starts the
-   execution of it.
+When you buy a brand new computer and turn it on for the first time, it
+does some actions which are traceable on its display. Therefore, there
+must be a machine code in a memory which, even when the power is off,
+does not lose its content, very much like a flash drive. It is
+electronically located exactly at the address where the CPU looks for
+its first instruction. This memory, with its content, is called Basic
+Input Output System, or in short BIOS. In the former days, the BIOS was
+manufactured as write-only-once. To change the program, a chip had to be
+replaced with a new one. The size of the BIOS of the first PCs was 16KB,
+nowadays it is about 1000 times larger, 16MB.
+
+When you power up a PC the BIOS program will do the following in
+sequence:
+
+-  Power-On Self Test, abbreviated as POST, which determines whether the
+   CPU and the memory are intact, identifies and if necessary,
+   initializes devices like the video display card, keyboard, hard disk
+   drive, optical disc drive and other basic hardware.
+
+-  Looking for an *operating system* (OS): The BIOS program goes through
+   storage devices (e.g. hard disk, floppy disk, USB disk, CD-DVD drive,
+   etc.) connected to the computer in a predefined order (this order is
+   generally changeable by the user) and looks for and settles for the
+   first operating system that it can find. Each storage device has a
+   small table at the beginning part of the device, called the Master
+   Boot Record (MBR), which contains a short machine code program to
+   load the operating system if there is one.
+
+-  When BIOS finds such a storage device with an operating system, it
+   loads the content of the MBR into the memory and starts executing it.
+   This program loads the actual operating system and then runs it.
 
 The Operating System
 ~~~~~~~~~~~~~~~~~~~~
 
-The operating system is a program that after being loaded into the
-memory manages resources and services like the use of memory, CPU and
-devices. The OS has components that manage these resources which are
-explained below:
+The operating system is a program that, after being loaded into the
+memory, manages resources and services like the use of memory, the CPU
+and the devices. It essentially hides the internal details of the
+hardware and makes the ugly binary machine understandable and manageable
+to us.
 
--  **Memory Management**: Refers to the management of the Memory
-   connected to the CPU. In modern computers there are more than one
-   machine code programs loaded into the memory. Each device for some
-   task. Some of them are initiated by the user (like a browser,
-   document editor, excel, music player, etc.) and some are initiated by
-   the operating system at the boot up of the computer. The CPU switches
-   very fast from one program in the memory (this is called as
-   *process*) to another. The user (usually) does not feel the
-   switching. The memory manager, keeps track of the space allocated by
+An OS has the following responsibilities:
+
+-  **Memory Management**: Refers to the management of the memory
+   connected to the CPU. In modern computers, there is more than one
+   machine code program loaded into the memory. Some programs are
+   initiated by the user (like a browser, document editor, Word, music
+   player, etc.) and some are initiated by the operating system. The CPU
+   switches very fast from one program (this is called a *process*) in
+   the memory to another. The user (usually) does not feel the
+   switching. The memory manager keeps track of the space allocated by
    processes in the memory. When a new program (process) is being
-   started it has to be placed into the memory. The memory manager
-   decides where it is going to be placed. Of course when the process
-   ends the place in the memory occupied by it has to be reclaimed, that
-   is the memory managers job. It is also possible, while a process is
-   running, it demands some additional space in the memory (e.g. a
-   photoshop-like program needs space for a newly opened jpg image) then
-   the process makes this demand to the memory manager, which grands it
-   or denies it.
+   started, it has to be placed into the memory. The memory manager
+   decides where it is going to be placed. Of course, when a process
+   ends, the place in the memory occupied by the process has to be
+   reclaimed; that is the memory manager’s job. It is also possible
+   that, while running, a process demands additional space in the memory
+   (e.g. a photoshop-like program needs more space for a newly opened
+   JPG image file) then the process makes this demand to the memory
+   manager, which grants it or denies it.
 
--  **Processor (Time) Management**: As said above, in modern computers
-   more than one machine code programs are loaded into different
-   locations of the memory. An electronic mechanism forces the CPU to
-   switch to the *Time Manager* component of the OS. At least 20 times a
-   second the time manager is invoked and makes a decision on behalf of
-   the CPU. This of the processes that sit in the memory will be run for
-   the next period? When a process gets the turn, the current state of
-   the CPU (content of all its registers) is saved to some secure
-   position in the memory, in association to the last executing process.
-   From that secure position the last saved state information which
-   going to take the turn is found and the CPU is set to that state.
-   Then the CPU, for a period of time executed that process. At the and
-   of that period, CPU switches over to the time manager and the time
-   manger makes a decision for the next period. Which process will get
-   the turn? And so on. This decision making is a complex task. Still
-   there are Ph.D. level research going on on this subject. The time
-   manager takes some statistics about each individual process about it
-   system resource utilization. Also there is the possibility that a
-   process has a high priority associated due to several reasons. The
-   time manager has to solve a kind of optimization problem under some
-   constraints. As mentioned this is a complex task and a hidden quality
-   factor of an OS.
+-  **Process (Time) Management**: As said above, a modern memory
+   generally contains more than one machine code program. An electronic
+   mechanism forces the CPU to switch to the *Time Manager* component of
+   the OS. At least 20 times a second, the time manager is invoked to
+   make a decision on behalf of the CPU: Which of the processes that sit
+   in the memory will be run during the next period? When a process gets
+   the turn, the current state of the CPU (the contents of all
+   registers) is saved to some secure position in the memory, in
+   association to the last executing process. From that secure position,
+   the last saved state information which going to take the turn is
+   found and the CPU is set to that state. Then the CPU, for a period of
+   time executes that process. At the end of that period, the CPU
+   switches over to the time manager and the time manager makes a
+   decision for the next period. Which process will get the turn? And so
+   on. This decision making is a complex task. Still there are
+   Ph.D. level research going on on this subject. The time manager
+   collects some statistics about each individual process and its system
+   resource utilization. Also there is the possibility that a process
+   has a high priority associated due to several reasons. The time
+   manager has to solve a kind of optimization problem under some
+   constraints. As mentioned, this is a complex task and a hidden
+   quality factor of an OS.
 
 -  **Device Management**: All external devices of a computer have a
    software plug-in to the operating system. An operating system has
@@ -638,84 +644,87 @@ explained below:
 
 -  **File Management**: A computer is basically a data processing
    machine. Various data are produced or used for very diverse purposes.
-   Textual, numerical, audio-visual data is handled. One kind of
-   handling of data is *storing* and *retrieving* it on some external
-   recording device. Examples to such recording devices are hard disks,
-   flash drives, CDs and DVDs. Data is stored on devices under files. A
+   Textual, numerical, audio-visual data are handled. Handling data also
+   includes *storing* and *retrieving* it on some external recording
+   device. Examples for such recording devices are hard disks, flash
+   drives, CDs and DVDs. Data is stored on these devices as files. A
    *file* is a persistent piece of information that has a name, some
-   meta data (data about the data like owner, creation data, size,
-   content type, etc) and the data. The organizational way how files are
-   stored on devices is called the *file system*. There are various
-   alternatives to do this. FAT16, FAT32, NTFS, EXT2, EXT3, ExFAT, HFS+
-   are a few of about a hundred (actually the most common ones). Each of
-   them have their pros and cons as far as *max allowed file size,
-   security, robustness (repairability), extensibility, metadata, lay
-   out policies* and some more are concerned. Files are most often
-   managed in a hierarchy. This is achieved by a concept of directories.
-   On the surface (as far as the user sees them) a file system usually
-   consist of files separated into groups, so called *directories*,
-   where directories can contain files or other directories.
+   meta data (e.g. information about the owner, the creation time, size,
+   content type, etc.) and the data.
 
-   The file manager is responsible of creation, initialization of a file
-   system, inclusion and removal of devices from this system and
-   management of all sort of alternation in the file system: Creation,
+   The organizational mechanism for how files are stored on devices is
+   called the *file system*. There are various alternatives to do this.
+   FAT16, FAT32, NTFS, EXT2, EXT3, ExFAT, HFS+ are a few of about a
+   hundred (actually the most common ones). Each has its own pros and
+   cons as far as *max allowed file size, security, robustness
+   (repairability), extensibility, metadata, lay out policies* and some
+   other aspects are concerned. Files are most often managed in a
+   hierarchy. This is achieved by a concept of *directories* or
+   *folders*. On the surface (as far as the user sees them), a file
+   system usually consist of files separated into directories where
+   directories can contain files or other directories.
+
+   The file manager is responsible for creation & initialization of a
+   file system, inclusion and removal of devices from this system and
+   management of all sorts of changes in the file system: Creation,
    removal, copying of files and directories, dynamically assigning
-   access rights for files and directories to processes are among them.
+   access rights for files and directories to processes etc.
 
--  **Security**: This is basically the maintenance of system integrity,
-   availability, and confidentiality. The security of a computer exists
-   at various layers such as
+-  **Security**: This is basically for the maintenance of the computer’s
+   integrity, availability, and confidentiality. The security of a
+   computer exists at various layers such as:
 
    -  maintaining the physical security of the computer system,
-   -  the security of the information the system is in hold of,
-   -  and the security of the network to which the computer is
-      connected.
+   -  the security of the information the system is in hold of, and
+   -  the security of the network to which the computer is connected.
 
-   In all of these areas, the operating system plays a vital role in
-   keeping the security. Especially the second item is where the
-   operating system is involved at most. Information, as you know by
-   now, is placed in the computer in two locations. The internal memory
-   and the external storing devices. The internal memory is in hold of
-   the processes and the processes shall not interfere with each other
-   (unless specifically intended). Actually in a modern day computer
+   In all of these, the operating system plays a vital role in keeping
+   the security. Especially the second item is where the operating
+   system is involved at most. Information, as you know by now, is
+   placed in the computer in two locations. The internal memory and the
+   external storage devices. The internal memory is in hold of the
+   processes and the processes should not interfere with each other
+   (unless specifically intended). Actually in a modern day computer,
    there can be more than one user working at the same time on the
    computer. Their processes running in the memory as well as their
-   files on the file system must remain extremely private. Even their
-   existence have to be hidden from every other user.
+   files being on the file system must remain extremely private and
+   separate. Even their existence has to be hidden from every other
+   user.
 
    Computers are connected and more and more integrated in a global
    network. This integration is done on a spectrum of interactions. In
-   the extreme case a computer can be solely controlled over the
+   the extreme case, a computer can be solely controlled over the
    network. Of course this is done by supplying some credentials but, as
-   you would guess, such is a system is prone to malicious attacks. An
+   you would guess, such a system is prone to malicious attacks. An
    operating system has to take measures to protect the computer system
-   from such harms. Sometimes it is the case that bugs of the OS is
+   from such harms. Sometimes it is the case that bugs of the OS are
    discovered and exploited in order to breach security.
 
 -  **User Interface**: As the computer’s user, when you want to do
    anything you do this by ordering the operating system to do it.
    Starting/terminating a program, exploring or modifying the file
-   system, installing/uninstalling a new device are all done by talking
-   to the operating system. For this purpose an OS provides an
-   interface, coined as the *user interface*. In the older days this was
-   done by typing some cryptic commands into a typewriter of a console
-   device. Time changed and the first computer with a *Graphical User
-   Interface (GUI)* emerged. A GUI is a visual interface to the user
-   where the screen can host several windows each dedicated to a
-   different tasks. Elements of the operating system (processes, files,
-   directories, devices, network communicates) and their status are
-   symbolized by icons and the interactions is mostly by moving and
+   system, installing/uninstalling a new device are all done by
+   “talking” to the operating system. For this purpose, an OS provides
+   an interface, coined as the *user interface*. In the older days, this
+   was done by typing some cryptic commands into a typewriter at a
+   console device. Over the years, the first computer with a *Graphical
+   User Interface (GUI)* emerged. A GUI is a visual interface to the
+   user where the screen can host several windows each dedicated to a
+   different task. Elements of the operating system (processes, files,
+   directories, devices, network communications) and their status are
+   symbolized by icons and the interactions are mostly via moving and
    clicking a pointing device which is another icon (usually a movable
    arrow) on the screen. The `Xerox
    Alto <https://github.com/sinankalkan/CENG240/blob/master/figures/XeroxAlto.jpg?raw=true>`__
-   introduced on March 1973, was the first computer that had a GUI. The
+   introduced on March 1973 was the first computer that had a GUI. The
    first personal computer with a GUI was `Apple
-   Lisa <https://github.com/sinankalkan/CENG240/blob/master/figures/AppleLisa.jpg?raw=true>`__
-   , introduced in 1983 with a price of US$10000. Almost three years
-   later, by the end of 1985 Microsoft released its first OS with GUI:
+   Lisa <https://github.com/sinankalkan/CENG240/blob/master/figures/AppleLisa.jpg?raw=true>`__,
+   introduced in 1983 with a price of $10,000. Almost three years later,
+   by the end of 1985, Microsoft released its first OS with a GUI:
    Windows 1.0. The archaic console typing still exists, in the form a
-   type-able window, which is still very much favoured among programming
-   professionals.
+   type-able window, called terminal, which is still very much favoured
+   among programming professionals because it provides more control for
+   the OS.
 
 Important Concepts
 ------------------
@@ -748,6 +757,13 @@ Further Reading
    -  Non-Uniform Memory Access Computer:
       http://en.wikipedia.org/wiki/Non-Uniform_Memory_Access
 
+-  Running a computer:
+
+   -  Booting a computer: https://en.wikipedia.org/wiki/Booting
+   -  History of operating systems:
+      https://en.wikipedia.org/wiki/History_of_operating_systems
+   -  Operating systems: https://en.wikipedia.org/wiki/Operating_system
+
 Exercises
 ---------
 
@@ -771,7 +787,7 @@ Opcode Affected address
 ====== ================
 
 -  Assume that we have a CPU that can execute instructions with the
-   following format and size given above.
+   format and size given above.
 
    -  What is the number of different instructions that this CPU can
       decode?
