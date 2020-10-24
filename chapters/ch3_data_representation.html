@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     
-    <title>Representation of Data &#8212; Programming with Python for Engineers 0.0.1 documentation</title>
+    <title>3. Representation of Data &#8212; Programming with Python for Engineers 0.0.1 documentation</title>
 
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -34,7 +34,7 @@
     <div class="mdl-layout__header-row">
         
         <nav class="mdl-navigation breadcrumb">
-            <a class="mdl-navigation__link is-active">Representation of Data</a>
+            <a class="mdl-navigation__link is-active"><span class="section-number">3. </span>Representation of Data</a>
         </nav>
         <div class="mdl-layout-spacer"></div>
         <nav class="mdl-navigation">
@@ -112,7 +112,7 @@ Show Source
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ch1_computer_organization.html">1. Basic Computer Organization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch2_programming.html">2. A Broad Look at Programming and Programming Languages</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Representation of Data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Representation of Data</a></li>
 </ul>
 
             </nav>
@@ -145,7 +145,7 @@ Show Source
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ch1_computer_organization.html">1. Basic Computer Organization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch2_programming.html">2. A Broad Look at Programming and Programming Languages</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Representation of Data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Representation of Data</a></li>
 </ul>
 
             </nav>
@@ -160,15 +160,15 @@ Show Source
   <div class="toctree-wrapper compound">
 </div>
 <div class="section" id="representation-of-data">
-<h1>Representation of Data<a class="headerlink" href="#representation-of-data" title="Permalink to this headline">¶</a><a href="https://colab.research.google.com/github/pp4e-book/pp4e-book.github.io/blob/master/chapters/ch3_data_representation.ipynb" onclick="captureOutboundLink('https://colab.research.google.com/github/['pp4e-book/pp4e-book.github.io']/blob/master/chapters/ch3_data_representation.ipynb'); return false;"> <button style="float:right", id="Colab" class="mdl-button mdl-js-button mdl-button--primary mdl-js-ripple-effect"> <i class=" fas fa-external-link-alt"></i> Colab </button></a><div class="mdl-tooltip" data-mdl-for="Colab"> Open the notebook in Colab</div></h1>
+<h1><span class="section-number">3. </span>Representation of Data<a class="headerlink" href="#representation-of-data" title="Permalink to this headline">¶</a><a href="https://colab.research.google.com/github/pp4e-book/pp4e-book.github.io/blob/master/chapters/ch3_data_representation.ipynb" onclick="captureOutboundLink('https://colab.research.google.com/github/['pp4e-book/pp4e-book.github.io']/blob/master/chapters/ch3_data_representation.ipynb'); return false;"> <button style="float:right", id="Colab" class="mdl-button mdl-js-button mdl-button--primary mdl-js-ripple-effect"> <i class=" fas fa-external-link-alt"></i> Colab </button></a><div class="mdl-tooltip" data-mdl-for="Colab"> Open the notebook in Colab</div></h1>
 <p>As we discussed in detail in Chapter 2, when we want to solve a world
 problem using a computer, we have to find what data is involved in this
 problem and how we can process this data (i.e. determine the algorithm)
 towards the solution of the problem – let us recall this with
-<a class="reference internal" href="#fig-ch3-solving-world-problems"><span class="std std-numref">Fig. 4</span></a> from Chapter 2.</p>
+<a class="reference internal" href="#fig-ch3-solving-world-problems"><span class="std std-numref">Fig. 3.1</span></a> from Chapter 2.</p>
 <div class="figure align-default" id="id2">
 <span id="fig-ch3-solving-world-problems"></span><a class="reference internal image-reference" href="../_images/ch2_solving_world_problems.png"><img alt="../_images/ch2_solving_world_problems.png" src="../_images/ch2_solving_world_problems.png" style="width: 700px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Solving a world problem with a computer requires first designing how
+<p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Solving a world problem with a computer requires first designing how
 the data is going to be represented and specifying the steps which
 yield the solution when executed on the data. This design of the
 solution is then written (implemented) in a programming language to
@@ -180,7 +180,7 @@ Python, Springer,
 </div>
 <p>At this stage, you may be wondering what ‘structured data’ is and how it
 differs from ‘data’. As we already know, data is stored in the memory.
-Let us illustrate this with an example: Assume that we have a book full
+Let us illustrate this with an example: Assume that we have a table full
 of rows such that each row holds an angle value and its cosine value
 (both expressed as decimal numbers). How would you organize the storing
 of these rows in the memory? Two straightforward options are:</p>
@@ -196,13 +196,13 @@ of these rows in the memory? Two straightforward options are:</p>
 </div>
 </li>
 </ol>
-<p>Apart from this ordering, should we sort the values? If yes by which
-one: the angle or the cosine values? In a descending order or ascending
-order? All these questions are what we try to determine in a structured
-data.</p>
+<p>Apart from this ordering, there is the issue of whether we should sort
+the values. If yes by which one: the angle or the cosine values? In a
+descending order or ascending order? All these questions are what we try
+to determine in a structured data.</p>
 <p>There are other ways to organize data even for the example data as
-simple as the above. Unfortunately, these are beyond the scope of this
-book.</p>
+simple as the above example table. Unfortunately, these are beyond the
+scope of this book.</p>
 <p>Now, we will look into the atomic structure of data representation:
 i.e. how integers, floating points and characters are represented.</p>
 <p>The electronic architecture used for the von Neumann machine, namely the
@@ -214,7 +214,7 @@ keep in mind, that any ’1’ (or ‘0’) in our representation is actually
 the presence (or absence) of a voltage in a specific point of the
 electronic circuitry.</p>
 <div class="section" id="representing-integers">
-<span id="sec-3-1"></span><h2>Representing integers<a class="headerlink" href="#representing-integers" title="Permalink to this headline">¶</a></h2>
+<span id="sec-3-1"></span><h2><span class="section-number">3.1. </span>Representing integers<a class="headerlink" href="#representing-integers" title="Permalink to this headline">¶</a></h2>
 <p>Mathematics already has a solution for representing integers in binary
 via base-2 calculation or representation. The idea behind base-2
 representation is the same as representing base-10 (decimal) integers.
@@ -222,21 +222,17 @@ Namely, we have a sequence of digits, each of which can be either 0 or
 1. Counting starts from the right-most digit. A ‘1’ in a position
 <span class="math notranslate nohighlight">\(k\)</span> means “additively include a value of <span class="math notranslate nohighlight">\(2^k\)</span>”:</p>
 <div class="math notranslate nohighlight" id="equation-chapters-ch3-data-representation-0">
-<span class="eqno">(1)<a class="headerlink" href="#equation-chapters-ch3-data-representation-0" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{array}{cc}
-Position &amp;  Meaning \\
-0 &amp; 2^0 \\
-1 &amp; 2^1 \\
-2 &amp; 2^2 \\
-\vdots &amp; \vdots\\
-n &amp; 2^n
+<span class="eqno">(3.1.1)<a class="headerlink" href="#equation-chapters-ch3-data-representation-0" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{array}{ccccccc}
+Position: &amp; n &amp; n-1 &amp; ... &amp; 2 &amp; 1 &amp; 0 \\
+Meaning: &amp; 2^n &amp; 2{n-1} &amp; ... &amp; 2^2 &amp; 2^1 &amp; 2^0\\
 \end{array} \nonumber\end{split}\]</div>
 <p>The following is an example for expressing the integer <strong>181</strong> in
 base-2:</p>
 <p><img alt="image1" src="../_images/ch3_10110101.png" /></p>
 <p>In other words, <span class="math notranslate nohighlight">\((181)_{10} = (10110101)_2\)</span>.</p>
 <p><strong>Converting a decimal number into binary</strong></p>
-<p>A decimal number can be easily converted to binary by repeatedly
-dividing the number by 2, as shown in <a class="reference internal" href="#ch3-dec-to-bin"><span class="std std-numref">Fig. 5</span></a>. At
+<p>A decimal number can be easily converted into binary by repeatedly
+dividing the number by 2, as shown in <a class="reference internal" href="#ch3-dec-to-bin"><span class="std std-numref">Fig. 3.1.1</span></a>. At
 each step, the quotient of the previous step is divided by two. This
 division is repeated until the quotient is zero. At this point, the
 binary sequence of remainders is the representation of the decimal
@@ -246,26 +242,26 @@ multiplying each bit by its value (<span class="math notranslate nohighlight">\(
 <span class="math notranslate nohighlight">\(i\)</span>) and sum up the values (like we did above).</p>
 <div class="figure align-default" id="id3">
 <span id="ch3-dec-to-bin"></span><a class="reference internal image-reference" href="../_images/ch3_decimal_to_binary.png"><img alt="../_images/ch3_decimal_to_binary.png" src="../_images/ch3_decimal_to_binary.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">The division method for converting a decimal number into binary.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.1.1 </span><span class="caption-text">The division method for converting a decimal number into binary.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 <p>This looks easy. However, this is just a partial solution to the ‘binary
 representation of integers’ problem: It does not answer how we can
 represent negative integers.</p>
 <div class="section" id="sign-magnitude-notation">
-<h3>Sign-Magnitude Notation<a class="headerlink" href="#sign-magnitude-notation" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.1. </span>Sign-Magnitude Notation<a class="headerlink" href="#sign-magnitude-notation" title="Permalink to this headline">¶</a></h3>
 <p>Decimal arithmetics provide the minus sign (-) for representing
-negativity. However, electronics of the Von Neumann machinery requires
+negativity. However, electronics of the von Neumann machinery requires
 that the minus is also represented by either a ‘1’ or ‘0’. We can
-reserve a bit, for example the left most digit, for this purpose. If we
-do this, when the left most digit is a ‘1’, the rest of the digits are
+reserve a bit, for example the left-most digit, for this purpose. If we
+do this, when the left-most digit is a ‘1’, the rest of the digits are
 encoding the magnitude of the ‘negative’ integer. One point to be
-mentioned is that this requires a fixed size (fixed number of digits)
+mentioned is that this requires a fixed size (a fixed number of digits)
 for the ‘integer representation’. In this way, the electronics can
 recognize the sign bit and the magnitude part. This is called <em>the
 sign-magnitude notation</em>.</p>
 <p>Sadly, this notation has certain disadvantages:</p>
 <p><strong>1. Addition and subtraction</strong></p>
-<p>Consider adding two integers: Based on their signs, we have the
+<p>Consider adding two integers. Based on their signs, we have the
 following possibilities:</p>
 <ul class="simple">
 <li><p><em>positive</em> + <em>positive</em></p></li>
@@ -293,7 +289,7 @@ negative (set the sign bit) else don’t set the sign bit in result.</p></li>
 <p>This was only for the case of addition, a similar electronic circuitry
 is needed for subtracting two integers.</p>
 <p>This technique has the following drawbacks: * Requires separate
-electronics for subtraction. * Requires electronics for magnitude based
+electronics for subtraction. * Requires electronics for magnitude-based
 comparison and an algorithm implementation for setting the sign bit. *
 Electronically, it has to differentiate among addition and subtraction.</p>
 <p><strong>2. Representing number zero</strong></p>
@@ -304,11 +300,10 @@ representation:</p>
 <li><p><span class="math notranslate nohighlight">\((1\ 000)_2 ==&gt; (-0)_{10}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\((0\ 000)_2 ==&gt; (+0)_{10}\)</span></p></li>
 </ul>
-<p>Because of these limitations, we use a method that does not have these
-drawbacks.</p>
+<p>In modern computers, we use a method that does not have these drawbacks.</p>
 </div>
 <div class="section" id="twos-complement-representation">
-<h3>Two’s Complement Representation<a class="headerlink" href="#twos-complement-representation" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.2. </span>Two’s Complement Representation<a class="headerlink" href="#twos-complement-representation" title="Permalink to this headline">¶</a></h3>
 <p>Two’s complement representation can be considered as an extension of the
 sign-magnitude notation:</p>
 <ul class="simple">
@@ -349,7 +344,7 @@ an integer can be obtained as follows:</p>
 <p>Here are some examples for 8-bit numbers (note that the valid decimal
 range is <span class="math notranslate nohighlight">\([-128,127]\)</span>):</p>
 <div class="math notranslate nohighlight" id="equation-chapters-ch3-data-representation-1">
-<span class="eqno">(2)<a class="headerlink" href="#equation-chapters-ch3-data-representation-1" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{array}{|c|c|c|r&#64;{:}l|}
+<span class="eqno">(3.1.2)<a class="headerlink" href="#equation-chapters-ch3-data-representation-1" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{array}{|c|c|c|r&#64;{:}l|}
 \hline
 {\bf Integer} &amp; {\bf 2's\ complement} &amp; {\bf Pos./Neg}. &amp; {\bf Action} &amp; {\bf Binary\ Result} \\
 \hline\hline
@@ -394,7 +389,7 @@ range is <span class="math notranslate nohighlight">\([-128,127]\)</span>):</p>
 \end{array}\end{split}\]</div>
 </div>
 <div class="section" id="why-does-twos-complement-work">
-<h3>Why does Two’s Complement work?<a class="headerlink" href="#why-does-twos-complement-work" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.3. </span>Why does Two’s Complement work?<a class="headerlink" href="#why-does-twos-complement-work" title="Permalink to this headline">¶</a></h3>
 <p>The Two’s Complement method may sound arbitrary at first. However, there
 are solid reasons for why it works. To be able to explain why it works,
 let us first revisit our basic computer organization from Chapter 1:</p>
@@ -413,32 +408,33 @@ the 8-bit representation. Mathematically, this arithmetic corresponds to
 and the addition that we just performed can be written mathematically
 as:</p>
 <div class="math notranslate nohighlight" id="equation-chapters-ch3-data-representation-2">
-<span class="eqno">(3)<a class="headerlink" href="#equation-chapters-ch3-data-representation-2" title="Permalink to this equation">¶</a></span>\[(2^8-1)+1  \equiv 0.    \quad \quad (\textrm{mod}\ 2^8)\]</div>
+<span class="eqno">(3.1.3)<a class="headerlink" href="#equation-chapters-ch3-data-representation-2" title="Permalink to this equation">¶</a></span>\[(2^8-1)+1  \equiv 0.    \quad \quad (\textrm{mod}\ 2^8)\]</div>
 <p>What does this have to do with the Two’s Complement method? Consider
 taking the negative of a number <span class="math notranslate nohighlight">\(a\)</span> in a <span class="math notranslate nohighlight">\(2^n\)</span>-modulo
 system:</p>
 <div class="math notranslate nohighlight" id="equation-chapters-ch3-data-representation-3">
-<span class="eqno">(4)<a class="headerlink" href="#equation-chapters-ch3-data-representation-3" title="Permalink to this equation">¶</a></span>\[-(a) \equiv 0 - a \equiv 2^n-a.   \quad \quad (\textrm{mod}\ 2^8)\]</div>
+<span class="eqno">(3.1.4)<a class="headerlink" href="#equation-chapters-ch3-data-representation-3" title="Permalink to this equation">¶</a></span>\[-(a) \equiv 0 - a \equiv 2^n-a.   \quad \quad (\textrm{mod}\ 2^n)\]</div>
 <p>Now let us rewrite this in a form that will seem familiar to us:</p>
 <div class="math notranslate nohighlight" id="equation-chapters-ch3-data-representation-4">
-<span class="eqno">(5)<a class="headerlink" href="#equation-chapters-ch3-data-representation-4" title="Permalink to this equation">¶</a></span>\[2^n-a \equiv 2^n-1+1-a \equiv \underbrace{(2^n-1-a)}_{\textrm{Invert the bits of } a} + \underbrace{1}_{\textrm{Add 1 to the inverted bits}}   \quad \quad (\textrm{mod}\ 2^8)\]</div>
+<span class="eqno">(3.1.5)<a class="headerlink" href="#equation-chapters-ch3-data-representation-4" title="Permalink to this equation">¶</a></span>\[2^n-a \equiv 2^n-1+1-a \equiv \underbrace{(2^n-1-a)}_{\textrm{Invert the bits of } a} + \underbrace{1}_{\textrm{Add 1 to the inverted bits}}   \quad \quad (\textrm{mod}\ 2^n)\]</div>
 <p>In other words, Two’s Complement representation uses the negative value
 of a number relying on the modular arithmetic, i.e. the fixed-length
 representation of the CPUs. This technique is not new and was used in
 mechanical calculators long before there were computers.</p>
 </div>
 <div class="section" id="benefits-of-the-twos-complement-representation">
-<h3>Benefits of the Two’s Complement Representation<a class="headerlink" href="#benefits-of-the-twos-complement-representation" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.4. </span>Benefits of the Two’s Complement Representation<a class="headerlink" href="#benefits-of-the-twos-complement-representation" title="Permalink to this headline">¶</a></h3>
 <p>Let us revisit the limitations of the sign-magnitude representation:</p>
 <ul class="simple">
 <li><p><strong>Addition and subtraction</strong>: With the two’s complement method, we do
 not need to check the signs of the numbers and perform addition and
 subtraction using just an addition circuitry. E.g.
 <span class="math notranslate nohighlight">\((+2)_{10}+(-3)_{10}\)</span> is just equal to <span class="math notranslate nohighlight">\((-1)_{10}\)</span>
-without doing anything extra other than plain addition:</p></li>
+without doing anything extra other than plain addition (for a 4-bit
+representation):</p></li>
 </ul>
 <div class="math notranslate nohighlight" id="equation-chapters-ch3-data-representation-5">
-<span class="eqno">(6)<a class="headerlink" href="#equation-chapters-ch3-data-representation-5" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{array}{ccc}
+<span class="eqno">(3.1.6)<a class="headerlink" href="#equation-chapters-ch3-data-representation-5" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{array}{cc:c}
   &amp; (0010)_2 &amp; (+2)_{10}\\
   &amp; (1101)_2 &amp; (-3)_{10}\\
 + &amp;  &amp; \\ \hline
@@ -457,13 +453,13 @@ used Two’s Complement to convert <span class="math notranslate nohighlight">\(
 <p>The fifth bit is lost because we have only four bits for representation.</p>
 </div>
 <div class="section" id="practice-time">
-<h3>PRACTICE TIME<a class="headerlink" href="#practice-time" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.5. </span>PRACTICE TIME<a class="headerlink" href="#practice-time" title="Permalink to this headline">¶</a></h3>
 <p>Please follow the Colab link at the top of the page to have a practical
-session on two’s complement representation.</p>
+session on Two’s Complement representation.</p>
 </div>
 </div>
 <div class="section" id="representing-real-numbers">
-<h2>Representing real numbers<a class="headerlink" href="#representing-real-numbers" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.2. </span>Representing real numbers<a class="headerlink" href="#representing-real-numbers" title="Permalink to this headline">¶</a></h2>
 <p><em>Floating point</em> is the data type used to represent non-integer real
 numbers. On today’s computers, all non-integer real numbers are
 represented using the floating point data type. Since all integers are
@@ -477,32 +473,32 @@ standard for binary representation of floating point numbers. The
 standard allocates 32 bits for the representation, although there is a
 recent 64-bit definition which is based on the same layout idea just
 with some more bits.</p>
-<p>Let us see how we represent a floating point number in the IEEE 754
-standard with an example. Let us consider a decimal number with
-fraction: 12263.921875. This number can be represented in binary as two
-binary numbers: the whole part in binary and the fractional part in
-binary. Then, we join them with a period.</p>
-<p>Decimal (base-10) 12263.921875 is equal to the following:</p>
+<p>Let us see how we represent a floating point number with an example. Let
+us consider a decimal number with fraction: 12263.921875. This number
+can be represented in binary as two binary numbers: the whole part in
+binary and the fractional part in binary. Then, we can join them with a
+period.</p>
+<p>To see this, let us first dissect decimal (base-10) 12263.921875:</p>
 <div class="math notranslate nohighlight" id="equation-chapters-ch3-data-representation-6">
-<span class="eqno">(7)<a class="headerlink" href="#equation-chapters-ch3-data-representation-6" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{array}{cccccccccccc}
+<span class="eqno">(3.2.1)<a class="headerlink" href="#equation-chapters-ch3-data-representation-6" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{array}{cccccccccccc}
   10^4 &amp; 10^3 &amp; 10^2 &amp; 10^1 &amp; 10^0 &amp; . &amp; 10^{-1} &amp; 10^{-2} &amp; 10^{-3} &amp; 10^{-4} &amp; 10^{-5} &amp; 10^{-6} \\ \hline
   1 &amp; 2 &amp; 2 &amp; 6 &amp; 3 &amp; . &amp; 9 &amp; 2 &amp; 1 &amp; 8 &amp; 7 &amp; 5 \\
 \end{array}\end{split}\]</div>
 <p>Keeping the denotational similarity, but switching to (base-2), in other
-words to binary, we would express the same number as:</p>
+words to binary, we can express the same number as:</p>
 <div class="math notranslate nohighlight" id="equation-chapters-ch3-data-representation-7">
-<span class="eqno">(8)<a class="headerlink" href="#equation-chapters-ch3-data-representation-7" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{array}{ccccccccccccccccccccccc}
+<span class="eqno">(3.2.2)<a class="headerlink" href="#equation-chapters-ch3-data-representation-7" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{array}{ccccccccccccccccccccccc}
 2^{13} &amp; 2^{12} &amp; 2^{11} &amp; 2^{10} &amp; 2^9 &amp; 2^8 &amp; 2^7 &amp; 2^6 &amp; 2^5 &amp; 2^4 &amp; 2^3 &amp; 2^2 &amp; 2^1 &amp; 2^0 &amp; . &amp; 2^{-1} &amp; 2^{-2} &amp; 2^{-3} &amp; 2^{-4} &amp; 2^{-5} &amp; 2^{-6} \\  \hline
  1  &amp;  0  &amp;  1  &amp;  1  &amp;  1  &amp;  1  &amp;  1  &amp;  1  &amp;  1  &amp;  0  &amp;  0  &amp;  1  &amp;  1  &amp;  1  &amp;  .  &amp;  1  &amp;  1  &amp;  1  &amp;  0  &amp;  1  &amp;  1  \\
 \end{array}\end{split}\]</div>
 <p>How did we obtain the fractional part? By multiplying the fractional by
 two until we obtain zero for the fraction part, as illustrated in
-<a class="reference internal" href="#ch3-real-to-bin"><span class="std std-numref">Fig. 6</span></a>. This is in certain ways the reverse of what
+<a class="reference internal" href="#ch3-real-to-bin"><span class="std std-numref">Fig. 3.2.1</span></a>. This is in certain ways the reverse of what
 we did for converting the whole part into binary, in
-<code class="xref std std-numref docutils literal notranslate"><span class="pre">sec_3_1</span></code>.</p>
+<a class="reference internal" href="#sec-3-1"><span class="std std-numref">Section 3.1</span></a>.</p>
 <div class="figure align-default" id="id4">
 <span id="ch3-real-to-bin"></span><a class="reference internal image-reference" href="../_images/ch3_fraction_to_binary.png"><img alt="../_images/ch3_fraction_to_binary.png" src="../_images/ch3_fraction_to_binary.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">The multiplication method for converting a fractional number into
+<p class="caption"><span class="caption-number">Fig. 3.2.1 </span><span class="caption-text">The multiplication method for converting a fractional number into
 binary.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
 <p>At this stage, it is worth mentioning that it is not always possible to
@@ -510,8 +506,8 @@ convert the fractional part into binary with finite number of bits. In
 other words, it is quite possible to have a finite number of fractional
 digits in one base, and infinitely many in another base for the same
 value. We will come back to this point later.</p>
-<p>Depending on the size of the whole part the period could be anywhere.
-Therefore, the next step, towards obtaining the IEEE 754 representation,
+<p>Depending on the size of the whole part, the period could be anywhere.
+Therefore, the next step towards obtaining the IEEE 754 representation
 is to reposition the period that separates the whole part from the
 fraction, to be placed just after the leftmost ‘1’. To be able to do
 this without changing the value of the number, a multiplicative factor
@@ -523,44 +519,45 @@ will contribute to the representation.</p>
 Therefore, the multiplicative factor (to keep the value the same) is
 <span class="math notranslate nohighlight">\(\times 2^{+13}\)</span>. At this stage our representation has become:</p>
 <div class="math notranslate nohighlight" id="equation-chapters-ch3-data-representation-8">
-<span class="eqno">(9)<a class="headerlink" href="#equation-chapters-ch3-data-representation-8" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{array}{cccccccccccccccccccccccc}
+<span class="eqno">(3.2.3)<a class="headerlink" href="#equation-chapters-ch3-data-representation-8" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{array}{cccccccccccccccccccccccc}
  &amp; &amp; 2^{0} &amp; . &amp; 2^{-1} &amp; 2^{-2} &amp; 2^{-3} &amp; 2^{-4} &amp; 2^{-5} &amp; 2^{-6} &amp; 2^{-7} &amp; 2^{-8} &amp; 2^{-9} &amp; 2^{-10} &amp; 2^{-11} &amp; 2^{-12} &amp; 2^{-13} &amp; 2^{-14} &amp; 2^{-15} &amp; 2^{-16} &amp; 2^{-17} &amp; 2^{-18} &amp; 2^{-19}  \\ \hline
  2^{+13}\times\;\;\; &amp;  1  &amp;  .  &amp;  0  &amp;  1  &amp;  1  &amp;  1  &amp;  1  &amp;  1  &amp;  1  &amp;  1  &amp;  0  &amp;  0  &amp;  1  &amp;  1  &amp;  1  &amp;  1  &amp;  1  &amp;  1  &amp;  0  &amp;  1  &amp;  1  \\
  \end{array}\end{split}\]</div>
 <p>Since this is doable for all values (except 0.0, which will be dealt
 with with an exception), there is no need to keep a record of the whole
-part, i.e. the ’1’ value to the left of the period. Also, the period is
-always there, so we can simply drop it. The <em>mantissa</em> part of the
-representation is obtained by keeping exactly the first 23 bits of what
-is left. This leads to the following 23 bits for our example (note the
-extra zeros at the end, added to fill complete the representation to 23
-bits):</p>
+part, i.e. the only remaining ’1’ value to the left of the period. Also,
+the period is always there, so we can simply drop it. The <em>mantissa</em>
+part of the representation is obtained by keeping exactly the first 23
+bits of what is left. This leads to the following 23 bits for our
+example (note the extra zeros at the end, added to fill complete the
+representation to 23 bits):</p>
 <p><span class="math notranslate nohighlight">\(\begin{array}{|c|c|c|c|c|c|c|c|c|c|c|c||c|c|c|c|c|c|c|c||c|c|c|c|c|c|c|}  \hline 0&amp;1&amp;1&amp;1&amp;1&amp;1&amp;1&amp;1&amp;0&amp;0&amp;1&amp;1&amp;1&amp;1&amp;1&amp;1&amp;0&amp;1&amp;1&amp;0&amp;0&amp;0&amp;0 \\ \hline \end{array}\)</span></p>
 <div class="section" id="the-ieee754-representation">
-<h3>The IEEE754 Representation<a class="headerlink" href="#the-ieee754-representation" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.2.1. </span>The IEEE754 Representation<a class="headerlink" href="#the-ieee754-representation" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-default" id="id5">
 <span id="ch3-ieee754"></span><a class="reference internal image-reference" href="../_images/ch3_IEEE754.png"><img alt="../_images/ch3_IEEE754.png" src="../_images/ch3_IEEE754.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">The 32-bit IEEE754 floating point representation.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.2.2 </span><span class="caption-text">The 32-bit IEEE754 floating point representation.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 <p>The exponent of the multiplicative factor, namely <span class="math notranslate nohighlight">\(n\)</span> (which can
 be negative) in <span class="math notranslate nohighlight">\(2^n\)</span>, becomes a part of the representation – see
-<a class="reference internal" href="#ch3-ieee754"><span class="std std-numref">Fig. 7</span></a>. To get rid of the minus sign problem, a
+<a class="reference internal" href="#ch3-ieee754"><span class="std std-numref">Fig. 3.2.2</span></a>. To get rid of the minus sign problem, a
 constant value, <span class="math notranslate nohighlight">\(127\)</span>, is added to <span class="math notranslate nohighlight">\(n\)</span>. This value becomes
 the <em>exponent</em> part of the representation.</p>
-<p>Adding a constant value to a number to be able to represent binary
-numbers is called the excess representation, or <span class="math notranslate nohighlight">\(k\)</span>-excess
-representation, with <span class="math notranslate nohighlight">\(k\)</span> being the constant number that is added,
-e.g. <span class="math notranslate nohighlight">\(k=127\)</span>. Why we use k-excess representation is going to be
-clear when we compare it with two’s complement representation in
-<a class="reference internal" href="#ch3-tbl-k-excess"><span class="std std-numref">Table 1</span></a>. You should see here that if the binary
-representation of a decimal number is larger, the decimal number is also
-larger with the <span class="math notranslate nohighlight">\(k\)</span>-excess representation; however, this is not
-the case for the two’s complement representation. This is important for
-comparing two floating point numbers: Without decoding the
-representation, we can just look at the <span class="math notranslate nohighlight">\(k\)</span>-excess representation
-of the exponents and the fractional parts to compare numbers.</p>
+<p>Adding a constant value to a number to be able to represent positive and
+negative numbers in binary is called the excess representation, or
+<span class="math notranslate nohighlight">\(k\)</span>-excess representation, with <span class="math notranslate nohighlight">\(k\)</span> being the constant
+number that is added, e.g. <span class="math notranslate nohighlight">\(k=127\)</span>. Why we use k-excess
+representation is going to be clear when we compare it with two’s
+complement representation in <a class="reference internal" href="#ch3-tbl-k-excess"><span class="std std-numref">Table 3.2.1</span></a>. You should
+see from the table that if the binary representation of a decimal number
+is larger, the decimal number is also larger with the <span class="math notranslate nohighlight">\(k\)</span>-excess
+representation; however, this is not the case for the two’s complement
+representation. This is important for comparing two floating point
+numbers: Without decoding the whole floating point representation, which
+is expensive, we can just look at the <span class="math notranslate nohighlight">\(k\)</span>-excess representation of
+the exponents and the fractional parts to compare numbers.</p>
 <span id="ch3-tbl-k-excess"></span><table class="docutils align-default" id="id6">
-<caption><span class="caption-number">Table 1 </span><span class="caption-text">A comparison between the k-excess representation and the
+<caption><span class="caption-number">Table 3.2.1 </span><span class="caption-text">A comparison between the k-excess representation and the
 two’s complement representation.</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 27%" />
@@ -646,7 +643,7 @@ yields <span class="math notranslate nohighlight">\(13+127=140\)</span>, which h
 Figure 3.4) of the IEEE754 representation.</p>
 <p>It is possible that the value that is going to be represented is a
 negative value. This information is stored as a ‘1’ in the first bit of
-the representation. For a positive value a ‘0’ bit is used.</p>
+the representation. For a positive value, a ‘0’ bit is used.</p>
 <p>Finally, our example gets a IEEE754 representation as:</p>
 <p><span class="math notranslate nohighlight">\(\begin{array}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c||c|c|c|c|c|c|c|c||c|c|c|c|c|c|c|}  \hline 0 &amp; 1&amp;0&amp;0&amp;0&amp;1&amp;1&amp;0&amp;0 &amp; 0&amp;1&amp;1&amp;1&amp;1&amp;1&amp;1&amp;1&amp;0&amp;0&amp;1&amp;1&amp;1&amp;1&amp;1&amp;1&amp;0&amp;1&amp;1&amp;0&amp;0&amp;0&amp;0 \\ \hline \end{array}\)</span></p>
 <p><strong>How is real number ‘0.0’ represented?</strong></p>
@@ -655,32 +652,33 @@ positional range [1-31]. The zeroth bit, namely the sign bit, can be
 either ‘0’ or ‘1’.</p>
 </div>
 <div class="section" id="information-loss-in-floating-point-representations">
-<span id="practice-time-1"></span><h3>Information loss in floating-point representations<a class="headerlink" href="#information-loss-in-floating-point-representations" title="Permalink to this headline">¶</a></h3>
+<span id="practice-time-1"></span><h3><span class="section-number">3.2.2. </span>Information loss in floating-point representations<a class="headerlink" href="#information-loss-in-floating-point-representations" title="Permalink to this headline">¶</a></h3>
 <p>The condition for a floating point number to be represented “exactly” by
 the IEEE754 standard is for the number to be equal to:</p>
 <div class="math notranslate nohighlight" id="equation-chapters-ch3-data-representation-9">
-<span class="eqno">(10)<a class="headerlink" href="#equation-chapters-ch3-data-representation-9" title="Permalink to this equation">¶</a></span>\[f = \sum_{k=n}^{m} digit_k \times 2^k ,\]</div>
+<span class="eqno">(3.2.4)<a class="headerlink" href="#equation-chapters-ch3-data-representation-9" title="Permalink to this equation">¶</a></span>\[f = \sum_{k=n}^{m} digit_k \times 2^k ,\]</div>
 <p>where <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> are two integers so that
-<span class="math notranslate nohighlight">\(|m-n|\le 24\)</span>. In addition to this, there is the constraint that
-<span class="math notranslate nohighlight">\(|n| \le 127\)</span> (think about why?). Nothing can be done about the
-second constraint, but as far as the first constraint is concerned,
-practically we can approximate the number leaving off (truncating) the
-less significant bits (those to the right, or mathematically those with
-a smaller <span class="math notranslate nohighlight">\(k\)</span> value in the sum above), so that <span class="math notranslate nohighlight">\(|m-n|\le 24\)</span>
-is satisfied.</p>
+<span class="math notranslate nohighlight">\(|m-n|\le 24\)</span> (it is fine if the equation is not very clear – we
+will show some examples below). In addition to this, there is the
+constraint that <span class="math notranslate nohighlight">\(|n| \le 127\)</span> (think about why). Nothing can be
+done about the second constraint, but as far as the first constraint is
+concerned, practically we can approximate the number leaving off
+(truncating) the less significant bits (those to the right, or
+mathematically those with a smaller <span class="math notranslate nohighlight">\(k\)</span> value in the sum above),
+so that <span class="math notranslate nohighlight">\(|m-n|\le 24\)</span> is satisfied.</p>
 <p>Actually, many rational numbers, even, are not expressible in the form
 of the sum above: As an example, try deriving the representation of 4.1
-and see whether you can represent it in binary. In addition, we have
-infinitely many irrational numbers which do not have finite fractions:
-e.g. <span class="math notranslate nohighlight">\(\sqrt{2}, \sqrt{3}, \pi, e\)</span>. To be able to use all these
-numbers in computers, we approximate them. Do not worry, it is something
-quite common in applied sciences.</p>
+and see whether you can represent it in binary with finite number of
+bits. In addition, we have infinitely many irrational numbers which do
+not have finite fractions: e.g. <span class="math notranslate nohighlight">\(\sqrt{2}, \sqrt{3}, \pi, e\)</span>. To
+be able to use all these numbers in computers, we approximate them. Do
+not worry, it is something quite common in applied sciences.</p>
 <p>Approximation comes with some dangers: When you subtract two truncated
-numbers which are close to each other than the result you obtain has a
+numbers which are close to each other, then the result you obtain has a
 high imprecision. This also is the case with multiplication and division
 of relatively big numbers.</p>
-<p>Though we have not started Python yet, we will display some self
-explanatory examples and comment on them:</p>
+<p>Though we have not started working with Python yet, we will display some
+self explanatory examples and comment on them:</p>
 <ul>
 <li><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mf">0.9375</span> <span class="o">-</span> <span class="mf">0.9</span>
 <span class="go">0.03749999999999998</span>
@@ -693,20 +691,20 @@ expectation, the result is not 0.0375. The reason is that 0.9375 is
 one of the rare numbers that could be represented as a finite sum
 <span class="math notranslate nohighlight">\(\sum_{k=1}^N(digit_k\cdot2^{-k}),\quad digit_k\in \\{0,1\\}\)</span>
 such that <span class="math notranslate nohighlight">\(N\)</span> stays in the IEEE representation limit. Actually
-for 0.9375, <span class="math notranslate nohighlight">\(b = [1,1,1,1]\)</span> and <span class="math notranslate nohighlight">\(N=4\)</span>.</p>
+for 0.9375, <span class="math notranslate nohighlight">\(digit = [1,1,1,1]\)</span> and <span class="math notranslate nohighlight">\(N=4\)</span>.</p>
 <p>On the other hand, quite unexpectedly, 0.9 is not so. It cannot be
 expressed as a similar sum where <span class="math notranslate nohighlight">\(N\)</span> stays in the IEEE
 representation limit. Actually, <span class="math notranslate nohighlight">\(N\)</span> extents to <span class="math notranslate nohighlight">\(+\infty\)</span>
-for 0.9. Hence the <span class="math notranslate nohighlight">\(b_n\)</span> sequence has to be truncated before it
-can stored in the IEEE representation. The bits that do not fit into
-the representation are simply ignored: In other words, the number
-loses its precision.</p>
+for 0.9. Hence the <span class="math notranslate nohighlight">\(digit_n\)</span> sequence has to be truncated
+before it can stored in the IEEE representation. The bits that do not
+fit into the representation are simply ignored: In other words, the
+number loses its precision.</p>
 <p>This is combined with a similar representation problem of 0.0375,
 which leads to another loss and we arrive at 0.03749999999999998.
 Bottom line: many numbers cannot exactly be represented in the
 IEEE754 format, and this causes precision loss.</p>
 </li>
-<li><p>Things get even worse. Consider:</p>
+<li><p>Things can get even worse. Consider:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mf">2000.0041</span> <span class="o">-</span> <span class="mf">2000.0871</span>
 <span class="go">-0.0829999999998563</span>
 
@@ -714,10 +712,10 @@ IEEE754 format, and this causes precision loss.</p>
 <span class="go">-0.08299999999999974</span>
 </pre></div>
 </div>
-<p>Actually both results should have been 0.0830. Despite having an
+<p>Actually both results should have been -0.0830. Despite having an
 imprecision, the imprecision is not consistent. This is because the
 loss in the first example (the one where the whole part is 2000) is
-bigger than the loss in the second one since 2000 need more bits to
+bigger than the loss in the second one since 2000 needs more bits to
 be represented compared to 2.</p>
 </li>
 <li><p>Pi (<span class="math notranslate nohighlight">\(\pi\)</span>) is a transcendental number. The fractional part
@@ -739,7 +737,7 @@ and <span class="math notranslate nohighlight">\(\cos\)</span> values:</p>
 </pre></div>
 </div>
 <p>Interestingly, we received a slight error for the sine value, which
-is different from 0.0. But when it comes to the <span class="math notranslate nohighlight">\(\cos\)</span> we are
+is different from 0.0. But when it comes to the cosine value, we were
 lucky that imprecision somewhat cancelled out and gave us the correct
 result.</p>
 </li>
@@ -784,13 +782,14 @@ it is possible transform the problem to the integer domain.</p></li>
 <li><p>Use the most precise type of floating point provided by your
 high-level language, some languages provide you with 64 bit or even
 128 bit floats, use them.</p></li>
-<li><p>Use less precision floating points only when you are short of memory.</p></li>
+<li><p>Use less precision floating points only when you are in short of
+memory.</p></li>
 <li><p>Subtracting two floating points close in value has a potential
 danger.</p></li>
 <li><p>If you add or subtract two numbers which are magnitude-wise not
-comparable (one very big the other very small) it is likely that you
+comparable (one very big the other very small), it is likely that you
 will lose the proper contribution of the smaller one. Especially when
-you iterate the operation (repeat it many times) the error will
+you iterate the operation (repeat it many times), the error will
 accumulate.</p></li>
 <li><p>You are strongly advised to use well-known, commonly used scientific
 computing libraries instead of coding floating point algorithms by
@@ -798,13 +797,13 @@ yourself.</p></li>
 </ul>
 </div>
 <div class="section" id="id1">
-<h3>PRACTICE TIME<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.2.3. </span>PRACTICE TIME<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Please follow the Colab link at the top of the page to have a practical
 session on the IEEE754 floating point representation.</p>
 </div>
 </div>
 <div class="section" id="numbers-in-python">
-<h2>Numbers in Python<a class="headerlink" href="#numbers-in-python" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.3. </span>Numbers in Python<a class="headerlink" href="#numbers-in-python" title="Permalink to this headline">¶</a></h2>
 <p>Python provides the following representations for numbers:</p>
 <ul class="simple">
 <li><p><strong>Integers:</strong> You can use integers as you are used to from your math
@@ -833,7 +832,7 @@ from high school.</p></li>
 </ul>
 </div>
 <div class="section" id="representing-text">
-<h2>Representing text<a class="headerlink" href="#representing-text" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.4. </span>Representing text<a class="headerlink" href="#representing-text" title="Permalink to this headline">¶</a></h2>
 <p>As we said in the first lines of this chapter, programming is mostly
 about a world problem which generally includes human related or
 interpretable data to be processed. These data do not consist of numbers
@@ -841,7 +840,7 @@ only but can include more sophisticated data such as text, sound signals
 and pictures. We leave the processing of sound and pictures out of this
 book’s scope. Text, though, is something we have to study.</p>
 <div class="section" id="characters">
-<h3>Characters<a class="headerlink" href="#characters" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.4.1. </span>Characters<a class="headerlink" href="#characters" title="Permalink to this headline">¶</a></h3>
 <p>Written natural languages consist of basic units called graphemes.
 Alphabetic letters, Chinese-Japanese-Korean characters, punctuation
 marks, numeric digits are all graphemes. There are also some basic
@@ -884,10 +883,10 @@ table).</p>
 <p>The ASCII table has 128 lines. It maps 128 American graphemes and
 unprintables to 7-bit long codes. Since the 7-bit long code can be
 interpreted also as a number, for convenience, this number is also
-displayed in the ASCII table – see <a class="reference internal" href="#ch3-fig-ascii"><span class="std std-numref">Fig. 8</span></a>.</p>
+displayed in the ASCII table – see <a class="reference internal" href="#ch3-fig-ascii"><span class="std std-numref">Fig. 3.4.1</span></a>.</p>
 <div class="figure align-default" id="id7">
 <span id="ch3-fig-ascii"></span><a class="reference internal image-reference" href="../_images/ch3_asciitable.png"><img alt="../_images/ch3_asciitable.png" src="../_images/ch3_asciitable.png" style="width: 700px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">The ASCII table.</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.4.1 </span><span class="caption-text">The ASCII table.</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </div>
 <p>Do not worry, you do not have to memorize it, even professional computer
 programmers do not. However, some properties of this table has to be
@@ -963,7 +962,7 @@ of many recent high-level language implementations, including Python,
 Java, Perl, TCL, Ada95 and C#, gaining wide popularity.</p>
 </div>
 <div class="section" id="strings">
-<h3>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.4.2. </span>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h3>
 <p>Text is as vital a data as numbers are. Text is expressed as character
 sequences. These sequences are named as strings. But we have here a
 problem. As introduced, numbers (integers and floating points) have a
@@ -971,7 +970,7 @@ niche in the CPU. There are instructions designed for them: we can store
 and retrieve them to/from the memory; we can perform arithmetical
 operations among them. A character data can be represented and processed
 as well because they are mapped to one byte integers. But when it comes
-to strings the CPU does not have any facility for them.</p>
+to strings, the CPU does not have any facility for them.</p>
 <p>The only reasonable way is to store the codes of each character that
 make up a string into the memory in consecutive bytes. Does this solve
 the problem of ‘representation’? Unfortunately no. The trouble is
@@ -982,6 +981,10 @@ characters in the string) as an integer of fixed number of bytes.</p></li>
 <li><p>Store a special byte value, which is not used to represent any other
 character, at the end of the string characters.</p></li>
 </ol>
+</div>
+</div>
+<div class="section" id="containers">
+<h2><span class="section-number">3.5. </span>Containers<a class="headerlink" href="#containers" title="Permalink to this headline">¶</a></h2>
 <p>The representation of a string is maybe the most simple representation
 of a data that is not directly supported by the CPU. However, it gives
 an idea for what can be done in similar cases. The key concept is to
@@ -997,16 +1000,15 @@ character codes sequentially.</p>
 other data organizations. In other words, it is possible to jump from
 one group of data to some other in the memory. This type of
 organizations are name <em>Data Structures</em> in Computer Science. So, string
-is a data structure. As far as Python is concerned there are several
+is a data structure. As far as Python is concerned, there are several
 other data structures. They are coined in Python as <em>containers</em>. In
 addition to strings Python provide lists, tuples, sets and dictionaries
 as containers. Except strings, which is introduced above, the others
 have more complex data structures which will not be covered, because it
 falls outside of the scope of this book.</p>
 </div>
-</div>
 <div class="section" id="representing-truth-values-booleans">
-<h2>Representing truth values (Booleans)<a class="headerlink" href="#representing-truth-values-booleans" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.6. </span>Representing truth values (Booleans)<a class="headerlink" href="#representing-truth-values-booleans" title="Permalink to this headline">¶</a></h2>
 <p>Boolean is another data type that has its roots in the very structure of
 the CPU. Answers to all questions asked to the CPU are either <em>true</em> or
 <em>false</em>. The logic of a CPU is strictly based on binary evaluation
@@ -1014,11 +1016,11 @@ system. This logic system is coined as <em>Boolean logic</em>. It was
 introduced by George Boole in his book “The Mathematical Analysis of
 Logic” (1847).</p>
 <p>It is tightly connected to the binary <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">1</span></code> concepts. In all
-CPU’s falsity is represented with a <code class="docutils literal notranslate"><span class="pre">0</span></code>. On most CPU’s truth is
-represented with a <code class="docutils literal notranslate"><span class="pre">1</span></code> and on some with any value which is not <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+CPUs, falsity is represented with a <code class="docutils literal notranslate"><span class="pre">0</span></code> whereas truth is represented
+with a <code class="docutils literal notranslate"><span class="pre">1</span></code> and on some with any value which is not <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
 </div>
 <div class="section" id="important-concepts">
-<h2>Important Concepts<a class="headerlink" href="#important-concepts" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.7. </span>Important Concepts<a class="headerlink" href="#important-concepts" title="Permalink to this headline">¶</a></h2>
 <p>We would like our readers to have grasped the following crucial concepts
 and keywords from this chapter:</p>
 <ul class="simple">
@@ -1031,7 +1033,7 @@ representing integers.</p></li>
 </ul>
 </div>
 <div class="section" id="further-reading">
-<h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.8. </span>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Two’s Complement: <a class="reference external" href="http://en.wikipedia.org/wiki/Two%27s_complement">http://en.wikipedia.org/wiki/Two%27s_complement</a></p></li>
 <li><p>The Method of Complements:
@@ -1044,7 +1046,7 @@ representing integers.</p></li>
 </ul>
 </div>
 <div class="section" id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.9. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>By hand, find the 5-bit Two’s Complement representation of the
 following numbers: 4, −5, 1,−0, 11.</p></li>
@@ -1065,31 +1067,32 @@ point numbers: 3.3, 3.37, 3.375.</p></li>
       <span class="caption-text">Table Of Contents</span>
     </p>
     <ul>
-<li><a class="reference internal" href="#">Representation of Data</a><ul>
-<li><a class="reference internal" href="#representing-integers">Representing integers</a><ul>
-<li><a class="reference internal" href="#sign-magnitude-notation">Sign-Magnitude Notation</a></li>
-<li><a class="reference internal" href="#twos-complement-representation">Two’s Complement Representation</a></li>
-<li><a class="reference internal" href="#why-does-twos-complement-work">Why does Two’s Complement work?</a></li>
-<li><a class="reference internal" href="#benefits-of-the-twos-complement-representation">Benefits of the Two’s Complement Representation</a></li>
-<li><a class="reference internal" href="#practice-time">PRACTICE TIME</a></li>
+<li><a class="reference internal" href="#">3. Representation of Data</a><ul>
+<li><a class="reference internal" href="#representing-integers">3.1. Representing integers</a><ul>
+<li><a class="reference internal" href="#sign-magnitude-notation">3.1.1. Sign-Magnitude Notation</a></li>
+<li><a class="reference internal" href="#twos-complement-representation">3.1.2. Two’s Complement Representation</a></li>
+<li><a class="reference internal" href="#why-does-twos-complement-work">3.1.3. Why does Two’s Complement work?</a></li>
+<li><a class="reference internal" href="#benefits-of-the-twos-complement-representation">3.1.4. Benefits of the Two’s Complement Representation</a></li>
+<li><a class="reference internal" href="#practice-time">3.1.5. PRACTICE TIME</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#representing-real-numbers">Representing real numbers</a><ul>
-<li><a class="reference internal" href="#the-ieee754-representation">The IEEE754 Representation</a></li>
-<li><a class="reference internal" href="#information-loss-in-floating-point-representations">Information loss in floating-point representations</a></li>
-<li><a class="reference internal" href="#id1">PRACTICE TIME</a></li>
+<li><a class="reference internal" href="#representing-real-numbers">3.2. Representing real numbers</a><ul>
+<li><a class="reference internal" href="#the-ieee754-representation">3.2.1. The IEEE754 Representation</a></li>
+<li><a class="reference internal" href="#information-loss-in-floating-point-representations">3.2.2. Information loss in floating-point representations</a></li>
+<li><a class="reference internal" href="#id1">3.2.3. PRACTICE TIME</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#numbers-in-python">Numbers in Python</a></li>
-<li><a class="reference internal" href="#representing-text">Representing text</a><ul>
-<li><a class="reference internal" href="#characters">Characters</a></li>
-<li><a class="reference internal" href="#strings">Strings</a></li>
+<li><a class="reference internal" href="#numbers-in-python">3.3. Numbers in Python</a></li>
+<li><a class="reference internal" href="#representing-text">3.4. Representing text</a><ul>
+<li><a class="reference internal" href="#characters">3.4.1. Characters</a></li>
+<li><a class="reference internal" href="#strings">3.4.2. Strings</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#representing-truth-values-booleans">Representing truth values (Booleans)</a></li>
-<li><a class="reference internal" href="#important-concepts">Important Concepts</a></li>
-<li><a class="reference internal" href="#further-reading">Further Reading</a></li>
-<li><a class="reference internal" href="#exercises">Exercises</a></li>
+<li><a class="reference internal" href="#containers">3.5. Containers</a></li>
+<li><a class="reference internal" href="#representing-truth-values-booleans">3.6. Representing truth values (Booleans)</a></li>
+<li><a class="reference internal" href="#important-concepts">3.7. Important Concepts</a></li>
+<li><a class="reference internal" href="#further-reading">3.8. Further Reading</a></li>
+<li><a class="reference internal" href="#exercises">3.9. Exercises</a></li>
 </ul>
 </li>
 </ul>

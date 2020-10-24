@@ -31,7 +31,7 @@ towards the solution of the problem – let us recall this with
 
 At this stage, you may be wondering what ‘structured data’ is and how it
 differs from ‘data’. As we already know, data is stored in the memory.
-Let us illustrate this with an example: Assume that we have a book full
+Let us illustrate this with an example: Assume that we have a table full
 of rows such that each row holds an angle value and its cosine value
 (both expressed as decimal numbers). How would you organize the storing
 of these rows in the memory? Two straightforward options are:
@@ -42,14 +42,14 @@ a) | Row-by-row:
 b) | Column-by-Column:
    | :math:`\hspace{4ex} \begin{array}[t]{ll} Anglevalue_1 \\ Anglevalue_2 \\ \vdots \\ Anglevalue_n \\ Cosinevalue_1 \\ Cosinevalue_2 \\ \vdots \\ Cosinevalue_n \end{array}`
 
-Apart from this ordering, should we sort the values? If yes by which
-one: the angle or the cosine values? In a descending order or ascending
-order? All these questions are what we try to determine in a structured
-data.
+Apart from this ordering, there is the issue of whether we should sort
+the values. If yes by which one: the angle or the cosine values? In a
+descending order or ascending order? All these questions are what we try
+to determine in a structured data.
 
 There are other ways to organize data even for the example data as
-simple as the above. Unfortunately, these are beyond the scope of this
-book.
+simple as the above example table. Unfortunately, these are beyond the
+scope of this book.
 
 Now, we will look into the atomic structure of data representation:
 i.e. how integers, floating points and characters are represented.
@@ -78,13 +78,9 @@ Namely, we have a sequence of digits, each of which can be either 0 or
 .. math::
 
 
-   \begin{array}{cc}
-   Position &  Meaning \\
-   0 & 2^0 \\
-   1 & 2^1 \\
-   2 & 2^2 \\
-   \vdots & \vdots\\
-   n & 2^n
+   \begin{array}{ccccccc}
+   Position: & n & n-1 & ... & 2 & 1 & 0 \\  
+   Meaning: & 2^n & 2{n-1} & ... & 2^2 & 2^1 & 2^0\\
    \end{array} \nonumber
 
 The following is an example for expressing the integer **181** in
@@ -97,7 +93,7 @@ In other words, :math:`(181)_{10} = (10110101)_2`.
 **Converting a decimal number into binary**
 
 
-A decimal number can be easily converted to binary by repeatedly
+A decimal number can be easily converted into binary by repeatedly
 dividing the number by 2, as shown in :numref:`ch3_dec_to_bin`. At
 each step, the quotient of the previous step is divided by two. This
 division is repeated until the quotient is zero. At this point, the
@@ -125,12 +121,12 @@ Sign-Magnitude Notation
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Decimal arithmetics provide the minus sign (-) for representing
-negativity. However, electronics of the Von Neumann machinery requires
+negativity. However, electronics of the von Neumann machinery requires
 that the minus is also represented by either a ‘1’ or ‘0’. We can
-reserve a bit, for example the left most digit, for this purpose. If we
-do this, when the left most digit is a ‘1’, the rest of the digits are
+reserve a bit, for example the left-most digit, for this purpose. If we
+do this, when the left-most digit is a ‘1’, the rest of the digits are
 encoding the magnitude of the ‘negative’ integer. One point to be
-mentioned is that this requires a fixed size (fixed number of digits)
+mentioned is that this requires a fixed size (a fixed number of digits)
 for the ‘integer representation’. In this way, the electronics can
 recognize the sign bit and the magnitude part. This is called *the
 sign-magnitude notation*.
@@ -139,7 +135,7 @@ Sadly, this notation has certain disadvantages:
 
 **1. Addition and subtraction**
 
-Consider adding two integers: Based on their signs, we have the
+Consider adding two integers. Based on their signs, we have the
 following possibilities:
 
 -  *positive* + *positive*
@@ -166,7 +162,7 @@ This was only for the case of addition, a similar electronic circuitry
 is needed for subtracting two integers.
 
 This technique has the following drawbacks: \* Requires separate
-electronics for subtraction. \* Requires electronics for magnitude based
+electronics for subtraction. \* Requires electronics for magnitude-based
 comparison and an algorithm implementation for setting the sign bit. \*
 Electronically, it has to differentiate among addition and subtraction.
 
@@ -179,8 +175,7 @@ representation:
 -  :math:`(1\ 000)_2 ==> (-0)_{10}`
 -  :math:`(0\ 000)_2 ==> (+0)_{10}`
 
-Because of these limitations, we use a method that does not have these
-drawbacks.
+In modern computers, we use a method that does not have these drawbacks.
 
 Two’s Complement Representation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -307,14 +302,14 @@ system:
 .. math::
 
 
-   -(a) \equiv 0 - a \equiv 2^n-a.   \quad \quad (\textrm{mod}\ 2^8)
+   -(a) \equiv 0 - a \equiv 2^n-a.   \quad \quad (\textrm{mod}\ 2^n)
 
 Now let us rewrite this in a form that will seem familiar to us:
 
 .. math::
 
 
-   2^n-a \equiv 2^n-1+1-a \equiv \underbrace{(2^n-1-a)}_{\textrm{Invert the bits of } a} + \underbrace{1}_{\textrm{Add 1 to the inverted bits}}   \quad \quad (\textrm{mod}\ 2^8)
+   2^n-a \equiv 2^n-1+1-a \equiv \underbrace{(2^n-1-a)}_{\textrm{Invert the bits of } a} + \underbrace{1}_{\textrm{Add 1 to the inverted bits}}   \quad \quad (\textrm{mod}\ 2^n)
 
 In other words, Two’s Complement representation uses the negative value
 of a number relying on the modular arithmetic, i.e. the fixed-length
@@ -330,12 +325,13 @@ Let us revisit the limitations of the sign-magnitude representation:
    not need to check the signs of the numbers and perform addition and
    subtraction using just an addition circuitry. E.g.
    :math:`(+2)_{10}+(-3)_{10}` is just equal to :math:`(-1)_{10}`
-   without doing anything extra other than plain addition:
+   without doing anything extra other than plain addition (for a 4-bit
+   representation):
 
 .. math::
 
 
-   \begin{array}{ccc}
+   \begin{array}{cc:c}
      & (0010)_2 & (+2)_{10}\\
      & (1101)_2 & (-3)_{10}\\
    + &  & \\ \hline
@@ -357,7 +353,7 @@ PRACTICE TIME
 ~~~~~~~~~~~~~
 
 Please follow the Colab link at the top of the page to have a practical
-session on two’s complement representation.
+session on Two’s Complement representation.
 
 Representing real numbers
 -------------------------
@@ -377,13 +373,13 @@ standard allocates 32 bits for the representation, although there is a
 recent 64-bit definition which is based on the same layout idea just
 with some more bits.
 
-Let us see how we represent a floating point number in the IEEE 754
-standard with an example. Let us consider a decimal number with
-fraction: 12263.921875. This number can be represented in binary as two
-binary numbers: the whole part in binary and the fractional part in
-binary. Then, we join them with a period.
+Let us see how we represent a floating point number with an example. Let
+us consider a decimal number with fraction: 12263.921875. This number
+can be represented in binary as two binary numbers: the whole part in
+binary and the fractional part in binary. Then, we can join them with a
+period.
 
-Decimal (base-10) 12263.921875 is equal to the following:
+To see this, let us first dissect decimal (base-10) 12263.921875:
 
 .. math::
 
@@ -394,7 +390,7 @@ Decimal (base-10) 12263.921875 is equal to the following:
    \end{array}
 
 Keeping the denotational similarity, but switching to (base-2), in other
-words to binary, we would express the same number as:
+words to binary, we can express the same number as:
 
 .. math::
 
@@ -426,8 +422,8 @@ other words, it is quite possible to have a finite number of fractional
 digits in one base, and infinitely many in another base for the same
 value. We will come back to this point later.
 
-Depending on the size of the whole part the period could be anywhere.
-Therefore, the next step, towards obtaining the IEEE 754 representation,
+Depending on the size of the whole part, the period could be anywhere.
+Therefore, the next step towards obtaining the IEEE 754 representation
 is to reposition the period that separates the whole part from the
 fraction, to be placed just after the leftmost ‘1’. To be able to do
 this without changing the value of the number, a multiplicative factor
@@ -451,12 +447,12 @@ Therefore, the multiplicative factor (to keep the value the same) is
 
 Since this is doable for all values (except 0.0, which will be dealt
 with with an exception), there is no need to keep a record of the whole
-part, i.e. the ’1’ value to the left of the period. Also, the period is
-always there, so we can simply drop it. The *mantissa* part of the
-representation is obtained by keeping exactly the first 23 bits of what
-is left. This leads to the following 23 bits for our example (note the
-extra zeros at the end, added to fill complete the representation to 23
-bits):
+part, i.e. the only remaining ’1’ value to the left of the period. Also,
+the period is always there, so we can simply drop it. The *mantissa*
+part of the representation is obtained by keeping exactly the first 23
+bits of what is left. This leads to the following 23 bits for our
+example (note the extra zeros at the end, added to fill complete the
+representation to 23 bits):
 
 :math:`\begin{array}{|c|c|c|c|c|c|c|c|c|c|c|c||c|c|c|c|c|c|c|c||c|c|c|c|c|c|c|}  \hline 0&1&1&1&1&1&1&1&0&0&1&1&1&1&1&1&0&1&1&0&0&0&0 \\ \hline \end{array}`
 
@@ -478,18 +474,19 @@ be negative) in :math:`2^n`, becomes a part of the representation – see
 constant value, :math:`127`, is added to :math:`n`. This value becomes
 the *exponent* part of the representation.
 
-Adding a constant value to a number to be able to represent binary
-numbers is called the excess representation, or :math:`k`-excess
-representation, with :math:`k` being the constant number that is added,
-e.g. :math:`k=127`. Why we use k-excess representation is going to be
-clear when we compare it with two’s complement representation in
-:numref:`ch3_tbl_k_excess`. You should see here that if the binary
-representation of a decimal number is larger, the decimal number is also
-larger with the :math:`k`-excess representation; however, this is not
-the case for the two’s complement representation. This is important for
-comparing two floating point numbers: Without decoding the
-representation, we can just look at the :math:`k`-excess representation
-of the exponents and the fractional parts to compare numbers.
+Adding a constant value to a number to be able to represent positive and
+negative numbers in binary is called the excess representation, or
+:math:`k`-excess representation, with :math:`k` being the constant
+number that is added, e.g. :math:`k=127`. Why we use k-excess
+representation is going to be clear when we compare it with two’s
+complement representation in :numref:`ch3_tbl_k_excess`. You should
+see from the table that if the binary representation of a decimal number
+is larger, the decimal number is also larger with the :math:`k`-excess
+representation; however, this is not the case for the two’s complement
+representation. This is important for comparing two floating point
+numbers: Without decoding the whole floating point representation, which
+is expensive, we can just look at the :math:`k`-excess representation of
+the exponents and the fractional parts to compare numbers.
 
 .. _ch3_tbl_k_excess:
 
@@ -525,7 +522,7 @@ Figure 3.4) of the IEEE754 representation.
 
 It is possible that the value that is going to be represented is a
 negative value. This information is stored as a ‘1’ in the first bit of
-the representation. For a positive value a ‘0’ bit is used.
+the representation. For a positive value, a ‘0’ bit is used.
 
 Finally, our example gets a IEEE754 representation as:
 
@@ -551,29 +548,30 @@ the IEEE754 standard is for the number to be equal to:
        f = \sum_{k=n}^{m} digit_k \times 2^k ,
 
 where :math:`m` and :math:`n` are two integers so that
-:math:`|m-n|\le 24`. In addition to this, there is the constraint that
-:math:`|n| \le 127` (think about why?). Nothing can be done about the
-second constraint, but as far as the first constraint is concerned,
-practically we can approximate the number leaving off (truncating) the
-less significant bits (those to the right, or mathematically those with
-a smaller :math:`k` value in the sum above), so that :math:`|m-n|\le 24`
-is satisfied.
+:math:`|m-n|\le 24` (it is fine if the equation is not very clear – we
+will show some examples below). In addition to this, there is the
+constraint that :math:`|n| \le 127` (think about why). Nothing can be
+done about the second constraint, but as far as the first constraint is
+concerned, practically we can approximate the number leaving off
+(truncating) the less significant bits (those to the right, or
+mathematically those with a smaller :math:`k` value in the sum above),
+so that :math:`|m-n|\le 24` is satisfied.
 
 Actually, many rational numbers, even, are not expressible in the form
 of the sum above: As an example, try deriving the representation of 4.1
-and see whether you can represent it in binary. In addition, we have
-infinitely many irrational numbers which do not have finite fractions:
-e.g. :math:`\sqrt{2}, \sqrt{3}, \pi, e`. To be able to use all these
-numbers in computers, we approximate them. Do not worry, it is something
-quite common in applied sciences.
+and see whether you can represent it in binary with finite number of
+bits. In addition, we have infinitely many irrational numbers which do
+not have finite fractions: e.g. :math:`\sqrt{2}, \sqrt{3}, \pi, e`. To
+be able to use all these numbers in computers, we approximate them. Do
+not worry, it is something quite common in applied sciences.
 
 Approximation comes with some dangers: When you subtract two truncated
-numbers which are close to each other than the result you obtain has a
+numbers which are close to each other, then the result you obtain has a
 high imprecision. This also is the case with multiplication and division
 of relatively big numbers.
 
-Though we have not started Python yet, we will display some self
-explanatory examples and comment on them:
+Though we have not started working with Python yet, we will display some
+self explanatory examples and comment on them:
 
 -  .. code:: python
 
@@ -587,22 +585,22 @@ explanatory examples and comment on them:
    one of the rare numbers that could be represented as a finite sum
    :math:`\sum_{k=1}^N(digit_k\cdot2^{-k}),\quad digit_k\in \\{0,1\\}`
    such that :math:`N` stays in the IEEE representation limit. Actually
-   for 0.9375, :math:`b = [1,1,1,1]` and :math:`N=4`.
+   for 0.9375, :math:`digit = [1,1,1,1]` and :math:`N=4`.
 
    On the other hand, quite unexpectedly, 0.9 is not so. It cannot be
    expressed as a similar sum where :math:`N` stays in the IEEE
    representation limit. Actually, :math:`N` extents to :math:`+\infty`
-   for 0.9. Hence the :math:`b_n` sequence has to be truncated before it
-   can stored in the IEEE representation. The bits that do not fit into
-   the representation are simply ignored: In other words, the number
-   loses its precision.
+   for 0.9. Hence the :math:`digit_n` sequence has to be truncated
+   before it can stored in the IEEE representation. The bits that do not
+   fit into the representation are simply ignored: In other words, the
+   number loses its precision.
 
    This is combined with a similar representation problem of 0.0375,
    which leads to another loss and we arrive at 0.03749999999999998.
    Bottom line: many numbers cannot exactly be represented in the
    IEEE754 format, and this causes precision loss.
 
--  Things get even worse. Consider:
+-  Things can get even worse. Consider:
 
    .. code:: python
 
@@ -612,10 +610,10 @@ explanatory examples and comment on them:
       >>> 2.0041 - 2.0871
       -0.08299999999999974
 
-   Actually both results should have been 0.0830. Despite having an
+   Actually both results should have been -0.0830. Despite having an
    imprecision, the imprecision is not consistent. This is because the
    loss in the first example (the one where the whole part is 2000) is
-   bigger than the loss in the second one since 2000 need more bits to
+   bigger than the loss in the second one since 2000 needs more bits to
    be represented compared to 2.
 
 -  Pi (:math:`\pi`) is a transcendental number. The fractional part
@@ -641,7 +639,7 @@ explanatory examples and comment on them:
       -1.0
 
    Interestingly, we received a slight error for the sine value, which
-   is different from 0.0. But when it comes to the :math:`\cos` we are
+   is different from 0.0. But when it comes to the cosine value, we were
    lucky that imprecision somewhat cancelled out and gave us the correct
    result.
 
@@ -688,13 +686,14 @@ point numbers:
 -  Use the most precise type of floating point provided by your
    high-level language, some languages provide you with 64 bit or even
    128 bit floats, use them.
--  Use less precision floating points only when you are short of memory.
+-  Use less precision floating points only when you are in short of
+   memory.
 -  Subtracting two floating points close in value has a potential
    danger.
 -  If you add or subtract two numbers which are magnitude-wise not
-   comparable (one very big the other very small) it is likely that you
+   comparable (one very big the other very small), it is likely that you
    will lose the proper contribution of the smaller one. Especially when
-   you iterate the operation (repeat it many times) the error will
+   you iterate the operation (repeat it many times), the error will
    accumulate.
 -  You are strongly advised to use well-known, commonly used scientific
    computing libraries instead of coding floating point algorithms by
@@ -859,7 +858,7 @@ niche in the CPU. There are instructions designed for them: we can store
 and retrieve them to/from the memory; we can perform arithmetical
 operations among them. A character data can be represented and processed
 as well because they are mapped to one byte integers. But when it comes
-to strings the CPU does not have any facility for them.
+to strings, the CPU does not have any facility for them.
 
 The only reasonable way is to store the codes of each character that
 make up a string into the memory in consecutive bytes. Does this solve
@@ -870,6 +869,9 @@ determining how to know where the string ends. Two methods come to mind:
    characters in the string) as an integer of fixed number of bytes.
 2. Store a special byte value, which is not used to represent any other
    character, at the end of the string characters.
+
+Containers
+----------
 
 The representation of a string is maybe the most simple representation
 of a data that is not directly supported by the CPU. However, it gives
@@ -888,7 +890,7 @@ It is possible to have data organizations which include addresses of
 other data organizations. In other words, it is possible to jump from
 one group of data to some other in the memory. This type of
 organizations are name *Data Structures* in Computer Science. So, string
-is a data structure. As far as Python is concerned there are several
+is a data structure. As far as Python is concerned, there are several
 other data structures. They are coined in Python as *containers*. In
 addition to strings Python provide lists, tuples, sets and dictionaries
 as containers. Except strings, which is introduced above, the others
@@ -906,8 +908,8 @@ introduced by George Boole in his book “The Mathematical Analysis of
 Logic” (1847).
 
 It is tightly connected to the binary ``0`` and ``1`` concepts. In all
-CPU’s falsity is represented with a ``0``. On most CPU’s truth is
-represented with a ``1`` and on some with any value which is not ``0``.
+CPUs, falsity is represented with a ``0`` whereas truth is represented
+with a ``1`` and on some with any value which is not ``0``.
 
 Important Concepts
 ------------------

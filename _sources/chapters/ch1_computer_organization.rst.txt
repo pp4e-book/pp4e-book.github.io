@@ -767,7 +767,7 @@ Further Reading
 Exercises
 ---------
 
--  To gain more insight, play around with the Von Neuman machine
+-  To gain more insight, play around with the von Neumann machine
    simulator at http://vnsimulator.altervista.org
 
 -  Using Google and the manufacturer’s web site, find the following
