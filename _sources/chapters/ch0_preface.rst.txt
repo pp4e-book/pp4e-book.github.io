@@ -203,6 +203,20 @@ computational sciences.
 **A short video on synaptic communication between neurons**
 
 
+
+
+.. raw:: html
+
+    # Hide code
+    <div align="middle">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/WhowH0kb7n0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+    </iframe>
+    </div>
+    <center><p><i>Video 1. A detailed illustration of how neurotransmitters are transmitted at synapses.
+      [Video from <a href="https://www.youtube.com/watch?v=WhowH0kb7n0">https://www.youtube.com/watch?v=WhowH0kb7n0</a>]</i></p></center>
+
+
+
 The brain never stops processing information and the functioning of each
 neuron is only based on signals (the neurotransmitters) it receives
 through its connections (dendrites). There is no common synchronization

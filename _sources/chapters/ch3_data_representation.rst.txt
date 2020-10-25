@@ -63,10 +63,11 @@ keep in mind, that any ’1’ (or ‘0’) in our representation is actually
 the presence (or absence) of a voltage in a specific point of the
 electronic circuitry.
 
-.. _sec_3_1:
+.. _sec3dot1:
 
 Representing integers
 ---------------------
+
 
 Mathematics already has a solution for representing integers in binary
 via base-2 calculation or representation. The idea behind base-2
@@ -91,7 +92,6 @@ base-2:
 In other words, :math:`(181)_{10} = (10110101)_2`.
 
 **Converting a decimal number into binary**
-
 
 A decimal number can be easily converted into binary by repeatedly
 dividing the number by 2, as shown in :numref:`ch3_dec_to_bin`. At
@@ -331,7 +331,7 @@ Let us revisit the limitations of the sign-magnitude representation:
 .. math::
 
 
-   \begin{array}{cc:c}
+   \begin{array}{cc|c}
      & (0010)_2 & (+2)_{10}\\
      & (1101)_2 & (-3)_{10}\\
    + &  & \\ \hline
@@ -404,7 +404,7 @@ How did we obtain the fractional part? By multiplying the fractional by
 two until we obtain zero for the fraction part, as illustrated in
 :numref:`ch3_real_to_bin`. This is in certain ways the reverse of what
 we did for converting the whole part into binary, in
-:numref:`sec_3_1`.
+:numref:`sec3dot1`.
 
 .. _ch3_real_to_bin:
 
