@@ -464,7 +464,7 @@ ones is possible.</p>
 indexing mechanism with brackets:</p>
 <div class="figure align-default" id="id1">
 <a class="reference internal image-reference" href="../_images/ch4_containerindex.png"><img alt="../_images/ch4_containerindex.png" src="../_images/ch4_containerindex.png" style="width: 150px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4.2.1 </span><span class="caption-text">How elements of a container is accessed</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 4.2.1 </span><span class="caption-text">How elements of a container are accessed</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <p>For the s-containers, the index is an ordinal number where counting
 starts with zero. For dictionaries, the index is a Python data item from
@@ -1775,10 +1775,10 @@ assigning them to variables. First consider the following code:</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b is: &quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">address</span> <span class="n">of</span> <span class="mi">5</span><span class="p">:</span>  <span class="mi">4314634928</span>
-<span class="n">address</span> <span class="n">of</span> <span class="n">a</span><span class="p">:</span>  <span class="mi">4314634928</span>
-<span class="n">address</span> <span class="n">of</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4314634928</span>
-<span class="n">address</span> <span class="n">of</span> <span class="n">a</span><span class="p">:</span>  <span class="mi">4314634864</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">address</span> <span class="n">of</span> <span class="mi">5</span><span class="p">:</span>  <span class="mi">4342262448</span>
+<span class="n">address</span> <span class="n">of</span> <span class="n">a</span><span class="p">:</span>  <span class="mi">4342262448</span>
+<span class="n">address</span> <span class="n">of</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4342262448</span>
+<span class="n">address</span> <span class="n">of</span> <span class="n">a</span><span class="p">:</span>  <span class="mi">4342262384</span>
 <span class="n">b</span> <span class="ow">is</span><span class="p">:</span>  <span class="mi">5</span>
 </pre></div>
 </div>
@@ -1801,9 +1801,9 @@ which is printed.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b is: &quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4348561792</span> <span class="mi">4348561792</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4377254592</span> <span class="mi">4377254592</span>
 <span class="n">b</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
-<span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4346440704</span> <span class="mi">4348561792</span>
+<span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4375145984</span> <span class="mi">4377254592</span>
 <span class="n">b</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -1819,9 +1819,9 @@ But now, consider the following slightly different example:</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b is: &quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4346441152</span> <span class="mi">4346441152</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4371163072</span> <span class="mi">4371163072</span>
 <span class="n">b</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
-<span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4346441152</span> <span class="mi">4346441152</span>
+<span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4371163072</span> <span class="mi">4371163072</span>
 <span class="n">b</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
 </pre></div>
 </div>

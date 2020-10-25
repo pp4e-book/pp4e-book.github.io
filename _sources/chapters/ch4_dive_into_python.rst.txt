@@ -310,7 +310,7 @@ indexing mechanism with brackets:
 .. figure:: ../figures/ch4_containerindex.png
    :width: 150px
 
-   How elements of a container is accessed
+   How elements of a container are accessed
 
 
 For the s-containers, the index is an ordinal number where counting
@@ -1820,10 +1820,10 @@ assigning them to variables. First consider the following code:
 .. parsed-literal::
     :class: output
 
-    address of 5:  4314634928
-    address of a:  4314634928
-    address of b:  4314634928
-    address of a:  4314634864
+    address of 5:  4342262448
+    address of a:  4342262448
+    address of b:  4342262448
+    address of a:  4342262384
     b is:  5
 
 
@@ -1854,9 +1854,9 @@ Now keep the task the same but change the data from integer to a list:
 .. parsed-literal::
     :class: output
 
-    addresses of a and b:  4348561792 4348561792
+    addresses of a and b:  4377254592 4377254592
     b is:  [5, 1, 7]
-    addresses of a and b:  4346440704 4348561792
+    addresses of a and b:  4375145984 4377254592
     b is:  [5, 1, 7]
 
 
@@ -1879,9 +1879,9 @@ But now, consider the following slightly different example:
 .. parsed-literal::
     :class: output
 
-    addresses of a and b:  4346441152 4346441152
+    addresses of a and b:  4371163072 4371163072
     b is:  [5, 1, 7]
-    addresses of a and b:  4346441152 4346441152
+    addresses of a and b:  4371163072 4371163072
     b is:  [3, 1, 7]
 
 
