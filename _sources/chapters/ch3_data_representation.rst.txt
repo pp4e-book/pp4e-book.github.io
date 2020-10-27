@@ -703,8 +703,18 @@ point numbers:
 PRACTICE TIME
 ~~~~~~~~~~~~~
 
-Please follow the Colab link at the top of the page to have a practical
-session on the IEEE754 floating point representation.
+.. |image1| image:: ../figures/ch3_10110101.png
+
+
+
+.. raw:: html
+   :file: ../../../static/floatdemo.html
+
+
+
+.. raw:: latex
+
+   Please follow the Colab link at the top of the page to have a practical session on the IEEE754 floating point representation.
 
 Numbers in Python
 -----------------
@@ -945,5 +955,3 @@ Exercises
    up in binary, without looking at their signs.
 -  Find the IEEE 754 32-bit representation of the following floating
    point numbers: 3.3, 3.37, 3.375.
-
-.. |image1| image:: ../figures/ch3_10110101.png

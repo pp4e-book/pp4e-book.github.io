@@ -115,6 +115,7 @@ Show Source
 <li class="toctree-l1"><a class="reference internal" href="ch2_programming.html">2. A Broad Look at Programming and Programming Languages</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">3. Representation of Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch4_dive_into_python.html">4. Dive into Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch5_conditional_and_repetitive.html">5. Conditional and Repetitive Execution</a></li>
 </ul>
 
             </nav>
@@ -149,6 +150,7 @@ Show Source
 <li class="toctree-l1"><a class="reference internal" href="ch2_programming.html">2. A Broad Look at Programming and Programming Languages</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">3. Representation of Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch4_dive_into_python.html">4. Dive into Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch5_conditional_and_repetitive.html">5. Conditional and Repetitive Execution</a></li>
 </ul>
 
             </nav>
@@ -801,8 +803,244 @@ yourself.</p></li>
 </div>
 <div class="section" id="id1">
 <h3><span class="section-number">3.2.3. </span>PRACTICE TIME<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<p>Please follow the Colab link at the top of the page to have a practical
-session on the IEEE754 floating point representation.</p>
+<div id="ieee-practice">
+<style>
+.fraction {
+        color: blue;
+        text-align: left !important;
+}
+.whole {
+        color: red;
+        text-align: right !important;
+}
+.exponent {
+        color: purple;
+}
+#restable {
+        border-collapse: collapse;
+}
+#restable  td {
+        border: solid black 1px;
+}
+table.main  > tbody > tr {
+        height: 30px;
+}
+table.main > tbody > tr > td:first-child {
+        width: 200px;
+        padding-right: 5px;
+}
+table.main td {
+  padding-top: 5px !important;
+  padding-bottom: 5px !important ;
+  padding-left: 5px !important;
+  padding-right: 5px !important ;
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+  font-size: 95%;
+}
+#frac1 {
+  border-bottom: solid 2px black;
+}
+.floatbox {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100px;
+    font-size: 75%;
+    background-color: #efefff;
+    padding: 3px;
+    border: solid 1px black;
+    border-radius: 4px;
+}
+</style>
+<input name="realvalueinput" value="-0.125"/><br/>
+<div style="position:relative;height:500px">
+<div id="tablediv" style="position:absolute;left:0px;top:0px;">
+<table class="main">
+<tr><td>entered 10 base decimal number:</td>
+<td>&nbsp;
+<td class="whole" id="whole-dec"></td>
+        <td><span id="point1">.</span></td>
+        <td class="fraction" id="frac-dec"></td>
+</tr>
+<tr class="convertobin"><td>Converted to binary:</td>
+        <td>&nbsp;</td>
+        <td class="whole" id="whole-bin"></td>
+        <td><span id="point2"> .</span> </td>
+        <td class="fraction" id="frac-bin"></td>
+</tr>
+<tr class="normalize"><td>Normalized so that whole part is 1</td>
+<td><span class="exponent">2<sup id="exp1"></sup></span>&times;</td>
+<td colspan="3">
+        <span class="whole">1</span>
+        <span id="point3">.</span>
+	<span class="fraction" id="fracnormal"><span id="frac1"></span><span id="fracrest"></span></span></td>
+</tr>
+<tr class="updateexponent"><td>Add 127 to factor's exponent</td>
+	<td><span id="exp2" class="exponent"></span> (<span id="exp-norm"></span>)</td>
+<td colspan="3">&nbsp;</td>
+</tr>
+<tr class="result">
+<td>Result: <td colspan="5">
+<table id="restable">
+<tr><td class="signbit"></td>
+        <td id="exp3" class="exponent"></td>
+        <td class="fraction" id="frac2"></td>
+</table>
+<td></tr>
+</table>
+<div class="floatbox" id='signbox'><span id="ispositive"></span> value, Sign bit is <span class="signbit"></span></div>
+<div class="floatbox" id='mantbitbox'>stored in 23 bits</div>
+</div>
+<svg  id="diagram" style="position:absolute;left:0px;top:0px;height:500px;z-index:10;width:100%">
+</svg>
+</div>
+<script>
+function connect(el1, el2, color='black') {
+                var p1q = $(el1)
+                var p2q = $(el2)
+                var tq = $('#tablediv')
+                var p1={x: p1q.offset().left + p1q.width()/2, y: p1q.offset().top + p1q.height()}
+                var p2={x: p2q.offset().left + p2q.width()/2, y: p2q.offset().top}
+                p1.x -= tq.offset().left;
+                p2.x -= tq.offset().left;
+                p1.y -= tq.offset().top;
+                p2.y -= tq.offset().top;
+                var newpath=$('<path/>');
+                newpath.attr('stroke',color).attr('fill','none')
+                        .attr('stroke-width',2)
+			.attr('class','ieee')
+                        .attr('d','M' + p1.x + ' ' + p1.y +
+                                ' C ' + p1.x + ' ' + (p1.y + 20)  + ' ' +
+                                 p2.x + ' ' + (p2.y - 20) + ' ' +
+                                 p2.x + ' ' + p2.y +
+                                ' l -3 -3 l 3 3 l 3 -3' );
+                $('#diagram').append(newpath);
+}
+function zeros(n) {
+	let str = ""
+	for (i = 0; i < n; i++) str += '0';
+	return str;
+}
+function zeropad(s, n, left = true) {
+	if (n <= s.length) 
+		return s;
+	if (left) return zeros(n - s.length) + s;
+	else  return s + zeros(n - s.length);
+}
+function noScientNot(rv) {
+	let sign = (rv < 0.0) ? '-' : '';
+	rv = (rv < 0.0) ? -rv : rv;
+	let rvstr = rv.toString();
+	let epos =  rvstr.indexOf('e') ;
+	let dotpos = rvstr.indexOf('.');
+	dotpos = (dotpos == -1) ? epos : dotpos;
+	if (epos == -1) {
+		return sign + (dotpos == -1) ? rvstr + '.0'  :rvstr;
+	} 
+	let exp = Number.parseInt(rvstr.slice(epos+1))
+	rvstr = rvstr.slice(0,dotpos) + rvstr.slice(dotpos+1,epos);	
+	if (exp < 0) {
+		exp = -exp;
+		if (exp > dotpos)  {
+			rvstr = zeros(exp-dotpos) + rvstr;
+			dotpos = 0;
+		}
+		if (dotpos == 0)
+			return sign + '0.' + rvstr;
+	} else {
+		if (dotpos + exp > rvstr.length) {
+			rvstr += zeros(dotpos + exp - rvstr.length);
+			dotpos += exp;
+		}
+		rvstr = rvstr.slice(0,dotpos) + '.' + rvstr.slice(dotpos) 
+		return sign + (rvstr.length == dotpos+1) ? rvstr + '0' : rvstr;
+	}
+}
+function loadieeenumber() {
+	let rv = Number.parseFloat($(':input[name="realvalueinput"]').val())
+	if (! rv) {
+		rv = 0.0
+	}
+	let res = {real: rv}
+	let rvdec = noScientNot(rv)
+	res.binstr = rv.toString(2)
+	res.negative = rv < 0.0
+	res.whole = rvdec.split('.')[0]
+	res.frac = rvdec.split('.')[1]
+	if (res.binstr.indexOf(".") == -1) {
+		res.wholebin = res.binstr
+		res.fracbin = "0"
+	} else {
+		res.wholebin = Math.floor(Math.abs(rv)).toString(2).split('.')[0]
+		res.fracbin = Number.parseFloat('0.' + res.frac).toString(2).slice(2)
+	}
+	let wInd = res.wholebin.indexOf("1")
+	let fInd = res.fracbin.indexOf("1")
+	if (wInd >= 0) {
+		res.exponent = res.wholebin.length - wInd - 1
+		res.normalized = res.wholebin.slice(wInd+1) + res.fracbin 
+	} else if (fInd >= 0) {
+		res.exponent = -fInd - 1
+		res.normalized = res.fracbin.slice(fInd+1)
+	} else {
+		res.exponent = -127
+		res.normalized = '0'
+	}
+	if (res.normalized == '') {
+		res.normalized = '0'
+	}
+	return res
+}
+function refreshieee(rvobj) {
+    $("path.ieee").remove()
+    $("svg").attr('width', $('#tablediv').width())
+    $("svg").attr('height', $('#tablediv').height())
+    $('#whole-dec').text(rvobj.whole);
+    $('#frac-dec').text(rvobj.frac);
+    $('#whole-bin').text(rvobj.wholebin);
+    $('#frac-bin').text(rvobj.fracbin);
+    $('#exp1').text(rvobj.exponent);
+    $('#frac1').text( rvobj.normalized.slice(0,23));
+    $('#fracrest').text(rvobj.normalized.slice(23));
+    $('#frac2').text(zeropad(rvobj.normalized, 23, false).slice(0,23));
+    $('#exp2').text((rvobj.exponent + 127).toString(2));
+    $('#exp3').text(zeropad((rvobj.exponent + 127).toString(2), 8));
+    $('#exp-norm').text(rvobj.exponent + 127);
+    $('.signbit').text((rvobj.negative)? '1' : '0');
+    $('#ispositive').text((rvobj.negative)? 'negative' : 'positive');
+
+    var exp = $('#exp1').text();
+    if (exp >= 0) {
+      var txt = $('.convertobin .whole').html();
+      $('.convertobin .whole').html('<span id="firstone">'+txt[0]+'</span>' + txt.slice(1));
+    } else {
+      var txt = $('.convertobin .fraction').html();
+      if (-exp >= txt.length) {
+        exp = txt.length-1 ;
+      } else {
+        exp = -exp;
+      }
+      $('.convertobin .fraction').html(txt.slice(0, exp) + '<span id="firstone">'+txt[exp]+'</span>' + txt.slice(exp+1));
+    }
+    var rpos = $('#restable').offset();
+    var tdpos = $('#tablediv').offset();
+    var frpos = $('#frac1').offset();
+    $('#signbox').css({top: rpos.top-tdpos.top+$('#restable').height(), left: rpos.left-tdpos.left-100 } );
+    $('#mantbitbox').css({top: frpos.top-tdpos.top+20, left: frpos.left-tdpos.left+$('#frac1').width()/2+10 } );
+    connect('#exp1','#exp2','purple');
+    connect('#exp2','#exp3', 'purple');
+    connect('#point1','#point2');
+    connect('#frac1','#frac2');
+    connect('#firstone','#point3');
+    $('svg').html($('svg').html())
+}
+$(':input[name="realvalueinput"]').change(function() {
+refreshieee(loadieeenumber());
+})
+$(function () { refreshieee(loadieeenumber()) });
+</script>
+</div>
 </div>
 </div>
 <div class="section" id="numbers-in-python">

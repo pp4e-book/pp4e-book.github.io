@@ -20,3 +20,4 @@ Programming with Python for Engineers
    chapters/ch2_programming.md
    chapters/ch3_data_representation.md
    chapters/ch4_dive_into_python.md
+   chapters/ch5_conditional_and_repetitive.md
