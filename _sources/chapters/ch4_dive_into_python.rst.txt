@@ -1820,10 +1820,10 @@ assigning them to variables. First consider the following code:
 .. parsed-literal::
     :class: output
 
-    address of 5:  4342262448
-    address of a:  4342262448
-    address of b:  4342262448
-    address of a:  4342262384
+    address of 5:  4415314608
+    address of a:  4415314608
+    address of b:  4415314608
+    address of a:  4415314544
     b is:  5
 
 
@@ -1854,9 +1854,9 @@ Now keep the task the same but change the data from integer to a list:
 .. parsed-literal::
     :class: output
 
-    addresses of a and b:  4377254592 4377254592
+    addresses of a and b:  4449234304 4449234304
     b is:  [5, 1, 7]
-    addresses of a and b:  4375145984 4377254592
+    addresses of a and b:  4448539200 4449234304
     b is:  [5, 1, 7]
 
 
@@ -1879,9 +1879,9 @@ But now, consider the following slightly different example:
 .. parsed-literal::
     :class: output
 
-    addresses of a and b:  4371163072 4371163072
+    addresses of a and b:  4449200960 4449200960
     b is:  [5, 1, 7]
-    addresses of a and b:  4371163072 4371163072
+    addresses of a and b:  4449200960 4449200960
     b is:  [3, 1, 7]
 
 
@@ -2240,6 +2240,133 @@ this form (with ``dir()`` function):
    >>> import math
    >>> dir(math)
    ['__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'acos', 'acosh', 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'ceil', 'comb', 'copysign', 'cos', 'cosh', 'degrees', 'dist', 'e', 'erf', 'erfc', 'exp', 'expm1', 'fabs', 'factorial', 'floor', 'fmod', 'frexp', 'fsum', 'gamma', 'gcd', 'hypot', 'inf', 'isclose', 'isfinite', 'isinf', 'isnan', 'isqrt', 'ldexp', 'lgamma', 'log', 'log10', 'log1p', 'log2', 'modf', 'nan', 'perm', 'pi', 'pow', 'prod', 'radians', 'remainder', 'sin', 'sinh', 'sqrt', 'tan', 'tanh', 'tau', 'trunc']
+
+Providing your actions to the interpreter
+-----------------------------------------
+
+Python provides different mechanisms for you to provide your actions and
+get them executed.
+
+Directly interacting with the interpreter
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+As we have seen up to now, we can interact with the interpreter directly
+by typing our actions to the interpreter. When you are done with the
+interpreter, you can quit using ``quit()`` or ``exit()`` functions or by
+pressing ``CTRL-D``. E.g.:
+
+.. code:: console
+
+   $ python3
+   Python 3.8.5 (default, Jul 21 2020, 10:48:26)
+   [Clang 11.0.3 (clang-1103.0.32.62)] on darwin
+   Type "help", "copyright", "credits" or "license" for more information.
+   >>> print("Python is fun")
+   Python is fun
+   >>> print("Now I am done")
+   Now I am done
+   >>> quit()
+   $
+
+where we see that after quitting the interpreter, we are back at the
+terminal shell.
+
+Although this way of coding is simple and very interactive, when your
+code gets longer and more complicated, it becomes difficult to manage
+your code. Moreover, when you exit the interpreter, all your actions are
+lost and to be able to run them again, you need to type them again, from
+scratch. This can be tedious, redundant, impractical and inefficient.
+
+Writing actions in a file (script)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Alternatively, we can place our actions in a file with an ``.py``
+extension in the filename as follows:
+
+.. code:: python
+
+   print("This is a Python program that reads two numbers from the user, adds the numbers and prints the result\n\n")
+   [a, b] = input("Enter two numbers: ")
+   print("You have provided: ", a, b)
+   result = a + b
+   print("The sum is: ", result)
+
+Assuming that you save these lines into a file named ``test.py``, you
+can execute those statements from a terminal window as follows:
+
+.. code:: console
+
+   $ cat test.py
+   print("This is a Python program that reads two numbers from the user, adds the numbers and prints the result\n\n")
+   s = input("Enter a list of two numbers [a, b]: ")
+   [a, b] = eval(s)
+   print("You have provided: ", a, b)
+   result = a + b
+   print("The sum is: ", result)
+   $ python3 test.py
+   This is a Python program that reads two numbers from the user, adds the numbers and prints the result
+
+
+   Enter a list of two numbers [a, b]: [3, 4]
+   You have provided:  3 4
+   The sum is:  7
+
+It is possible to provide command-line arguments to your script and use
+the provided values in your script (named ``test.py``):
+
+.. code:: python
+
+   from sys import argv
+
+   print("The arguments of this script are:\n", argv)
+
+   exec(argv[1]) # Get a
+   exec(argv[2]) # Get b
+
+   print("The sum of a and b is: ", a+b)
+
+which can be run as follows:
+
+.. code:: console
+
+   $ python3 test.py a=10 b=20
+   The arguments of this script are:
+    ['test.py', 'a=10', 'b=20']
+   The sum of a and b is:  30
+
+Note that this example used the function ``exec()``, which executes the
+statement provided to the function as a string argument. Compare this
+with the ``eval()`` function that we have introduced before: ``eval()``
+takes an expression whereas ``exec()`` takes a statement.
+
+Writing your actions as libraries (modules)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Another mechanism for executing your actions is to place them into
+libraries (modules) and provide them to Python using ``import``
+statement, as we have illustrated in Section 4.7. For example, if you
+have a ``test.py`` file with the following content:
+
+.. code:: python
+
+   a = 10
+   b = 8
+   sum = a + b
+   print("a + b with a =", a, " and b =", b, " is: ", sum)
+
+In another Python script or in the interpreter, you can directly type:
+
+.. code:: python
+
+   >>> from test import *
+   a + b with a = 10  and b = 8  is:  18
+   >>> a
+   10
+   >>> b
+   8
+
+In other words, what you have defined in ``test.py`` becomes accessible
+after being imported.
 
 Important Concepts
 ------------------
