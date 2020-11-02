@@ -23,7 +23,7 @@ of ‘actions’ where each action can serve two broad purposes:
 
 Irrespective of its purpose, an action can be of two types:
 
--  **Expression**: An expression (e.g. ``3 + 4 * 5``) specifies a
+-  **Expression**: An expression (e.g. ``3 + 4 * 5``) specifies a
    calculation, which, when evaluated (performed), yields some data as a
    result. An expression can consist of:
 
@@ -97,9 +97,9 @@ mixed type operations (e.g. subtracting a floating point
 number form an integer) are also defined. 
 
 In programming, being able to ask questions about data is of vital importance.
-The atomic structures for asking questions are the *comparison operations* (e.g. “is a value equal to another value”, or “is a
+The atomic structures for asking questions are the \ *comparison operations* (e.g. “is a value equal to another value”, or “is a
 value greater than another value”, etc.).
-Operators that serve these purposes do exist in Python and provide resulting values that are ``True`` or ``False`` (Booleans). It is also possible to combine such questions under *logical operations*. The ``and``, ``or`` and ``not`` operators stand for conjunction, disjunction and negation, correspondingly. Needless to say, these operators also return Boolean values. 
+Operators that serve these purposes do exist in Python and provide resulting values that are \ ``True`` or ``False`` (Booleans). It is also possible to combine such questions under *logical operations*. The \ ``and``, \ ``or`` and ``not`` operators stand for conjunction, disjunction and negation, correspondingly. Needless to say, these operators also return Boolean values. 
 
 Numbers in Python
 ~~~~~~~~~~~~~~~~~
@@ -127,7 +127,7 @@ is an essential reminder from the previous chapter):
 
 -  **Complex numbers:** In Python, complex numbers can be created by
    using ``j`` after a floating point number (or integer) to denote the
-   imaginary part: e.g. ``1.5-2.6j`` for the complex number
+   imaginary part: e.g. ``1.5-2.6j`` for the complex number
    :math:`(1.5+2.6i)`. The ``j`` symbol (or :math:`i`) represents
    :math:`\sqrt{-1}`. There are other ways to create complex numbers,
    but this is the most natural way, considering your previous knowledge
@@ -166,13 +166,10 @@ which allows representing numbers in the range
 The following operations can be useful while working with numbers:
 
 -  ``abs(<Number>)``: Takes the absolute value of the number.
-
--  ``pow(<Number1>, <Number2>)``: Takes the power of ``<Number1>``,
-   i.e. :math:`\textrm{<Number1>}^{\textrm{<Number2>}}`
-
+-  ``pow(<Number1>, <Number2>)``: Takes the power of ``<Number1>``, i.e.
+   :math:`\textrm{<Number1>}^{\textrm{<Number2>}}`
 -  ``round(<FloatNumber>)``: Rounds the floating point number to the
    *closest* integer.
-
 -  Functions from the ``math`` library: ``sqrt()``, ``sin()``,
    ``cos()``, ``log()``, etc (see `the Python
    documentation <https://docs.python.org/3/library/math.html>`__ for a
@@ -234,14 +231,17 @@ and ``or`` operations:
 or both of its operands are ``True``. The following table gives result
 of the boolean operations for the given operand pair:
 
-========= ========= =========== ==========
-a         b         a ``and`` b a ``or`` b
-========= ========= =========== ==========
-``True``  ``True``  ``True``    ``True``
-``True``  ``False`` ``False``   ``True``
-``False`` ``True``  ``False``   ``True``
-``False`` ``False`` ``False``   ``False``
-========= ========= =========== ==========
++-----------+-----------+-------------+------------+
+| a         | b         | a ``and`` b | a ``or`` b |
++===========+===========+=============+============+
+| ``True``  | ``True``  | ``True``    | ``True``   |
++-----------+-----------+-------------+------------+
+| ``True``  | ``False`` | ``False``   | ``True``   |
++-----------+-----------+-------------+------------+
+| ``False`` | ``True``  | ``False``   | ``True``   |
++-----------+-----------+-------------+------------+
+| ``False`` | ``False`` | ``False``   | ``False``  |
++-----------+-----------+-------------+------------+
 
 Container data (str, tuple, list, dict, set)
 --------------------------------------------
@@ -499,23 +499,35 @@ newline, and (``\r``) is a carriage return.
 
 .. table:: The list of escape characters in Python.
 
-   =============== =======================================
-   Escape Sequence Meaning
-   =============== =======================================
-   ``\\``          Backslash (``\``)
-   ``\'``          Single quote (``'``)
-   ``\"``          Double quote (``"``)
-   ``\a``          ASCII Bell (BEL)
-   ``\b``          ASCII Backspace (BS)
-   ``\f``          ASCII Formfeed (FF)
-   ``\n``          ASCII Linefeed (LF)
-   ``\r``          ASCII Carriage Return (CR)
-   ``\t``          ASCII Horizontal Tab (TAB)
-   ``\v``          ASCII Vertical Tab (VT)
-   ``\``\ *ooo*    ASCII character with octal value *ooo*
-   ``\x``\ *hh*    ASCII character with hex value *hh*
-   ``\u``\ *hhhh*  UNICODE character with hex value *hhhh*
-   =============== =======================================
+   +-----------------+-----------------------------------------+
+   | Escape Sequence | Meaning                                 |
+   +=================+=========================================+
+   | ``\\``          | Backslash (``\``)                       |
+   +-----------------+-----------------------------------------+
+   | ``\'``          | Single quote (``'``)                    |
+   +-----------------+-----------------------------------------+
+   | ``\"``          | Double quote (``"``)                    |
+   +-----------------+-----------------------------------------+
+   | ``\a``          | ASCII Bell (BEL)                        |
+   +-----------------+-----------------------------------------+
+   | ``\b``          | ASCII Backspace (BS)                    |
+   +-----------------+-----------------------------------------+
+   | ``\f``          | ASCII Formfeed (FF)                     |
+   +-----------------+-----------------------------------------+
+   | ``\n``          | ASCII Linefeed (LF)                     |
+   +-----------------+-----------------------------------------+
+   | ``\r``          | ASCII Carriage Return (CR)              |
+   +-----------------+-----------------------------------------+
+   | ``\t``          | ASCII Horizontal Tab (TAB)              |
+   +-----------------+-----------------------------------------+
+   | ``\v``          | ASCII Vertical Tab (VT)                 |
+   +-----------------+-----------------------------------------+
+   | ``\``\ *ooo*    | ASCII character with octal value *ooo*  |
+   +-----------------+-----------------------------------------+
+   | ``\x``\ *hh*    | ASCII character with hex value *hh*     |
+   +-----------------+-----------------------------------------+
+   | ``\u``\ *hhhh*  | UNICODE character with hex value *hhhh* |
+   +-----------------+-----------------------------------------+
 
 
 Conversely, prefixing a special character with (``\``) turns it into an
@@ -841,9 +853,9 @@ created, it is not possible to change, delete or insert any element in a
 tuple.
 
 Lists are created by enclosing elements into a pair of brackets and
-separating them with commas, e.g. ``["this", "is", "a", "list"]``.
+separating them with commas, e.g. ``["this", "is", "a", "list"]``.
 Tuples are created by enclosing elements into a pair of parentheses,
-e.g. ``("this", "is", "a", "tuple")``. There is no restriction on the
+e.g. ``("this", "is", "a", "tuple")``. There is no restriction on the
 elements: They can be any data (basic or container).
 
 Let us look at some examples for lists:
@@ -893,7 +905,7 @@ As far as deletion is concerned, you can use two methods:
 .. code:: python
 
    >>> L = [111,222,333,444,555,666]
-   >>> L[2:5] = []
+   >>> L[1:5] = []
    >>> print(L)
    [111, 666]
 
@@ -902,7 +914,7 @@ As far as deletion is concerned, you can use two methods:
 .. code:: python
 
    >>> L = [111,222,333,444,555,666]
-   >>> del L[2:5]
+   >>> del L[1:5]
    >>> print(L)
    [111, 666]
 
@@ -1018,8 +1030,8 @@ them in a regular grid structure that we call matrix:
    a_{m1} & a_{m2} & ... & a_{mn}
    \end{pmatrix},
 
-which has :math:`n` columns and :math:`m` rows, and we generally shorten
-this as :math:`m\times n` and say that matrix :math:`A` has size
+ which has :math:`n` columns and :math:`m` rows, and we generally
+shorten this as :math:`m\times n` and say that matrix :math:`A` has size
 :math:`m\times n`. The following set of equations describe relations
 among a set of variables and called system of equations:
 
@@ -1032,7 +1044,7 @@ among a set of variables and called system of equations:
    x + y + z & = &  0,\\
    \end{array}
 
-which can be represented with matrices as:
+ which can be represented with matrices as:
 
 .. math::
 
@@ -1053,7 +1065,7 @@ which can be represented with matrices as:
    0
    \end{pmatrix} ,
 
-which defines the same problems in terms of matrices and matrix
+ which defines the same problems in terms of matrices and matrix
 multiplication. It is okay if you are not familiar with matrix
 multiplication – we will briefly explain it and use it as an example in
 the next chapter.
@@ -1301,7 +1313,7 @@ Operations can be graphically illustrated as follows:
 
       \Box_1 \odot \Box_2
 
-where :math:`\odot` is called the operator, and :math:`\Box_1` and
+ where :math:`\odot` is called the operator, and :math:`\Box_1` and
 :math:`\Box_2` are called operands. This was a binary operator; i.e. it
 acted on two operands.
 
@@ -1312,7 +1324,7 @@ We can also have unary operators:
 
       \odot \Box
 
-or operators that have more than two operands (see chained comparison
+ or operators that have more than two operands (see chained comparison
 operators below).
 
 Before we can cover how such operations are evaluated, let us look at
@@ -1337,28 +1349,45 @@ repetition.
 .. table:: Arithmetic, Logic, Container and Comparison operators in
    Python.
 
-   ========== ============================ =========================
-    Operator   Operation                    Result Type
-   ========== ============================ =========================
-    ``[]``    Indexing                     Any data type
-    ``**``     Exponentiation               Numeric 
-   ``*``      Multiplication or Repetition  Numeric or container 
-   ``/``      Division                      Numeric (floating point)
-   ``//``     Integer Division              Numeric (integer) 
-   ``+``      Addition or concatenation     Numeric or container
-   ``-``      Subtraction                   Numeric 
-   ``<``      Less than                      Boolean 
-   ``<=``     Less than or equal to          Boolean 
-   ``>``      Greater than                  Boolean 
-   ``>=``     Greater than or equal to      Boolean 
-   ``==``     is equal to                    Boolean 
-   ``!=``     is not equal to                Boolean 
-   ``in``     is a member                  Boolean
-   ``not in`` is not a member              Boolean
-   ``not``    logical negation               Boolean 
-   ``and``    logical and                    Boolean 
-   ``or``     logical or                    Boolean 
-   ========== ============================ =========================
+   +------------+------------------------------+---------------------------+
+   |  Operator  |  Operation                   |  Result Type              |
+   +============+==============================+===========================+
+   |  ``[]``    | Indexing                     | Any data type             |
+   +------------+------------------------------+---------------------------+
+   |  ``**``    |  Exponentiation              |  Numeric                  |
+   +------------+------------------------------+---------------------------+
+   | ``*``      | Multiplication or Repetition |  Numeric or container     |
+   +------------+------------------------------+---------------------------+
+   | ``/``      | Division                     |  Numeric (floating point) |
+   +------------+------------------------------+---------------------------+
+   | ``//``     | Integer Division             |  Numeric (integer)        |
+   +------------+------------------------------+---------------------------+
+   | ``+``      | Addition or concatenation    |  Numeric or container     |
+   +------------+------------------------------+---------------------------+
+   | ``-``      | Subtraction                  |  Numeric                  |
+   +------------+------------------------------+---------------------------+
+   | ``<``      | Less than                    |   Boolean                 |
+   +------------+------------------------------+---------------------------+
+   | ``<=``     | Less than or equal to        |   Boolean                 |
+   +------------+------------------------------+---------------------------+
+   | ``>``      | Greater than                 |  Boolean                  |
+   +------------+------------------------------+---------------------------+
+   | ``>=``     | Greater than or equal to     |  Boolean                  |
+   +------------+------------------------------+---------------------------+
+   | ``==``     | is equal to                  |   Boolean                 |
+   +------------+------------------------------+---------------------------+
+   | ``!=``     | is not equal to              |   Boolean                 |
+   +------------+------------------------------+---------------------------+
+   | ``in``     | is a member                  | Boolean                   |
+   +------------+------------------------------+---------------------------+
+   | ``not in`` | is not a member              | Boolean                   |
+   +------------+------------------------------+---------------------------+
+   | ``not``    | logical negation             |   Boolean                 |
+   +------------+------------------------------+---------------------------+
+   | ``and``    | logical and                  |   Boolean                 |
+   +------------+------------------------------+---------------------------+
+   | ``or``     | logical or                   |  Boolean                  |
+   +------------+------------------------------+---------------------------+
 
 
 Below are some illustrations:
@@ -1394,7 +1423,7 @@ Evaluating Expressions
 
 In the previous section, we have seen simple use of operators in an
 expression. In many cases, we combine several operators for brevity and
-readability, e.g. ``2.3 + 3.4 * 4.5``. This expression can be evaluated
+readability, e.g. ``2.3 + 3.4 * 4.5``. This expression can be evaluated
 in two different ways:
 
 -  ``(2.3 + 3.4) * 4.5``, which would yield 25.65.
@@ -1423,44 +1452,45 @@ are listed in :numref:`tbl_precedence_associativity`.
 .. table:: Precedence and associativity for the operators in
    :numref:`tbl_operators`.
 
-   +--------------------------+--------------+--------------------------+
-   |  Operator                |  Precedence  |  Associativity           |
-   +==========================+==============+==========================+
-   | ``[]``                   | 1.           | Left-to-right            |
-   +--------------------------+--------------+--------------------------+
-   |  ``**``                  |  2.          |  Right-to-left           |
-   +--------------------------+--------------+--------------------------+
-   | ``*``, ``/``, ``//``,    | 3.           |  Left-to-right           |
-   | ``%``                    |              |                          |
-   +--------------------------+--------------+--------------------------+
-   | ``+``, ``-``             | 4.           | Left-to-right            |
-   +--------------------------+--------------+--------------------------+
-   | ``<``, ``<=``, ``>``,    |  5.          | Special                  |
-   | ``>=``, ``==``, ``!=``,  |              |                          |
-   | ``in``, ``not in``       |              |                          |
-   +--------------------------+--------------+--------------------------+
-   | ``not``                  |  6.          | Unary                    |
-   +--------------------------+--------------+--------------------------+
-   | ``and``                  |  7.          | Left-to-right            |
-   |                          |              | (with short-cut)         |
-   +--------------------------+--------------+--------------------------+
-   | ``or``                   |  8.          | Left-to-right            |
-   |                          |              | (with short-cut)         |
-   +--------------------------+--------------+--------------------------+
+   +-----------------------+-----------------------+-----------------------+
+   |  Operator             |  Precedence           |  Associativity        |
+   +=======================+=======================+=======================+
+   | ``[]``                | 1.                    | Left-to-right         |
+   +-----------------------+-----------------------+-----------------------+
+   |  ``**``               |  2.                   |  Right-to-left        |
+   +-----------------------+-----------------------+-----------------------+
+   | ``*``, ``/``, ``//``, | 3.                    |  Left-to-right        |
+   | ``%``                 |                       |                       |
+   +-----------------------+-----------------------+-----------------------+
+   | ``+``, ``-``          | 4.                    | Left-to-right         |
+   +-----------------------+-----------------------+-----------------------+
+   | ``<``, ``<=``, ``>``, |  5.                   | Special               |
+   | ``>=``, ``==``,       |                       |                       |
+   | ``!=``, ``in``,       |                       |                       |
+   | ``not in``            |                       |                       |
+   +-----------------------+-----------------------+-----------------------+
+   | ``not``               |  6.                   | Unary                 |
+   +-----------------------+-----------------------+-----------------------+
+   | ``and``               |  7.                   | Left-to-right         |
+   |                       |                       | (with short-cut)      |
+   +-----------------------+-----------------------+-----------------------+
+   | ``or``                |  8.                   | Left-to-right         |
+   |                       |                       | (with short-cut)      |
+   +-----------------------+-----------------------+-----------------------+
 
 
 Therefore, according to :numref:`tbl_precedence_associativity`, a
-sophisticated expression such as ``2**3**4*5-2//2-1`` is equivalent to
+sophisticated expression such as \ ``2**3**4*5-2//2-1`` is equivalent to
 ``2**81*5-1-1`` which is equivalent to
 ``12089258196146291747061760-2`` which
-is ``12089258196146291747061758``.
+is \ ``12089258196146291747061758``.
 
 Below are some notes and explanations regarding expression evaluation:
 
-(i) The *Special* keyword in
+(i) The \ *Special* keyword in
     :numref:`tbl_precedence_associativity` means some treatment which is common to mathematics but not programming. 
     In that sense Python is unique among commonly used programming languages. 
-    If :math:`\odot_i` is any boolean comparison operator and :math:`\Box_j` is any numerical expression, the sequence of
+    If \ :math:`\odot_i` is any boolean comparison operator and :math:`\Box_j` is any numerical expression, the sequence of
 
 .. math::
 
@@ -1475,10 +1505,10 @@ is interpreted as:
       \Box_1 \odot_{\scriptsize\mathsf 1} \Box_2 \;\;\mathtt{and}\;\;\; \Box_2 \odot_{\scriptsize\mathsf 2} \Box_3\;\;  \mathtt{and} \;\;\; \Box_3 \odot_{\scriptsize\mathsf 3} \Box_4 \;\;\;\cdots \;\;\; \Box_{n-1} 
    \odot_{n-\scriptsize\mathsf 1} \Box_n
 
-(ii)  It is **always** possible to override the precedence by making use of parenthesis. We are familiar
+(ii)  It is \ **always** possible to override the precedence by making use of parenthesis. We are familiar
       with this since our primary school days.
 
-(iii) If two numeric operands are of the same type, then the result is of that type unless the operator is ``/`` (for which the result is always a
+(iii) If two numeric operands are of the same type, then the result is of that type unless the operator is \ ``/`` (for which the result is always a
       floating point number). Also comparison operators return ``bool``
       typed values.
 
@@ -1494,20 +1524,20 @@ is interpreted as:
    If so, that one is converted to integer. 
 
 (v) Except for
-    the two logical operators ``and`` and ``or``, all operators have an evaluation scheme which is coined as *eager evaluation*. 
+    the two logical operators \ ``and`` and ``or``, all operators have an evaluation scheme which is coined as \ *eager evaluation*. 
     Eager evaluation is the strategy where all operands are evaluated first and then the semantics of the operators kicks in, providing the result. 
     Here is an example: Consider mathematical expression of:
     ``0*(2**150-3**95)``
     As a human being, our immediate reaction would be: 
-    Anything multiplied with ``0`` (zero) is ``0``, therefore we do not have to compute the two huge exponentiations (the second operand). 
+    Anything multiplied with \ ``0`` (zero) is ``0``, therefore we do not have to compute the two huge exponentiations (the second operand). 
     This is
-    taking a *short-cut* in evaluation and is certainly **far from** eager evaluation. 
+    taking a \ *short-cut* in evaluation and is certainly **far from** eager evaluation. 
     Eager evaluation would evaluate the internals of the parenthesis, 
-    obtain ``-693647454339354238433323618063349607247325483`` and then multiply this with ``0`` to obtain ``0``. 
+    obtain \ ``-693647454339354238433323618063349607247325483`` and then multiply this with ``0`` to obtain ``0``. 
     Yes, Python  would go this ‘less intelligent’ way and do eager evaluation.
-    The logical operators ``and`` and ``or``, though, **do not** adopt eager evaluation.
+    The logical operators \ ``and`` and ``or``, though, \ **do not** adopt eager evaluation.
     On
-    the contrary, they use *short-cuts* (this is known as *based-on-need evaluation* in computer science).
+    the contrary, they use \ *short-cuts* (this is known as *based-on-need evaluation* in computer science).
 
 In a conjunctive expression like:
 
@@ -1696,8 +1726,8 @@ This is internally handled by Python with tuples and equivalent to:
    >>> b
    4
 
-This is called *tuple matching* and would also work with lists
-(i.e. ``[a, b] = [3, 4]``).
+This is called *tuple matching* and would also work with lists (i.e.
+``[a, b] = [3, 4]``).
 
 **Swapping values of variables** Tuple matching has a very practical
 benefit: Let us say you want to swap the values in variables. Normally,
@@ -1803,7 +1833,7 @@ Variables & Aliasing
 There is something peculiar about lists that we need to be careful while
 assigning them to variables. First consider the following code:
 
-“The first example”
+ “The first example”
 
 .. code:: python
 
@@ -1820,10 +1850,10 @@ assigning them to variables. First consider the following code:
 .. parsed-literal::
     :class: output
 
-    address of 5:  4415314608
-    address of a:  4415314608
-    address of b:  4415314608
-    address of a:  4415314544
+    address of 5:  9062752
+    address of a:  9062752
+    address of b:  9062752
+    address of a:  9062688
     b is:  5
 
 
@@ -1838,7 +1868,7 @@ which is printed.
 
 Now keep the task the same but change the data from integer to a list:
 
-“The second example”
+ “The second example”
 
 .. code:: python
 
@@ -1854,16 +1884,16 @@ Now keep the task the same but change the data from integer to a list:
 .. parsed-literal::
     :class: output
 
-    addresses of a and b:  4449234304 4449234304
+    addresses of a and b:  140206662358472 140206662358472
     b is:  [5, 1, 7]
-    addresses of a and b:  4448539200 4449234304
+    addresses of a and b:  140206662358856 140206662358472
     b is:  [5, 1, 7]
 
 
 In other words, this works similar to the first example, as expected.
 But now, consider the following slightly different example:
 
-“The third example”
+ “The third example”
 
 .. code:: python
 
@@ -1879,9 +1909,9 @@ But now, consider the following slightly different example:
 .. parsed-literal::
     :class: output
 
-    addresses of a and b:  4449200960 4449200960
+    addresses of a and b:  140206662332296 140206662332296
     b is:  [5, 1, 7]
-    addresses of a and b:  4449200960 4449200960
+    addresses of a and b:  140206662332296 140206662332296
     b is:  [3, 1, 7]
 
 
@@ -1923,11 +1953,11 @@ Here are a few examples for variable names (all are different):
 +-------------+-------------+-------------+-------------+-------------+
 | ``y``       | ``y1``      | ``Y``       | ``Y_1``     | ``_1``      |
 +-------------+-------------+-------------+-------------+-------------+
-| ``te        | ``temperat  | ``Tempera   | ``C         | ``coo       |
-| mperature`` | ure_today`` | tureToday`` | umulative`` | rdinate_x`` |
+| ``temperatu | ``temperatu | ``Temperatu | ``Cumulativ | ``coordinat |
+| re``        | re_today``  | reToday``   | e``         | e_x``       |
 +-------------+-------------+-------------+-------------+-------------+
-| ``a1b145c`` | ``a         | ``s_s_``    | ``_``       | ``___``     |
-|             | 1_b1_45_c`` |             |             |             |
+| ``a1b145c`` | ``a1_b1_45_ | ``s_s_``    | ``_``       | ``___``     |
+|             | c``         |             |             |             |
 +-------------+-------------+-------------+-------------+-------------+
 
 As you might have recognized, though they are perfectly valid, the five
@@ -1975,24 +2005,28 @@ with:
    these:
 
    -  Put all words into lowercase, affix them using ``_`` as separator
-      (e.g. ``highest_midterm_grade``,
+      (e.g. ``highest_midterm_grade``,
       ``shortest_path_distance_up_to_now``).
    -  Put all words but the first into first-capitalized-case, put the
       first one into lowercase, affix them without using any separator
-      (e.g.\ ``highestMidtermGrade``, ``shortestPathDistanceUpToNow``).
+      (e.g.``highestMidtermGrade``, ``shortestPathDistanceUpToNow``).
 
 **Reserved names**
 
 The following keywords are being used by Python already and therefore,
 you cannot use them to name your variables.
 
-======== ====== ======= ====== ===== ======
-and      def    exec    if     not   return
-assert   del    finally import or    try
-break    elif   for     in     pass  while
-class    else   from    is     print yield
-continue except global  lambda raise 
-======== ====== ======= ====== ===== ======
++----------+--------+---------+--------+-------+--------+
+| and      | def    | exec    | if     | not   | return |
++----------+--------+---------+--------+-------+--------+
+| assert   | del    | finally | import | or    | try    |
++----------+--------+---------+--------+-------+--------+
+| break    | elif   | for     | in     | pass  | while  |
++----------+--------+---------+--------+-------+--------+
+| class    | else   | from    | is     | print | yield  |
++----------+--------+---------+--------+-------+--------+
+| continue | except | global  | lambda | raise |        |
++----------+--------+---------+--------+-------+--------+
 
 Other Basic Statements
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -2193,17 +2227,23 @@ functions and constant definitions which you can access using
 
 Below is a short list of libraries that might be useful:
 
-========== ==========================================================
-Library    Description
-========== ==========================================================
-math       Mathematical functions and definitions
-cmath      Mathematical functions and definitions for complex numbers
-fractions  Rational numbers and arithmetic
-random     Random number generation
-statistics Statistical functions
-os         Operating system functionalities
-time       Time access and conversion functionalities
-========== ==========================================================
++------------+------------------------------------------------------------+
+| Library    | Description                                                |
++============+============================================================+
+| math       | Mathematical functions and definitions                     |
++------------+------------------------------------------------------------+
+| cmath      | Mathematical functions and definitions for complex numbers |
++------------+------------------------------------------------------------+
+| fractions  | Rational numbers and arithmetic                            |
++------------+------------------------------------------------------------+
+| random     | Random number generation                                   |
++------------+------------------------------------------------------------+
+| statistics | Statistical functions                                      |
++------------+------------------------------------------------------------+
+| os         | Operating system functionalities                           |
++------------+------------------------------------------------------------+
+| time       | Time access and conversion functionalities                 |
++------------+------------------------------------------------------------+
 
 Of course, the list is too wide and it is not practical to list and
 explain all libraries here. The interested reader is direct to to check
@@ -2212,7 +2252,7 @@ docs <https://docs.python.org/3/library/>`__.
 
 The ``import`` statement that we used above loads the library and makes
 its contents directly accessible to us by directly using their names
-(e.g. ``sin(pi)``). Alternatively, we can do the following:
+(e.g. ``sin(pi)``). Alternatively, we can do the following:
 
 .. code:: python
 

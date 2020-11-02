@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     
-    <title>5. Conditional and Repetitive Execution &#8212; Programming with Python for Engineers 0.0.1 documentation</title>
+    <title>4. Conditional and Repetitive Execution &#8212; Programming with Python for Engineers 0.0.1 documentation</title>
 
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -27,14 +27,14 @@
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="4. Dive into Python" href="ch4_dive_into_python.html" /> 
+    <link rel="prev" title="3. Dive into Python" href="ch4_dive_into_python.html" /> 
   </head>
 <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
     <div class="mdl-layout__header-row">
         
         <nav class="mdl-navigation breadcrumb">
-            <a class="mdl-navigation__link is-active"><span class="section-number">5. </span>Conditional and Repetitive Execution</a>
+            <a class="mdl-navigation__link is-active"><span class="section-number">4. </span>Conditional and Repetitive Execution</a>
         </nav>
         <div class="mdl-layout-spacer"></div>
         <nav class="mdl-navigation">
@@ -112,9 +112,9 @@ Show Source
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ch1_computer_organization.html">1. Basic Computer Organization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch2_programming.html">2. A Broad Look at Programming and Programming Languages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch3_data_representation.html">3. Representation of Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch4_dive_into_python.html">4. Dive into Python</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Conditional and Repetitive Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch3_data_representation.html">Representation of Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch4_dive_into_python.html">3. Dive into Python</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Conditional and Repetitive Execution</a></li>
 </ul>
 
             </nav>
@@ -147,9 +147,9 @@ Show Source
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ch1_computer_organization.html">1. Basic Computer Organization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch2_programming.html">2. A Broad Look at Programming and Programming Languages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch3_data_representation.html">3. Representation of Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch4_dive_into_python.html">4. Dive into Python</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Conditional and Repetitive Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch3_data_representation.html">Representation of Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch4_dive_into_python.html">3. Dive into Python</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Conditional and Repetitive Execution</a></li>
 </ul>
 
             </nav>
@@ -162,7 +162,7 @@ Show Source
         <div class="page-content" role="main">
         
   <div class="section" id="conditional-and-repetitive-execution">
-<h1><span class="section-number">5. </span>Conditional and Repetitive Execution<a class="headerlink" href="#conditional-and-repetitive-execution" title="Permalink to this headline">¶</a><a href="https://colab.research.google.com/github/pp4e-book/pp4e-book.github.io/blob/master/chapters/ch5_conditional_and_repetitive.ipynb" onclick="captureOutboundLink('https://colab.research.google.com/github/['pp4e-book/pp4e-book.github.io']/blob/master/chapters/ch5_conditional_and_repetitive.ipynb'); return false;"> <button style="float:right", id="Colab" class="mdl-button mdl-js-button mdl-button--primary mdl-js-ripple-effect"> <i class=" fas fa-external-link-alt"></i> Colab </button></a><div class="mdl-tooltip" data-mdl-for="Colab"> Open the notebook in Colab</div></h1>
+<h1><span class="section-number">4. </span>Conditional and Repetitive Execution<a class="headerlink" href="#conditional-and-repetitive-execution" title="Permalink to this headline">¶</a><a href="https://colab.research.google.com/github/['pp4e-book/pp4e-book.github.io']/blob/master/chapters/ch5_conditional_and_repetitive.ipynb" onclick="captureOutboundLink('https://colab.research.google.com/github/['pp4e-book/pp4e-book.github.io']/blob/master/chapters/ch5_conditional_and_repetitive.ipynb'); return false;"> <button style="float:right", id="Colab" class="mdl-button mdl-js-button mdl-button--primary mdl-js-ripple-effect"> <i class=" fas fa-external-link-alt"></i> Colab </button></a><div class="mdl-tooltip" data-mdl-for="Colab"> Open the notebook in Colab</div></h1>
 <p>Many circumstances require the execution to change its flow based on the
 truth value of a condition or to repeat a set of steps for a number of
 items or until a condition is not true any more. These two kinds of
@@ -172,13 +172,13 @@ chapter, some of these alternatives are compound statements, i.e. they
 include other statements as part of the statement, whereas others are
 expressions.</p>
 <div class="section" id="conditional-execution">
-<h2><span class="section-number">5.1. </span>Conditional execution<a class="headerlink" href="#conditional-execution" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1. </span>Conditional execution<a class="headerlink" href="#conditional-execution" title="Permalink to this headline">¶</a></h2>
 <p>Asking (mostly) mathematical questions that have Boolean type answers
 and taking some actions (or not) based on the Boolean answers are
 crucial tools in designing algorithms. This is so vital that there is no
 single programming language that does not provide conditional execution.</p>
 <div class="section" id="if-statement">
-<h3><span class="section-number">5.1.1. </span><code class="docutils literal notranslate"><span class="pre">if</span></code> statement<a class="headerlink" href="#if-statement" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.1. </span><code class="docutils literal notranslate"><span class="pre">if</span></code> statement<a class="headerlink" href="#if-statement" title="Permalink to this headline">¶</a></h3>
 <p>The syntax of the conditional (<code class="docutils literal notranslate"><span class="pre">if</span></code>) statement is</p>
 <p><code class="docutils literal notranslate"><span class="pre">if</span></code> <span class="math notranslate nohighlight">\(\boxed{\color{red}{Boolean\ expression\strut\ }}\)</span> <code class="docutils literal notranslate"><span class="pre">:</span></code>
 <span class="math notranslate nohighlight">\(\boxed{\color{red}{Statement\strut\ }}\)</span></p>
@@ -186,9 +186,9 @@ single programming language that does not provide conditional execution.</p>
 <span class="math notranslate nohighlight">\(\color{red}{Boolean\ expression}\)</span> evaluates to <code class="docutils literal notranslate"><span class="pre">True</span></code>, then the
 <span class="math notranslate nohighlight">\(\color{red}{Statement}\)</span> is carried out; otherwise
 <span class="math notranslate nohighlight">\(\color{red}{Statement}\)</span> is not executed.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hurray&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hurray&quot;</span><span class="p">)</span>
 <span class="go">Hurray</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No I will not believe that !&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="s2">&quot;No I will not believe that !&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>We observe that the Boolean expression in the last example evaluates to
@@ -220,12 +220,12 @@ recommend you to choose a style of indentation (e.g. 4 whitespaces or a
 single tab) and stick to it as a programming style.</p>
 <p>Here is an example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="mi">7</span><span class="o">*</span><span class="mi">6</span><span class="p">)</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hurray&quot;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="mi">7</span><span class="o">*</span><span class="mi">6</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hurray&quot;</span><span class="p">)</span>
 <span class="gp">... </span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">6</span>
 <span class="go">42</span>
 <span class="go">Hurray</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="go">6</span>
 </pre></div>
 </div>
@@ -235,10 +235,10 @@ them, of course they will not show up. If you type in these small
 programs (we call them <em>snippets</em>) just ignore the <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">...</span></code>
 from the examples, as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
-  <span class="nb">print</span><span class="p">(</span><span class="mi">7</span><span class="o">*</span><span class="mi">6</span><span class="p">)</span>
-  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hurray&quot;</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="mi">7</span><span class="o">*</span><span class="mi">6</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hurray&quot;</span><span class="p">)</span>
   <span class="n">x</span> <span class="o">=</span> <span class="mi">6</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">42</span>
@@ -250,8 +250,8 @@ from the examples, as follows:</p>
 to be able to define actions that should be carried out in case a
 Boolean expression turns out to be <code class="docutils literal notranslate"><span class="pre">False</span></code>. If it were not provided,
 we would have to ask the same question again, but this time negated:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;still it is six&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">6</span><span class="p">):</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;it is no more six&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="s2">&quot;still it is six&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">6</span><span class="p">):</span> <span class="k">print</span><span class="p">(</span><span class="s2">&quot;it is no more six&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>One of them will certainly fire (be true). Although this is a feasible
@@ -261,15 +261,15 @@ into one <code class="docutils literal notranslate"><span class="pre">if-else</s
 <span class="math notranslate nohighlight">\(\boxed{\color{red}{Statement\strut\ }}\)</span></p>
 <p><code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">:</span></code> <span class="math notranslate nohighlight">\(\boxed{\color{red}{Statement\strut\ }}\)</span></p>
 <p>Making use of the <code class="docutils literal notranslate"><span class="pre">else</span></code> part, the last example would be written as:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;still it is six&quot;</span><span class="p">)</span>
-<span class="gp">... </span><span class="k">else</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;it is no more six&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="s2">&quot;still it is six&quot;</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">else</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="s2">&quot;it is no more six&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Of course, using multiple statements in the <code class="docutils literal notranslate"><span class="pre">if</span></code> part or the <code class="docutils literal notranslate"><span class="pre">else</span></code>
 part is possible by intending them to the same level.</p>
 </div>
 <div class="section" id="exercise">
-<h3><span class="section-number">5.1.2. </span>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.2. </span>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h3>
 <p>In the following code cell, you are expected to insert a couple of lines
 so that the output is always the absolute value of N (try the program
 for various values of N by altering the right-hand side of the
@@ -283,31 +283,31 @@ assignment):</p>
 </div>
 </div>
 <div class="section" id="nested-if-statements">
-<h3><span class="section-number">5.1.3. </span>Nested if statements<a class="headerlink" href="#nested-if-statements" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.3. </span>Nested if statements<a class="headerlink" href="#nested-if-statements" title="Permalink to this headline">¶</a></h3>
 <p>It is quite possible to nest <code class="docutils literal notranslate"><span class="pre">if-else</span></code> statements: i.e. combine
 multiple <code class="docutils literal notranslate"><span class="pre">if-else</span></code> statements within each other. There is no practical
 limit to the depth of nesting. This enables us to code a structure,
 called a <em>decision tree</em>. A decision tree is a set of binary questions &amp;
 answers where at every case of an answer either a new question is asked
-or an action is carried out. <a class="reference internal" href="#ch5-decision-tree"><span class="std std-numref">Fig. 5.1.1</span></a> displays such
+or an action is carried out. <a class="reference internal" href="#ch5-decision-tree"><span class="std std-numref">Fig. 4.1.1</span></a> displays such
 a decision tree for <em>forecasting rain</em> based on the temperature, wind
 and air pressure values.</p>
 <div class="figure align-default" id="id1">
 <span id="ch5-decision-tree"></span><img alt="../_images/ch5_DecisionTree.png" src="../_images/ch5_DecisionTree.png" />
-<p class="caption"><span class="caption-number">Fig. 5.1.1 </span><span class="caption-text">An example decision tree.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 4.1.1 </span><span class="caption-text">An example decision tree.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
-<p>The tree in <a class="reference internal" href="#ch5-decision-tree"><span class="std std-numref">Fig. 5.1.1</span></a> can be coded as nested
+<p>The tree in <a class="reference internal" href="#ch5-decision-tree"><span class="std std-numref">Fig. 4.1.1</span></a> can be coded as nested
 <code class="docutils literal notranslate"><span class="pre">if-else</span></code> statements:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">21</span><span class="p">:</span>
      <span class="k">if</span> <span class="n">wind</span> <span class="o">&gt;</span> <span class="mf">3.2</span><span class="p">:</span>
-          <span class="k">if</span> <span class="n">pressure</span> <span class="o">&gt;</span> <span class="mi">66</span><span class="p">:</span> <span class="n">rain</span> <span class="o">=</span> <span class="kc">True</span>
-          <span class="k">else</span><span class="p">:</span> <span class="n">rain</span> <span class="o">=</span> <span class="kc">False</span>
-     <span class="k">else</span><span class="p">:</span> <span class="n">rain</span> <span class="o">=</span> <span class="kc">False</span>
+          <span class="k">if</span> <span class="n">pressure</span> <span class="o">&gt;</span> <span class="mi">66</span><span class="p">:</span> <span class="n">rain</span> <span class="o">=</span> <span class="bp">True</span>
+          <span class="k">else</span><span class="p">:</span> <span class="n">rain</span> <span class="o">=</span> <span class="bp">False</span>
+     <span class="k">else</span><span class="p">:</span> <span class="n">rain</span> <span class="o">=</span> <span class="bp">False</span>
 <span class="k">else</span><span class="p">:</span>
-     <span class="k">if</span> <span class="n">wind</span> <span class="o">&gt;</span> <span class="mf">7.2</span><span class="p">:</span> <span class="n">rain</span> <span class="o">=</span> <span class="kc">True</span>
+     <span class="k">if</span> <span class="n">wind</span> <span class="o">&gt;</span> <span class="mf">7.2</span><span class="p">:</span> <span class="n">rain</span> <span class="o">=</span> <span class="bp">True</span>
      <span class="k">else</span><span class="p">:</span>
-          <span class="k">if</span> <span class="n">pressure</span> <span class="o">&gt;</span> <span class="mi">79</span><span class="p">:</span> <span class="n">rain</span> <span class="o">=</span> <span class="kc">True</span>
-          <span class="k">else</span><span class="p">:</span> <span class="n">rain</span> <span class="o">=</span> <span class="kc">False</span>
+          <span class="k">if</span> <span class="n">pressure</span> <span class="o">&gt;</span> <span class="mi">79</span><span class="p">:</span> <span class="n">rain</span> <span class="o">=</span> <span class="bp">True</span>
+          <span class="k">else</span><span class="p">:</span> <span class="n">rain</span> <span class="o">=</span> <span class="bp">False</span>
 </pre></div>
 </div>
 <p>Sometimes the <code class="docutils literal notranslate"><span class="pre">else</span></code> case contains another <code class="docutils literal notranslate"><span class="pre">if</span></code> which has an
@@ -321,22 +321,22 @@ serves as a combined keyword for the <code class="docutils literal notranslate">
 <p><code class="docutils literal notranslate"><span class="pre">elif</span></code> <span class="math notranslate nohighlight">\(\boxed{\color{red}{Boolean\ expression_n\strut}}\)</span> <code class="docutils literal notranslate"><span class="pre">:</span></code>
 <span class="math notranslate nohighlight">\(\boxed{\color{red}{Statement_n\strut}}\)</span></p>
 <p><code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">:</span></code> <span class="math notranslate nohighlight">\(\boxed{\color{red}{Statement_{otherwise}\strut}}\)</span></p>
-<p>The flowchart in <a class="reference internal" href="#ch5-elif"><span class="std std-numref">Fig. 5.1.2</span></a> explains the semantics of the
+<p>The flowchart in <a class="reference internal" href="#ch5-elif"><span class="std std-numref">Fig. 4.1.2</span></a> explains the semantics of the
 <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code> combination.</p>
 <div class="figure align-default" id="id2">
 <span id="ch5-elif"></span><img alt="../_images/ch5_elifFlowchart.png" src="../_images/ch5_elifFlowchart.png" />
-<p class="caption"><span class="caption-number">Fig. 5.1.2 </span><span class="caption-text">The semantics of the <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code> combination.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 4.1.2 </span><span class="caption-text">The semantics of the <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code> combination.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <p>There is no restriction on how many <code class="docutils literal notranslate"><span class="pre">elif</span></code> statements are used.
 Furthermore, the presence of the last statement (the <code class="docutils literal notranslate"><span class="pre">else</span></code>) is
 optional.</p>
 </div>
 <div class="section" id="practice">
-<h3><span class="section-number">5.1.4. </span>Practice<a class="headerlink" href="#practice" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.4. </span>Practice<a class="headerlink" href="#practice" title="Permalink to this headline">¶</a></h3>
 <p>Let us assume that you have a value assigned to a variable <code class="docutils literal notranslate"><span class="pre">x</span></code>. Based
 on this value, a variable <code class="docutils literal notranslate"><span class="pre">s</span></code> is going to be set as:</p>
 <div class="math notranslate nohighlight" id="equation-chapters-ch5-conditional-and-repetitive-0">
-<span class="eqno">(5.1.1)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-0" title="Permalink to this equation">¶</a></span>\[\begin{split}\mathtt{s} =
+<span class="eqno">(4.1.1)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-0" title="Permalink to this equation">¶</a></span>\[\begin{split}\mathtt{s} =
 \left\{
   \begin{array}{ll}
    (\mathtt{x}+1)^2, &amp;  \mathtt{x}&lt;1 \\
@@ -354,7 +354,7 @@ on this value, a variable <code class="docutils literal notranslate"><span class
 <span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span> <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
 <span class="k">else</span><span class="p">:</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;s is: &quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;s is: &quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="ow">is</span><span class="p">:</span>  <span class="mf">3.24037034920393</span>
@@ -362,7 +362,7 @@ on this value, a variable <code class="docutils literal notranslate"><span class
 </div>
 </div>
 <div class="section" id="conditional-expression">
-<h3><span class="section-number">5.1.5. </span>Conditional expression<a class="headerlink" href="#conditional-expression" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.5. </span>Conditional expression<a class="headerlink" href="#conditional-expression" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">if</span></code> statement does not return a value. As said, that is so for
 all statements. They do not have a value of their own. A non-statement
 alternative that has a return value is the <em>conditional expression</em>.</p>
@@ -388,7 +388,7 @@ enclosed in parenthesis to prevent wrong sub-expression groupings.</p>
 <p>Let us look at an example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mf">34.1905</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 <span class="go">5.84726431761</span>
 </pre></div>
 </div>
@@ -400,7 +400,7 @@ use of intermediate variables).</p>
 </div>
 </div>
 <div class="section" id="repetitive-execution">
-<h2><span class="section-number">5.2. </span>Repetitive execution<a class="headerlink" href="#repetitive-execution" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.2. </span>Repetitive execution<a class="headerlink" href="#repetitive-execution" title="Permalink to this headline">¶</a></h2>
 <p>Repeating a sequence of instructions over-and-over is a programming
 ingredient which is used frequently. This action is called <em>iteration</em>
 or <em>loop</em>.</p>
@@ -425,16 +425,16 @@ pixels).</p></li>
 <code class="docutils literal notranslate"><span class="pre">for</span></code>. <code class="docutils literal notranslate"><span class="pre">for</span></code> is used mostly for (Type I) iterations whereas
 <code class="docutils literal notranslate"><span class="pre">while</span></code> is used for both types.</p>
 <div class="section" id="while-statement">
-<h3><span class="section-number">5.2.1. </span><code class="docutils literal notranslate"><span class="pre">while</span></code> statement<a class="headerlink" href="#while-statement" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.2.1. </span><code class="docutils literal notranslate"><span class="pre">while</span></code> statement<a class="headerlink" href="#while-statement" title="Permalink to this headline">¶</a></h3>
 <p>The syntax of <code class="docutils literal notranslate"><span class="pre">while</span></code> resembles the synax of the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement:</p>
 <p><code class="docutils literal notranslate"><span class="pre">while</span></code> <span class="math notranslate nohighlight">\(\boxed{\color{red}{Boolean\ expression\strut\ }}\)</span> <code class="docutils literal notranslate"><span class="pre">:</span></code>
 <span class="math notranslate nohighlight">\(\boxed{\color{red}{Statement\strut\ }}\)</span></p>
 <p>It is certainly possible to have a statement group subject to the
 <code class="docutils literal notranslate"><span class="pre">while</span></code>, as it was with the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement. The semantics can be
-expressed as the flowchart in <a class="reference internal" href="#ch5-while"><span class="std std-numref">Fig. 5.2.1</span></a>:</p>
+expressed as the flowchart in <a class="reference internal" href="#ch5-while"><span class="std std-numref">Fig. 4.2.1</span></a>:</p>
 <div class="figure align-default" id="id3">
 <span id="ch5-while"></span><img alt="../_images/ch5_while.png" src="../_images/ch5_while.png" />
-<p class="caption"><span class="caption-number">Fig. 5.2.1 </span><span class="caption-text">The flowchart illustrating how a <code class="docutils literal notranslate"><span class="pre">while</span></code> statement is executed.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 4.2.1 </span><span class="caption-text">The flowchart illustrating how a <code class="docutils literal notranslate"><span class="pre">while</span></code> statement is executed.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 <p>Later in this chapter, when we have introduced the <code class="docutils literal notranslate"><span class="pre">for</span></code> statement as
 well, we will consider some special statements (<code class="docutils literal notranslate"><span class="pre">break</span></code> and
@@ -460,15 +460,14 @@ statement (or any other compound statement):</p>
 <p>Let us look at several examples below to illustrate these concepts.</p>
 </div>
 <div class="section" id="examples-with-while-statement">
-<h3><span class="section-number">5.2.2. </span>Examples with while statement<a class="headerlink" href="#examples-with-while-statement" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.2.2. </span>Examples with while statement<a class="headerlink" href="#examples-with-while-statement" title="Permalink to this headline">¶</a></h3>
 <p><strong>Example 1: Finding Average of Numbers in a List</strong></p>
 <p>Let’s say we have a list of numbers and we are asked to find their
 average. To make things easier to follow, let us start with the
 mathematical definition:</p>
 <div class="math notranslate nohighlight" id="equation-chapters-ch5-conditional-and-repetitive-1">
-<span class="eqno">(5.2.1)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-1" title="Permalink to this equation">¶</a></span>\[\textrm{avg}(L) = \frac{1}{N} \sum_{i=1}^N L_i,\]</div>
-<p>where <span class="math notranslate nohighlight">\(L_i\)</span> is the <span class="math notranslate nohighlight">\(i\)</span>th number in the list which contains
-<span class="math notranslate nohighlight">\(N\)</span> numbers.</p>
+<span class="eqno">(4.2.1)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-1" title="Permalink to this equation">¶</a></span>\[ \begin{align}\begin{aligned}  \textrm{avg}(L) = \frac{1}{N} \sum_{i=1}^N L_i,\\where :math:`L_i` is the :math:`i`\ th number in the list which\end{aligned}\end{align} \]</div>
+<p>contains <span class="math notranslate nohighlight">\(N\)</span> numbers.</p>
 <p>Let us see the algorithm before implementing a solution in Python (note
 that, in the equation, indexing started with 1 – compare this with the
 following):</p>
@@ -501,7 +500,7 @@ variables, as if you are the computer.</p>
   <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>        <span class="c1"># Step 5</span>
 
 <span class="n">avg</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">/</span> <span class="n">N</span>      <span class="c1"># Step 6</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">avg</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">avg</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1215.25</span>
@@ -515,9 +514,8 @@ that it can be very close to the pseudo-code.</p>
 standard deviation. Standard deviation can be formally defined as
 follows:</p>
 <div class="math notranslate nohighlight" id="equation-chapters-ch5-conditional-and-repetitive-2">
-<span class="eqno">(5.2.2)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-2" title="Permalink to this equation">¶</a></span>\[\textrm{std}(L) = \sqrt{\frac{1}{N} \sum_{i=1}^N (L_i - \textrm{avg}(L))^2}.\]</div>
-<p>The extension of the previous example is rather straightforward
-therefore but we will write it down nonetheless since these are your
+<span class="eqno">(4.2.2)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-2" title="Permalink to this equation">¶</a></span>\[ \begin{align}\begin{aligned}  \textrm{std}(L) = \sqrt{\frac{1}{N} \sum_{i=1}^N (L_i - \textrm{avg}(L))^2}.\\The extension of the previous example is rather straightforward\end{aligned}\end{align} \]</div>
+<p>therefore but we will write it down nonetheless since these are your
 first iterative examples.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
 <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
@@ -542,7 +540,7 @@ first iterative examples.</p>
 
 <span class="n">std</span> <span class="o">=</span> <span class="p">(</span><span class="nb">sum</span> <span class="o">/</span> <span class="n">N</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Avg &amp; Std of the list are: &quot;</span><span class="p">,</span> <span class="n">avg</span><span class="p">,</span> <span class="n">std</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Avg &amp; Std of the list are: &quot;</span><span class="p">,</span> <span class="n">avg</span><span class="p">,</span> <span class="n">std</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Avg</span> <span class="o">&amp;</span> <span class="n">Std</span> <span class="n">of</span> <span class="n">the</span> <span class="nb">list</span> <span class="n">are</span><span class="p">:</span>  <span class="mf">25.0</span> <span class="mf">11.180339887498949</span>
@@ -555,12 +553,11 @@ pseudo-code.</p>
 is an important mathematical construct that we frequently use while
 formulating our solutions. <span class="math notranslate nohighlight">\(n!\)</span> can be defined formally as:</p>
 <div class="math notranslate nohighlight" id="equation-chapters-ch5-conditional-and-repetitive-3">
-<span class="eqno">(5.2.3)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-3" title="Permalink to this equation">¶</a></span>\[\begin{split}n! =
-\begin{cases}{}
- n\times (n-1) \times ... 2\times 1, &amp; \textrm{if } n&gt;0\\
-      1, &amp; \textrm{if } n = 0.\\
-\end{cases}\end{split}\]</div>
-<p>Let us first write down the algorithm:</p>
+<span class="eqno">(4.2.3)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-3" title="Permalink to this equation">¶</a></span>\[ \begin{align}\begin{aligned}\begin{split}  n! =
+  \begin{cases}{}
+   n\times (n-1) \times ... 2\times 1, &amp; \textrm{if } n&gt;0\\
+        1, &amp; \textrm{if } n = 0.\\
+  \end{cases}\end{split}\\Let us first write down the algorithm:\end{aligned}\end{align} \]</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">:</span> <span class="n">n</span>
 <span class="n">Output</span><span class="p">:</span> <span class="n">n_factorial</span>
 
@@ -585,7 +582,7 @@ formulating our solutions. <span class="math notranslate nohighlight">\(n!\)</sp
     <span class="n">n_factorial</span> <span class="o">*=</span> <span class="n">i</span>       <span class="c1"># Step 5</span>
     <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>              <span class="c1"># Step 6</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;n! is &quot;</span><span class="p">,</span> <span class="n">n_factorial</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;n! is &quot;</span><span class="p">,</span> <span class="n">n_factorial</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="output highlight-default notranslate"><div class="highlight"><pre><span></span>n! is  120
@@ -604,14 +601,14 @@ convenience and do the computation ourselves.</p>
 Taylor series expansion. The Taylor series expansion of <span class="math notranslate nohighlight">\(\sin(x)\)</span>
 around zero is:</p>
 <div class="math notranslate nohighlight" id="equation-chapters-ch5-conditional-and-repetitive-4">
-<span class="eqno">(5.2.4)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-4" title="Permalink to this equation">¶</a></span>\[\sin \left(x\right)\approx x-{\frac {x^{3}}{3!}}+{\frac {x^{5}}{5!}}-{\frac {x^{7}}{7!}} \cdots ,\]</div>
+<span class="eqno">(4.2.4)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-4" title="Permalink to this equation">¶</a></span>\[\sin \left(x\right)\approx x-{\frac {x^{3}}{3!}}+{\frac {x^{5}}{5!}}-{\frac {x^{7}}{7!}} \cdots ,\]</div>
 <p>which could also be written as:</p>
 <div class="math notranslate nohighlight" id="equation-chapters-ch5-conditional-and-repetitive-5">
-<span class="eqno">(5.2.5)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-5" title="Permalink to this equation">¶</a></span>\[\sum_{k=0}^{\infty} \frac{(-1)^k}{(2k+1)!} x^{2k+1} .\]</div>
+<span class="eqno">(4.2.5)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-5" title="Permalink to this equation">¶</a></span>\[\sum_{k=0}^{\infty} \frac{(-1)^k}{(2k+1)!} x^{2k+1} .\]</div>
 <p>Let us implement this. We will use the factorial example as a nested
 iteration. The outer iteration runs over the terms in the summation, and
 continues until a term becomes too small (<span class="math notranslate nohighlight">\(|term| &lt; \epsilon\)</span>,
-where <span class="math notranslate nohighlight">\(\epsilon\)</span> is a small value, e.g. <span class="math notranslate nohighlight">\(10^{-12}\)</span>).</p>
+where <span class="math notranslate nohighlight">\(\epsilon\)</span> is a small value, e.g. <span class="math notranslate nohighlight">\(10^{-12}\)</span>).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">epsilon</span> <span class="o">=</span> <span class="mf">1.0E-12</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mf">3.14159265359</span><span class="o">/</span><span class="mf">4.0</span>   <span class="c1"># i.e. pi/4 (45 degrees in radians)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="mf">0.0</span>
@@ -648,7 +645,7 @@ sign? Can there be a simpler way to program this?</div>
 <p>Let us investigate the proportionality of two consecutive terms
 <span class="math notranslate nohighlight">\((k=n)\)</span> and <span class="math notranslate nohighlight">\((k=n+1)\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-chapters-ch5-conditional-and-repetitive-6">
-<span class="eqno">(5.2.6)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-6" title="Permalink to this equation">¶</a></span>\[\frac{term_{n+1}}{term_{n}} =
+<span class="eqno">(4.2.6)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-6" title="Permalink to this equation">¶</a></span>\[\frac{term_{n+1}}{term_{n}} =
    \frac{(-1)^{(n+1)} x^{2(n+1)+1}}{(2(n+1)+1)!} \times \frac{(2n+1)!}{{(-1)^n}x^{2n+1}} = \frac{-x^{2}}{(2n+2)(2n+3)}.\]</div>
 <p>This is interesting because it suggests us a relatively faster way to
 compute the next term in the series. We do not have to compute
@@ -657,7 +654,7 @@ that there is nothing magical about <span class="math notranslate nohighlight">\
 called as <span class="math notranslate nohighlight">\((d \equiv 2n+1)\)</span> which increments by 2 for each
 consecutive term. Then we have</p>
 <div class="math notranslate nohighlight" id="equation-chapters-ch5-conditional-and-repetitive-7">
-<span class="eqno">(5.2.7)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-7" title="Permalink to this equation">¶</a></span>\[\frac{term_{n+1}}{term_{n}} = \frac{-x^{2}}{(d+1)(d+2)}\]</div>
+<span class="eqno">(4.2.7)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-7" title="Permalink to this equation">¶</a></span>\[\frac{term_{n+1}}{term_{n}} = \frac{-x^{2}}{(d+1)(d+2)}\]</div>
 <p>Now, let us see the more efficient implementation in action:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">epsilon</span> <span class="o">=</span> <span class="mf">1.0E-12</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mf">3.14159265359</span><span class="o">/</span><span class="mf">4.0</span>   <span class="c1"># i.e. pi/4 (45 degrees in radians)</span>
@@ -670,11 +667,11 @@ consecutive term. Then we have</p>
     <span class="n">result</span> <span class="o">+=</span> <span class="n">term</span>
     <span class="n">d</span> <span class="o">+=</span> <span class="mi">2</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sin(x) [Ours] is: &quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;sin(x) [Ours] is: &quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
 
 <span class="c1"># Compare this with the CPU-implemented version</span>
 <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sin(x) [CPU ] is: &quot;</span><span class="p">,</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;sin(x) [CPU ] is: &quot;</span><span class="p">,</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 </pre></div>
 </div>
 <div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">[</span><span class="n">Ours</span><span class="p">]</span> <span class="ow">is</span><span class="p">:</span>  <span class="mf">0.707106781186584</span>
@@ -683,7 +680,7 @@ consecutive term. Then we have</p>
 </div>
 </div>
 <div class="section" id="for-statement">
-<h3><span class="section-number">5.2.3. </span><code class="docutils literal notranslate"><span class="pre">for</span></code> statement<a class="headerlink" href="#for-statement" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.2.3. </span><code class="docutils literal notranslate"><span class="pre">for</span></code> statement<a class="headerlink" href="#for-statement" title="Permalink to this headline">¶</a></h3>
 <p>The syntax of the <code class="docutils literal notranslate"><span class="pre">for</span></code> statement is:</p>
 <p><code class="docutils literal notranslate"><span class="pre">for</span></code> <span class="math notranslate nohighlight">\(\boxed{\color{red}{Variable\strut\ }}\)</span> <code class="docutils literal notranslate"><span class="pre">in</span></code>
 <span class="math notranslate nohighlight">\(\boxed{\color{red}{Iterator\strut\ }}\)</span> <code class="docutils literal notranslate"><span class="pre">:</span></code>
@@ -699,10 +696,10 @@ demand. It has an internal mechanism that responds to three requests:</p>
 provided by an <span class="math notranslate nohighlight">\(\color{red}{Iterator}\)</span>, one-by-one assigning them
 to a <span class="math notranslate nohighlight">\(\color{red}{Variable}\)</span> and then executiong a given
 <span class="math notranslate nohighlight">\(\color{red}{Statement}\)</span>.</p>
-<p>The semantics of the for statement is displayed in <a class="reference internal" href="#ch5-for"><span class="std std-numref">Fig. 5.2.2</span></a>:</p>
+<p>The semantics of the for statement is displayed in <a class="reference internal" href="#ch5-for"><span class="std std-numref">Fig. 4.2.2</span></a>:</p>
 <div class="figure align-default" id="id4">
 <span id="ch5-for"></span><img alt="../_images/ch5_for.png" src="../_images/ch5_for.png" />
-<p class="caption"><span class="caption-number">Fig. 5.2.2 </span><span class="caption-text">The flowchart illustrating how a <code class="docutils literal notranslate"><span class="pre">for</span></code> statement is executed.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 4.2.2 </span><span class="caption-text">The flowchart illustrating how a <code class="docutils literal notranslate"><span class="pre">for</span></code> statement is executed.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
 <p><strong>What iterators do we have?</strong></p>
 <ol class="arabic simple">
@@ -757,8 +754,8 @@ not be taken)</p></td>
 <td><p>An integer
 specifying
 the
-in
-crementation.</p></td>
+incrementatio
+n.</p></td>
 <td></td>
 </tr>
 </tbody>
@@ -769,7 +766,7 @@ not cover how this is done.</p></li>
 </ol>
 </div>
 <div class="section" id="examples-with-for-statement">
-<h3><span class="section-number">5.2.4. </span>Examples with for statement<a class="headerlink" href="#examples-with-for-statement" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.2.4. </span>Examples with for statement<a class="headerlink" href="#examples-with-for-statement" title="Permalink to this headline">¶</a></h3>
 <p><strong>Example 1: Words Starting with Vowels and Consonants</strong></p>
 <p>Let us split a list of words into two lists: those that start with a
 vowel and those that start with a consonant.</p>
@@ -780,8 +777,8 @@ vowel and those that start with a consonant.</p>
     <span class="k">if</span> <span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;i&#39;</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="s1">&#39;u&#39;</span><span class="p">]:</span> <span class="n">vowels</span> <span class="o">+=</span> <span class="p">[</span><span class="n">word</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span> <span class="n">consonants</span> <span class="o">+=</span> <span class="p">[</span><span class="n">word</span><span class="p">]</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting with consonant:&quot;</span><span class="p">,</span> <span class="n">consonants</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting with vowel:&quot;</span><span class="p">,</span> <span class="n">vowels</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Starting with consonant:&quot;</span><span class="p">,</span> <span class="n">consonants</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Starting with vowel:&quot;</span><span class="p">,</span> <span class="n">vowels</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Starting</span> <span class="k">with</span> <span class="n">consonant</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;lorem&#39;</span><span class="p">,</span> <span class="s1">&#39;dolor&#39;</span><span class="p">,</span> <span class="s1">&#39;sit&#39;</span><span class="p">,</span> <span class="s1">&#39;consectetur&#39;</span><span class="p">,</span> <span class="s1">&#39;sed&#39;</span><span class="p">,</span> <span class="s1">&#39;do&#39;</span><span class="p">,</span> <span class="s1">&#39;tempor&#39;</span><span class="p">,</span> <span class="s1">&#39;labore&#39;</span><span class="p">,</span> <span class="s1">&#39;dolore&#39;</span><span class="p">,</span> <span class="s1">&#39;magna&#39;</span><span class="p">]</span>
@@ -799,7 +796,7 @@ coded as a list of <code class="docutils literal notranslate"><span class="pre">
 <div class="line-block">
 <div class="line">So, a text of <code class="docutils literal notranslate"><span class="pre">&quot;aaaaaaxxxxmyyyaaaassssssssstttuivvvv&quot;</span></code> gets encoded
 as:</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">[a',6],['x',4],'m',['y',3],['a',4],['s',9],['t',3],'u','i',['v',4]]</span></code>.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">[['a',6],['x',4],'m',['y',3],['a',4],['s',9],['t',3],'u','i',['v',4]]</span></code>.</div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;aaaaaaxxxxmyyyaaaassssssssstttuivvvv&quot;</span>
 <span class="n">code_list</span> <span class="o">=</span> <span class="p">[]</span>
@@ -821,7 +818,7 @@ as:</div>
 <span class="c1"># handle the last_character here:</span>
 <span class="n">code_list</span> <span class="o">+=</span> <span class="p">[</span><span class="n">last_character</span> <span class="k">if</span> <span class="n">count</span><span class="o">==</span><span class="mi">1</span> <span class="k">else</span> <span class="p">[</span><span class="n">last_character</span><span class="p">,</span><span class="n">count</span><span class="p">]]</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">code_list</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">code_list</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
@@ -839,12 +836,12 @@ from. In our implementation counting starts from 0 (zero).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">word_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;he&quot;</span><span class="p">,</span><span class="s2">&quot;came&quot;</span><span class="p">,</span><span class="s2">&quot;home&quot;</span><span class="p">,</span><span class="s2">&quot;late&quot;</span><span class="p">,</span><span class="s2">&quot;yesterday&quot;</span><span class="p">]</span>
 <span class="n">permutation</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">permutation</span><span class="p">)</span>
-<span class="n">new_list</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="n">length</span>
+<span class="n">new_list</span> <span class="o">=</span> <span class="p">[</span><span class="bp">None</span><span class="p">]</span><span class="o">*</span><span class="n">length</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">):</span>
     <span class="n">new_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">word_list</span><span class="p">[</span><span class="n">permutation</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">new_list</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">new_list</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;yesterday&#39;</span><span class="p">,</span> <span class="s1">&#39;late&#39;</span><span class="p">,</span> <span class="s1">&#39;home&#39;</span><span class="p">,</span> <span class="s1">&#39;he&#39;</span><span class="p">,</span> <span class="s1">&#39;came&#39;</span><span class="p">]</span>
@@ -862,9 +859,9 @@ and those that are not.</p>
     <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">list_to_split</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">list_smaller</span> <span class="o">+=</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span> <span class="n">list_not_smaller</span> <span class="o">+=</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;list head was.        :&quot;</span><span class="p">,</span><span class="n">list_to_split</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;smaller than head     :&quot;</span><span class="p">,</span> <span class="n">list_smaller</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;not smaller than head :&quot;</span><span class="p">,</span> <span class="n">list_not_smaller</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;list head was.        :&quot;</span><span class="p">,</span><span class="n">list_to_split</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;smaller than head     :&quot;</span><span class="p">,</span> <span class="n">list_smaller</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;not smaller than head :&quot;</span><span class="p">,</span> <span class="n">list_not_smaller</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span> <span class="n">head</span> <span class="n">was</span><span class="o">.</span>        <span class="p">:</span> <span class="mi">42</span>
@@ -874,22 +871,21 @@ and those that are not.</p>
 </div>
 <p><strong>Example 5: Dot Product</strong></p>
 <p>A frequently used operation with vectors is the dot product between two
-vectors, e.g. <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{v}\)</span>:</p>
+vectors, e.g. <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{v}\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-chapters-ch5-conditional-and-repetitive-8">
-<span class="eqno">(5.2.8)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-8" title="Permalink to this equation">¶</a></span>\[\mathbf{u} \cdot \mathbf{v} = \sum_{i=1}^n u_i v_i,\]</div>
-<p>where the vectors have <span class="math notranslate nohighlight">\(n\)</span> elements each. Let us implement this in
-Python:</p>
+<span class="eqno">(4.2.8)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-8" title="Permalink to this equation">¶</a></span>\[ \begin{align}\begin{aligned}  \mathbf{u} \cdot \mathbf{v} = \sum_{i=1}^n u_i v_i,\\where the vectors have :math:`n` elements each. Let us implement this\end{aligned}\end{align} \]</div>
+<p>in Python:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the vectors (as lists)</span>
 <span class="n">u</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
 <span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
 <span class="n">dot_prod</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="k">if</span> <span class="n">n</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">):</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sizes don&#39;t match!&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">n</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">):</span> <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Sizes don&#39;t match!&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="n">dot_prod</span> <span class="o">+=</span> <span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;u . v is: &quot;</span><span class="p">,</span> <span class="n">dot_prod</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s2">&quot;u . v is: &quot;</span><span class="p">,</span> <span class="n">dot_prod</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">.</span> <span class="n">v</span> <span class="ow">is</span><span class="p">:</span>  <span class="mi">36</span>
@@ -901,15 +897,12 @@ Python:</p>
 <p>The angle between two vectors <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{v}\)</span>
 is closely related to their dot product:</p>
 <div class="math notranslate nohighlight" id="equation-chapters-ch5-conditional-and-repetitive-9">
-<span class="eqno">(5.2.9)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-9" title="Permalink to this equation">¶</a></span>\[\mathbf{u} \cdot \mathbf{v} = ||\mathbf{u}||\ ||\mathbf{v}|| \ \cos(\theta),\]</div>
-<p>where <span class="math notranslate nohighlight">\(\theta\)</span> is the angle between the vectors, and
-<span class="math notranslate nohighlight">\(||\cdot||\)</span> denotes the norm of a vector:</p>
+<span class="eqno">(4.2.9)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-9" title="Permalink to this equation">¶</a></span>\[ \begin{align}\begin{aligned}  \mathbf{u} \cdot \mathbf{v} = ||\mathbf{u}||\ ||\mathbf{v}|| \ \cos(\theta),\\where :math:`\theta` is the angle between the vectors, and\end{aligned}\end{align} \]</div>
+<p><span class="math notranslate nohighlight">\(||\cdot||\)</span> denotes the norm of a vector:</p>
 <div class="math notranslate nohighlight" id="equation-chapters-ch5-conditional-and-repetitive-10">
-<span class="eqno">(5.2.10)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-10" title="Permalink to this equation">¶</a></span>\[||\mathbf{u}|| = \sqrt{\mathbf{u} \cdot \mathbf{u}} = \sqrt{\sum_{i=1}^n u_i^2}.\]</div>
-<p>The angle can be derived from these as follows:</p>
+<span class="eqno">(4.2.10)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-10" title="Permalink to this equation">¶</a></span>\[ \begin{align}\begin{aligned}  ||\mathbf{u}|| = \sqrt{\mathbf{u} \cdot \mathbf{u}} = \sqrt{\sum_{i=1}^n u_i^2}.\\The angle can be derived from these as follows:\end{aligned}\end{align} \]</div>
 <div class="math notranslate nohighlight" id="equation-chapters-ch5-conditional-and-repetitive-11">
-<span class="eqno">(5.2.11)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-11" title="Permalink to this equation">¶</a></span>\[\theta = \arccos\left( \frac{\mathbf{u} \cdot \mathbf{v}}{||\mathbf{u}||\ ||\mathbf{v}||} \right).\]</div>
-<p>Let us implement this:</p>
+<span class="eqno">(4.2.11)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-11" title="Permalink to this equation">¶</a></span>\[ \begin{align}\begin{aligned}  \theta = \arccos\left( \frac{\mathbf{u} \cdot \mathbf{v}}{||\mathbf{u}||\ ||\mathbf{v}||} \right).\\Let us implement this:\end{aligned}\end{align} \]</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">acos</span>
 
 <span class="c1"># Define two vectors that have 90deg (pi/2) between them</span>
@@ -918,7 +911,7 @@ is closely related to their dot product:</p>
 <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="n">n</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
-  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sizes don&#39;t match!&quot;</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Sizes don&#39;t match!&quot;</span><span class="p">)</span>
 
 <span class="k">else</span><span class="p">:</span>
   <span class="c1"># Calculate dot product &amp; norms</span>
@@ -933,7 +926,7 @@ is closely related to their dot product:</p>
 
   <span class="n">theta</span> <span class="o">=</span> <span class="n">acos</span><span class="p">(</span><span class="n">dot_prod</span> <span class="o">/</span> <span class="n">u_norm</span> <span class="o">*</span> <span class="n">v_norm</span><span class="p">)</span>
 
-  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;angle between u and v is: &quot;</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s2">&quot;angle between u and v is: &quot;</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">angle</span> <span class="n">between</span> <span class="n">u</span> <span class="ow">and</span> <span class="n">v</span> <span class="ow">is</span><span class="p">:</span>  <span class="mf">1.5707963267948966</span>
@@ -946,18 +939,17 @@ is closely related to their dot product:</p>
 product matrix is of a size where row-count equals that of <span class="math notranslate nohighlight">\(A\)</span> and
 the column-count equals that of <span class="math notranslate nohighlight">\(B\)</span>.</p>
 <div class="math notranslate nohighlight" id="equation-chapters-ch5-conditional-and-repetitive-12">
-<span class="eqno">(5.2.12)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-12" title="Permalink to this equation">¶</a></span>\[(A\cdot B)_{ij} = \sum_{k=0}^{m-1} A_{ik}\cdot B_{kj} .\]</div>
+<span class="eqno">(4.2.12)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-12" title="Permalink to this equation">¶</a></span>\[(A\cdot B)_{ij} = \sum_{k=0}^{m-1} A_{ik}\cdot B_{kj} .\]</div>
 <p>As we discussed in the previous chapter, since Python provides no two
 dimensional containers, but a very fexible list container, matrices are
 mostly represented as lists of lists each of which represent a row. For
 example, a <span class="math notranslate nohighlight">\(3\times 4\)</span> matrix:</p>
 <div class="math notranslate nohighlight" id="equation-chapters-ch5-conditional-and-repetitive-13">
-<span class="eqno">(5.2.13)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-13" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{pmatrix}
- -2 &amp; 3 &amp; 5 &amp; -1 \\
-  0 &amp; 3 &amp; 10 &amp; -7\\
- 11 &amp; 0 &amp; 0  &amp;-8
- \end{pmatrix}\end{split}\]</div>
-<p>can be represented as:</p>
+<span class="eqno">(4.2.13)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-13" title="Permalink to this equation">¶</a></span>\[ \begin{align}\begin{aligned}\begin{split}  \begin{pmatrix}
+   -2 &amp; 3 &amp; 5 &amp; -1 \\
+    0 &amp; 3 &amp; 10 &amp; -7\\
+   11 &amp; 0 &amp; 0  &amp;-8
+   \end{pmatrix}\end{split}\\can be represented as:\end{aligned}\end{align} \]</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">8</span><span class="p">]]</span>
 </pre></div>
 </div>
@@ -980,7 +972,7 @@ result.</p>
         <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">B</span><span class="p">)):</span>
             <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">21</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">59</span><span class="p">,</span> <span class="mi">43</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">42</span><span class="p">,</span> <span class="mi">11</span><span class="p">]]</span>
@@ -988,7 +980,7 @@ result.</p>
 </div>
 </div>
 <div class="section" id="continue-and-break-statements">
-<h3><span class="section-number">5.2.5. </span><code class="docutils literal notranslate"><span class="pre">continue</span></code> and <code class="docutils literal notranslate"><span class="pre">break</span></code> statements<a class="headerlink" href="#continue-and-break-statements" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.2.5. </span><code class="docutils literal notranslate"><span class="pre">continue</span></code> and <code class="docutils literal notranslate"><span class="pre">break</span></code> statements<a class="headerlink" href="#continue-and-break-statements" title="Permalink to this headline">¶</a></h3>
 <p>It is possible to alter the flow of execution in a <code class="docutils literal notranslate"><span class="pre">while</span></code> or <code class="docutils literal notranslate"><span class="pre">for</span></code>
 repetition. This is almost always used in combination with statement
 grouping, where a group of statements is subject to the <code class="docutils literal notranslate"><span class="pre">while</span></code> or
@@ -1003,22 +995,22 @@ execution continues with the statement after the <code class="docutils literal n
 <p>Similarly, somewhere in the process you decide not to execute the rest
 of the statements in the grouping and straight away continue with the
 test. This is achieved by a <code class="docutils literal notranslate"><span class="pre">continue</span></code> statement usage. See
-<a class="reference internal" href="#ch5-while-with-continue-break"><span class="std std-numref">Fig. 5.2.3</span></a> and
-<a class="reference internal" href="#ch5-for-with-continue-break"><span class="std std-numref">Fig. 5.2.4</span></a> for how the <code class="docutils literal notranslate"><span class="pre">continue</span></code>
+<a class="reference internal" href="#ch5-while-with-continue-break"><span class="std std-numref">Fig. 4.2.3</span></a> and
+<a class="reference internal" href="#ch5-for-with-continue-break"><span class="std std-numref">Fig. 4.2.4</span></a> for how the <code class="docutils literal notranslate"><span class="pre">continue</span></code>
 statement changes the flow of execution.</p>
 <div class="figure align-default" id="id5">
 <span id="ch5-while-with-continue-break"></span><img alt="../_images/ch5_while-w-break-continue.png" src="../_images/ch5_while-w-break-continue.png" />
-<p class="caption"><span class="caption-number">Fig. 5.2.3 </span><span class="caption-text">How <code class="docutils literal notranslate"><span class="pre">continue</span></code> and <code class="docutils literal notranslate"><span class="pre">break</span></code> statements change execution in a
+<p class="caption"><span class="caption-number">Fig. 4.2.3 </span><span class="caption-text">How <code class="docutils literal notranslate"><span class="pre">continue</span></code> and <code class="docutils literal notranslate"><span class="pre">break</span></code> statements change execution in a
 <code class="docutils literal notranslate"><span class="pre">while</span></code> statement.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="id6">
 <span id="ch5-for-with-continue-break"></span><img alt="../_images/ch5_for-w-break-continue.png" src="../_images/ch5_for-w-break-continue.png" />
-<p class="caption"><span class="caption-number">Fig. 5.2.4 </span><span class="caption-text">How <code class="docutils literal notranslate"><span class="pre">continue</span></code> and <code class="docutils literal notranslate"><span class="pre">break</span></code> statements change execution in a
+<p class="caption"><span class="caption-number">Fig. 4.2.4 </span><span class="caption-text">How <code class="docutils literal notranslate"><span class="pre">continue</span></code> and <code class="docutils literal notranslate"><span class="pre">break</span></code> statements change execution in a
 <code class="docutils literal notranslate"><span class="pre">while</span></code> statement.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="set-and-list-comprehension">
-<h3><span class="section-number">5.2.6. </span>Set and list comprehension<a class="headerlink" href="#set-and-list-comprehension" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.2.6. </span>Set and list comprehension<a class="headerlink" href="#set-and-list-comprehension" title="Permalink to this headline">¶</a></h3>
 <p>A well-known and extensively-used notation to describe a set in
 mathematics is the so-called ‘set-builder notation’. This is also known
 as <em>set comprehension</em>. This notation has three parts (from
@@ -1030,16 +1022,13 @@ left-to-right):</p>
 </ol>
 <p>Something like this:</p>
 <div class="math notranslate nohighlight" id="equation-chapters-ch5-conditional-and-repetitive-14">
-<span class="eqno">(5.2.14)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-14" title="Permalink to this equation">¶</a></span>\[\{x^{3}\ |\ x \in \{0,1,\ldots,7\}\}\]</div>
-<p>which defines the set:</p>
+<span class="eqno">(4.2.14)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-14" title="Permalink to this equation">¶</a></span>\[ \begin{align}\begin{aligned}  \{x^{3}\ |\ x \in \{0,1,\ldots,7\}\}\\which defines the set:\end{aligned}\end{align} \]</div>
 <div class="math notranslate nohighlight" id="equation-chapters-ch5-conditional-and-repetitive-15">
-<span class="eqno">(5.2.15)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-15" title="Permalink to this equation">¶</a></span>\[\{0, 1, 8, 27, 64, 125, 216, 343\}\]</div>
-<p>or as something more elaborate:</p>
+<span class="eqno">(4.2.15)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-15" title="Permalink to this equation">¶</a></span>\[ \begin{align}\begin{aligned}  \{0, 1, 8, 27, 64, 125, 216, 343\}\\or as something more elaborate:\end{aligned}\end{align} \]</div>
 <div class="math notranslate nohighlight" id="equation-chapters-ch5-conditional-and-repetitive-16">
-<span class="eqno">(5.2.16)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-16" title="Permalink to this equation">¶</a></span>\[\left\{x^{3}\ |\ x \in \{0,1,\ldots,7\} \wedge (x \bmod 2) = 1\right\}\]</div>
-<p>defining</p>
+<span class="eqno">(4.2.16)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-16" title="Permalink to this equation">¶</a></span>\[ \begin{align}\begin{aligned}  \left\{x^{3}\ |\ x \in \{0,1,\ldots,7\} \wedge (x \bmod 2) = 1\right\}\\defining\end{aligned}\end{align} \]</div>
 <div class="math notranslate nohighlight" id="equation-chapters-ch5-conditional-and-repetitive-17">
-<span class="eqno">(5.2.17)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-17" title="Permalink to this equation">¶</a></span>\[\{1,27,125,343\}\]</div>
+<span class="eqno">(4.2.17)<a class="headerlink" href="#equation-chapters-ch5-conditional-and-repetitive-17" title="Permalink to this equation">¶</a></span>\[\{1,27,125,343\}\]</div>
 <p>There exists a Python notation with the same semantics both for sets and
 lists:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">)]</span>
@@ -1061,11 +1050,11 @@ constructed as a more complex boolean expression.</p>
 <p>The expression that can appear to the left of the <code class="docutils literal notranslate"><span class="pre">for</span></code> keyword can be
 any Python expression and container. Here are a couple of more examples
 on matrices.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="p">[[</span><span class="mi">1</span> <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="n">j</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="p">[[(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="p">[[(</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">)</span><span class="o">%</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="p">[[</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="n">j</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span> <span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span> <span class="p">)</span>
+<span class="k">print</span><span class="p">(</span> <span class="p">[[</span><span class="mi">1</span> <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="n">j</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span> <span class="p">)</span>
+<span class="k">print</span><span class="p">(</span> <span class="p">[[(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span> <span class="p">)</span>
+<span class="k">print</span><span class="p">(</span> <span class="p">[[(</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">)</span><span class="o">%</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span> <span class="p">)</span>
+<span class="k">print</span><span class="p">(</span> <span class="p">[[</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="n">j</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span> <span class="p">)</span>
 </pre></div>
 </div>
 <div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
@@ -1078,7 +1067,7 @@ on matrices.</p>
 </div>
 </div>
 <div class="section" id="important-concepts">
-<h2><span class="section-number">5.3. </span>Important Concepts<a class="headerlink" href="#important-concepts" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.3. </span>Important Concepts<a class="headerlink" href="#important-concepts" title="Permalink to this headline">¶</a></h2>
 <p>We would like our readers to have grasped the following crucial concepts
 and keywords from this chapter:</p>
 <ul class="simple">
@@ -1095,7 +1084,7 @@ expression.</p></li>
 </ul>
 </div>
 <div class="section" id="further-reading">
-<h2><span class="section-number">5.4. </span>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.4. </span>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>“Managing the size of a problem”, Chapter 4 of “Introduction to
 Programming Concepts with Case Studies in Python”:
@@ -1103,7 +1092,7 @@ Programming Concepts with Case Studies in Python”:
 </ul>
 </div>
 <div class="section" id="exercises">
-<h2><span class="section-number">5.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <p>We have provided many exercises throughout the chapter, please study and
 answer them as well.</p>
 <ul class="simple">
@@ -1158,27 +1147,27 @@ into integer.</p></li>
       <span class="caption-text">Table Of Contents</span>
     </p>
     <ul>
-<li><a class="reference internal" href="#">5. Conditional and Repetitive Execution</a><ul>
-<li><a class="reference internal" href="#conditional-execution">5.1. Conditional execution</a><ul>
-<li><a class="reference internal" href="#if-statement">5.1.1. <code class="docutils literal notranslate"><span class="pre">if</span></code> statement</a></li>
-<li><a class="reference internal" href="#exercise">5.1.2. Exercise</a></li>
-<li><a class="reference internal" href="#nested-if-statements">5.1.3. Nested if statements</a></li>
-<li><a class="reference internal" href="#practice">5.1.4. Practice</a></li>
-<li><a class="reference internal" href="#conditional-expression">5.1.5. Conditional expression</a></li>
+<li><a class="reference internal" href="#">4. Conditional and Repetitive Execution</a><ul>
+<li><a class="reference internal" href="#conditional-execution">4.1. Conditional execution</a><ul>
+<li><a class="reference internal" href="#if-statement">4.1.1. <code class="docutils literal notranslate"><span class="pre">if</span></code> statement</a></li>
+<li><a class="reference internal" href="#exercise">4.1.2. Exercise</a></li>
+<li><a class="reference internal" href="#nested-if-statements">4.1.3. Nested if statements</a></li>
+<li><a class="reference internal" href="#practice">4.1.4. Practice</a></li>
+<li><a class="reference internal" href="#conditional-expression">4.1.5. Conditional expression</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#repetitive-execution">5.2. Repetitive execution</a><ul>
-<li><a class="reference internal" href="#while-statement">5.2.1. <code class="docutils literal notranslate"><span class="pre">while</span></code> statement</a></li>
-<li><a class="reference internal" href="#examples-with-while-statement">5.2.2. Examples with while statement</a></li>
-<li><a class="reference internal" href="#for-statement">5.2.3. <code class="docutils literal notranslate"><span class="pre">for</span></code> statement</a></li>
-<li><a class="reference internal" href="#examples-with-for-statement">5.2.4. Examples with for statement</a></li>
-<li><a class="reference internal" href="#continue-and-break-statements">5.2.5. <code class="docutils literal notranslate"><span class="pre">continue</span></code> and <code class="docutils literal notranslate"><span class="pre">break</span></code> statements</a></li>
-<li><a class="reference internal" href="#set-and-list-comprehension">5.2.6. Set and list comprehension</a></li>
+<li><a class="reference internal" href="#repetitive-execution">4.2. Repetitive execution</a><ul>
+<li><a class="reference internal" href="#while-statement">4.2.1. <code class="docutils literal notranslate"><span class="pre">while</span></code> statement</a></li>
+<li><a class="reference internal" href="#examples-with-while-statement">4.2.2. Examples with while statement</a></li>
+<li><a class="reference internal" href="#for-statement">4.2.3. <code class="docutils literal notranslate"><span class="pre">for</span></code> statement</a></li>
+<li><a class="reference internal" href="#examples-with-for-statement">4.2.4. Examples with for statement</a></li>
+<li><a class="reference internal" href="#continue-and-break-statements">4.2.5. <code class="docutils literal notranslate"><span class="pre">continue</span></code> and <code class="docutils literal notranslate"><span class="pre">break</span></code> statements</a></li>
+<li><a class="reference internal" href="#set-and-list-comprehension">4.2.6. Set and list comprehension</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#important-concepts">5.3. Important Concepts</a></li>
-<li><a class="reference internal" href="#further-reading">5.4. Further Reading</a></li>
-<li><a class="reference internal" href="#exercises">5.5. Exercises</a></li>
+<li><a class="reference internal" href="#important-concepts">4.3. Important Concepts</a></li>
+<li><a class="reference internal" href="#further-reading">4.4. Further Reading</a></li>
+<li><a class="reference internal" href="#exercises">4.5. Exercises</a></li>
 </ul>
 </li>
 </ul>
@@ -1193,7 +1182,7 @@ into integer.</p></li>
          <i class="pagenation-arrow-L fas fa-arrow-left fa-lg"></i>
          <div class="pagenation-text">
             <span class="pagenation-direction">Previous</span>
-            <div>4. Dive into Python</div>
+            <div>3. Dive into Python</div>
          </div>
      </a>
   </div>

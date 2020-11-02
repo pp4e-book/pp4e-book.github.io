@@ -408,8 +408,8 @@ mathematical definition:
 
    \textrm{avg}(L) = \frac{1}{N} \sum_{i=1}^N L_i,
 
-where :math:`L_i` is the :math:`i`\ th number in the list which contains
-:math:`N` numbers.
+ where :math:`L_i` is the :math:`i`\ th number in the list which
+contains :math:`N` numbers.
 
 Let us see the algorithm before implementing a solution in Python (note
 that, in the equation, indexing started with 1 – compare this with the
@@ -473,7 +473,7 @@ follows:
 
    \textrm{std}(L) = \sqrt{\frac{1}{N} \sum_{i=1}^N (L_i - \textrm{avg}(L))^2}.
 
-The extension of the previous example is rather straightforward
+ The extension of the previous example is rather straightforward
 therefore but we will write it down nonetheless since these are your
 first iterative examples.
 
@@ -529,7 +529,7 @@ formulating our solutions. :math:`n!` can be defined formally as:
          1, & \textrm{if } n = 0.\\
    \end{cases}
 
-Let us first write down the algorithm:
+ Let us first write down the algorithm:
 
 ::
 
@@ -597,7 +597,7 @@ which could also be written as:
 Let us implement this. We will use the factorial example as a nested
 iteration. The outer iteration runs over the terms in the summation, and
 continues until a term becomes too small (:math:`|term| < \epsilon`,
-where :math:`\epsilon` is a small value, e.g. :math:`10^{-12}`).
+where :math:`\epsilon` is a small value, e.g. :math:`10^{-12}`).
 
 .. code:: python
 
@@ -741,8 +741,8 @@ The semantics of the for statement is displayed in :numref:`ch5_for`:
 | step            | Optional        | 1           | An integer    |   |
 |                 |                 |             | specifying    |   |
 |                 |                 |             | the           |   |
-|                 |                 |             | in            |   |
-|                 |                 |             | crementation. |   |
+|                 |                 |             | incrementatio |   |
+|                 |                 |             | n.            |   |
 +-----------------+-----------------+-------------+---------------+---+
 
 3. A user-defined iterator. Since this is an introductory book, we will
@@ -887,15 +887,15 @@ and those that are not.
 **Example 5: Dot Product**
 
 A frequently used operation with vectors is the dot product between two
-vectors, e.g. :math:`\mathbf{u}` and :math:`\mathbf{v}`:
+vectors, e.g. :math:`\mathbf{u}` and :math:`\mathbf{v}`:
 
 .. math::
 
 
    \mathbf{u} \cdot \mathbf{v} = \sum_{i=1}^n u_i v_i,
 
-where the vectors have :math:`n` elements each. Let us implement this in
-Python:
+ where the vectors have :math:`n` elements each. Let us implement this
+in Python:
 
 .. code:: python
 
@@ -932,7 +932,7 @@ is closely related to their dot product:
 
    \mathbf{u} \cdot \mathbf{v} = ||\mathbf{u}||\ ||\mathbf{v}|| \ \cos(\theta),
 
-where :math:`\theta` is the angle between the vectors, and
+ where :math:`\theta` is the angle between the vectors, and
 :math:`||\cdot||` denotes the norm of a vector:
 
 .. math::
@@ -940,14 +940,14 @@ where :math:`\theta` is the angle between the vectors, and
 
    ||\mathbf{u}|| = \sqrt{\mathbf{u} \cdot \mathbf{u}} = \sqrt{\sum_{i=1}^n u_i^2}.
 
-The angle can be derived from these as follows:
+ The angle can be derived from these as follows:
 
 .. math::
 
 
    \theta = \arccos\left( \frac{\mathbf{u} \cdot \mathbf{v}}{||\mathbf{u}||\ ||\mathbf{v}||} \right).
 
-Let us implement this:
+ Let us implement this:
 
 .. code:: python
 
@@ -1010,7 +1010,7 @@ example, a :math:`3\times 4` matrix:
     11 & 0 & 0  &-8
     \end{pmatrix}
 
-can be represented as:
+ can be represented as:
 
 .. code:: python
 
@@ -1105,21 +1105,21 @@ Something like this:
 
    \{x^{3}\ |\ x \in \{0,1,\ldots,7\}\}
 
-which defines the set:
+ which defines the set:
 
 .. math::
 
 
    \{0, 1, 8, 27, 64, 125, 216, 343\}
 
-or as something more elaborate:
+ or as something more elaborate:
 
 .. math::
 
 
    \left\{x^{3}\ |\ x \in \{0,1,\ldots,7\} \wedge (x \bmod 2) = 1\right\}
 
-defining
+ defining
 
 .. math::
 

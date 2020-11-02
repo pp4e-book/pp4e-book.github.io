@@ -60,13 +60,13 @@ these minor tasks. Such tasks and interactions are of great assistance
 in gaining acquaintance with Python and building up a self-confidence in
 solving problems with Python.
 
-Thanks to Jupyter notebook running solutions on the Internet
-(e.g. `Google Colab <https://colab.research.google.com/>`__, `Jupyter
-Notebook Viewer <https://nbviewer.jupyter.org/>`__), there is absolutely
-no need to install any application on the computer. You can directly
-download and run the notebook on Colab or Notebook Viewer. Though, since
-it is faster and it provides better virtual machines, the links to all
-Jupyter notebooks will be served on Colab.
+Thanks to Jupyter notebook running solutions on the Internet (e.g.
+`Google Colab <https://colab.research.google.com/>`__, `Jupyter Notebook
+Viewer <https://nbviewer.jupyter.org/>`__), there is absolutely no need
+to install any application on the computer. You can directly download
+and run the notebook on Colab or Notebook Viewer. Though, since it is
+faster and it provides better virtual machines, the links to all Jupyter
+notebooks will be served on Colab.
 
 ii. What is computing?
 ----------------------

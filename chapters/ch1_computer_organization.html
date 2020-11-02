@@ -113,9 +113,9 @@ Show Source
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1. Basic Computer Organization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch2_programming.html">2. A Broad Look at Programming and Programming Languages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch3_data_representation.html">3. Representation of Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch4_dive_into_python.html">4. Dive into Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch5_conditional_and_repetitive.html">5. Conditional and Repetitive Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch3_data_representation.html">Representation of Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch4_dive_into_python.html">3. Dive into Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch5_conditional_and_repetitive.html">4. Conditional and Repetitive Execution</a></li>
 </ul>
 
             </nav>
@@ -148,9 +148,9 @@ Show Source
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1. Basic Computer Organization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch2_programming.html">2. A Broad Look at Programming and Programming Languages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch3_data_representation.html">3. Representation of Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch4_dive_into_python.html">4. Dive into Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch5_conditional_and_repetitive.html">5. Conditional and Repetitive Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch3_data_representation.html">Representation of Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch4_dive_into_python.html">3. Dive into Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch5_conditional_and_repetitive.html">4. Conditional and Repetitive Execution</a></li>
 </ul>
 
             </nav>
@@ -163,7 +163,7 @@ Show Source
         <div class="page-content" role="main">
         
   <div class="section" id="basic-computer-organization">
-<h1><span class="section-number">1. </span>Basic Computer Organization<a class="headerlink" href="#basic-computer-organization" title="Permalink to this headline">¶</a><a href="https://colab.research.google.com/github/pp4e-book/pp4e-book.github.io/blob/master/chapters/ch1_computer_organization.ipynb" onclick="captureOutboundLink('https://colab.research.google.com/github/['pp4e-book/pp4e-book.github.io']/blob/master/chapters/ch1_computer_organization.ipynb'); return false;"> <button style="float:right", id="Colab" class="mdl-button mdl-js-button mdl-button--primary mdl-js-ripple-effect"> <i class=" fas fa-external-link-alt"></i> Colab </button></a><div class="mdl-tooltip" data-mdl-for="Colab"> Open the notebook in Colab</div></h1>
+<h1><span class="section-number">1. </span>Basic Computer Organization<a class="headerlink" href="#basic-computer-organization" title="Permalink to this headline">¶</a><a href="https://colab.research.google.com/github/['pp4e-book/pp4e-book.github.io']/blob/master/chapters/ch1_computer_organization.ipynb" onclick="captureOutboundLink('https://colab.research.google.com/github/['pp4e-book/pp4e-book.github.io']/blob/master/chapters/ch1_computer_organization.ipynb'); return false;"> <button style="float:right", id="Colab" class="mdl-button mdl-js-button mdl-button--primary mdl-js-ripple-effect"> <i class=" fas fa-external-link-alt"></i> Colab </button></a><div class="mdl-tooltip" data-mdl-for="Colab"> Open the notebook in Colab</div></h1>
 <p>In this chapter, we will provide an overview of the internals of a
 modern computer. To do so, we will first describe a general architecture
 on which modern computers are based. Then, we will study the main
@@ -173,55 +173,53 @@ general purpose “calculators”.</p>
 <h2><span class="section-number">1.1. </span>The von Neumann Architecture<a class="headerlink" href="#the-von-neumann-architecture" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="john-von-neumann">
 <h3><span class="section-number">1.1.1. </span>John von Neumann<a class="headerlink" href="#john-von-neumann" title="Permalink to this headline">¶</a></h3>
-<center><table align="center" width="100%" style="word-wrap:break-word; table-layout:fixed; width:150px"><tr><td style="vertical-align: top; max-width:150px"><p>From: <a class="reference external" href="https://www.oxfordreference.com/view/10.1093/oi/authority.20110803120234729">Oxford
-Reference</a></p>
-<div class="docutils container">
-<p>“Hungarian-born US mathematician, creator of the theory of games and
-pioneer in the development of the modern computer. Born in Budapest,
-the son of a wealthy banker, von Neumann was educated at the
-universities of Berlin, Zürich, and Budapest, where he obtained his
-PhD in 1926. After teaching briefly at the universities of Berlin and
-Hamburg, von Neumann moved to the USA in 1930 to a chair in
-mathematical physics at Princeton. In 1933, he joined the newly
-formed Institute of Advanced Studies at Princeton as one of its
-youngest professors. By this time he had already established a
-formidable reputation as one of the most powerful and creative
-mathematicians of his day. In 1925 he had offered alternative
-foundations for set theory, while in his Mathematischen Grundlagen
-der Quantenmechanik (1931) he removed many of the basic doubts that
-had been raised against the coherence and consistency of quantum
-theory. In 1944, in collaboration with Oskar Morgenstern (1902–77),
-von Neumann published The Theory of Games and Economic Behaviour. A
-work of great originality, it is reputed to have had its origins at
-the poker tables of Princeton and Harvard. The basic problem was to
-show whether it was possible to speak of rational behaviour in
+<center><table align="center" width="100%" style="word-wrap:break-word; table-layout:fixed; width:150px"><tr>  <td style="vertical-align: top; max-width:150px">
+
+From: `Oxford<p>Reference &lt;<a class="reference external" href="https://www.oxfordreference.com/view/10.1093/oi/authority.20110803120234729">https://www.oxfordreference.com/view/10.1093/oi/authority.20110803120234729</a>&gt;`__</p>
+<div style="width:150px; word-wrap: break-word"><p>“Hungarian-born US mathematician, creator of the theory of games and
+pioneer in the development of the modern computer. Born in Budapest, the
+son of a wealthy banker, von Neumann was educated at the universities of
+Berlin, Zürich, and Budapest, where he obtained his PhD in 1926. After
+teaching briefly at the universities of Berlin and Hamburg, von Neumann
+moved to the USA in 1930 to a chair in mathematical physics at
+Princeton. In 1933, he joined the newly formed Institute of Advanced
+Studies at Princeton as one of its youngest professors. By this time he
+had already established a formidable reputation as one of the most
+powerful and creative mathematicians of his day. In 1925 he had offered
+alternative foundations for set theory, while in his Mathematischen
+Grundlagen der Quantenmechanik (1931) he removed many of the basic
+doubts that had been raised against the coherence and consistency of
+quantum theory. In 1944, in collaboration with Oskar Morgenstern
+(1902–77), von Neumann published The Theory of Games and Economic
+Behaviour. A work of great originality, it is reputed to have had its
+origins at the poker tables of Princeton and Harvard. The basic problem
+was to show whether it was possible to speak of rational behaviour in
 situations of conflict and uncertainty as in, for example, a game of
 poker or wage negotiations. In 1927 von Neumann proved the important
 theorem that even in games that are not fully determined, safe and
 rational strategies exist. With entry of the USA into World War II in
-1941 von Neumann, who had become an American citizen in 1937, joined
-the Manhattan project (for the manufacture of the atom bomb) as a
+1941 von Neumann, who had become an American citizen in 1937, joined the
+Manhattan project (for the manufacture of the atom bomb) as a
 consultant. In 1943 he became involved at Los Alamos on the crucial
 problem of how to detonate an atom bomb. Because of the enormous
 quantity of computations involved, von Neumann was forced to seek
-mechanical aid. Although the computers he had in mind could not be
-made in 1945, von Neumann and his colleagues began to design Maniac I
-(Mathematical analyser, numerical integrator, and computer). Von
-Neumann was one of the first to see the value of a flexible stored
-program: a program that could be changed quite easily without
-altering the computer’s basic circuits. He went on to consider deeper
-problems in the theory of logical automata and finally managed to
-show that self-reproducing machines were theoretically possible. Such
-a machine would need 200 000 cells and 29 distinct states. Having
-once been caught up in affairs of state von Neumann found it
-difficult to return to a purely academic life. Thereafter much of his
-time was therefore spent, to the regret of his colleagues, advising a
-large number of governmental and private institutions. In 1954 he was
-appointed to the Atomic Energy Commission. Shortly after this, cancer
-was diagnosed and he was forced to struggle to complete his last
-work, the posthumously published The Computer and the Brain (1958).”</p>
-</div>
-</td><td><div class="figure align-default" id="id1">
+mechanical aid. Although the computers he had in mind could not be made
+in 1945, von Neumann and his colleagues began to design Maniac I
+(Mathematical analyser, numerical integrator, and computer). Von Neumann
+was one of the first to see the value of a flexible stored program: a
+program that could be changed quite easily without altering the
+computer’s basic circuits. He went on to consider deeper problems in the
+theory of logical automata and finally managed to show that
+self-reproducing machines were theoretically possible. Such a machine
+would need 200 000 cells and 29 distinct states. Having once been caught
+up in affairs of state von Neumann found it difficult to return to a
+purely academic life. Thereafter much of his time was therefore spent,
+to the regret of his colleagues, advising a large number of governmental
+and private institutions. In 1954 he was appointed to the Atomic Energy
+Commission. Shortly after this, cancer was diagnosed and he was forced
+to struggle to complete his last work, the posthumously published The
+Computer and the Brain (1958).”</p>
+</div></td><td><div class="figure align-default" id="id1">
 <span id="fig-von-neumann"></span><a class="reference internal image-reference" href="../_images/ch1_von_neumann.jpg"><img alt="../_images/ch1_von_neumann.jpg" src="../_images/ch1_von_neumann.jpg" style="width: 200px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 1.1.1 </span><span class="caption-text">John von Neumann (1903 – 1957)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
@@ -382,8 +380,8 @@ the next one in the memory.</p></li>
 <p>Let us assume that our instruction looks like this:</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
+<col style="width: 24%" />
+<col style="width: 76%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Opcode</p></th>
@@ -847,8 +845,8 @@ information for your desktop/laptop:</p>
 </ul>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 27%" />
-<col style="width: 73%" />
+<col style="width: 31%" />
+<col style="width: 69%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Opcode</p></th>
