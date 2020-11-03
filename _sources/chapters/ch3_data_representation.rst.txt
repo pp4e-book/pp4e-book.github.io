@@ -87,7 +87,7 @@ Namely, we have a sequence of digits, each of which can be either 0 or
 The following is an example for expressing the integer **181** in
 base-2:
 
-|image0|
+|image1|
 
 In other words, :math:`(181)_{10} = (10110101)_2`.
 
@@ -477,7 +477,7 @@ the *exponent* part of the representation.
 Adding a constant value to a number to be able to represent positive and
 negative numbers in binary is called the excess representation, or
 :math:`k`-excess representation, with :math:`k` being the constant
-number that is added, e.g. :math:`k=127`. Why we use k-excess
+number that is added, e.g. :math:`k=127`. Why we use k-excess
 representation is going to be clear when we compare it with two’s
 complement representation in :numref:`ch3_tbl_k_excess`. You should
 see from the table that if the binary representation of a decimal number
@@ -493,41 +493,26 @@ the exponents and the fractional parts to compare numbers.
 .. table:: A comparison between the k-excess representation and the
    two’s complement representation.
 
-   +----------------+------------------------+------------------+
-   | Decimal number | k-excess (:math:`k=8`) | Two’s complement |
-   +================+========================+==================+
-   | 7              | 1111                   | 0111             |
-   +----------------+------------------------+------------------+
-   | 6              | 1110                   | 0110             |
-   +----------------+------------------------+------------------+
-   | 5              | 1101                   | 0101             |
-   +----------------+------------------------+------------------+
-   | 4              | 1100                   | 0100             |
-   +----------------+------------------------+------------------+
-   | 3              | 1011                   | 0011             |
-   +----------------+------------------------+------------------+
-   | 2              | 1010                   | 0010             |
-   +----------------+------------------------+------------------+
-   | 1              | 1001                   | 0001             |
-   +----------------+------------------------+------------------+
-   | 0              | 1000                   | 0000             |
-   +----------------+------------------------+------------------+
-   | −1             | 0111                   | 1111             |
-   +----------------+------------------------+------------------+
-   | −2             | 0110                   | 1110             |
-   +----------------+------------------------+------------------+
-   | −3             | 0101                   | 1101             |
-   +----------------+------------------------+------------------+
-   | −4             | 0100                   | 1100             |
-   +----------------+------------------------+------------------+
-   | −5             | 0011                   | 1011             |
-   +----------------+------------------------+------------------+
-   | −6             | 0010                   | 1010             |
-   +----------------+------------------------+------------------+
-   | −7             | 0001                   | 1001             |
-   +----------------+------------------------+------------------+
-   | −8             | 0000                   | 1000             |
-   +----------------+------------------------+------------------+
+   ============== ====================== ================
+   Decimal number k-excess (:math:`k=8`) Two’s complement
+   ============== ====================== ================
+   7              1111                   0111
+   6              1110                   0110
+   5              1101                   0101
+   4              1100                   0100
+   3              1011                   0011
+   2              1010                   0010
+   1              1001                   0001
+   0              1000                   0000
+   −1             0111                   1111
+   −2             0110                   1110
+   −3             0101                   1101
+   −4             0100                   1100
+   −5             0011                   1011
+   −6             0010                   1010
+   −7             0001                   1001
+   −8             0000                   1000
+   ============== ====================== ================
 
 
 In our example the factor was :math:`2^{13}`. Adding :math:`k=127`
@@ -562,7 +547,7 @@ the IEEE754 standard is for the number to be equal to:
 
        f = \sum_{k=n}^{m} digit_k \times 2^k ,
 
- where :math:`m` and :math:`n` are two integers so that
+where :math:`m` and :math:`n` are two integers so that
 :math:`|m-n|\le 24` (it is fine if the equation is not very clear – we
 will show some examples below). In addition to this, there is the
 constraint that :math:`|n| \le 127` (think about why). Nothing can be
@@ -576,7 +561,7 @@ Actually, many rational numbers, even, are not expressible in the form
 of the sum above: As an example, try deriving the representation of 4.1
 and see whether you can represent it in binary with finite number of
 bits. In addition, we have infinitely many irrational numbers which do
-not have finite fractions: e.g. :math:`\sqrt{2}, \sqrt{3}, \pi, e`. To
+not have finite fractions: e.g. :math:`\sqrt{2}, \sqrt{3}, \pi, e`. To
 be able to use all these numbers in computers, we approximate them. Do
 not worry, it is something quite common in applied sciences.
 
@@ -590,8 +575,8 @@ self explanatory examples and comment on them:
 
 -  .. code:: python
 
-      >>> 0.9375 - 0.9
-      0.03749999999999998
+        >>> 0.9375 - 0.9
+        0.03749999999999998
 
    The first line is some input that we typed in, to be carried out, and
    the following line is what the Python interpreter returned as the
@@ -718,7 +703,7 @@ point numbers:
 PRACTICE TIME
 ~~~~~~~~~~~~~
 
-.. |image0| image:: ../figures/ch3_10110101.png
+.. |image1| image:: ../figures/ch3_10110101.png
 
 
 
@@ -756,7 +741,7 @@ Python provides the following representations for numbers:
 
 -  **Complex numbers:** In Python, complex numbers can be created by
    using ``j`` after a floating point number (or integer) to denote the
-   imaginary part: e.g. ``1.5-2.6j`` for the complex number
+   imaginary part: e.g. ``1.5-2.6j`` for the complex number
    :math:`(1.5+2.6i)`. The ``j`` symbol (or :math:`i`) represents
    :math:`\sqrt{-1}`. There are other ways to create complex numbers,
    but this is the most natural way, considering your previous knowledge
@@ -790,11 +775,11 @@ table into electronic input/output devices. Such a table will have two
 columns: The graphemes and unprintables in one column and the assigned
 binary code in the other, e.g.:
 
-+-------------------------+----------------+
-| Grapheme or Unprintable | Binary Code    |
-+=========================+================+
-| :math:`\vdots`          | :math:`\vdots` |
-+-------------------------+----------------+
+======================= ==============
+Grapheme or Unprintable Binary Code
+======================= ==============
+:math:`\vdots`          :math:`\vdots`
+======================= ==============
 
 Throughout the history of computers, there has been several such tables,
 mainly constructed by computer manufacturers. In time, most of them
@@ -827,27 +812,19 @@ understood and kept in mind:
 
 -  The general layout of the ASCII table:
 
-+------------+--------------------+
-| Dec. Range | Property           |
-+============+====================+
-| 0-31       | Unprintables       |
-+------------+--------------------+
-| 32         | Space char.        |
-+------------+--------------------+
-| 33-47      | Punctuations       |
-+------------+--------------------+
-| 48-57      | Digits 0-9         |
-+------------+--------------------+
-| 58-64      | Punctuations       |
-+------------+--------------------+
-| 65-90      | Upper case letters |
-+------------+--------------------+
-| 91-96      | Punctuations       |
-+------------+--------------------+
-| 97-122     | Lower case letters |
-+------------+--------------------+
-| 123-127    | Punctuations       |
-+------------+--------------------+
+========== ==================
+Dec. Range Property
+========== ==================
+0-31       Unprintables
+32         Space char.
+33-47      Punctuations
+48-57      Digits 0-9
+58-64      Punctuations
+65-90      Upper case letters
+91-96      Punctuations
+97-122     Lower case letters
+123-127    Punctuations
+========== ==================
 
 -  There is no logic in the distribution of the punctuations.
 

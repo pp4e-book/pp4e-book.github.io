@@ -30,60 +30,55 @@ John von Neumann
 
    <td style="vertical-align: top; max-width:150px">
 
- From: `Oxford
+From: `Oxford
 Reference <https://www.oxfordreference.com/view/10.1093/oi/authority.20110803120234729>`__\ 
 
-.. raw:: html
+.. container::
 
-   <div style="width:150px; word-wrap: break-word">
-
-“Hungarian-born US mathematician, creator of the theory of games and
-pioneer in the development of the modern computer. Born in Budapest, the
-son of a wealthy banker, von Neumann was educated at the universities of
-Berlin, Zürich, and Budapest, where he obtained his PhD in 1926. After
-teaching briefly at the universities of Berlin and Hamburg, von Neumann
-moved to the USA in 1930 to a chair in mathematical physics at
-Princeton. In 1933, he joined the newly formed Institute of Advanced
-Studies at Princeton as one of its youngest professors. By this time he
-had already established a formidable reputation as one of the most
-powerful and creative mathematicians of his day. In 1925 he had offered
-alternative foundations for set theory, while in his Mathematischen
-Grundlagen der Quantenmechanik (1931) he removed many of the basic
-doubts that had been raised against the coherence and consistency of
-quantum theory. In 1944, in collaboration with Oskar Morgenstern
-(1902–77), von Neumann published The Theory of Games and Economic
-Behaviour. A work of great originality, it is reputed to have had its
-origins at the poker tables of Princeton and Harvard. The basic problem
-was to show whether it was possible to speak of rational behaviour in
-situations of conflict and uncertainty as in, for example, a game of
-poker or wage negotiations. In 1927 von Neumann proved the important
-theorem that even in games that are not fully determined, safe and
-rational strategies exist. With entry of the USA into World War II in
-1941 von Neumann, who had become an American citizen in 1937, joined the
-Manhattan project (for the manufacture of the atom bomb) as a
-consultant. In 1943 he became involved at Los Alamos on the crucial
-problem of how to detonate an atom bomb. Because of the enormous
-quantity of computations involved, von Neumann was forced to seek
-mechanical aid. Although the computers he had in mind could not be made
-in 1945, von Neumann and his colleagues began to design Maniac I
-(Mathematical analyser, numerical integrator, and computer). Von Neumann
-was one of the first to see the value of a flexible stored program: a
-program that could be changed quite easily without altering the
-computer’s basic circuits. He went on to consider deeper problems in the
-theory of logical automata and finally managed to show that
-self-reproducing machines were theoretically possible. Such a machine
-would need 200 000 cells and 29 distinct states. Having once been caught
-up in affairs of state von Neumann found it difficult to return to a
-purely academic life. Thereafter much of his time was therefore spent,
-to the regret of his colleagues, advising a large number of governmental
-and private institutions. In 1954 he was appointed to the Atomic Energy
-Commission. Shortly after this, cancer was diagnosed and he was forced
-to struggle to complete his last work, the posthumously published The
-Computer and the Brain (1958).”
-
-.. raw:: html
-
-   </div>
+   “Hungarian-born US mathematician, creator of the theory of games and
+   pioneer in the development of the modern computer. Born in Budapest,
+   the son of a wealthy banker, von Neumann was educated at the
+   universities of Berlin, Zürich, and Budapest, where he obtained his
+   PhD in 1926. After teaching briefly at the universities of Berlin and
+   Hamburg, von Neumann moved to the USA in 1930 to a chair in
+   mathematical physics at Princeton. In 1933, he joined the newly
+   formed Institute of Advanced Studies at Princeton as one of its
+   youngest professors. By this time he had already established a
+   formidable reputation as one of the most powerful and creative
+   mathematicians of his day. In 1925 he had offered alternative
+   foundations for set theory, while in his Mathematischen Grundlagen
+   der Quantenmechanik (1931) he removed many of the basic doubts that
+   had been raised against the coherence and consistency of quantum
+   theory. In 1944, in collaboration with Oskar Morgenstern (1902–77),
+   von Neumann published The Theory of Games and Economic Behaviour. A
+   work of great originality, it is reputed to have had its origins at
+   the poker tables of Princeton and Harvard. The basic problem was to
+   show whether it was possible to speak of rational behaviour in
+   situations of conflict and uncertainty as in, for example, a game of
+   poker or wage negotiations. In 1927 von Neumann proved the important
+   theorem that even in games that are not fully determined, safe and
+   rational strategies exist. With entry of the USA into World War II in
+   1941 von Neumann, who had become an American citizen in 1937, joined
+   the Manhattan project (for the manufacture of the atom bomb) as a
+   consultant. In 1943 he became involved at Los Alamos on the crucial
+   problem of how to detonate an atom bomb. Because of the enormous
+   quantity of computations involved, von Neumann was forced to seek
+   mechanical aid. Although the computers he had in mind could not be
+   made in 1945, von Neumann and his colleagues began to design Maniac I
+   (Mathematical analyser, numerical integrator, and computer). Von
+   Neumann was one of the first to see the value of a flexible stored
+   program: a program that could be changed quite easily without
+   altering the computer’s basic circuits. He went on to consider deeper
+   problems in the theory of logical automata and finally managed to
+   show that self-reproducing machines were theoretically possible. Such
+   a machine would need 200 000 cells and 29 distinct states. Having
+   once been caught up in affairs of state von Neumann found it
+   difficult to return to a purely academic life. Thereafter much of his
+   time was therefore spent, to the regret of his colleagues, advising a
+   large number of governmental and private institutions. In 1954 he was
+   appointed to the Atomic Energy Commission. Shortly after this, cancer
+   was diagnosed and he was forced to struggle to complete his last
+   work, the posthumously published The Computer and the Brain (1958).”
 
 .. raw:: html
 
@@ -297,11 +292,11 @@ There are three types of instructions:
 
 Let us assume that our instruction looks like this:
 
-+--------+--------------------------+
-| Opcode | Effected data or address |
-+========+==========================+
-| 0001   | 0110                     |
-+--------+--------------------------+
+====== ========================
+Opcode Effected data or address
+====== ========================
+0001   0110
+====== ========================
 
 This is an 8-byte instruction that has the first 4 bits as representing
 the opcode. The designer could have designed the CPU such that the
@@ -785,11 +780,11 @@ Exercises
    -  Size of the general purpose registers of the CPU
    -  Harddisk or SSD size and random access time
 
-+--------+------------------+
-| Opcode | Affected address |
-+========+==================+
-| 0001   | 0100             |
-+--------+------------------+
+====== ================
+Opcode Affected address
+====== ================
+0001   0100
+====== ================
 
 -  Assume that we have a CPU that can execute instructions with the
    format and size given above.
