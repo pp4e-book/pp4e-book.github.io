@@ -1,0 +1,1111 @@
+
+Functions
+=========
+
+A *function* (or sometimes synonymously referred to as subroutine,
+procedure or sub-program) is a grouping of actions under a given name
+that performs a specific task. ``len()``, ``print()``, ``abs()``,
+``type()`` are functions that we have seen before. Python adopts a
+syntax that resembles mathematical functions.
+
+A function, i.e. ‘named’ pieces of code, can receive parameters. These
+parameters are variables that carry information from the “calling point”
+(e.g. when you write ``N = len("The number of chars")``) to the callee,
+i.e. the piece of code that *defined* the function (``len()`` in our
+example). The life span of these variables (parameters) is as long as
+the function is active (for that call).
+
+Why define functions?
+---------------------
+
+There are four main reasons for using functions while developing
+solutions with a programming language:
+
+1- **Reusability**
+
+A function is defined at a single point in a program but it can be
+called from several different points. Assume you need to calculate the
+run-length encoding of a string (the example code from the previous
+chapter) in your program for :math:`n` different strings in different
+positions of your code. In a programming language without functions, you
+would have to copy-paste that code piece in :math:`n` different places.
+Thanks to functions, we can place the code piece in a function once
+(named ``encodeRunLen`` for example) and use it in :math:`n` places via
+simple function calls like ``enc = encodeRunLen(inpstr)``.
+
+If functions would not be present, even if we would have the piece of
+code that does the actions of the function, how would we return to the
+different calling points after the actions are completed? Something,
+that is theoretically possible but extremely painful.
+
+2- **Maintenance**
+
+Using functions makes it easier to make updates to the algorithm. Let us
+explain this with the run-length encoding example: Assume that we found
+a bug in our calculation or we have discovered a better algorithm than
+the one we are using. Without functions, you would need to go through
+all your code, find the locations where your run-length encoding
+algorithm is implemented, and update each and every one of them. This is
+impractical and very tedious. With functions, it is sufficient if you
+just change the function that implements the run-length encoding.
+
+3- **Structuredness**
+
+Let us have a look at a perfectly valid Python expression:
+
+.. code:: python
+
+   (b if b<c else c) if (a if a<b else b)<(b if b<c else c) else (a if a<b else b)
+
+which certainly takes some time to parse and understand but it just
+performs the following:
+
+.. code:: python
+
+   max(min(a,b), min(b,c))
+
+Assume instead of the long expression above, the one with ``min`` and
+``max`` are used. Even if the definition of ``max`` and ``min`` are not
+given yet, still one can grasp what the expression is up to. It is not
+only because the expression is smaller, but because function naming can
+depict the meaning for the actions.
+
+4- **Benefits of the functional programming paradigm**
+
+If a programmer sticks to the functional paradigm, then he or she has to
+plot a functional decomposition so that the solution of the problem is
+obtained by means of functional composition, something that is
+well-known and understood through Mathematics. This type of a solution
+does not suffer from unexpected side effects or variable alterations;
+therefore, testing and debugging are easier. Another benefit of the
+functional paradigm is recursion: In other words, while defining a
+function, we can call the function that is being defined – we will cover
+this seemingly confusing concept below. Moreover, we can define
+higher-order functions that take functions as input and apply them to a
+sequence of data. All these benefits come free with using functions, as
+we will illustrate below.
+
+Even when we do not limit ourselves to ‘functional programming’, it is
+essential to use functions in professional programming. General
+algorithms that are coded as functions are becoming very valuable
+because they can be reused again and again in new programs. Collections
+formed by such general purpose functions are called *libraries*. For
+almost all application areas libraries have been created over decades.
+
+Defining functions
+------------------
+
+For defining a function, Python adopts the following syntax:
+
+\ ``def``\  :math:`\boxed{\color{red}{FunctionName\strut}}` \ ``(``\ 
+:math:`\boxed{\color{red}{Parameter_1\strut}}` \ ``,``\ 
+:math:`\boxed{\color{red}{Parameter_2\strut}}` \ ``,``\ 
+:math:`\color{red}{\large\cdots}` \ ``)``\  \ ``:``\ 
+:math:`\boxed{\color{red}{Statement\strut\ }}`
+
+The :math:`\color{red}{Statement}`, which can be replaced by multiple
+statements like we did with other compound statements, can make use of
+the :math:`\color{red}{Parameter_i}`\ s to obtain the actual arguments
+sent to the function at call-time. If the function is going to give a
+value in return to the call, this value is provided by a ``return``
+statement.
+
+:math:`\color{red}{FunctionName}` is the name of the function being
+defined. Python follows the same naming rules and conventions used for
+naming variables – if you do not remember them, we recommend you to go
+back and check the restrictions for naming variables in Chapter 4.
+
+Here is a straightforward example. Let us assume that we want to
+implement the following function:
+
+.. math::
+
+
+   F_{gravity}(m_1,m_2,r) = G\frac{m_1 m_2}{r^2}.
+
+The following is the one-line Python code that defines it:
+
+.. code:: python
+
+   def F_gravity(m_1, m_2, r): return G * m_1 * m_2 / (r * r)
+
+This function, ``F_gravity``, returns a value. This is provided by the
+``return`` statement. As you may have observed, the values :math:`m_1`,
+:math:`m_2` and :math:`r` are provided as the first, the second and the
+third parameters, named as ``m_1``, ``m_2`` and ``r``, respectively.
+
+But what about ``G``? It is not provided in the arguments and used in
+the return expression for its value. If the definition were a
+multi-statement definition (indented multi-statements following the
+``def`` line), then Python would seek for a defined value for ``G``
+among them. But this is not even the case, so the last alternative is to
+seek a value in the ``global`` environment, the environment in which
+``F_gravity`` is called.
+
+Therefore, before we call ``F_gravity``, we must make sure that a value
+for a global variable ``G`` (which apparently is the *Gravitational
+Constant*) is set. In the **Scope of Variables** section, we will be
+handling the rules of this to a greater extent.
+
+.. code:: python
+
+    def F_gravity(m1, m2, r): return G * m1 * m2 / (r * r)
+    
+    G = 6.67408E-11
+    print(F_gravity(1000, 20, 0.5), "Newton")
+
+
+.. parsed-literal::
+    :class: output
+
+    5.3392640000000006e-06 Newton
+
+
+Passing parameters to functions
+-------------------------------
+
+When a function is called, first its arguments are evaluated. The
+function will receive the results of these evaluations. The parameter
+variables used in the definition are created, and set to the result of
+the argument evaluations. Then the statement that follows the column
+(``:``) after the argument parenthesis is executed. Certainly this
+statement can and will make use of the parameter variables (which are
+set to the result of the argument evaluations).
+
+Let us look at an example:
+
+.. code:: python
+
+    def F_gravity(m_1, m_2, r): return G * m_1 * m_2 / (r * r)
+    
+    G = 6.67408E-11
+    
+    S = 100
+    Q = 2000
+    
+    print(F_gravity(Q+S, Q-S, ((504.3-66.1)**2+(351.1-7.7)**2)**0.5))
+
+
+.. parsed-literal::
+    :class: output
+
+    8.59177215925003e-10
+
+
+This is a legitimate piece of code that performs the following in order:
+
+-  Defines the function ``F_gravity``.
+
+-  Sets the value of the global variable ``G`` and ``S`` and ``Q``
+
+-  Calls the (internally defined) ``print`` function which receives one
+   argument. This argument is a function call to ``F_gravity``. So, in
+   order to have a value to print, this function call has to be
+   performed.
+
+-  A call to ``F_gravity`` is prepared: It has three arguments, each has
+   to be evaluated and boiled down to a value. So, in a left-to-right
+   order the arguments are evaluated:
+
+   -  ``Q+S``\ is evaluated, and the result is stored into ``m_1``.
+   -  ``Q-S``\ is evaluated, and the result is stored into ``m_2``.
+   -  Euclidean distance,
+      :math:`\scriptstyle\mathtt{\sqrt{(504.3-66.1)^2+(351.1-7.7)^2}}`,
+      is evaluated and the result is stored into ``r``.
+
+-  Since all arguments are evaluated, the statement defining the
+   function ``F_gravity`` can be executed.
+
+-  This statement is ``return G * m_1 * m_2 / (r * r)``, which requires
+   the expression following the ``return`` keyword to be evaluated and
+   the result to be returned as the result of the function call.
+
+-  Now the ``print`` function has got its parameter evaluated. The
+   defining action of the ``print`` function can be carried out (This is
+   an internally defined function, i.e. we cannot see its definition,
+   but the documents defining the language explain it).
+
+The bottom line is: Before the function is called, there is a
+preparation phase where all arguments are evaluated and hence converted
+to a value. This has a name in computer science and is coined as
+*Call-by-value*.
+
+Default Parameters
+~~~~~~~~~~~~~~~~~~
+
+While defining a function, we can provide default values to parameters
+as follows:
+
+\ ``def``\  :math:`\boxed{\color{red}{FunctionName\strut}}` \ ``(``\ 
+:math:`\boxed{\color{red}{Parameter_1\strut}=\color{red}{Exp_1}}`
+\ ``,``\ 
+:math:`\boxed{\color{red}{Parameter_2\strut}=\color{red}{Exp_2}}`
+\ ``,``\  :math:`\color{red}{\large\cdots}` \ ``)``\  \ ``:``\ 
+:math:`\boxed{\color{red}{Statement\strut\ }}`
+
+where :math:`\color{red}{Exp_i}` is an expression. When calling the
+function, we may omit providing the parameters for which the function
+has default values.
+
+Let us have a look at a simple example:
+
+.. code:: python
+
+    def norm(x1, x2, norm_type="L1", verbose=True):
+      result = None
+      if norm_type == "L1": result = abs(x1) + abs(x2)
+      elif norm_type == "L2": result = (x1**2 + x2**2)**0.5
+      elif verbose: print("Norm not known:", norm_type)
+    
+      if verbose: print(f"The {norm_type} norm of", [x1, x2], "is:", result)
+      return result
+    
+    norm(3, 4)                                      # CASE 1
+    norm(3, 4, "L2")                                # CASE 2
+    norm(3, 4, norm_type="L2")                      # CASE 3
+    norm(3, 4, verbose=False)                       # CASE 4: Does not print the value
+    norm(3, 4, verbose=True, norm_type="L1")        # CASE 5
+    norm(x2=3, x1=4, verbose=True, norm_type="L1")  # CASE 6
+
+
+.. parsed-literal::
+    :class: output
+
+    The L1 norm of [3, 4] is: 7
+    The L2 norm of [3, 4] is: 5.0
+    The L2 norm of [3, 4] is: 5.0
+    The L1 norm of [3, 4] is: 7
+    The L1 norm of [4, 3] is: 7
+
+
+
+
+.. parsed-literal::
+    :class: output
+
+    7
+
+
+
+.. code:: python
+
+   # Let us look at some cases that lead to errors:
+   >>> norm(3, 4, norm_type="L1", True)                # CASE 7
+   File "<ipython-input-19-128dc3e43256>", line 2
+       norm(3, 4, norm_type="L1", True)                # CASE 7
+                                 ^
+   SyntaxError: positional argument follows keyword argument
+
+In this example, you should notice the following crucial points:
+
+-  We can call a function without providing any value for the parameters
+   that have default values (``CASE 1``, .., ``CASE 5``).
+
+-  We can swap the order of default parameters when we are calling the
+   function (``CASE 5`` and ``CASE 6``).
+
+-  When calling a function, we can give values to non-default parameters
+   by using their names (``CASE 6``).
+
+-  The parameters after the default parameters need to be given names as
+   well, both while defining the function and calling the function
+   (``CASE 7``).
+
+Scope of variables
+------------------
+
+We extensively use variables while programming our solutions. Not all
+variables are accessible from everywhere. There is a governing set of
+rules for that determine which parts of a code can access a variable.
+The code part from which a variable is accessible is called its *scope*.
+
+In Python, there are four categories of scopes. As will be explained
+shortly, they are abbreviated with their initials , which then combine
+to form the rule mnemonic LEGB standing for:
+
+.. raw:: html
+
+   <center>
+
+[:math:`\color{red}{L}`\ ocal :math:`<` :math:`\color{red}{E}`\ nclosing
+:math:`<` :math:`\color{red}{G}`\ lobal :math:`<`
+:math:`\color{red}{B}`\ uilt-in]
+
+.. raw:: html
+
+   </center>
+
+**1- Local Scope**
+
+Defining a variable in a function in Python makes it local.
+
+Local variables are the most ‘private’ ones. Any code which is external
+to that function cannot see it. If you make an assignment anywhere in
+the function to a variable, it is registered as a local variable. If you
+attempt to refer to such a local variable prior to the assignment,
+Python will generate a run-time error.
+
+The local variables are created each time the function is called (it is
+activated) and are annihilated (destructed) the moment the function
+returns (finishes).
+
+**2- Enclosing Scope**
+
+As we mentioned before, it is possible to define functions inside
+functions. They are coined as *local functions* and can refer (but not
+change) to the values of the local variables of its parent function (the
+function in which the local function is defined). The scope of the outer
+function is the enclosing scope for the inner function. Though the
+parent function’s variables are visible to the local function, the
+converse is not true. The parent function cannot access its local
+function’s local variables. Therefore, the accessibility is from inward
+to outward and for referring purposes only.
+
+**3- Global Scope**
+
+If a variable is not defined in a function then it is a *global
+variable*. It can be accessed outside as well as inside of any function.
+If a global variable is accessed inside a function, it cannot be altered
+there. If it is altered anywhere in the function, this is recognised at
+the declaration-time and that variable is declared (created) as a local
+variable. A local variable that has the same name with a global variable
+conceals the global variable.
+
+If you want to change the value of a global variable inside a function,
+then you have to explicitly declare it as a global variable by a
+statement:
+
+\ ``global``\  :math:`\boxed{\color{red}{V\!ariable\strut}}`
+
+Then an assignment to :math:`\color{red}{V\!ariable}` will not register
+it as a local variable but merely refer to the global
+:math:`\color{red}{V\!ariable}`. As said, since the system will
+recognize them automatically, there is no need to use the ``global``
+statement for global variables which are referred to for their values
+only. However, it is a good programming habit to do so in order to
+enhance readability and prevent accidental local variable creations (due
+to careless assignments to global variables).
+
+**4- Built-in Scope**
+
+Built-in scope is a special Python scope that is created or loaded
+whenever you run a script or open an interactive session. This is
+actually the scope in which the Python interpreter starts. It contains
+names such as keywords, built-in functions, exceptions, and some other
+attributes. Entities in this scope are also available from everywhere in
+your code.
+
+**An Interactive Example for Scope**
+
+Please follow the Colab link at the top of the page for an interactive
+demo on scope of variables.
+
+A variable occurrence has different meanings for different positions in
+the program:
+
+1. First time occurrence of the variable at the left-hand side of an
+   assignment:
+
+This tells Python to declare a variable in the current scope, the
+current function or the global scope. If there is a variable with the
+same name in an outer scope, it is hidden as long as the new variable is
+active. This declaration will be active for the scope it is created in
+including statements preceding it.
+
+2. Second and later occurrences of the variable at the left-hand side of
+   an assignment:
+
+They simply update the previously declared variable.
+
+3. Occurrences of the variable at the right-hand side of an assignment
+   or any other place in an expression:
+
+Python places value (content) of the variable in the expression
+position. Variable is searched in all scopes from inner to outer (local,
+then enclosing, then global, then built-in) and the first found variable
+is used. If the declaration of the variable is after its reference in
+current scope, Python will raise the error
+``'Reference before assignment'``.
+
+Note that ``global`` declaration changes the behaviour above. It makes
+all occurrences to refer to the global variable and does not declare a
+variable in the current scope with the globally defined names.
+
+Higher-order functions
+----------------------
+
+Python provides several flavours of the functional paradigm, one of the
+most powerful of which is the ability to easily pass functions as
+parameters to other functions. No special syntax or rule is used for
+this: If you use a parameter as if it is a function and when calling the
+higher-order function, pass a function name as a parameter, Python will
+handle the rest.
+
+Python provides two very practical higher-order functions for us:
+
+-  **map** function: The ``map`` function has the following syntax:
+
+   ``map(function, Iterator)``
+
+   which yields an iterator where each element is ``function`` being
+   applied on the corresponding element in ``Iterator``. Here is a
+   simple example:
+
+   .. code:: python
+
+      >>> abs_it = map(abs, [10, -4, 20, -100])
+      >>> for x in abs_it: print(x)
+      10
+      4
+      20
+      100
+
+-  **filter** function: The ``filter`` function has a similar syntax to
+   the ``map`` function:
+
+   ``filter(predicate, Iterator)``
+
+   where ``predicate`` is a function with a boolean return value. The
+   ``filter`` function applies ``predicate`` to each element of the
+   ``Iterator`` and only keeps the ones for which ``predicate`` returns
+   ``True``. For example:
+
+   .. code:: python
+
+      >>> def positive(x): return x > 0
+      >>> for x in filter(positive, [10, -4, 20, -100]): print(x)
+      10
+      20
+
+Of course, the functional capabilities of Python is more diverse than we
+can cover in this introductory textbook. The reader is referred to
+`Python docs <https://docs.python.org/3/howto/functional.html>`__. The
+curious reader is especially recommended to look at *lambda expressions*
+and the *reduce* function.
+
+Functions in programming vs. functions in Mathematics
+-----------------------------------------------------
+
+It is to be noted that functions have a differentiated meaning compared
+to functions in Mathematics.
+
+-  In Mathematics, a function is a mapping from a domain to a range
+   (target); a function returns a value.
+
+   \ **In Python:** Functions may not return a value at all. If so, they
+   are intended to code a parametrized action. A few examples to this
+   are:
+
+   -  Drawing a :math:`red` line from :math:`(x_0, y_0)` to
+      :math:`(x_1, y_1)`.
+   -  Printing a separating line made of :math:`n` ‘minus’ signs.
+   -  Turning off the lights.
+   -  Sending a digital initialization string to a device connected
+      through the USB port.
+
+-  In Mathematics, a function definition is global. You do not have
+   function definitions local to some function.
+
+   \ **In Python:** Since a function definition is done by a Python
+   :math:`\color{red}{Statement}` (or a group of statements – grouped by
+   indentation), it is quite possible to have another definition as part
+   of the defining statements. Such a function can only be usable in the
+   :math:`\color{red}{Statement}` group that defines the outer function
+   and access its local variables and parameters. Outside of the
+   function, this interior function (called a *local function*) will not
+   be visible nor usable.
+
+-  In Mathematics, an element from the domain is mapped to one and only
+   one target element by the function. The mapping does not change.
+   Moreover, a mathematical function returns a value that only depends
+   on the arguments. Hence, for the same arguments, the result is the
+   same.
+
+   \ **In Python:** Even if such a mapping exists (i.e. a function
+   returns a value), it is possible that the function acts differently
+   due to different settings of the variables (outside of the function)
+   that can be accessed in the functions. Consider the ``F_gravity``
+   function above: A different setting for the ``G`` (the Gravitational
+   Constant) will yield a different ``F_gravity`` result even when the
+   parameters are the same.
+
+-  In Mathematics, a function’s operation is reflected on the value it
+   returns: It does not have side effects. In other words, a
+   mathematical function does not change the mathematical environment
+   that is external to it (variables or the ways other functions are
+   evaluated).
+
+   \ **In Python:** This may not be true. Consider the ``G`` value of
+   the ``F_gravity`` function above. Hypothetically, it is possible
+   that, at each call of ``F_gravity``, the ``G`` value is increased
+   slightly (1% for example):
+
+.. code:: python
+
+   >>> def F_gravity(m1, m2, r):
+   ...   global G        # since we alter it
+   ...   G = 1.01 * G
+   ...   return G * m1 * m2 / (r * r)
+
+   >>> G = 6.67408E-11
+
+   >>> print(F_gravity(1000, 20, 0.5), "Newton")
+   5.39265664e-06 Newton
+
+   >>> print(F_gravity(1000, 20, 0.5), "Newton")
+   5.4465832064e-06 Newton
+
+   >>> print(F_gravity(1000, 20, 0.5), "Newton")
+   5.501049038464e-06 Newton
+
+In these aspects, a function defined in Python has a greater freedom. As
+previously stated, there are paradigms of programming. One of these
+paradigms, the *functional paradigm*, promotes the function’s usage to
+be restricted to the mathematical sense. In other words, the *functional
+paradigm* followers deliberately renounce the additional freedom
+programming languages like Python provides in function definitions and
+usages with respect to the mathematical sense. As a rule-of-thumb we can
+say that deviating from the mathematical sense makes your programming
+error prone.
+
+Recursion
+---------
+
+Recursion is a function definition technique in which the definition
+makes use of calls to the function being defined. Although it is
+difficult to grasp, it allows compact and more readable code for
+recursive algorithms, relations or mathematical functions.
+
+It is customary to give the infamous example of the recursive definition
+of factorial. First, let us put it down in mathematical terms:
+
+.. math::
+
+
+   \begin{array}{lll}
+   N! & = & (N-1)!\times N, \qquad \textrm{for}\ N\in \mathbf{N}, \;\; N>0 \\
+   0! & =  & 1, \nonumber
+   \end{array}
+
+Based on this, we can realize that:
+
+-  :math:`6!` is :math:`6\times5!`
+-  :math:`5!` is :math:`5\times 4!`
+-  :math:`4!` is :math:`4\times 3!`
+-  :math:`3!` is :math:`3\times 2!`
+-  :math:`2!` is :math:`2\times 1!`
+-  :math:`1!` is :math:`1\times 0!`
+-  :math:`0!` is :math:`1`
+
+Substituting any factorial value, based on this rule, one ends up with
+
+.. math::
+
+
+   6! = 6\times 5\times 4\times 3\times 2 \times 1 \times 1.
+
+Making use of :math:`(N-1)!` while we are defining :math:`N!` is making
+a recursive definition. The Python equivalent of the above given
+recursive mathematical definition of the factorial would be:
+
+.. code:: python
+
+   def factorial(N):
+       if N = 0: return 1
+       else: return N * factorial(N-1)
+
+High-level languages are designed so that each call to the ``factorial``
+function does not remember any previous call(s) even if they are still
+active (unfinished). For every new call, fresh positions for all local
+variables are created in the memory without forgetting the former values
+of variables for the unfinished calls.
+
+From the programmers point of view, the only concern is the algorithmic
+answer to the question:
+
+   “Having the recursive call returned the correct answer to the smaller
+   problem, how can I cook up the answer to the actual problem?”
+
+It requires a kind of ‘stop thinking’ (leap of faith) action: ‘Stop
+thinking how the recursive call comes up with the correct answer’. Just
+concentrate on the next step paraphrased in the quotation above.
+
+Not to get into an infinite, non-stopping recursive loop, you should be
+careful about two aspects:
+
+1. The recursive call should be made with a decrescent (getting smaller)
+   argument. In the factorial example, calculation of :math:`N!`
+   recursively called :math:`(N-1)!`, i.e. a smaller value than
+   :math:`N!`.
+
+2. The function definition must start with a test for the smallest
+   possible argument case (in the factorial example, this was 0 (zero))
+   where a value for this case is directly returned (in the factorial
+   example this was 1 (one)). This is called the termination or base
+   condition.
+
+Let us consider another example: We have a list of unordered numbers.
+Nothing is pre-known about the magnitude of the numbers. The problem is
+to find the maximum of the numbers in that list.
+
+Let us say you are given a list of, say, 900 numbers. For a second,
+assume that you have a very loving grandpa. Your grandpa has a rule of
+his own: not to corrupt you, he will not solve the problem for you but,
+if you reduce the problem slightly, his heart softens and provides the
+answer for the smaller problem.
+
+Presumably, the simplest ‘reduction’ that you can do on a 900-element
+list is removing an element from it and making it a list of 899 numbers.
+As far as Python lists are concerned, the simplest of the simple is to
+remove the first element: If ``L`` is your list, ``L[0]`` is the first
+element and ``L[1:]`` is the list of remaining elements. So, the trick
+is to remove the first element, take ``L[1:]`` to your grandpa (that is
+making the recursive call), and ask for the solution. Your grandpa is
+very cooperative and gives you the solution (the biggest number) for the
+list (``L[1:]``) you passed to him.
+
+However, we are not finished: On one hand you have what your grandpa
+returned to you as the biggest number of the slightly reduced list
+(``L[1:]``), and on the other hand, you have the removed (first) element
+``L[0]``. Now, which one will you return as the solution of the 900
+number list? Think about it!
+
+Here is the solution in Python:
+
+.. code:: python
+
+    def find_max(L):
+    	if len(L) == 1: return L[0]   # Terminating condition
+    	else:
+    		grandpa_result = find_max(L[1:])   #recursion is on L with the 0th element removed
+    		if grandpa_result > L[0]: return grandpa_result
+    		else: return L[0]
+    
+    # Let's try with a simple list -- try changing M and check the result
+    M = [-100, 10, -10, 100]
+    print("The maximum element of M is:", find_max(M))
+
+
+.. parsed-literal::
+    :class: output
+
+    The maximum element of M is: 100
+
+
+As you may have recognized, the definition started with testing for the
+smallest case. That is a single element list for which the result (the
+biggest number in the list) is that single number itself.
+
+Recursion helps writing elegant functions. However, it does not come for
+free. The price is in the time and memory overhead spent on creating a
+new function call. Time may be something tolerable but memory is
+limited. For functions that make thousands of recursive calls, you
+should better seek algorithmic solutions that do not lean on recursion.
+Python has a default for recursion depth, which is set to 1000. This can
+be altered. As said, it is better to seek a non-recursive solution
+unless you know very well of what you are doing.
+
+Any recursive function can be implemented using iterations. The reverse
+is also true: Any iterative function can be implemented using recursion.
+The definition of the problem or the algorithm generally provides hints
+for whether recursion or iteration is better for implementing your
+solution.
+
+Function Examples
+-----------------
+
+**Example 1: Computing average and standard-deviation**
+
+In the previous chapter, we provided iterative definitions for
+calculating the average and the standard-deviation of a list of numbers.
+Let us look at these definitions again with functions. For the sake of
+ease, the mathematical definitions are provided again. Moreover, we will
+use this opportunity to talk more about iterations as well.
+
+Average of a set (:math:`S`) of numbers is calculated by dividing the
+sum of the values in the set by their number. So, if we have a set
+:math:`S`:
+
+.. math::
+
+
+   avg(S) = \frac{1}{|S|}\sum_{x\in S} x,
+
+which can be coded as:
+
+.. code:: python
+
+    def avg(S):
+      sum = 0.0
+      for x in S: sum += x
+      return sum/len(S)
+    
+    S = [11, 2, 9, 6]
+    print("The avg of S:", avg(S))
+
+
+.. parsed-literal::
+    :class: output
+
+    The avg of S: 7.0
+
+
+This is quite elegant. As you see it works at a higher abstraction
+level. This can be done because the ``in`` operator comes in very handy
+and when used as an iterator, it iterates over the elements of the list.
+
+Sometimes it is more desirable to work with the indices to reach out to
+each element. Remember that indexing of container elements start at
+zero. So, a more index-based formulation of the same formula would be:
+
+.. math::
+
+
+   avg(S) = \frac{1}{|S|}\sum_{i=0}^{|S|-1} S_i
+
+The following implements this definition:
+
+::
+
+   def avg(S):
+     sum = 0.0
+     for i in range(0, len(S)): sum += S[i]
+     return sum/len(S)
+
+   S = [11, 2, 9, 6]
+   print("The avg of S:", avg(S))
+
+This is almost okay but not perfect. ``len`` is a built-in function that
+returns the element count of any container (string, list, tuple). As you
+have observed ``len(S)`` is calculated twice. This is inefficient.
+Function calls have a price, time-wise and space-wise and unnecessary
+calls should be avoided. To fix this, we change the code to do
+computation once and store the result for further usages.
+
+.. code:: python
+
+    def avg(S):
+      sum = 0.0
+      length = len(S)
+      for i in range(0, length): sum += S[i]
+      return sum/length
+    
+    S = [11, 2, 9, 6]
+    print("The avg of S:", avg(S))
+
+
+.. parsed-literal::
+    :class: output
+
+    The avg of S: 7.0
+
+
+``sum``, ``length``, ``i`` and the parameter ``S`` are all local
+variables of the function ``avg``. In contrary to many other programming
+languages, in Python we do not have to declare locals. They are
+automatically recognized. This comes in very handy.
+
+One point to note about the code is that the :math:`|S|-1` is missing.
+It is not necessary because the ``range`` iterator excludes the end
+value, as we discussed in the previous chapter.
+
+| Now let us also introduce the code for standard deviation. First the
+  mathematical definition:
+| 
+
+  .. math::
+
+
+     std(S) = \sqrt{\frac{1}{|S|}\displaystyle\sum_{i=0}^{|S|-1}(S_i - avg(S))^2}
+
+This time we bear in mind that unnecessary function calls should be
+avoided:
+
+.. code:: python
+
+    def avg(S):
+      sum = 0.0
+      length = len(S)
+      for i in range(0, length): sum += S[i]
+      return sum/length
+    
+    def std(S):
+      sum = 0.0
+      length = len(S)
+      average = avg(S)
+      for i in range(0, length): sum += (S[i] - average)**2
+      return (sum/length)**0.5
+    
+    S = [11, 2, 9, 6]
+    print("The avg of S:", avg(S))
+    print("The std of S:", std(S))
+
+
+.. parsed-literal::
+    :class: output
+
+    The avg of S: 7.0
+    The std of S: 3.391164991562634
+
+
+We gave the solution in terms of explicit indexing. As given below this
+particular problem can be coded without an iteration over indices. Such
+problems are rare. Problems that require operations over vectors and
+matrices or problems that aim optimizations usually require explicit
+index iterations.
+
+For sake of completeness we state the index-less solution of the average
+and standard-deviation problem:
+
+.. code:: python
+
+    def avg(S):
+      sum = 0.0
+      length = len(S)
+      for x in S: sum += x
+      return sum/length
+    
+    def std(S):
+      sum = 0.0
+      length = len(S)
+      average = avg(S)
+      for x in S: sum += (x - average)**2
+      return (sum/length)**0.5
+    
+    S = [11, 2, 9, 6]
+    print("The avg of S:", avg(S))
+    print("The std of S:", std(S))
+
+
+.. parsed-literal::
+    :class: output
+
+    The avg of S: 7.0
+    The std of S: 3.391164991562634
+
+
+**Example 2: Computing check digit**
+
+A Standard Definition from
+`Wikipedia <https://en.wikipedia.org/wiki/Check_digit>`__:
+
+   "A *check digit* is a form of redundancy check used for error
+   detection on identification numbers, such as bank account numbers,
+   which are used in an application where they will at least sometimes
+   be input manually. It consists of one or more digits computed by an
+   algorithm from the other digits (or letters) in the sequence input.
+
+..
+
+   With a check digit, one can detect simple errors in the input of a
+   series of characters (usually digits) such as a single mistyped digit
+   or some permutations of two successive digits."
+
+Middle East Technical University, our university, also implements a
+check digit algorithm for student numbers. A student number has exactly
+six digits. The algorithm to generate the checkdigit is as follows:
+
+-  :math:`sum \leftarrow 0`
+
+-  For each digit in the student number (the leftmost digit is the named
+   as the ‘first’) that has an odd position (first, third, fifth), take
+   the digit and add it to the :math:`sum`.
+
+-  For each digit in the student number that has an even position
+   (second, forth, sixth) take twice the digit. If this result of
+   doubling is a two digit number, then add each of these digits to the
+   :math:`sum`, otherwise add the result of the doubling (which is a
+   single digit number itself) to the :math:`sum`.
+
+-  The one digit number, which when added to the :math:`sum` results in
+   a multiple of 10, is the check digit.
+
+Take as example the student number **167912**:
+
+.. figure:: ../figures/ch6_checksum.png
+   :width: 300px
+
+   How checksum is calculated for a student number.
+
+
+The check digit of the student number **167912** is found to be **5**.
+As you all well know, this is written as **167912-5**. That is called
+the *student-id*.
+
+Below you will find the code that computes the checkdigit for a student
+number, given as a string. We encourage you to investigate it. A very
+good technique to understand how a code progresses when it runs is to
+insert print statements to points of interest. You can start by
+inserting:
+
+.. code:: python
+
+   print(digit, sum)
+
+right after the line of ``else:`` (left-aligned with the ``else``).
+
+.. code:: python
+
+    def checksum(S):
+        sum = 0
+        for i in range(0, len(S)):
+            digit = int(S[i])
+            if i%2 == 0: sum += digit
+            else: sum += (9 if digit==9 else (2*digit) % 9)
+        n = sum % 10
+        return 0 if n == 0 else 10 - n
+    
+    print(checksum("167912"))
+
+
+.. parsed-literal::
+    :class: output
+
+    5
+
+
+A few notes about the code:
+
+-  Remember indexing starts in Python at zero. One group of digits,
+   namely (first, third, fifth) are actually at ``S[0]``, ``S[2]`` and
+   ``S[4]``. Their indices are **even**. Or in mathematical terms, they
+   are (modulo 2) zero.
+
+-  Summing the digits of a number is a trick we learned in primary
+   school. It is actually nothing else but a quick way to do (modulo 9).
+   So, we are actually taking the (modulo 9) of the doubled digit. With
+   one exception: If the digit is 9, the double is 18 where we have to
+   add a 1+8=9 to the ``sum``. But ``(18 % 9)`` would give us zero (not
+   9). So, here we have to insert an exception: For all digits except 9,
+   we can use ``(2*digit) % 9``. For 9, we ought to add a 9 to the
+   ``sum``.
+
+-  The rule of constructing the check digit from the ``sum`` has a
+   similar exception case for ``sum`` being a multiple of 10 (i.e. n
+   (modulo 10) = 0). In that case we would have a checkdigit of 10
+   (because 10-0 = 10) which is not a digit, but two digits. The
+   designers decided to use a zero as the checkdigit for this particular
+   case.
+
+Now let us see how the checkdigit can be used to recover a missing digit
+of the student id.
+
+Let us assume you have a student ID as: **1🁢9503-7**. Now, can we
+discover what the (**🁢**) digit is?
+
+For this purpose we will write a function ``find_q_mark()`` that will
+take a string as an argument, in which the missing digit is indicated by
+a (``?``) (question mark). We are expecting that a call of
+``find_q_mark("1?9503-7")`` will recover the missing digit and return
+the demystified string: “169503-7”.
+
+*(The ``checksum()`` definition of above is still effective)*
+
+.. code:: python
+
+    # places digit in the place of '?' in the string S
+    def replace_q_mark(S, digit):  
+        new_S =""
+        for c in S: new_S += str(digit) if c=='?' else c
+        return new_S
+    
+    # finds the value for the position with '?'
+    def find_q_mark(MissingStdID):      # MissingStdID is something like "1?7912-5"
+        six_digit_string = MissingStdID[:6]  # "1?7912"
+        checksum_digit = int(MissingStdID[7])
+        for missing_digit in range(0, 10):
+            candidate = replace_q_mark(six_digit_string, missing_digit)
+            if checksum(candidate) == checksum_digit: return candidate + MissingStdID[6:]
+    
+    print(find_q_mark("1?7912-5"))
+
+
+.. parsed-literal::
+    :class: output
+
+    167912-5
+
+
+A few notes about the code: \* ``replace_q_mark()`` function is called
+by ``find_q_mark()``. It is only called once, therefore its actions
+could have been migrated into ``find_q_mark()``. Efficiency-wise there
+would be no change. But seperating it out, making it into a function and
+naming it accordingly makes the code more readable.
+
+-  The first two lines that define ``find_q_mark()`` actions are merely
+   dissecting the string into a student-id and a checkdigit part.
+
+-  What we do in the ``for`` loop in ``find_q_mark()`` (on Lines 11-13)
+   is coined in Computer Science as *brute force*. Practically, it is
+   trying every possible case for being a solution. In this problem, the
+   ``(?)`` mark can be any digit in the range [0,9]. The ``for`` loop
+   tries each of these possibilities out until the computed checksum
+   becomes the same as the checkdigit appearing in the input string.
+
+Programming Style
+-----------------
+
+With the topics covered in this chapter, we started working with longer
+and more elaborated Python codes. Up to now, we have introduced crucial
+aspects that can be arranged differently among programmers:
+
+-  Naming variables and functions.
+-  Indentation.
+-  Function definition.
+-  Commenting.
+
+Longing for brevity and readability, the creators of Python have defined
+some guidelines of style for those interested: `Python Style
+Guide <https://www.python.org/dev/peps/pep-0008/>`__.
+
+There are alternative styles and we strongly recommend you to choose one
+and stick to it as a programming style.
+
+Important Concepts
+------------------
+
+We would like our readers to have grasped the following crucial concepts
+and keywords from this chapter (all related to Python):
+
+-  Defining functions.
+-  Function parameters and how to pass values to functions.
+-  Default parameters.
+-  Scopes of variables.
+-  Local, enclosing, global and built-in scopes.
+-  Higher-order functions.
+-  Differences of functions between programming and Mathematics.
+-  Recursion.
+
+Further Reading
+---------------
+
+-  Functional tools of Python:
+   https://docs.python.org/3/howto/functional.html
+-  A more comprehensive coverage on recursion:
+   https://link.springer.com/chapter/10.1007/978-3-7091-1343-1_4
+-  Python style guide: https://www.python.org/dev/peps/pep-0008/
+
+Exercises
+---------
+
+-  Write a Python function named ``only_numbers()`` that removes items
+   in a list that are not numbers. E.g.
+   ``only_numbers([10, "ali", [20], True, 4])`` should return
+   ``[10, 4]``. Implement two versions: One using iteration and another
+   using recursion.
+
+-  Write a Python function named ``flatten()`` that removes nesting in a
+   nested list and lists all elements in a single non-nested list. E.g.
+   ``flatten([1, [4, 5, [6]], [["test"]]])`` should return
+   ``[1, 4, 5, 6, "test"]``.
+
+-  Write a Python function named ``reverse()`` that reverses the order
+   of elements in a list. E.g. ``reverse([10, 5, 0])`` should return
+   ``[0, 5, 10]``. Implement two versions: One using iteration and
+   another using recursion.
+
+-  Write a Python function named ``greatest_divisor()`` that finds the
+   greatest divisor of an integer. The greatest divisor of an integer
+   :math:`n` is an integer :math:`x < n` that satisfies
+   :math:`n = k \cdot x` for some integer :math:`k`. E.g.
+   ``greatest_divisor(12)`` should return ``6``.

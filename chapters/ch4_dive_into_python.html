@@ -116,6 +116,7 @@ Show Source
 <li class="toctree-l1"><a class="reference internal" href="ch3_data_representation.html">3. Representation of Data</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">4. Dive into Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch5_conditional_and_repetitive.html">5. Conditional and Repetitive Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch6_functions.html">6. Functions</a></li>
 </ul>
 
             </nav>
@@ -151,6 +152,7 @@ Show Source
 <li class="toctree-l1"><a class="reference internal" href="ch3_data_representation.html">3. Representation of Data</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">4. Dive into Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch5_conditional_and_repetitive.html">5. Conditional and Repetitive Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch6_functions.html">6. Functions</a></li>
 </ul>
 
             </nav>
@@ -1079,7 +1081,12 @@ This would allow us to access entries like this:</p>
 </div>
 <p>Although we can represent matrices like this, there are very advanced
 libraries that make representing and working with matrices more
-practical, as we will see in Chapter 10.</p>
+practical, as we will see in Chapter 10. For an extended coverage on
+matrices and matrix operations, we refer to <a class="reference external" href="http://vcp.med.harvard.edu/papers/matrices-1.pdf">Matrix algebra for
+beginners</a> (by
+Jeremy Gunawardena) or <a class="reference external" href="https://mml-book.github.io/book/mml-book.pdf">Chapter 2.2 of “Mathematics for Machine
+Learning”</a> (by Marc
+Peter Deisenroth, A. Aldo Faisal and Cheng Soon Ong).</p>
 </div>
 <div class="section" id="dictionary">
 <h3><span class="section-number">4.2.5. </span>Dictionary<a class="headerlink" href="#dictionary" title="Permalink to this headline">¶</a></h3>
@@ -1778,10 +1785,10 @@ assigning them to variables. First consider the following code:</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b is: &quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">address</span> <span class="n">of</span> <span class="mi">5</span><span class="p">:</span>  <span class="mi">4303182512</span>
-<span class="n">address</span> <span class="n">of</span> <span class="n">a</span><span class="p">:</span>  <span class="mi">4303182512</span>
-<span class="n">address</span> <span class="n">of</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4303182512</span>
-<span class="n">address</span> <span class="n">of</span> <span class="n">a</span><span class="p">:</span>  <span class="mi">4303182448</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">address</span> <span class="n">of</span> <span class="mi">5</span><span class="p">:</span>  <span class="mi">4523371184</span>
+<span class="n">address</span> <span class="n">of</span> <span class="n">a</span><span class="p">:</span>  <span class="mi">4523371184</span>
+<span class="n">address</span> <span class="n">of</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4523371184</span>
+<span class="n">address</span> <span class="n">of</span> <span class="n">a</span><span class="p">:</span>  <span class="mi">4523371120</span>
 <span class="n">b</span> <span class="ow">is</span><span class="p">:</span>  <span class="mi">5</span>
 </pre></div>
 </div>
@@ -1804,9 +1811,9 @@ which is printed.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b is: &quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4337085696</span> <span class="mi">4337085696</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4557302208</span> <span class="mi">4557302208</span>
 <span class="n">b</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
-<span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4336390592</span> <span class="mi">4337085696</span>
+<span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4555185344</span> <span class="mi">4557302208</span>
 <span class="n">b</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -1822,9 +1829,9 @@ But now, consider the following slightly different example:</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b is: &quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4335651840</span> <span class="mi">4335651840</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4555185792</span> <span class="mi">4555185792</span>
 <span class="n">b</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
-<span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4335651840</span> <span class="mi">4335651840</span>
+<span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4555185792</span> <span class="mi">4555185792</span>
 <span class="n">b</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -2080,6 +2087,15 @@ ones we have illustrated. However, this extent should be sufficient for
 general uses and this book. The reader interested in a complete coverage
 is referred to the <a class="reference external" href="https://docs.python.org/3/library/string.html">Python’s documentation on string
 formatting</a>.</p>
+<p>We can also ask Python to directly take in the values of the variables
+for which we provide the names:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">age</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">height</span> <span class="o">=</span> <span class="mf">1.70</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">eye_color</span> <span class="o">=</span> <span class="s2">&quot;brown&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;I am </span><span class="si">{</span><span class="n">height</span><span class="si">}</span><span class="s2"> tall, </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old and have </span><span class="si">{</span><span class="n">eye_color</span><span class="si">}</span><span class="s2"> eyes&quot;</span><span class="p">)</span>
+<span class="go">I am 1.7 tall, 20 years old and have brown eyes</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="actions-that-are-ignored">

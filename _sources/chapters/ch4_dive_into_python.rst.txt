@@ -1091,7 +1091,12 @@ This would allow us to access entries like this:
 
 Although we can represent matrices like this, there are very advanced
 libraries that make representing and working with matrices more
-practical, as we will see in Chapter 10.
+practical, as we will see in Chapter 10. For an extended coverage on
+matrices and matrix operations, we refer to `Matrix algebra for
+beginners <http://vcp.med.harvard.edu/papers/matrices-1.pdf>`__ (by
+Jeremy Gunawardena) or `Chapter 2.2 of “Mathematics for Machine
+Learning” <https://mml-book.github.io/book/mml-book.pdf>`__ (by Marc
+Peter Deisenroth, A. Aldo Faisal and Cheng Soon Ong).
 
 Dictionary
 ~~~~~~~~~~
@@ -1820,10 +1825,10 @@ assigning them to variables. First consider the following code:
 .. parsed-literal::
     :class: output
 
-    address of 5:  4303182512
-    address of a:  4303182512
-    address of b:  4303182512
-    address of a:  4303182448
+    address of 5:  4523371184
+    address of a:  4523371184
+    address of b:  4523371184
+    address of a:  4523371120
     b is:  5
 
 
@@ -1854,9 +1859,9 @@ Now keep the task the same but change the data from integer to a list:
 .. parsed-literal::
     :class: output
 
-    addresses of a and b:  4337085696 4337085696
+    addresses of a and b:  4557302208 4557302208
     b is:  [5, 1, 7]
-    addresses of a and b:  4336390592 4337085696
+    addresses of a and b:  4555185344 4557302208
     b is:  [5, 1, 7]
 
 
@@ -1879,9 +1884,9 @@ But now, consider the following slightly different example:
 .. parsed-literal::
     :class: output
 
-    addresses of a and b:  4335651840 4335651840
+    addresses of a and b:  4555185792 4555185792
     b is:  [5, 1, 7]
-    addresses of a and b:  4335651840 4335651840
+    addresses of a and b:  4555185792 4555185792
     b is:  [3, 1, 7]
 
 
@@ -2104,6 +2109,17 @@ ones we have illustrated. However, this extent should be sufficient for
 general uses and this book. The reader interested in a complete coverage
 is referred to the `Python’s documentation on string
 formatting <https://docs.python.org/3/library/string.html>`__.
+
+We can also ask Python to directly take in the values of the variables
+for which we provide the names:
+
+.. code:: python
+
+   >>> age = 20
+   >>> height = 1.70
+   >>> eye_color = "brown"
+   >>> print(f"I am {height} tall, {age} years old and have {eye_color} eyes")
+   I am 1.7 tall, 20 years old and have brown eyes
 
 Actions that are ignored
 ------------------------
