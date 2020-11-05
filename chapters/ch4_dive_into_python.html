@@ -1762,12 +1762,6 @@ holds 3.</em></p></li>
 and they got printed.</em></p></li>
 </ol>
 </li>
-<li><p><strong>QUESTION:</strong> So, how do I perform a swap of content of two variables
-<code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> for example?</p></li>
-<li><p><strong>ANSWER:</strong> <em>We leave this as an exercise! (Hint: Assume you have two
-soup bowls. Each containing a different soup. For some peculiar
-reason you have to switch the contents of the bowls. How would you
-proceed?)</em></p></li>
 </ul>
 </div>
 <div class="section" id="variables-aliasing">
@@ -1785,10 +1779,10 @@ assigning them to variables. First consider the following code:</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b is: &quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">address</span> <span class="n">of</span> <span class="mi">5</span><span class="p">:</span>  <span class="mi">4523371184</span>
-<span class="n">address</span> <span class="n">of</span> <span class="n">a</span><span class="p">:</span>  <span class="mi">4523371184</span>
-<span class="n">address</span> <span class="n">of</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4523371184</span>
-<span class="n">address</span> <span class="n">of</span> <span class="n">a</span><span class="p">:</span>  <span class="mi">4523371120</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">address</span> <span class="n">of</span> <span class="mi">5</span><span class="p">:</span>  <span class="mi">4473162416</span>
+<span class="n">address</span> <span class="n">of</span> <span class="n">a</span><span class="p">:</span>  <span class="mi">4473162416</span>
+<span class="n">address</span> <span class="n">of</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4473162416</span>
+<span class="n">address</span> <span class="n">of</span> <span class="n">a</span><span class="p">:</span>  <span class="mi">4473162352</span>
 <span class="n">b</span> <span class="ow">is</span><span class="p">:</span>  <span class="mi">5</span>
 </pre></div>
 </div>
@@ -1811,9 +1805,9 @@ which is printed.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b is: &quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4557302208</span> <span class="mi">4557302208</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4501952832</span> <span class="mi">4501952832</span>
 <span class="n">b</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
-<span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4555185344</span> <span class="mi">4557302208</span>
+<span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4507464704</span> <span class="mi">4501952832</span>
 <span class="n">b</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -1829,9 +1823,9 @@ But now, consider the following slightly different example:</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b is: &quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4555185792</span> <span class="mi">4555185792</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4506729728</span> <span class="mi">4506729728</span>
 <span class="n">b</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
-<span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4555185792</span> <span class="mi">4555185792</span>
+<span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4506729728</span> <span class="mi">4506729728</span>
 <span class="n">b</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
 </pre></div>
 </div>
