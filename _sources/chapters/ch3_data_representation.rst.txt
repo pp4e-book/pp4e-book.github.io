@@ -1,8 +1,4 @@
 
-.. toctree::
-   :maxdepth: 2
-   :numbered:
-
 Representation of Data
 ======================
 
@@ -63,11 +59,8 @@ keep in mind, that any ’1’ (or ‘0’) in our representation is actually
 the presence (or absence) of a voltage in a specific point of the
 electronic circuitry.
 
-.. _sec3dot1:
-
 Representing integers
 ---------------------
-
 
 Mathematics already has a solution for representing integers in binary
 via base-2 calculation or representation. The idea behind base-2
@@ -403,8 +396,8 @@ words to binary, we can express the same number as:
 How did we obtain the fractional part? By multiplying the fractional by
 two until we obtain zero for the fraction part, as illustrated in
 :numref:`ch3_real_to_bin`. This is in certain ways the reverse of what
-we did for converting the whole part into binary, in
-:numref:`sec3dot1`.
+we did for converting the whole part into binary, in the previous
+section.
 
 .. _ch3_real_to_bin:
 
