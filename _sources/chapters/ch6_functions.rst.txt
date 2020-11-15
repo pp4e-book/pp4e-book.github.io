@@ -1042,6 +1042,381 @@ naming it accordingly makes the code more readable.
    tries each of these possibilities out until the computed checksum
    becomes the same as the checkdigit appearing in the input string.
 
+**Example 3: Sequential Search**
+
+Searching an item in a list or any other container is a frequently
+performed operation required while solving world problems. For the sake
+of simplicity, let us just focus on situations where only numbers are
+involved; i.e. the searched item is a number and the list includes only
+numbers. Extension to other data types is trivial.
+
+In a search problem, we have a query item (let’s call it ``x``) and a
+list of items (let’s call it ``L``). If ``x`` is a member of ``L``, then
+we want the search algorithm to return ``True``, optionally by returning
+its index in ``L``. If ``x`` is not a member of ``L``, we expect the
+algorithm to return ``False``.
+
+Consider the example list below:
+
+.. math::
+
+
+   \begin{array}{|c|c|c|c|c|}
+           \hline 109 & -48 & 25 & 4 & -13 \\ \hline
+   \end{array}
+
+If ``x`` is 4, the search algorithm should return ``True``. If it is 5,
+the answer should be ``False``.
+
+Let us start with the simplest algorithm we can use: Sequential Search.
+In sequential search, we start with the beginning of the list, go over
+each item in the list and check if the query is equal to any item that
+we go over. Here is the algorithm:
+
+::
+
+   Algorithm: Sequential Search with While Iterations
+   ----------------------------
+   Input: x -- the query number
+          L -- the list of numbers
+   Output: True (if x is in L) or False (if x is not in L)
+   ----------------------------
+   Step 1: Create a variable named Index with initial value 0
+   Step 2: Create a variable named N with value length(L)
+   Step 3: While Index < N is True, execute Steps 3 and 4:
+   Step 4:    If x is equal to L[Index], then return True as the result
+   Step 5:    Index = Index + 1
+   Step 6: Return False as the result
+
+Let us implement this simple algorithm in Python:
+
+.. code:: python
+
+    # Sequential Search with while statement
+    def seq_search(x, L):
+      index = 0                          # Step 1
+      N = len(L)                         # Step 2
+      while index < N:                   # Step 3
+        if x == L[index]: return True    # Step 4
+        index = index + 1                # Step 5
+      return False                       # Step 6
+    
+    
+    # Now let us test the function with examples:
+    L = [109, -48, 25, 4, -13]
+    x = 4
+    print(f"seq_search({x}, {L}): ", seq_search(x, L))
+    x = 5
+    print(f"seq_search({x}, {L}): ", seq_search(x, L))
+    x = 5
+    L = []
+    print(f"seq_search({x}, {L}): ", seq_search(x, L))
+
+
+.. parsed-literal::
+    :class: output
+
+    seq_search(4, [109, -48, 25, 4, -13]):  True
+    seq_search(5, [109, -48, 25, 4, -13]):  False
+    seq_search(5, []):  False
+
+
+That looks nice. However, we can have a more compact solution using
+``for`` loops:
+
+.. code:: python
+
+    # Sequential Search with for statement
+    def seq_search(x, L):
+      for y in L:
+        if x == y: return True
+      return False
+    
+    # Now let us test the function with examples:
+    L = [109, -48, 25, 4, -13]
+    x = 4
+    print(f"seq_search({x}, {L}): ", seq_search(x, L))
+    x = 5
+    print(f"seq_search({x}, {L}): ", seq_search(x, L))
+    x = 5
+    L = []
+    print(f"seq_search({x}, {L}): ", seq_search(x, L))
+
+
+.. parsed-literal::
+    :class: output
+
+    seq_search(4, [109, -48, 25, 4, -13]):  True
+    seq_search(5, [109, -48, 25, 4, -13]):  False
+    seq_search(5, []):  False
+
+
+That’s the beauty of Python. These two are iterative solutions. Let us
+have a look at a recursive solution. First, let us have a look at the
+algorithm. The idea is essentially the same: We compare with the first
+item and return ``True`` if they match. Otherwise, we continue our
+search with the remaining items.
+
+::
+
+   Algorithm: Sequential Search with Recursion
+   ----------------------------
+   Input: x -- the query number
+          L -- the list of numbers
+   Output: True (if x is in L) or False (if x is not in L)
+   ----------------------------
+   Step 1: If L is empty, return False
+   Step 2: If x is equal to the first item of L (L[0]), return True
+   Step 3: Make a recursive call on L[1:N], and return its answer
+
+And here is the implementation in Python:
+
+.. code:: python
+
+    # Sequential Search with recursion
+    def seq_search(x, L):
+      if L == []: return False      # Step 1: We have exhausted the list, x was not found
+      if x == L[0]: return True     # Step 2: x was at the beginning of the list, yay!
+      return seq_search(x, L[1:])   # Step 3: Search in the remaining items since x != L[0]
+    
+    # Now let us test the function with examples:
+    L = [109, -48, 25, 4, -13]
+    x = 4
+    print(f"seq_search({x}, {L}): ", seq_search(x, L))
+    x = 5
+    print(f"seq_search({x}, {L}): ", seq_search(x, L))
+    x = 5
+    L = []
+    print(f"seq_search({x}, {L}): ", seq_search(x, L))
+
+
+.. parsed-literal::
+    :class: output
+
+    seq_search(4, [109, -48, 25, 4, -13]):  True
+    seq_search(5, [109, -48, 25, 4, -13]):  False
+    seq_search(5, []):  False
+
+
+**Exercise**
+
+Write down the pseudocode for the Python function ``seq_search`` with
+``for`` statement.
+
+**Exercise**
+
+Extend the *recursive* implementation of ``seq_search`` to search for an
+item ``x`` in a list ``L`` in cases where ``L`` can be nested. In other
+words, the extended search algorithm shoud return ``True`` for:
+
+``seq_search_nested(5, [10, [4, [5]], -84, [3]])``
+
+and ``False`` for:
+
+``seq_search_nested(8, [10, [4, [5]], -84, [3]])``
+
+**Example 4: Binary Search**
+
+If the list of items (numbers in our case) is not sorted, sequential
+search is the only option for searching for an item. If, however, the
+numbers are sorted (in an increasing or decreasing order), then we have
+a much more efficient algorithm called binary search.
+
+Assuming that ``L``, our list of numbers, is sorted in an increasing
+order: In binary search, we make our first comparison with the number
+that is at the center (middle) of the list. If the middle number is
+equal to ``x``, then we obviously return ``True``. Otherwise, we compare
+``x`` with the middle number: If ``x`` is smaller, then it has to be to
+the left of the middle number – we can continue our search on the left
+part of L. If, on the other hand, ``x`` is larger than the middle
+number, it has to be on the right side of the middle number – we can
+continue our search on the right part of L. This is illustrated in the
+following figure.
+
+.. figure:: ../figures/ch6_bin_search.png
+   :width: 550px
+
+   Binary search algorithm.
+
+
+Here is the pseudocode that describes this algorithm:
+
+::
+
+   Algorithm: Binary Search with Recursion
+   ----------------------------
+   Input: x -- the query number
+          L -- the list of numbers
+   Output: True (if x is in L) or False (if x is not in L)
+   ----------------------------
+   Step 1: If length(L) is zero then return False since the list is empty
+   Step 2: Create a variable Mid_index with value length(L)/2
+   Step 3: If length(L) is 1 then return False since the only item in L is not equal to x
+   Step 4: If x < L[Mid_index] then make recursive call with L[0:Mid_index] and return its answer
+   Step 5: Otherwise (x > L[Mid_index]) then make a recursive call with L[Mid_index+1:] and return its answer
+
+The following is the implementation in Python:
+
+.. code:: python
+
+    # Binary search with recursion
+    def bin_search(x, L):
+      if len(L) == 0: return False                                # Step 1: Terminating condition
+      Mid_index = len(L) // 2                                     # Step 2: Uses integer division
+      if x == L[Mid_index]: return True                           # Step 3
+      if x < L[Mid_index]: return bin_search(x, L[0:Mid_index])   # Step 4
+      if x > L[Mid_index]: return bin_search(x, L[Mid_index+1:])  # Step 5: Can drop if statement
+    
+    # Now let us test the function with examples:
+    L = [-48, -13, 4, 25, 109]
+    x = 4
+    print(f"bin_search({x}, {L}): ", bin_search(x, L))
+    x = 5
+    print(f"bin_search({x}, {L}): ", bin_search(x, L))
+    x = 5
+    L = []
+    print(f"bin_search({x}, {L}): ", bin_search(x, L))
+
+
+.. parsed-literal::
+    :class: output
+
+    bin_search(4, [-48, -13, 4, 25, 109]):  True
+    bin_search(5, [-48, -13, 4, 25, 109]):  False
+    bin_search(5, []):  False
+
+
+**Exercise**
+
+Implement binary search using while statements.
+
+**Exercise**
+
+Identify the complexity of sequential search and binary search in the
+following cases:
+
+-  Best case: When the item that we are making our first comparison with
+   is the one we were looking for.
+-  Worst case: The item we are looking for is the last item with which
+   we performed the comparison.
+-  Average case.
+
+**Example 5: Sorting**
+
+Sorting pertains to ordering a list of items (:math:`L`) so that each
+item in :math:`L` satisfies the following constraint:
+
+.. math::
+
+
+   L_i < L_{i+1},
+
+which leads to an ascending (increasing) order of items in :math:`L` and
+this is called *ascending sort*. If the order of the constraint is
+changed to :math:`L_i > L_{i+1}`, the outcome is a descending
+(decreasing) order of items in :math:`L` and this is called *descending
+sort*.
+
+An algorithm that can perform ascending sort can easily be changed to
+descending sort; therefore, we will just focus on one of them, namely,
+ascending sort. Moreover, we will focus on sorting a list of numbers;
+however, the same algorithms can be applied on other data types as long
+as an ordering constraint (``<`` or ``>``) can be defined.
+
+**Bubble Sort**
+
+Let us have a look at a very simple though inefficient sorting
+algorithm, called *Bubble Sort*. In Bubble Sort, we start from the
+beginning of the list and check whether the constraint
+:math:`L_i < L_{i+1}` is violated for an :math:`i` value. If it is, we
+swap :math:`L_i` with :math:`L_{i+1}`. When we hit the end of the list,
+we start from the beginning of the list again and continue checking the
+constraint :math:`L_i < L_{i+1}`. Once at the end of the list, we again
+go back to the beginning and continue checking the constraint for each
+:math:`i`. This continues until no :math:`i` value violates the
+constraint :math:`L_i < L_{i+1}`, which means that the numbers are
+sorted.
+
+Therefore, in Bubble Sort, we have two loops, one outer loop that
+continues until all numbers are sorted and an inner loop that goes
+through the list and checks the constraint. Here is a pseudo-code for
+this:
+
+::
+
+   Algorithm: Bubble Sort
+   ----------------------------
+   Input: L -- the list of numbers (not sorted)
+   Output: L -- the sorted list of numbers (ascending order)
+   ----------------------------
+   Step 1: Create a varible Is_sorted with value False
+   Step 2: Create a variable N with value length(L)
+   Step 3: Create a variable Index
+   Step 4: While Is_sorted is False, repeat Steps 5-11:
+   Step 5:     Set Is_sorted to True
+   Step 6:     Set Index to zero
+   Step 7:     While Index < (N-1), repeat Steps 8-11
+   Step 8:         If L[Index] > L[Index+1], then execute Steps 9 & 10:
+   Step 9:              Swap L[Index] and L[Index+1]
+   Step 10:             Set Is_sorted to False
+   Step 11:        Index = Index + 1
+   Step 12: return L
+
+One outer iteration of the algorithm is illustrated on a small list of
+numbers below:
+
+.. figure:: ../figures/ch6_bubble_sort.png
+   :width: 550px
+
+   One outer iteration of the Bubble Sort algorithm.
+
+
+With one outer iteration, the list appears to be one step closer to a
+sorted list. In the example above, the largest number has found its
+correct place after one outer iteration. With a second one, the second
+largest number will find its place. With a third iteration, the third
+largest number will find its place etc.
+
+And here is the implementation in Python:
+
+.. code:: python
+
+    # Bubble Sort
+    
+    def bubble_sort(L):
+      Is_sorted = False                                       # Step 1
+      N = len(L)                                              # Step 2
+      Index = 0                                               # Step 3: Can be removed in Python
+    
+      while Is_sorted is False:                               # Step 4
+        Is_sorted = True                                      # Step 5
+        Index = 0                                             # Step 6
+        while Index < (N-1):                                  # Step 7
+          if L[Index] > L[Index+1]:                           # Step 8
+            (L[Index], L[Index+1]) = (L[Index+1], L[Index])   # Step 9
+            Is_sorted = False                                 # Step 10
+          Index = Index + 1                                   # Step 11
+      return L                                                # Step 12
+    
+    # Let us test our implementation with some sample lists
+    L = [109, -13, 4, -48, 25]
+    print(f"bubble_sort({L}): ", bubble_sort(L))
+    
+    L = [-48, -13, 4, 25, 109]
+    print(f"bubble_sort({L}): ", bubble_sort(L))
+    
+    L = []
+    print(f"bubble_sort({L}): ", bubble_sort(L))
+
+
+.. parsed-literal::
+    :class: output
+
+    bubble_sort([109, -13, 4, -48, 25]):  [-48, -13, 4, 25, 109]
+    bubble_sort([-48, -13, 4, 25, 109]):  [-48, -13, 4, 25, 109]
+    bubble_sort([]):  []
+
+
 Programming Style
 -----------------
 

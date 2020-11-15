@@ -996,6 +996,307 @@ trying every possible case for being a solution. In this problem, the
 tries each of these possibilities out until the computed checksum
 becomes the same as the checkdigit appearing in the input string.</p></li>
 </ul>
+<p><strong>Example 3: Sequential Search</strong></p>
+<p>Searching an item in a list or any other container is a frequently
+performed operation required while solving world problems. For the sake
+of simplicity, let us just focus on situations where only numbers are
+involved; i.e. the searched item is a number and the list includes only
+numbers. Extension to other data types is trivial.</p>
+<p>In a search problem, we have a query item (let’s call it <code class="docutils literal notranslate"><span class="pre">x</span></code>) and a
+list of items (let’s call it <code class="docutils literal notranslate"><span class="pre">L</span></code>). If <code class="docutils literal notranslate"><span class="pre">x</span></code> is a member of <code class="docutils literal notranslate"><span class="pre">L</span></code>, then
+we want the search algorithm to return <code class="docutils literal notranslate"><span class="pre">True</span></code>, optionally by returning
+its index in <code class="docutils literal notranslate"><span class="pre">L</span></code>. If <code class="docutils literal notranslate"><span class="pre">x</span></code> is not a member of <code class="docutils literal notranslate"><span class="pre">L</span></code>, we expect the
+algorithm to return <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>Consider the example list below:</p>
+<div class="math notranslate nohighlight" id="equation-chapters-ch6-functions-6">
+<span class="eqno">(6.8.4)<a class="headerlink" href="#equation-chapters-ch6-functions-6" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{array}{|c|c|c|c|c|}
+        \hline 109 &amp; -48 &amp; 25 &amp; 4 &amp; -13 \\ \hline
+\end{array}\end{split}\]</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">x</span></code> is 4, the search algorithm should return <code class="docutils literal notranslate"><span class="pre">True</span></code>. If it is 5,
+the answer should be <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>Let us start with the simplest algorithm we can use: Sequential Search.
+In sequential search, we start with the beginning of the list, go over
+each item in the list and check if the query is equal to any item that
+we go over. Here is the algorithm:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Algorithm</span><span class="p">:</span> <span class="n">Sequential</span> <span class="n">Search</span> <span class="k">with</span> <span class="n">While</span> <span class="n">Iterations</span>
+<span class="o">----------------------------</span>
+<span class="n">Input</span><span class="p">:</span> <span class="n">x</span> <span class="o">--</span> <span class="n">the</span> <span class="n">query</span> <span class="n">number</span>
+       <span class="n">L</span> <span class="o">--</span> <span class="n">the</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">numbers</span>
+<span class="n">Output</span><span class="p">:</span> <span class="kc">True</span> <span class="p">(</span><span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="ow">in</span> <span class="n">L</span><span class="p">)</span> <span class="ow">or</span> <span class="kc">False</span> <span class="p">(</span><span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">L</span><span class="p">)</span>
+<span class="o">----------------------------</span>
+<span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Create</span> <span class="n">a</span> <span class="n">variable</span> <span class="n">named</span> <span class="n">Index</span> <span class="k">with</span> <span class="n">initial</span> <span class="n">value</span> <span class="mi">0</span>
+<span class="n">Step</span> <span class="mi">2</span><span class="p">:</span> <span class="n">Create</span> <span class="n">a</span> <span class="n">variable</span> <span class="n">named</span> <span class="n">N</span> <span class="k">with</span> <span class="n">value</span> <span class="n">length</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<span class="n">Step</span> <span class="mi">3</span><span class="p">:</span> <span class="n">While</span> <span class="n">Index</span> <span class="o">&lt;</span> <span class="n">N</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">,</span> <span class="n">execute</span> <span class="n">Steps</span> <span class="mi">3</span> <span class="ow">and</span> <span class="mi">4</span><span class="p">:</span>
+<span class="n">Step</span> <span class="mi">4</span><span class="p">:</span>    <span class="n">If</span> <span class="n">x</span> <span class="ow">is</span> <span class="n">equal</span> <span class="n">to</span> <span class="n">L</span><span class="p">[</span><span class="n">Index</span><span class="p">],</span> <span class="n">then</span> <span class="k">return</span> <span class="kc">True</span> <span class="k">as</span> <span class="n">the</span> <span class="n">result</span>
+<span class="n">Step</span> <span class="mi">5</span><span class="p">:</span>    <span class="n">Index</span> <span class="o">=</span> <span class="n">Index</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">Step</span> <span class="mi">6</span><span class="p">:</span> <span class="n">Return</span> <span class="kc">False</span> <span class="k">as</span> <span class="n">the</span> <span class="n">result</span>
+</pre></div>
+</div>
+<p>Let us implement this simple algorithm in Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sequential Search with while statement</span>
+<span class="k">def</span> <span class="nf">seq_search</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">L</span><span class="p">):</span>
+  <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>                          <span class="c1"># Step 1</span>
+  <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>                         <span class="c1"># Step 2</span>
+  <span class="k">while</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">:</span>                   <span class="c1"># Step 3</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">L</span><span class="p">[</span><span class="n">index</span><span class="p">]:</span> <span class="k">return</span> <span class="kc">True</span>    <span class="c1"># Step 4</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span>                <span class="c1"># Step 5</span>
+  <span class="k">return</span> <span class="kc">False</span>                       <span class="c1"># Step 6</span>
+
+
+<span class="c1"># Now let us test the function with examples:</span>
+<span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">109</span><span class="p">,</span> <span class="o">-</span><span class="mi">48</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">13</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;seq_search(</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">L</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">,</span> <span class="n">seq_search</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">L</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;seq_search(</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">L</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">,</span> <span class="n">seq_search</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">L</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">L</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;seq_search(</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">L</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">,</span> <span class="n">seq_search</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">L</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">seq_search</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="p">[</span><span class="mi">109</span><span class="p">,</span> <span class="o">-</span><span class="mi">48</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">13</span><span class="p">]):</span>  <span class="kc">True</span>
+<span class="n">seq_search</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="mi">109</span><span class="p">,</span> <span class="o">-</span><span class="mi">48</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">13</span><span class="p">]):</span>  <span class="kc">False</span>
+<span class="n">seq_search</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="p">[]):</span>  <span class="kc">False</span>
+</pre></div>
+</div>
+<p>That looks nice. However, we can have a more compact solution using
+<code class="docutils literal notranslate"><span class="pre">for</span></code> loops:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sequential Search with for statement</span>
+<span class="k">def</span> <span class="nf">seq_search</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">L</span><span class="p">):</span>
+  <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">L</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span><span class="p">:</span> <span class="k">return</span> <span class="kc">True</span>
+  <span class="k">return</span> <span class="kc">False</span>
+
+<span class="c1"># Now let us test the function with examples:</span>
+<span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">109</span><span class="p">,</span> <span class="o">-</span><span class="mi">48</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">13</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;seq_search(</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">L</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">,</span> <span class="n">seq_search</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">L</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;seq_search(</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">L</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">,</span> <span class="n">seq_search</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">L</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">L</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;seq_search(</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">L</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">,</span> <span class="n">seq_search</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">L</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">seq_search</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="p">[</span><span class="mi">109</span><span class="p">,</span> <span class="o">-</span><span class="mi">48</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">13</span><span class="p">]):</span>  <span class="kc">True</span>
+<span class="n">seq_search</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="mi">109</span><span class="p">,</span> <span class="o">-</span><span class="mi">48</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">13</span><span class="p">]):</span>  <span class="kc">False</span>
+<span class="n">seq_search</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="p">[]):</span>  <span class="kc">False</span>
+</pre></div>
+</div>
+<p>That’s the beauty of Python. These two are iterative solutions. Let us
+have a look at a recursive solution. First, let us have a look at the
+algorithm. The idea is essentially the same: We compare with the first
+item and return <code class="docutils literal notranslate"><span class="pre">True</span></code> if they match. Otherwise, we continue our
+search with the remaining items.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Algorithm</span><span class="p">:</span> <span class="n">Sequential</span> <span class="n">Search</span> <span class="k">with</span> <span class="n">Recursion</span>
+<span class="o">----------------------------</span>
+<span class="n">Input</span><span class="p">:</span> <span class="n">x</span> <span class="o">--</span> <span class="n">the</span> <span class="n">query</span> <span class="n">number</span>
+       <span class="n">L</span> <span class="o">--</span> <span class="n">the</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">numbers</span>
+<span class="n">Output</span><span class="p">:</span> <span class="kc">True</span> <span class="p">(</span><span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="ow">in</span> <span class="n">L</span><span class="p">)</span> <span class="ow">or</span> <span class="kc">False</span> <span class="p">(</span><span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">L</span><span class="p">)</span>
+<span class="o">----------------------------</span>
+<span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">If</span> <span class="n">L</span> <span class="ow">is</span> <span class="n">empty</span><span class="p">,</span> <span class="k">return</span> <span class="kc">False</span>
+<span class="n">Step</span> <span class="mi">2</span><span class="p">:</span> <span class="n">If</span> <span class="n">x</span> <span class="ow">is</span> <span class="n">equal</span> <span class="n">to</span> <span class="n">the</span> <span class="n">first</span> <span class="n">item</span> <span class="n">of</span> <span class="n">L</span> <span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="k">return</span> <span class="kc">True</span>
+<span class="n">Step</span> <span class="mi">3</span><span class="p">:</span> <span class="n">Make</span> <span class="n">a</span> <span class="n">recursive</span> <span class="n">call</span> <span class="n">on</span> <span class="n">L</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">],</span> <span class="ow">and</span> <span class="k">return</span> <span class="n">its</span> <span class="n">answer</span>
+</pre></div>
+</div>
+<p>And here is the implementation in Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sequential Search with recursion</span>
+<span class="k">def</span> <span class="nf">seq_search</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">L</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">L</span> <span class="o">==</span> <span class="p">[]:</span> <span class="k">return</span> <span class="kc">False</span>      <span class="c1"># Step 1: We have exhausted the list, x was not found</span>
+  <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="k">return</span> <span class="kc">True</span>     <span class="c1"># Step 2: x was at the beginning of the list, yay!</span>
+  <span class="k">return</span> <span class="n">seq_search</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">L</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>   <span class="c1"># Step 3: Search in the remaining items since x != L[0]</span>
+
+<span class="c1"># Now let us test the function with examples:</span>
+<span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">109</span><span class="p">,</span> <span class="o">-</span><span class="mi">48</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">13</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;seq_search(</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">L</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">,</span> <span class="n">seq_search</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">L</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;seq_search(</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">L</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">,</span> <span class="n">seq_search</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">L</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">L</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;seq_search(</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">L</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">,</span> <span class="n">seq_search</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">L</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">seq_search</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="p">[</span><span class="mi">109</span><span class="p">,</span> <span class="o">-</span><span class="mi">48</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">13</span><span class="p">]):</span>  <span class="kc">True</span>
+<span class="n">seq_search</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="mi">109</span><span class="p">,</span> <span class="o">-</span><span class="mi">48</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">13</span><span class="p">]):</span>  <span class="kc">False</span>
+<span class="n">seq_search</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="p">[]):</span>  <span class="kc">False</span>
+</pre></div>
+</div>
+<p><strong>Exercise</strong></p>
+<p>Write down the pseudocode for the Python function <code class="docutils literal notranslate"><span class="pre">seq_search</span></code> with
+<code class="docutils literal notranslate"><span class="pre">for</span></code> statement.</p>
+<p><strong>Exercise</strong></p>
+<p>Extend the <em>recursive</em> implementation of <code class="docutils literal notranslate"><span class="pre">seq_search</span></code> to search for an
+item <code class="docutils literal notranslate"><span class="pre">x</span></code> in a list <code class="docutils literal notranslate"><span class="pre">L</span></code> in cases where <code class="docutils literal notranslate"><span class="pre">L</span></code> can be nested. In other
+words, the extended search algorithm shoud return <code class="docutils literal notranslate"><span class="pre">True</span></code> for:</p>
+<p><code class="docutils literal notranslate"><span class="pre">seq_search_nested(5,</span> <span class="pre">[10,</span> <span class="pre">[4,</span> <span class="pre">[5]],</span> <span class="pre">-84,</span> <span class="pre">[3]])</span></code></p>
+<p>and <code class="docutils literal notranslate"><span class="pre">False</span></code> for:</p>
+<p><code class="docutils literal notranslate"><span class="pre">seq_search_nested(8,</span> <span class="pre">[10,</span> <span class="pre">[4,</span> <span class="pre">[5]],</span> <span class="pre">-84,</span> <span class="pre">[3]])</span></code></p>
+<p><strong>Example 4: Binary Search</strong></p>
+<p>If the list of items (numbers in our case) is not sorted, sequential
+search is the only option for searching for an item. If, however, the
+numbers are sorted (in an increasing or decreasing order), then we have
+a much more efficient algorithm called binary search.</p>
+<p>Assuming that <code class="docutils literal notranslate"><span class="pre">L</span></code>, our list of numbers, is sorted in an increasing
+order: In binary search, we make our first comparison with the number
+that is at the center (middle) of the list. If the middle number is
+equal to <code class="docutils literal notranslate"><span class="pre">x</span></code>, then we obviously return <code class="docutils literal notranslate"><span class="pre">True</span></code>. Otherwise, we compare
+<code class="docutils literal notranslate"><span class="pre">x</span></code> with the middle number: If <code class="docutils literal notranslate"><span class="pre">x</span></code> is smaller, then it has to be to
+the left of the middle number – we can continue our search on the left
+part of L. If, on the other hand, <code class="docutils literal notranslate"><span class="pre">x</span></code> is larger than the middle
+number, it has to be on the right side of the middle number – we can
+continue our search on the right part of L. This is illustrated in the
+following figure.</p>
+<div class="figure align-default" id="id2">
+<a class="reference internal image-reference" href="../_images/ch6_bin_search.png"><img alt="../_images/ch6_bin_search.png" src="../_images/ch6_bin_search.png" style="width: 550px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.8.2 </span><span class="caption-text">Binary search algorithm.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>Here is the pseudocode that describes this algorithm:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Algorithm</span><span class="p">:</span> <span class="n">Binary</span> <span class="n">Search</span> <span class="k">with</span> <span class="n">Recursion</span>
+<span class="o">----------------------------</span>
+<span class="n">Input</span><span class="p">:</span> <span class="n">x</span> <span class="o">--</span> <span class="n">the</span> <span class="n">query</span> <span class="n">number</span>
+       <span class="n">L</span> <span class="o">--</span> <span class="n">the</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">numbers</span>
+<span class="n">Output</span><span class="p">:</span> <span class="kc">True</span> <span class="p">(</span><span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="ow">in</span> <span class="n">L</span><span class="p">)</span> <span class="ow">or</span> <span class="kc">False</span> <span class="p">(</span><span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">L</span><span class="p">)</span>
+<span class="o">----------------------------</span>
+<span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">If</span> <span class="n">length</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="ow">is</span> <span class="n">zero</span> <span class="n">then</span> <span class="k">return</span> <span class="kc">False</span> <span class="n">since</span> <span class="n">the</span> <span class="nb">list</span> <span class="ow">is</span> <span class="n">empty</span>
+<span class="n">Step</span> <span class="mi">2</span><span class="p">:</span> <span class="n">Create</span> <span class="n">a</span> <span class="n">variable</span> <span class="n">Mid_index</span> <span class="k">with</span> <span class="n">value</span> <span class="n">length</span><span class="p">(</span><span class="n">L</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">Step</span> <span class="mi">3</span><span class="p">:</span> <span class="n">If</span> <span class="n">length</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="ow">is</span> <span class="mi">1</span> <span class="n">then</span> <span class="k">return</span> <span class="kc">False</span> <span class="n">since</span> <span class="n">the</span> <span class="n">only</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">L</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">equal</span> <span class="n">to</span> <span class="n">x</span>
+<span class="n">Step</span> <span class="mi">4</span><span class="p">:</span> <span class="n">If</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">L</span><span class="p">[</span><span class="n">Mid_index</span><span class="p">]</span> <span class="n">then</span> <span class="n">make</span> <span class="n">recursive</span> <span class="n">call</span> <span class="k">with</span> <span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">Mid_index</span><span class="p">]</span> <span class="ow">and</span> <span class="k">return</span> <span class="n">its</span> <span class="n">answer</span>
+<span class="n">Step</span> <span class="mi">5</span><span class="p">:</span> <span class="n">Otherwise</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">L</span><span class="p">[</span><span class="n">Mid_index</span><span class="p">])</span> <span class="n">then</span> <span class="n">make</span> <span class="n">a</span> <span class="n">recursive</span> <span class="n">call</span> <span class="k">with</span> <span class="n">L</span><span class="p">[</span><span class="n">Mid_index</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span> <span class="ow">and</span> <span class="k">return</span> <span class="n">its</span> <span class="n">answer</span>
+</pre></div>
+</div>
+<p>The following is the implementation in Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Binary search with recursion</span>
+<span class="k">def</span> <span class="nf">bin_search</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">L</span><span class="p">):</span>
+  <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="k">return</span> <span class="kc">False</span>                                <span class="c1"># Step 1: Terminating condition</span>
+  <span class="n">Mid_index</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>                                     <span class="c1"># Step 2: Uses integer division</span>
+  <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">L</span><span class="p">[</span><span class="n">Mid_index</span><span class="p">]:</span> <span class="k">return</span> <span class="kc">True</span>                           <span class="c1"># Step 3</span>
+  <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">L</span><span class="p">[</span><span class="n">Mid_index</span><span class="p">]:</span> <span class="k">return</span> <span class="n">bin_search</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">Mid_index</span><span class="p">])</span>   <span class="c1"># Step 4</span>
+  <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">L</span><span class="p">[</span><span class="n">Mid_index</span><span class="p">]:</span> <span class="k">return</span> <span class="n">bin_search</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">L</span><span class="p">[</span><span class="n">Mid_index</span><span class="o">+</span><span class="mi">1</span><span class="p">:])</span>  <span class="c1"># Step 5: Can drop if statement</span>
+
+<span class="c1"># Now let us test the function with examples:</span>
+<span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">48</span><span class="p">,</span> <span class="o">-</span><span class="mi">13</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">109</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;bin_search(</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">L</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">,</span> <span class="n">bin_search</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">L</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;bin_search(</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">L</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">,</span> <span class="n">bin_search</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">L</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">L</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;bin_search(</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">L</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">,</span> <span class="n">bin_search</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">L</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bin_search</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">48</span><span class="p">,</span> <span class="o">-</span><span class="mi">13</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">109</span><span class="p">]):</span>  <span class="kc">True</span>
+<span class="n">bin_search</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">48</span><span class="p">,</span> <span class="o">-</span><span class="mi">13</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">109</span><span class="p">]):</span>  <span class="kc">False</span>
+<span class="n">bin_search</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="p">[]):</span>  <span class="kc">False</span>
+</pre></div>
+</div>
+<p><strong>Exercise</strong></p>
+<p>Implement binary search using while statements.</p>
+<p><strong>Exercise</strong></p>
+<p>Identify the complexity of sequential search and binary search in the
+following cases:</p>
+<ul class="simple">
+<li><p>Best case: When the item that we are making our first comparison with
+is the one we were looking for.</p></li>
+<li><p>Worst case: The item we are looking for is the last item with which
+we performed the comparison.</p></li>
+<li><p>Average case.</p></li>
+</ul>
+<p><strong>Example 5: Sorting</strong></p>
+<p>Sorting pertains to ordering a list of items (<span class="math notranslate nohighlight">\(L\)</span>) so that each
+item in <span class="math notranslate nohighlight">\(L\)</span> satisfies the following constraint:</p>
+<div class="math notranslate nohighlight" id="equation-chapters-ch6-functions-7">
+<span class="eqno">(6.8.5)<a class="headerlink" href="#equation-chapters-ch6-functions-7" title="Permalink to this equation">¶</a></span>\[L_i &lt; L_{i+1},\]</div>
+<p>which leads to an ascending (increasing) order of items in <span class="math notranslate nohighlight">\(L\)</span> and
+this is called <em>ascending sort</em>. If the order of the constraint is
+changed to <span class="math notranslate nohighlight">\(L_i &gt; L_{i+1}\)</span>, the outcome is a descending
+(decreasing) order of items in <span class="math notranslate nohighlight">\(L\)</span> and this is called <em>descending
+sort</em>.</p>
+<p>An algorithm that can perform ascending sort can easily be changed to
+descending sort; therefore, we will just focus on one of them, namely,
+ascending sort. Moreover, we will focus on sorting a list of numbers;
+however, the same algorithms can be applied on other data types as long
+as an ordering constraint (<code class="docutils literal notranslate"><span class="pre">&lt;</span></code> or <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>) can be defined.</p>
+<p><strong>Bubble Sort</strong></p>
+<p>Let us have a look at a very simple though inefficient sorting
+algorithm, called <em>Bubble Sort</em>. In Bubble Sort, we start from the
+beginning of the list and check whether the constraint
+<span class="math notranslate nohighlight">\(L_i &lt; L_{i+1}\)</span> is violated for an <span class="math notranslate nohighlight">\(i\)</span> value. If it is, we
+swap <span class="math notranslate nohighlight">\(L_i\)</span> with <span class="math notranslate nohighlight">\(L_{i+1}\)</span>. When we hit the end of the list,
+we start from the beginning of the list again and continue checking the
+constraint <span class="math notranslate nohighlight">\(L_i &lt; L_{i+1}\)</span>. Once at the end of the list, we again
+go back to the beginning and continue checking the constraint for each
+<span class="math notranslate nohighlight">\(i\)</span>. This continues until no <span class="math notranslate nohighlight">\(i\)</span> value violates the
+constraint <span class="math notranslate nohighlight">\(L_i &lt; L_{i+1}\)</span>, which means that the numbers are
+sorted.</p>
+<p>Therefore, in Bubble Sort, we have two loops, one outer loop that
+continues until all numbers are sorted and an inner loop that goes
+through the list and checks the constraint. Here is a pseudo-code for
+this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Algorithm</span><span class="p">:</span> <span class="n">Bubble</span> <span class="n">Sort</span>
+<span class="o">----------------------------</span>
+<span class="n">Input</span><span class="p">:</span> <span class="n">L</span> <span class="o">--</span> <span class="n">the</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">numbers</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">sorted</span><span class="p">)</span>
+<span class="n">Output</span><span class="p">:</span> <span class="n">L</span> <span class="o">--</span> <span class="n">the</span> <span class="nb">sorted</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">numbers</span> <span class="p">(</span><span class="n">ascending</span> <span class="n">order</span><span class="p">)</span>
+<span class="o">----------------------------</span>
+<span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Create</span> <span class="n">a</span> <span class="n">varible</span> <span class="n">Is_sorted</span> <span class="k">with</span> <span class="n">value</span> <span class="kc">False</span>
+<span class="n">Step</span> <span class="mi">2</span><span class="p">:</span> <span class="n">Create</span> <span class="n">a</span> <span class="n">variable</span> <span class="n">N</span> <span class="k">with</span> <span class="n">value</span> <span class="n">length</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<span class="n">Step</span> <span class="mi">3</span><span class="p">:</span> <span class="n">Create</span> <span class="n">a</span> <span class="n">variable</span> <span class="n">Index</span>
+<span class="n">Step</span> <span class="mi">4</span><span class="p">:</span> <span class="n">While</span> <span class="n">Is_sorted</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">,</span> <span class="n">repeat</span> <span class="n">Steps</span> <span class="mi">5</span><span class="o">-</span><span class="mi">11</span><span class="p">:</span>
+<span class="n">Step</span> <span class="mi">5</span><span class="p">:</span>     <span class="n">Set</span> <span class="n">Is_sorted</span> <span class="n">to</span> <span class="kc">True</span>
+<span class="n">Step</span> <span class="mi">6</span><span class="p">:</span>     <span class="n">Set</span> <span class="n">Index</span> <span class="n">to</span> <span class="n">zero</span>
+<span class="n">Step</span> <span class="mi">7</span><span class="p">:</span>     <span class="n">While</span> <span class="n">Index</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">repeat</span> <span class="n">Steps</span> <span class="mi">8</span><span class="o">-</span><span class="mi">11</span>
+<span class="n">Step</span> <span class="mi">8</span><span class="p">:</span>         <span class="n">If</span> <span class="n">L</span><span class="p">[</span><span class="n">Index</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">L</span><span class="p">[</span><span class="n">Index</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">then</span> <span class="n">execute</span> <span class="n">Steps</span> <span class="mi">9</span> <span class="o">&amp;</span> <span class="mi">10</span><span class="p">:</span>
+<span class="n">Step</span> <span class="mi">9</span><span class="p">:</span>              <span class="n">Swap</span> <span class="n">L</span><span class="p">[</span><span class="n">Index</span><span class="p">]</span> <span class="ow">and</span> <span class="n">L</span><span class="p">[</span><span class="n">Index</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">Step</span> <span class="mi">10</span><span class="p">:</span>             <span class="n">Set</span> <span class="n">Is_sorted</span> <span class="n">to</span> <span class="kc">False</span>
+<span class="n">Step</span> <span class="mi">11</span><span class="p">:</span>        <span class="n">Index</span> <span class="o">=</span> <span class="n">Index</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">Step</span> <span class="mi">12</span><span class="p">:</span> <span class="k">return</span> <span class="n">L</span>
+</pre></div>
+</div>
+<p>One outer iteration of the algorithm is illustrated on a small list of
+numbers below:</p>
+<div class="figure align-default" id="id3">
+<a class="reference internal image-reference" href="../_images/ch6_bubble_sort.png"><img alt="../_images/ch6_bubble_sort.png" src="../_images/ch6_bubble_sort.png" style="width: 550px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.8.3 </span><span class="caption-text">One outer iteration of the Bubble Sort algorithm.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<p>With one outer iteration, the list appears to be one step closer to a
+sorted list. In the example above, the largest number has found its
+correct place after one outer iteration. With a second one, the second
+largest number will find its place. With a third iteration, the third
+largest number will find its place etc.</p>
+<p>And here is the implementation in Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bubble Sort</span>
+
+<span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+  <span class="n">Is_sorted</span> <span class="o">=</span> <span class="kc">False</span>                                       <span class="c1"># Step 1</span>
+  <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>                                              <span class="c1"># Step 2</span>
+  <span class="n">Index</span> <span class="o">=</span> <span class="mi">0</span>                                               <span class="c1"># Step 3: Can be removed in Python</span>
+
+  <span class="k">while</span> <span class="n">Is_sorted</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>                               <span class="c1"># Step 4</span>
+    <span class="n">Is_sorted</span> <span class="o">=</span> <span class="kc">True</span>                                      <span class="c1"># Step 5</span>
+    <span class="n">Index</span> <span class="o">=</span> <span class="mi">0</span>                                             <span class="c1"># Step 6</span>
+    <span class="k">while</span> <span class="n">Index</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>                                  <span class="c1"># Step 7</span>
+      <span class="k">if</span> <span class="n">L</span><span class="p">[</span><span class="n">Index</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">L</span><span class="p">[</span><span class="n">Index</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>                           <span class="c1"># Step 8</span>
+        <span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="n">Index</span><span class="p">],</span> <span class="n">L</span><span class="p">[</span><span class="n">Index</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">=</span> <span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="n">Index</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">L</span><span class="p">[</span><span class="n">Index</span><span class="p">])</span>   <span class="c1"># Step 9</span>
+        <span class="n">Is_sorted</span> <span class="o">=</span> <span class="kc">False</span>                                 <span class="c1"># Step 10</span>
+      <span class="n">Index</span> <span class="o">=</span> <span class="n">Index</span> <span class="o">+</span> <span class="mi">1</span>                                   <span class="c1"># Step 11</span>
+  <span class="k">return</span> <span class="n">L</span>                                                <span class="c1"># Step 12</span>
+
+<span class="c1"># Let us test our implementation with some sample lists</span>
+<span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">109</span><span class="p">,</span> <span class="o">-</span><span class="mi">13</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">48</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;bubble_sort(</span><span class="si">{</span><span class="n">L</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">,</span> <span class="n">bubble_sort</span><span class="p">(</span><span class="n">L</span><span class="p">))</span>
+
+<span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">48</span><span class="p">,</span> <span class="o">-</span><span class="mi">13</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">109</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;bubble_sort(</span><span class="si">{</span><span class="n">L</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">,</span> <span class="n">bubble_sort</span><span class="p">(</span><span class="n">L</span><span class="p">))</span>
+
+<span class="n">L</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;bubble_sort(</span><span class="si">{</span><span class="n">L</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">,</span> <span class="n">bubble_sort</span><span class="p">(</span><span class="n">L</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bubble_sort</span><span class="p">([</span><span class="mi">109</span><span class="p">,</span> <span class="o">-</span><span class="mi">13</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">48</span><span class="p">,</span> <span class="mi">25</span><span class="p">]):</span>  <span class="p">[</span><span class="o">-</span><span class="mi">48</span><span class="p">,</span> <span class="o">-</span><span class="mi">13</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">109</span><span class="p">]</span>
+<span class="n">bubble_sort</span><span class="p">([</span><span class="o">-</span><span class="mi">48</span><span class="p">,</span> <span class="o">-</span><span class="mi">13</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">109</span><span class="p">]):</span>  <span class="p">[</span><span class="o">-</span><span class="mi">48</span><span class="p">,</span> <span class="o">-</span><span class="mi">13</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">109</span><span class="p">]</span>
+<span class="n">bubble_sort</span><span class="p">([]):</span>  <span class="p">[]</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="programming-style">
 <h2><span class="section-number">6.9. </span>Programming Style<a class="headerlink" href="#programming-style" title="Permalink to this headline">¶</a></h2>
