@@ -231,7 +231,7 @@ range is :math:`[-128,127]`):
    \hline
    18 & {\tt 00010010} & Positive &  {\mbox{Direct base-2 encoding}}  \\
    \hline
-   -18 & {\tt 11101101}   &  Negative   & magnitude & {\tt 00010010} \\
+   -18 & {\tt 11101110}   &  Negative   & magnitude & {\tt 00010010} \\
    & & &   inverse & {\tt 11101101} \\
    & & &  +1 & {\tt 11101101}     \\
    \hline
