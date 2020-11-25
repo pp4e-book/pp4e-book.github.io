@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>7. A Gentle Introduction to Object-Oriented Programming &#8212; Programming with Python for Engineers 0.0.1 documentation</title>
+
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <link rel="stylesheet" href="../_static/material-design-lite-1.3.0/material.blue-deep_orange.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/d2l.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="6. Functions" href="ch6_functions.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link is-active"><span class="section-number">7. </span>A Gentle Introduction to Object-Oriented Programming</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/chapters/ch7_OOP.rst.txt" rel="nofollow">
+  <i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+    <div class="mdl-layout__header-row header-links">
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+          
+              <a  class="mdl-navigation__link" href="https://pp4e-book.github.io/pp4e-book.pdf">
+                  <i class="fas fa-file-pdf"></i>
+                  PDF
+              </a>
+          
+              <a  class="mdl-navigation__link" href="https://github.com/pp4e-book/source">
+                  <i class="fab fa-github"></i>
+                  Github
+              </a>
+          
+              <a  class="mdl-navigation__link" href="https://pp4e-book.github.io/chapters/all_notebooks.zip">
+                  <i class="fas fa-download"></i>
+                  All Notebooks
+              </a>
+          
+              <a  class="mdl-navigation__link" href="https://ceng240.github.io/">
+                  <i class="fas fa-user-graduate"></i>
+                  Course
+              </a>
+      </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <img class="logo" src="../_static/logo-with-text.png" alt="Programming with Python for Engineers"/>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="ch0_preface.html">Preface</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ch1_computer_organization.html">1. Basic Computer Organization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch2_programming.html">2. A Broad Look at Programming and Programming Languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch3_data_representation.html">3. Representation of Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch4_dive_into_python.html">4. Dive into Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch5_conditional_and_repetitive.html">5. Conditional and Repetitive Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch6_functions.html">6. Functions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">7. A Gentle Introduction to Object-Oriented Programming</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+
+	<script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js "></script>
+    <header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <img class="logo" src="../_static/logo-with-text.png" alt="Programming with Python for Engineers"/>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="ch0_preface.html">Preface</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ch1_computer_organization.html">1. Basic Computer Organization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch2_programming.html">2. A Broad Look at Programming and Programming Languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch3_data_representation.html">3. Representation of Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch4_dive_into_python.html">4. Dive into Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch5_conditional_and_repetitive.html">5. Conditional and Repetitive Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch6_functions.html">6. Functions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">7. A Gentle Introduction to Object-Oriented Programming</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content" role="main">
+        
+  <div class="section" id="a-gentle-introduction-to-object-oriented-programming">
+<h1><span class="section-number">7. </span>A Gentle Introduction to Object-Oriented Programming<a class="headerlink" href="#a-gentle-introduction-to-object-oriented-programming" title="Permalink to this headline">¶</a><a href="https://colab.research.google.com/github/pp4e-book/pp4e-book.github.io/blob/master/chapters/ch7_OOP.ipynb" onclick="captureOutboundLink('https://colab.research.google.com/github/['pp4e-book/pp4e-book.github.io']/blob/master/chapters/ch7_OOP.ipynb'); return false;"> <button style="float:right", id="Colab" class="mdl-button mdl-js-button mdl-button--primary mdl-js-ripple-effect"> <i class=" fas fa-external-link-alt"></i> Colab </button></a><div class="mdl-tooltip" data-mdl-for="Colab"> Open the notebook in Colab</div></h1>
+<p>At this stage of programming, you must have realized that programming
+possesses some idiosyncrasies:</p>
+<ul class="simple">
+<li><p>Unless a randomization is explicitly build in, all computations are
+deterministic; i.e., the result is always the same for the same
+input.</p></li>
+<li><p>The logic involved is binary; i.e., two truth values exist: True and
+False.</p></li>
+<li><p>There is a clear distinction of <em>actions</em> and <em>data</em>. Actions are
+coded into expressions, statements and functions. Data is coded into
+integers, floating points and containers (strings, tuples and lists).</p></li>
+</ul>
+<p>The first two can be dealt with in a controlled manner. Furthermore,
+mostly it is very much preferred to have a crisp and deterministic
+outcome. But, the third is not so natural. The world we live in is not
+made of data and independent actions acting on that data. This is merely
+an abstraction. The need for this abstraction stems from the very nature
+of the computing device mankind has manufactured, the von Neumann
+Machine. What you store in the <em>memory</em> is either some data (integer or
+floating point) or some instruction. The <em>processor</em> processes the data
+based on a series of instructions. Therefore, we have a clear separation
+of data and action in computers.</p>
+<p>But when we look around, we don’t see such a distinction. We see
+<em>objects</em>. We see a tree, a house, a table, a computer, a notebook, a
+pencil, a lecturer and a student. Objects have some properties which
+would be quantified as data, but they also have some capabilities that
+would correspond to some actions. What about reuniting data and action
+under the natural concept of “object”? <em>Object Oriented Programming</em>,
+abbreviated as OOP, is the answer to this question.</p>
+<div class="section" id="properties-of-object-oriented-programming">
+<h2><span class="section-number">7.1. </span>Properties of Object-Oriented Programming<a class="headerlink" href="#properties-of-object-oriented-programming" title="Permalink to this headline">¶</a></h2>
+<p>OOP is a paradigm that comes with some properties:</p>
+<ul class="simple">
+<li><p><em>Encapsulation:</em> Combining data and functions that manipulate that
+data under a concept that we name as ‘object’ so that a rule of
+“need-to-know” and “maximal-privacy” is satisfied.</p></li>
+<li><p><em>Inheritance:</em> Defining an object and then using it to create
+“descendant” objects so that the descendant objects inherit all
+functions and data of their ancestors.</p></li>
+<li><p><em>Polymorphism:</em> A mechanism allowing a descendant object to appear
+and function like its ancestor object when necessary.</p></li>
+</ul>
+<div class="section" id="encapsulation">
+<h3><span class="section-number">7.1.1. </span>Encapsulation<a class="headerlink" href="#encapsulation" title="Permalink to this headline">¶</a></h3>
+<p>Encapsulation is the property that data and actions are glued together
+in a data-action structure called ‘object’ that conforms to a rule of
+“need-to-know” and “maximal-privacy”. In other words, an object should
+provide access only to data and actions that are needed by other objects
+and other data &amp; actions that are not needed should be hidden and used
+by the object itself for its own merit.</p>
+<p>This is important especially to keep implementation modular and
+manageable: An object stores some data and implements certain actions.
+Some of these are private and hidden from other objects whereas others
+are <em>public</em> to other objects so that they can access such public data
+and actions to suit their needs.</p>
+<p>The public data and actions function as the interface of the object to
+the outside world. In this way, objects interact with each other’s
+interfaces by accessing public data and actions. This can be considered
+as a message passing mechanism: Object1 calls Object2’s action f, which
+calls Object3’s function g, which returns a message (a value) back to
+Object2, which, after some calculation returns another value to Object
+1. As a realistic example of a university registration system, assume
+<code class="docutils literal notranslate"><span class="pre">Student</span></code> object calls <code class="docutils literal notranslate"><span class="pre">register</span></code> action of a <code class="docutils literal notranslate"><span class="pre">Course</span></code> object and
+it calls <code class="docutils literal notranslate"><span class="pre">checkPrerequisite</span></code> action of a <code class="docutils literal notranslate"><span class="pre">Curriculum</span></code> object.
+<code class="docutils literal notranslate"><span class="pre">checkPrerequisite</span></code> checks if course can be taken by student and
+returns the result. <code class="docutils literal notranslate"><span class="pre">register</span></code> action does additional controls and
+returns the success status of the registration to the <code class="docutils literal notranslate"><span class="pre">Student</span></code>.</p>
+<p>In this modular approach, Object1 does not need to know how Object2
+implements its actions or how it stores data. All Object1 needs to know
+is the public interface via which ‘messages’ are passed to compute the
+solution.</p>
+<p>Assume you need to implement a simple weather forecasting system. This
+hypothetical system gets a set of meteorological sensor data like
+humidity, pressure, temperature from various levels of atmosphere and
+try to estimate the weather conditions for the next couple of days. The
+data of such a system may have a time series of sensor values. The
+actions of such system would be a group of functions adding sensor data
+as they are measured and forecasting functions for getting the future
+estimate of weather conditions. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sensors</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;datetime&#39;</span><span class="p">:</span><span class="s1">&#39;20201011 10:00&#39;</span><span class="p">,</span><span class="s1">&#39;temperature&#39;</span><span class="p">:</span><span class="mf">12.3</span><span class="p">,</span>
+            <span class="s1">&#39;humidity&#39;</span><span class="p">:</span> <span class="mf">32.2</span><span class="p">,</span> <span class="s1">&#39;pressure&#39;</span><span class="p">:</span><span class="mf">1.2</span><span class="p">,</span>
+            <span class="s1">&#39;altitute&#39;</span><span class="p">:</span><span class="mf">1010.0</span><span class="p">},</span>
+            <span class="p">{</span><span class="s1">&#39;datetime&#39;</span><span class="p">:</span><span class="s1">&#39;20201011 12:00&#39;</span><span class="p">,</span><span class="s1">&#39;temperature&#39;</span><span class="p">:</span><span class="mf">14.2</span><span class="p">,</span>
+            <span class="s1">&#39;humidity&#39;</span><span class="p">:</span> <span class="mf">31.2</span><span class="p">,</span> <span class="s1">&#39;pressure&#39;</span><span class="p">:</span><span class="mf">1.22</span><span class="p">,</span>
+            <span class="s1">&#39;altitute&#39;</span><span class="p">:</span><span class="mf">1010.0</span><span class="p">},</span>
+            <span class="o">....</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">addSensorData</span><span class="p">(</span><span class="n">sensorarr</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">hum</span><span class="p">,</span> <span class="n">press</span><span class="p">,</span> <span class="n">alt</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Add sensor data to sensor array with</span>
+<span class="sd">       current time and date&#39;&#39;&#39;</span>
+    <span class="o">....</span>
+
+<span class="k">def</span> <span class="nf">estimate</span><span class="p">(</span><span class="n">sensorarr</span><span class="p">,</span> <span class="n">offset</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;return whether forecast for given</span>
+<span class="sd">       offset days in future&#39;&#39;&#39;</span>
+    <span class="o">...</span>
+<span class="o">...</span>
+<span class="n">addSensorData</span><span class="p">(</span><span class="n">sensors</span><span class="p">,</span> <span class="mf">20.3</span><span class="p">,</span> <span class="mf">15.4</span><span class="p">,</span> <span class="mf">0.82</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">estimate</span><span class="p">(</span><span class="n">sensors</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>In the implementation above, the data and actions are separated. The
+programmer should maintain the list containing the data and make sure
+actions are available and called as needed with the correct data. This
+approach has a couple of disadvantages:</p>
+<ol class="arabic simple">
+<li><p>There is no way to make sure actions are called with the correct
+sensor data format and values
+(i.e. <code class="docutils literal notranslate"><span class="pre">estimate('Hello</span> <span class="pre">world',</span> <span class="pre">1,1,1,1)</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">addSensorData</span></code> can make sure that sensor list contains correct
+data, however, since sensors data can be directly modified, its
+integrity can be violated later on
+(i.e. <code class="docutils literal notranslate"><span class="pre">sensors[0]='Hello</span> <span class="pre">World'</span></code>).</p></li>
+<li><p>When you need to have forecast of more than one location, you need to
+duplicate all data and maintain them separately. Keeping track of
+which list contains which location requires extra special care.</p></li>
+<li><p>When you need to improve your code and change data representation
+like storing each sensor type on a separate sorted list by time, you
+need to change the action functions. However, if some code directly
+accesses the sensor data, it may conflict with the changes you made
+on data representation. For example, if the new data representation
+is as follows:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sensors</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;temperature&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;202010101000&#39;</span><span class="p">,</span><span class="mi">23</span><span class="p">),</span><span class="o">...</span><span class="p">],</span>
+           <span class="s1">&#39;humidity&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;2020101000&#39;</span><span class="p">,</span><span class="mf">45.3</span><span class="p">),</span><span class="o">...</span><span class="p">],</span>
+           <span class="s1">&#39;pressure&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;2020100243&#39;</span><span class="p">,</span><span class="mf">1.02</span><span class="p">),</span><span class="o">...</span><span class="p">]}</span>
+</pre></div>
+</div>
+<p>Any access to <code class="docutils literal notranslate"><span class="pre">sensors[0]</span></code> as a dictionary directly by code segments
+will be incorrect.</p>
+<p>With encapsulation, sensor data and actions are put into the same body
+of definition so that the only way to interact with the data would be
+through the actions. In this way:</p>
+<ol class="arabic simple">
+<li><p>Data and actions maintained together. Encapsulation mechanism
+guarantees that data exists and it has correct format and values.</p></li>
+<li><p>Multiple instances can be created for forecasting for multiple
+locations, and each location is maintained in its object as if it was
+a simple variable.</p></li>
+<li><p>Since no code part accesses the data directly but calls the actions,
+changing internal representation and implementation of functions will
+not cause any problem.</p></li>
+</ol>
+<p>The following is an example OOP implementation for the problem at hand:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">WhetherForecast</span><span class="p">:</span>
+  <span class="c1"># Data</span>
+  <span class="n">__sensors</span> <span class="o">=</span> <span class="kc">None</span>
+
+  <span class="c1"># Actions acting on the data</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">__sensors</span> <span class="o">=</span> <span class="p">[]</span>   <span class="c1"># this will create initial sensor data</span>
+
+  <span class="k">def</span> <span class="nf">addSensorData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">hum</span><span class="p">,</span> <span class="n">press</span><span class="p">,</span> <span class="n">alt</span><span class="p">):</span>
+    <span class="o">....</span>
+
+  <span class="k">def</span> <span class="nf">estimate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offset</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;lowest&#39;</span><span class="p">:</span><span class="n">elow</span><span class="p">,</span> <span class="s1">&#39;highest&#39;</span><span class="p">:</span><span class="n">ehigh</span><span class="p">,</span><span class="o">...</span><span class="p">}</span>
+
+
+<span class="n">ankara</span> <span class="o">=</span> <span class="n">WhetherForecast</span><span class="p">()</span> <span class="c1"># Create an instance for location Ankara</span>
+<span class="n">ankara</span><span class="o">.</span><span class="n">addSensorData</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="o">....</span>
+
+<span class="n">izmir</span> <span class="o">=</span> <span class="n">WhetherForecast</span><span class="p">()</span>  <span class="c1"># Create an instance for location Izmir</span>
+<span class="n">izmir</span><span class="o">.</span><span class="n">addSensordata</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="o">....</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">ankara</span><span class="o">.</span><span class="n">estimate</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># Work with the data for Ankara</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">izmir</span><span class="o">.</span><span class="n">estimate</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>   <span class="c1"># Work with the data for Izmir</span>
+</pre></div>
+</div>
+<p>The above syntax will be more clear in the following sections; however,
+please note how the newly created objects <code class="docutils literal notranslate"><span class="pre">ankara</span></code> and <code class="docutils literal notranslate"><span class="pre">izmir</span></code>
+behave. They contain their sensor data internally, and the programmer
+does not need to care about their internals. The resulting object will
+syntactically behave like a built-in data type of Python.</p>
+</div>
+<div class="section" id="inheritance">
+<h3><span class="section-number">7.1.2. </span>Inheritance<a class="headerlink" href="#inheritance" title="Permalink to this headline">¶</a></h3>
+<p>In many applications, the objects we are going to work with are going to
+be related. For example, in a drawing program, we are going to work with
+shapes such as rectangles, circles, triangles which have some common
+data and actions, e.g.:</p>
+<ul class="simple">
+<li><p>Data:</p>
+<ul>
+<li><p>Position</p></li>
+<li><p>Area</p></li>
+<li><p>Color</p></li>
+<li><p>Circumference</p></li>
+</ul>
+</li>
+<li><p>and actions:</p>
+<ul>
+<li><p>draw()</p></li>
+<li><p>move()</p></li>
+<li><p>rotate()</p></li>
+</ul>
+</li>
+</ul>
+<p>What kind of data structure we use for these data and how we implement
+the actions are important. For example, if one shape is using Cartesian
+coordinates (<span class="math notranslate nohighlight">\(x,y\)</span>) for position and another is using Polar
+coordinates (<span class="math notranslate nohighlight">\(r,\theta\)</span>), a programmer can easily make a mistake
+by providing (<span class="math notranslate nohighlight">\(x,y\)</span>) to a shape using Polar coordinates.</p>
+<p>As for actions, implementing such overlapping actions in each shape from
+scratch is redundant and inefficient. In the case of separate
+implementations of overlapping actions in each shape, we would have to
+update all overlapping actions if we want to correct an error in our
+implementation or switch to a more efficient algorithm for the
+overlapping actions. Therefore, it makes sense to implement the common
+functionalities in another object and reuse them whenever needed.</p>
+<p>These two issues are handled in OOP via inheritance. We place common
+data and functionalities into an ancestor object (e.g. <code class="docutils literal notranslate"><span class="pre">Shape</span></code> object
+for our example) and other objects (<code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>, <code class="docutils literal notranslate"><span class="pre">Triangle</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Circle</span></code>) can inherit (reuse) these data and definitions in their
+definitions as if those data and actions were defined in their object
+definitions.</p>
+<p>In real life entities, you can observe many similar relations. For
+example:</p>
+<ul class="simple">
+<li><p>A <code class="docutils literal notranslate"><span class="pre">Student</span></code> is a <code class="docutils literal notranslate"><span class="pre">Person</span></code> and an <code class="docutils literal notranslate"><span class="pre">Instructor</span></code> is a <code class="docutils literal notranslate"><span class="pre">Person</span></code>.
+Updating personal records of a <code class="docutils literal notranslate"><span class="pre">Student</span></code> is no different than that
+of an <code class="docutils literal notranslate"><span class="pre">Instructor</span></code>.</p></li>
+<li><p>An <code class="docutils literal notranslate"><span class="pre">DCEngine</span></code>, a <code class="docutils literal notranslate"><span class="pre">DieselEngine</span></code>, and a <code class="docutils literal notranslate"><span class="pre">StreamEngine</span></code> are all
+<code class="docutils literal notranslate"><span class="pre">Engine</span></code>s. They have the same characteristic features like horse
+power, torque etc. However, <code class="docutils literal notranslate"><span class="pre">DCEngine</span></code> has power consumption in
+units of Watt whereas <code class="docutils literal notranslate"><span class="pre">DieselEngine</span></code> consumption can be measured as
+litres per km.</p></li>
+<li><p>In a transportation problem, a <code class="docutils literal notranslate"><span class="pre">Ship</span></code>, a <code class="docutils literal notranslate"><span class="pre">Cargo_Plane</span></code> and a
+<code class="docutils literal notranslate"><span class="pre">Truck</span></code> are all <code class="docutils literal notranslate"><span class="pre">Vehicle</span></code>s. They have the same behaviour of
+carrying a load; however, they have different capacities, speeds,
+costs and ranges.</p></li>
+</ul>
+<p>Assume we like to improve the forecasting accuracy through adding radar
+information in our <code class="docutils literal notranslate"><span class="pre">WhetherForecast</span></code> example above. We need to get our
+traditional estimate and combine it with the radar image data. Instead
+of duplicating the traditional estimator, it is wiser to use existing
+implementation and <em>extend</em> its functionality with the newly introduced
+features. This way, we avoid code duplication and when we improve our
+traditional estimator, our new estimator will automatically use it.</p>
+<p>Inheritance is a very useful and important concept in OOP. Together with
+encapsulation, it improves reusability, maintenance, and reduces
+redundancy.</p>
+</div>
+<div class="section" id="polymorphism">
+<h3><span class="section-number">7.1.3. </span>Polymorphism<a class="headerlink" href="#polymorphism" title="Permalink to this headline">¶</a></h3>
+<p>Polymorphism is a property that enables a programmer to write functions
+that can operate on different data types uniformly. For example,
+calculating the sum of elements of a list is actually the same for a
+list of integers, a list of floats and a list of complex numbers. As
+long as the addition operation is defined among the members of the list,
+the summation operation would be the same. If we can implement a
+polymorphic <code class="docutils literal notranslate"><span class="pre">sum</span></code> function, it will be able to calculate the summation
+of distinct datatypes, hence it will be polymorphic.</p>
+<p>In OOP, all descendants of a parent object can act as objects of more
+than one types. Consider our example on shapes above: The <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>
+object that inherits from the <code class="docutils literal notranslate"><span class="pre">Shape</span></code> object can also be used as a
+<code class="docutils literal notranslate"><span class="pre">Shape</span></code> object since it bears data and actions defined in a <code class="docutils literal notranslate"><span class="pre">Shape</span></code>
+object. In other words, a <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> object can be assumed to have
+two data types: <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> and <code class="docutils literal notranslate"><span class="pre">Shape</span></code>. We can exploit this for
+writing polymorphic functions. If we write functions or classes that
+operate on <code class="docutils literal notranslate"><span class="pre">Shape</span></code> with well-defined actions, they can operate on all
+descendants of it including, <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>, <code class="docutils literal notranslate"><span class="pre">Circle</span></code>, and all objects
+inheriting <code class="docutils literal notranslate"><span class="pre">Shape</span></code>. Similarly, actions of a parent object can operate
+on all its descendants if it uses a well-defined interface.</p>
+<p>Polymorphism improves modularity, code reusability and expandability of
+a program.</p>
+</div>
+</div>
+<div class="section" id="basic-oop-in-python">
+<h2><span class="section-number">7.2. </span>Basic OOP in Python<a class="headerlink" href="#basic-oop-in-python" title="Permalink to this headline">¶</a></h2>
+<p>The way Python implements OOP is not to the full extent in terms of the
+properties listed in the previous section. Encapsulation, for example,
+is not implemented strongly. But inheritance and polymorphism are there.
+Also, operator overloading, a feature that is much demanded in OOP, is
+present.</p>
+<p>In the last decade, Python started to become a standard for Science and
+Engineering computation. For various computational purposes, software
+packages were already there. Packages to do numerical computations,
+statistical computations, symbolic computations, computational
+chemistry, computational physics, all sorts of simulations were
+developed over four decades. Now many such packages, free or
+proprietary, are <em>wrapped</em> to be called through Python. This packaging
+is done mostly in an OOP manner. Therefore, it is vital to know some
+basics of OOP in Python.</p>
+<div class="section" id="the-class-syntax">
+<h3><span class="section-number">7.2.1. </span>The Class Syntax<a class="headerlink" href="#the-class-syntax" title="Permalink to this headline">¶</a></h3>
+<p>In Python, an object is a code structure that is like in
+<a class="reference internal" href="#ch7-oop"><span class="std std-numref">Fig. 7.2.1</span></a>:</p>
+<div class="figure align-default" id="id9">
+<span id="ch7-oop"></span><a class="reference internal image-reference" href="../_images/ch7_oop1.png"><img alt="../_images/ch7_oop1.png" src="../_images/ch7_oop1.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 7.2.1 </span><span class="caption-text">An object includes both data and actions (methods and special
+methods) as one data item.</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</div>
+<p>First, a piece of jargon:</p>
+<ul class="simple">
+<li><p><strong>Class:</strong> A prescription that defines a particular object. The
+blueprint of an object.</p></li>
+<li><p><strong>Class Instance</strong>$;:raw-latex:<cite>equiv</cite>; $<strong>Object:</strong> A
+computational structure that has functions and data fields built
+according the blueprint, namely the class. Similar to the
+construction of buildings according to an architectural blueprint, in
+Python we can create <em>objects</em> (more than one) conforming to a class
+definition. Each of these objects will have their own data space and
+in some cases customized functions. Objects are equivalently called
+<em>Class instances</em>. Each object provides the following:</p>
+<ul>
+<li><p><strong>Methods:</strong> Functions that belong to the object.</p></li>
+<li><p><strong>Sending a message to an object:</strong> Calling a method of the
+object.</p></li>
+<li><p><strong>Member:</strong> Any data or method that is defined in the class.</p></li>
+</ul>
+</li>
+</ul>
+<p>So, as you would guess, we start with a structural plan, using the
+jargon, the ‘class definition’. In Python this is done by the keyword
+<code class="docutils literal notranslate"><span class="pre">class</span></code>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">class</span></code> <span class="math notranslate nohighlight">\(\boxed{\color{Red}{ClassName\strut\ }}\)</span> <code class="docutils literal notranslate"><span class="pre">:</span></code></p>
+<p><span class="math notranslate nohighlight">\(\hspace{2cm} \boxed{\ \\ \ \\ \ \\ \hspace{0.3cm} \color{Red}{\ Statement\ block}\hspace{0.3cm} \\ \ \\ \strut}\)</span></p>
+<p>Here is an example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">shape</span><span class="p">:</span>
+   <span class="n">color</span> <span class="o">=</span> <span class="kc">None</span>
+   <span class="n">x</span> <span class="o">=</span> <span class="kc">None</span>
+   <span class="n">y</span> <span class="o">=</span> <span class="kc">None</span>
+
+   <span class="k">def</span> <span class="nf">set_color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">)</span>
+
+   <span class="k">def</span> <span class="nf">move_to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+</pre></div>
+</div>
+<p>This blueprint tells Python that:</p>
+<ol class="arabic simple">
+<li><p>The name of this class is <code class="docutils literal notranslate"><span class="pre">shape</span></code>.</p></li>
+<li><p>Any object that will be created according to this blueprint has three
+data fields, named <code class="docutils literal notranslate"><span class="pre">color</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>. At the moment of
+creation, these fields are set to <code class="docutils literal notranslate"><span class="pre">None</span></code> (a special value of Python
+indicating that there is a variable here but no value is assigned
+yet).</p></li>
+<li><p>Two member functions, the so-called methods, are defined:
+<code class="docutils literal notranslate"><span class="pre">set_color</span></code> and <code class="docutils literal notranslate"><span class="pre">move_to</span></code>. The first takes four arguments,
+constructs a tuple of the last three values and stores it into the
+<code class="docutils literal notranslate"><span class="pre">color</span></code> data field of the object. The second, <code class="docutils literal notranslate"><span class="pre">move_to</span></code>, takes
+three arguments and assign the last two of them to the <code class="docutils literal notranslate"><span class="pre">x</span></code> and
+<code class="docutils literal notranslate"><span class="pre">y</span></code> data_fields, respectively.</p></li>
+</ol>
+<p>The peculiar keyword <code class="docutils literal notranslate"><span class="pre">self</span></code> in the blueprint refers to the particular
+instance (when an object is created based on this blueprint). The first
+argument to all methods (the member functions) have to be coded as
+<code class="docutils literal notranslate"><span class="pre">self</span></code>. That is a rule. The Python system will fill it out when that
+function is activated.</p>
+<p>To refer to any function or any data field of an object, we use the (.)
+dot notation. Inside the class definition, it is <code class="docutils literal notranslate"><span class="pre">self.∎</span></code>. Outside of
+the object, the object is certainly stored somewhere (a variable or a
+container). The way (syntax) to access the stored object is followed.
+Then, this syntax is appended by the (.) dot which is then followed by
+the data field name or the method name.</p>
+<p>For our example <code class="docutils literal notranslate"><span class="pre">shape</span></code> class, let us create two objects and assign
+them to two global variables <code class="docutils literal notranslate"><span class="pre">p</span></code> and <code class="docutils literal notranslate"><span class="pre">s</span></code>, respectively:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">shape</span><span class="p">()</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">shape</span><span class="p">()</span>
+<span class="n">p</span><span class="o">.</span><span class="n">move_to</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">55</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">move_to</span><span class="p">(</span><span class="mi">49</span><span class="p">,</span> <span class="mi">71</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The object creation is triggered by calling the class name as if it is a
+function (i.e. <code class="docutils literal notranslate"><span class="pre">shape()</span></code>). This creates an <em>instance</em> of the class.
+Each instance has its private data space. In the example, two <code class="docutils literal notranslate"><span class="pre">shape</span></code>
+objects are created and stored in the variables <code class="docutils literal notranslate"><span class="pre">p</span></code> and <code class="docutils literal notranslate"><span class="pre">s</span></code>. As
+said, the object stored in <code class="docutils literal notranslate"><span class="pre">p</span></code> has its private data space and so does
+<code class="docutils literal notranslate"><span class="pre">s</span></code>. We can verify this by:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When a class is defined, there are a bunch of methods, which are
+automatically created, and they serve the integration of the object with
+the Python language. For example, what if we issue a print statement on
+the object? What will</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>print?</p>
+<p>These default methods can be overwritten (redefined). Let us do it for
+two of them: <code class="docutils literal notranslate"><span class="pre">__str__</span></code> is the method that is automatically activated
+when a <code class="docutils literal notranslate"><span class="pre">print</span></code> function has an object to be printed. The built-in
+print function sends to the object an <code class="docutils literal notranslate"><span class="pre">__str__</span></code> message (that was the
+OOP jargon, i.e. calls the <code class="docutils literal notranslate"><span class="pre">__str__</span></code> member function (method)). All
+objects, when created, have a some <em>special methods</em> predefined. Many of
+them are out of the scope of this course, but <code class="docutils literal notranslate"><span class="pre">__str__</span></code> and
+<code class="docutils literal notranslate"><span class="pre">__init__</span></code> are among these special methods.</p>
+<p>It is possible that the programmer, in the class definition, overwrites
+(redefines) these predefinitions. <code class="docutils literal notranslate"><span class="pre">__str__</span></code> is set to a default
+definition so that when an object is printed such an internal location
+information is printed:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">shape</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x7f295325a6a0</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Not very informative, is it? We will overwrite this function to output
+the color and coordinate information, which will look like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">shape</span> <span class="nb">object</span><span class="p">:</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">127</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="n">coordinates</span><span class="o">=</span><span class="p">(</span><span class="mi">47</span><span class="p">,</span><span class="mi">71</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The second special method that we will overwrite is the <code class="docutils literal notranslate"><span class="pre">__init__</span></code>
+method. <code class="docutils literal notranslate"><span class="pre">__init__</span></code> is the method that is automatically activated when
+the object is first created. As default, it will do nothing, but can
+also be overwritten. Observe the following statement in the code above:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">shape</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The object creation is triggered by calling the class name as if it is a
+function. Python (and many other OOP languages) adopt this syntax for
+object creation. What is done is that the arguments passed to the class
+name is sent ‘internally’ to the special member function <code class="docutils literal notranslate"><span class="pre">__init__</span></code>.
+We will overwrite it to take two arguments at object creation, and these
+arguments will become the initial values for the x and y coordinates.</p>
+<p>Now, let us switch to the real interpreter and give it a go:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">shape</span><span class="p">:</span>
+  <span class="n">color</span> <span class="o">=</span> <span class="kc">None</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="kc">None</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="kc">None</span>
+
+  <span class="k">def</span> <span class="nf">set_color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">move_to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+
+  <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">&quot;shape object: color=</span><span class="si">%s</span><span class="s2"> coordinates=</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">color</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">))</span>
+
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+
+  <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">y</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">shape</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span><span class="mi">55</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">shape</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">124</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">127</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">move_to</span><span class="p">(</span><span class="mi">49</span><span class="p">,</span><span class="mi">71</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="fm">__lt__</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span> <span class="o">&lt;</span> <span class="n">s</span><span class="p">)</span>  <span class="c1"># just the same as above but now infix</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="fm">__dir__</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">shape</span> <span class="nb">object</span><span class="p">:</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="n">coordinates</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">124</span><span class="p">)</span>
+<span class="n">shape</span> <span class="nb">object</span><span class="p">:</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="n">coordinates</span><span class="o">=</span><span class="p">(</span><span class="mi">49</span><span class="p">,</span> <span class="mi">71</span><span class="p">)</span>
+<span class="kc">True</span>
+<span class="kc">True</span>
+<span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">,</span> <span class="s1">&#39;__module__&#39;</span><span class="p">,</span> <span class="s1">&#39;set_color&#39;</span><span class="p">,</span> <span class="s1">&#39;move_to&#39;</span><span class="p">,</span> <span class="s1">&#39;__str__&#39;</span><span class="p">,</span> <span class="s1">&#39;__init__&#39;</span><span class="p">,</span> <span class="s1">&#39;__lt__&#39;</span><span class="p">,</span> <span class="s1">&#39;__dict__&#39;</span><span class="p">,</span> <span class="s1">&#39;__weakref__&#39;</span><span class="p">,</span> <span class="s1">&#39;__doc__&#39;</span><span class="p">,</span> <span class="s1">&#39;__repr__&#39;</span><span class="p">,</span> <span class="s1">&#39;__hash__&#39;</span><span class="p">,</span> <span class="s1">&#39;__getattribute__&#39;</span><span class="p">,</span> <span class="s1">&#39;__setattr__&#39;</span><span class="p">,</span> <span class="s1">&#39;__delattr__&#39;</span><span class="p">,</span> <span class="s1">&#39;__le__&#39;</span><span class="p">,</span> <span class="s1">&#39;__eq__&#39;</span><span class="p">,</span> <span class="s1">&#39;__ne__&#39;</span><span class="p">,</span> <span class="s1">&#39;__gt__&#39;</span><span class="p">,</span> <span class="s1">&#39;__ge__&#39;</span><span class="p">,</span> <span class="s1">&#39;__new__&#39;</span><span class="p">,</span> <span class="s1">&#39;__reduce_ex__&#39;</span><span class="p">,</span> <span class="s1">&#39;__reduce__&#39;</span><span class="p">,</span> <span class="s1">&#39;__subclasshook__&#39;</span><span class="p">,</span> <span class="s1">&#39;__init_subclass__&#39;</span><span class="p">,</span> <span class="s1">&#39;__format__&#39;</span><span class="p">,</span> <span class="s1">&#39;__sizeof__&#39;</span><span class="p">,</span> <span class="s1">&#39;__dir__&#39;</span><span class="p">,</span> <span class="s1">&#39;__class__&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="special-methods-operator-overloading">
+<h3><span class="section-number">7.2.2. </span>Special Methods/Operator Overloading<a class="headerlink" href="#special-methods-operator-overloading" title="Permalink to this headline">¶</a></h3>
+<p>There are many more special methods than the ones we described above.
+For a complete reference, we refer you to <a class="reference external" href="https://docs.python.org/3/reference/">“Section 3.3 of the Python
+Language Reference”</a>.</p>
+<p>Last, but not least, a special method to mention is the magnitude
+comparison for an object. In other words, if you have an object, how
+will it behave under comparison? For example, the following rich
+comparisons are possible:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x&lt;y</span></code> calls <code class="docutils literal notranslate"><span class="pre">x.__lt__(y)</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x&lt;=y</span></code> calls <code class="docutils literal notranslate"><span class="pre">x.__le__(y)</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x==y</span></code> calls <code class="docutils literal notranslate"><span class="pre">x.__eq__(y)</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x!=y</span></code> calls <code class="docutils literal notranslate"><span class="pre">x.__ne__(y)</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x&gt;y</span></code> calls <code class="docutils literal notranslate"><span class="pre">x.__gt__(y)</span></code>, and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x&gt;=y</span></code> calls <code class="docutils literal notranslate"><span class="pre">x.__ge__(y)</span></code>.</p></li>
+</ul>
+<p>Having learned this, please copy-and-paste the following definition to
+the class definition of <code class="docutils literal notranslate"><span class="pre">shape</span></code> above in to the code box. Now, you
+have the (<code class="docutils literal notranslate"><span class="pre">&lt;</span></code>) comparison operator available.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">y</span>
+</pre></div>
+</div>
+<p>As you can see, the comparison result is based on the <em>Manhattan
+distance</em> from the origin. You can give it a test right away and compare
+the two objects <code class="docutils literal notranslate"><span class="pre">s</span></code> and <code class="docutils literal notranslate"><span class="pre">p</span></code> as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">&lt;</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>How would you modify the comparison method so that it compares the
+Euclidean distances from the origin?</p>
+<p>As we have created our first object in Python, we strongly advise that
+the ‘encapsulation’ property of OOP is followed by the programmer,
+i.e. you. This property is that the data of an object is private to the
+object and not open to modification (or not even to inspection if
+‘encapsulation’ is taken extremely strictly) by a piece of code external
+to the object. Only member functions, the so-called methods, of that
+object can do this. Therefore, if you want to update the <code class="docutils literal notranslate"><span class="pre">color</span></code>
+value, for example, of an <code class="docutils literal notranslate"><span class="pre">shape</span></code> object, though you can do it
+‘brutally’ by e.g.:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="p">(</span><span class="mi">127</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>However, you should not to do so. In contrary to some other OOP
+programming languages, Python does not forbid this by a brutal force.
+Therefore, it is not a <strong>you cannot</strong> but a <strong>you should not</strong> type of
+action. All data access should be done through messages (functions).</p>
+</div>
+<div class="section" id="example-1-counter">
+<h3><span class="section-number">7.2.3. </span>Example 1: Counter<a class="headerlink" href="#example-1-counter" title="Permalink to this headline">¶</a></h3>
+<p>Now, let us implement a very simple object called <code class="docutils literal notranslate"><span class="pre">Counter</span></code>. Counter
+has two important restrictions: it starts with zero and it can only be
+incremented. If you use a simple integer variable instead of
+<code class="docutils literal notranslate"><span class="pre">Counter</span></code>, its value can be initialized to any value and it can
+directly be assigned to an arbitrary value. Implementing a Python class
+for a <code class="docutils literal notranslate"><span class="pre">Counter</span></code> will let you enforce those restrictions since you
+define the initialization and the actions.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Counter</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">0</span>    <span class="c1"># this is the initialization</span>
+
+  <span class="k">def</span> <span class="nf">increment</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;increment the inner counter&#39;&#39;&#39;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">+=</span> <span class="mi">1</span>
+
+  <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;return the counter as value&#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
+
+  <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;define how your counter is displayed&#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="s1">&#39;Counter:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+<span class="n">stcnt</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>    <span class="c1"># create the counter</span>
+<span class="n">stcnt</span><span class="o">.</span><span class="n">increment</span><span class="p">()</span>
+<span class="n">stcnt</span><span class="o">.</span><span class="n">increment</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# of students&quot;</span><span class="p">,</span> <span class="n">stcnt</span><span class="p">)</span>
+
+<span class="n">sheep</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
+<span class="k">while</span> <span class="n">sheep</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">:</span>
+  <span class="n">sheep</span><span class="o">.</span><span class="n">increment</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# of sheep&quot;</span><span class="p">,</span><span class="n">sheep</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># of students Counter:2</span>
+<span class="c1"># of sheep Counter:1000</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-2-rational-number">
+<h3><span class="section-number">7.2.4. </span>Example 2: Rational Number<a class="headerlink" href="#example-2-rational-number" title="Permalink to this headline">¶</a></h3>
+<p>As our next example, let us try to define a new data type, <strong>Rational
+Number</strong>, as a Python class. Representing a rational number simply as a
+tuple of integers as <code class="docutils literal notranslate"><span class="pre">(numerator,</span> <span class="pre">denominator)</span></code> is possible. However,
+this representation has a couple of issues. First, the denominator can
+be 0, which leads to an invalid value. Second, many distinct tuples
+represent practically the same value and they need to be interpreted in
+a special way in operators like comparison. We need to either normalize
+all into their simplest form or implement comparison operators to
+respect the values they represent. In the following implementation, we
+choose the first approach: We find greatest common divisor of numerator
+and denominator and normalize them.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">class</span> <span class="nc">Rational</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;initialize from numerator and denominator values&#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="k">raise</span> <span class="ne">ZeroDivisionError</span>   <span class="c1"># raise an error. Explained in following chapters</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">=</span> <span class="n">n</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">den</span> <span class="o">=</span> <span class="n">d</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">simplify</span><span class="p">()</span>
+
+  <span class="k">def</span> <span class="nf">simplify</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">den</span> <span class="o">=</span> <span class="mi">1</span>
+      <span class="k">return</span>
+    <span class="n">gcd</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">gcd</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">den</span><span class="p">)</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">den</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>             <span class="c1"># flip their signs if denominator is negative</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">den</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">//</span> <span class="n">gcd</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">den</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">den</span> <span class="o">//</span> <span class="n">gcd</span>   <span class="c1"># normalize them by dividing by greatest common divisor</span>
+
+  <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">den</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rhs</span><span class="p">):</span>        <span class="c1"># this special method is called when * operator is used</span>
+     <span class="sd">&#39;&#39;&#39; (a/b)*(c/d) -&gt; a*c/b*d in a new object &#39;&#39;&#39;</span>
+     <span class="n">retval</span> <span class="o">=</span> <span class="n">Rational</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">rhs</span><span class="o">.</span><span class="n">num</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">den</span> <span class="o">*</span> <span class="n">rhs</span><span class="o">.</span><span class="n">den</span><span class="p">)</span> <span class="c1"># create a new object</span>
+     <span class="k">return</span> <span class="n">retval</span>
+
+  <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rhs</span><span class="p">):</span>        <span class="c1"># this special method is called when * operator is used</span>
+     <span class="sd">&#39;&#39;&#39; (a/b)+(c/d) -&gt; a*d+b*c/d*b in a new object &#39;&#39;&#39;</span>
+     <span class="n">retval</span> <span class="o">=</span> <span class="n">Rational</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">rhs</span><span class="o">.</span><span class="n">den</span> <span class="o">+</span> <span class="n">rhs</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">den</span><span class="p">,</span>
+                       <span class="bp">self</span><span class="o">.</span><span class="n">den</span> <span class="o">*</span> <span class="n">rhs</span><span class="o">.</span><span class="n">den</span><span class="p">)</span> <span class="c1"># create a new object with sum</span>
+     <span class="k">return</span> <span class="n">retval</span>
+
+  <span class="c1"># -, /, and other operators left as exercise</span>
+
+  <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rhs</span><span class="p">):</span>        <span class="c1"># called when == operator is used</span>
+    <span class="sd">&#39;&#39;&#39;a*d == b*c &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="o">*</span><span class="n">rhs</span><span class="o">.</span><span class="n">den</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">den</span><span class="o">*</span><span class="n">rhs</span><span class="o">.</span><span class="n">num</span>
+
+  <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rhs</span><span class="p">):</span>        <span class="c1"># called when &lt; operator is used</span>
+    <span class="sd">&#39;&#39;&#39;a*d &lt; b*c &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="o">*</span><span class="n">rhs</span><span class="o">.</span><span class="n">den</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">den</span><span class="o">*</span><span class="n">rhs</span><span class="o">.</span><span class="n">num</span>
+
+  <span class="c1"># rest can be defined in terms of the first two</span>
+  <span class="k">def</span> <span class="fm">__ne__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rhs</span><span class="p">):</span>  <span class="k">return</span> <span class="ow">not</span> <span class="bp">self</span> <span class="o">==</span> <span class="n">rhs</span>
+
+  <span class="k">def</span> <span class="fm">__le__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rhs</span><span class="p">):</span>  <span class="k">return</span> <span class="bp">self</span> <span class="o">&lt;</span> <span class="n">rhs</span> <span class="ow">or</span> <span class="bp">self</span> <span class="o">==</span> <span class="n">rhs</span>
+
+  <span class="k">def</span> <span class="fm">__gt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rhs</span><span class="p">):</span>  <span class="k">return</span> <span class="ow">not</span> <span class="bp">self</span> <span class="o">&lt;=</span> <span class="n">rhs</span>
+
+  <span class="k">def</span> <span class="fm">__ge__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rhs</span><span class="p">):</span>  <span class="k">return</span> <span class="ow">not</span> <span class="bp">self</span> <span class="o">&lt;</span> <span class="n">rhs</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let us play with our Rational class</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">Rational</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">Rational</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">24</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="o">+</span><span class="n">b</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">&lt;</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span> <span class="o">==</span> <span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span> <span class="mi">2</span><span class="o">/</span><span class="mi">3</span> <span class="mi">4</span><span class="o">/</span><span class="mi">9</span>
+<span class="kc">True</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>This class definition only implements <code class="docutils literal notranslate"><span class="pre">*,</span> <span class="pre">+</span></code>, and comparison
+operators. The remaining operators are left as an exercise. Our new
+class <code class="docutils literal notranslate"><span class="pre">Rational</span></code> behaves like a built-in data type in Python, thanks
+to the special methods implemented. User-defined data types implementing
+integrity restrictions through encapsulation are called <strong>Abstract Data
+Types</strong>.</p>
+</div>
+<div class="section" id="inheritance-with-python">
+<h3><span class="section-number">7.2.5. </span>Inheritance with Python<a class="headerlink" href="#inheritance-with-python" title="Permalink to this headline">¶</a></h3>
+<p>Now let’s have a look on the second property on OOP, namely
+‘inheritance’, in Python. We will do that by extending our <code class="docutils literal notranslate"><span class="pre">shape</span></code>
+example.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">shape</span></code> is relatively a general term. We have many types of shapes:
+Triangles, circles, ovals, rectangles, even polygons. If we incorporated
+them into a software, for example, a simple drawing and painting
+application for children, each of them would have a position on the
+screen and a color. This would be common to all shapes. But then, a
+circle would be identified (additionally) by a radius; a triangle by two
+additional corner coordinates etc.</p>
+<p>Therefore, a <code class="docutils literal notranslate"><span class="pre">triangle</span></code> object should inherit all the properties and
+member functions of a <code class="docutils literal notranslate"><span class="pre">shape</span></code> object plus some other.</p>
+<p>Starting to define a <code class="docutils literal notranslate"><span class="pre">triangle</span></code> object, for example, with all
+properties and member functions copied from <code class="docutils literal notranslate"><span class="pre">shape</span></code> is done by a first
+line:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">triangle</span><span class="p">(</span><span class="n">shape</span><span class="p">):</span>
+</pre></div>
+</div>
+<p>following the general syntax below:</p>
+<p><code class="docutils literal notranslate"><span class="pre">class</span></code> <span class="math notranslate nohighlight">\(\boxed{\color{Red}{ClassName\strut\ }}\)</span> <code class="docutils literal notranslate"><span class="pre">(</span></code>
+<span class="math notranslate nohighlight">\(\color{Red}{BaseClass_1}\)</span>, <span class="math notranslate nohighlight">\({\color{Red}{BaseClass_2}}\)</span>,
+.., <code class="docutils literal notranslate"><span class="pre">):</span></code></p>
+<p><span class="math notranslate nohighlight">\(\hspace{2cm} \boxed{\ \\ \ \\ \ \\ \hspace{0.3cm} \color{Red}{\ Statement\ block}\hspace{0.3cm} \\ \ \\ \strut}\)</span></p>
+<p>Though multiple inheritance (inheriting form more than one class) is
+possible, it is seldom used and is not preferred. It has elaborated
+rules for resolving member function name clashes, which is beyond the
+scope of an introductory book. We will continue with an example that
+does inheritance from a single base class.</p>
+</div>
+<div class="section" id="interactive-example-a-simple-shape-drawing-program">
+<h3><span class="section-number">7.2.6. </span>Interactive Example: A Simple Shape Drawing Program<a class="headerlink" href="#interactive-example-a-simple-shape-drawing-program" title="Permalink to this headline">¶</a></h3>
+<p>Below, you see a simple object-oriented Python code that draws a red
+circle and a green rectangle, and then moves the green rectangle towards
+the circe. When you hover your mouse over the code below, a popup window
+will explain that line of code.</p>
+<p>Following this interactive code display, you can find a code box, the
+one with a small triangle on the left, which is the same code. So, you
+can run it, and observe the code code live, running. In the exercise
+part, you will be asked to modify the code.</p>
+<p>The dark brownish sections in the code contain calls to a drawing
+library (named <code class="docutils literal notranslate"><span class="pre">calysto</span></code>) which is also object oriented but has
+nothing to do with you. Not to distract the reader intentionally, we
+have darkened it out.</p>
+<p>Our object-oriented programming (OOP) intention in this example is to
+define a general class that we will name <code class="docutils literal notranslate"><span class="pre">shape</span></code>. <code class="docutils literal notranslate"><span class="pre">shape</span></code> contains
+all the properties and functions that a drawable geometric object
+(circle, rectangle, triangle, …) possesses. All of them are drawn on an
+imaginary canvas at a certain coordinate with some color. So, all shapes
+have a coordinate at which they are drawn and a color. The first lines
+of the <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">shape</span></code> definition starts with these variables.</p>
+<p><strong>[You can get additional information by hovering your mouse over any
+piece of code.]</strong></p>
+<p>In this example, we implement just two geometric shapes, the circle and
+the rectangle. This piece of code with the green background is the
+definition of the <code class="docutils literal notranslate"><span class="pre">circle</span></code> class. It is <em>derived</em> from the <em>base</em>
+class <code class="docutils literal notranslate"><span class="pre">shape</span></code>. So, it <em>inherits</em> all the definitions of <code class="docutils literal notranslate"><span class="pre">shape</span></code> (but
+these definitions can be overwritten, in other words, can be redefined).
+As you observe, it defines a <code class="docutils literal notranslate"><span class="pre">radius</span></code> variable (in addition to the
+<code class="docutils literal notranslate"><span class="pre">color</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> variables that were inherited form the base
+class). Also, it defines, for the first time, a <code class="docutils literal notranslate"><span class="pre">draw</span></code> member function
+which has the duty to draw a <code class="docutils literal notranslate"><span class="pre">circle</span></code> on the canvas, based on the
+parameters <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">radius</span></code> and <code class="docutils literal notranslate"><span class="pre">color</span></code> using some functions
+of the library <code class="docutils literal notranslate"><span class="pre">calysto</span></code>. The details of this drawing implementation
+is not the reader’s concern (therefore it is darkened out).</p>
+<p><strong>[You can get additional information by hovering your mouse over any
+piece of code.]</strong></p>
+<p>The second geometric shape, which is implemented, is the rectangle. The
+orange backgrounded code defines this class. Again, it is a <em>descendent</em>
+of the base class <code class="docutils literal notranslate"><span class="pre">shape</span></code>. Hence, it <em>inherits</em> all the definitions of
+<code class="docutils literal notranslate"><span class="pre">shape</span></code> (just as circle did). This time, it does not add a <code class="docutils literal notranslate"><span class="pre">radius</span></code>
+but a <code class="docutils literal notranslate"><span class="pre">width</span></code> and a <code class="docutils literal notranslate"><span class="pre">height</span></code> variables to the class. In addition to
+the redefinition of the initializer <code class="docutils literal notranslate"><span class="pre">__init__</span></code>, which is activated the
+moment an instance is created, this class has its own definition of the
+<code class="docutils literal notranslate"><span class="pre">draw</span></code> member function.</p>
+<p><strong>[You can get additional information by hovering your mouse over any
+piece of code.]</strong></p>
+<p>Now, for an instance, return to the <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">shape</span></code> definition (the
+yellow box). There, you will see a <code class="docutils literal notranslate"><span class="pre">displace</span></code> member function being
+defined. It is a function that displaces a geometric shape by an amount
+of <span class="math notranslate nohighlight">\((\Delta x,\Delta y)\)</span>. Please inspect the function now. You
+will discover that the function:</p>
+<ul class="simple">
+<li><p>memorizes the color of the shape,</p></li>
+<li><p>changes the color to white,</p></li>
+<li><p>calls the <code class="docutils literal notranslate"><span class="pre">draw</span></code> member function and draws a white shape exactly on
+top of the old one,</p></li>
+<li><p>restores the drawing color (from white to the memorized color),</p></li>
+<li><p>changes the <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> values by amounts <code class="docutils literal notranslate"><span class="pre">delta_x</span></code> and
+<code class="docutils literal notranslate"><span class="pre">delta_y</span></code>, respectively,</p></li>
+<li><p>calls the <code class="docutils literal notranslate"><span class="pre">draw</span></code> member function and draws at the new <code class="docutils literal notranslate"><span class="pre">x</span></code>,<code class="docutils literal notranslate"><span class="pre">y</span></code>
+coordinates the shape with the original color.</p></li>
+</ul>
+<p>Now we have an interesting phenomenon. <code class="docutils literal notranslate"><span class="pre">draw</span></code> is even not defined in
+<code class="docutils literal notranslate"><span class="pre">shape</span></code>. It will be defined differently for each class that is derived
+from the <code class="docutils literal notranslate"><span class="pre">shape</span></code> base class. How can a function of <code class="docutils literal notranslate"><span class="pre">shape</span></code> make a
+reference to a function which does not exist for <code class="docutils literal notranslate"><span class="pre">shape</span></code> and will only
+be defined in classes that are descendants of this base class? Also note
+that the each of the descendant classes (<code class="docutils literal notranslate"><span class="pre">circle</span></code> and <code class="docutils literal notranslate"><span class="pre">rectangle</span></code>)
+are going to define it (the <code class="docutils literal notranslate"><span class="pre">draw</span></code> function) their own way. This is
+called forward-referencing and polymorphism, a nice and powerful feature
+of OOP.</p>
+<p>Note that the class definitions (<code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">shape</span></code>, <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">circle</span></code>,
+<code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">rectangle</span></code>) are merely blueprints. They do not create any data.
+They define how they will be created and which functions will act how.
+The actual creation (based on these blueprints) are done in the code in
+the last (turquoise colored) box.</p>
+<p>In summary, the code below performs the following:</p>
+<ul class="simple">
+<li><p>An instance of the <code class="docutils literal notranslate"><span class="pre">circle</span> <span class="pre">class</span></code> is created (by calling its
+initializer) at coordinates (<code class="docutils literal notranslate"><span class="pre">100</span></code>,<code class="docutils literal notranslate"><span class="pre">100</span></code>) with a radius of
+<code class="docutils literal notranslate"><span class="pre">50</span></code>. This instance is stored into the variable <code class="docutils literal notranslate"><span class="pre">mycircle</span></code>.</p></li>
+<li><p>The color of this freshly created object is changed to the brightest
+red.</p></li>
+<li><p>The object’s <code class="docutils literal notranslate"><span class="pre">draw</span></code> function is called (in OOP jargon: a <code class="docutils literal notranslate"><span class="pre">draw</span></code>
+message is sent to the object stored in <code class="docutils literal notranslate"><span class="pre">mycircle</span></code>)</p></li>
+<li><p>Similarly, an instance of <code class="docutils literal notranslate"><span class="pre">rectangle</span> <span class="pre">class</span></code> is created at
+coordinates (<code class="docutils literal notranslate"><span class="pre">200</span></code>,<code class="docutils literal notranslate"><span class="pre">100</span></code>) and with <code class="docutils literal notranslate"><span class="pre">width=50</span></code>, <code class="docutils literal notranslate"><span class="pre">height=80</span></code>.
+This instance is stored into the variable <code class="docutils literal notranslate"><span class="pre">myrectangle</span></code>.</p></li>
+<li><p>The color of the rectangle is changed to the brightest green.</p></li>
+<li><p>The rectangles <code class="docutils literal notranslate"><span class="pre">draw</span></code> function is called.</p></li>
+<li><p>The program pauses (waits) for <code class="docutils literal notranslate"><span class="pre">1</span></code> second.</p></li>
+<li><p>Finally, it calls the displace function of the rectangle. Though it
+was defined in the base class, <code class="docutils literal notranslate"><span class="pre">displace</span></code> locates the correct
+<code class="docutils literal notranslate"><span class="pre">draw</span></code> (the draw of the rectangle) and performs the job.</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(\textbf{\textrm{Please use the Colab link at the top to see the interactive demo.}}\)</span></p>
+</div>
+<div class="section" id="useful-short-notes-on-pythons-oop">
+<h3><span class="section-number">7.2.7. </span>Useful Short Notes on Python’s OOP<a class="headerlink" href="#useful-short-notes-on-pythons-oop" title="Permalink to this headline">¶</a></h3>
+<p>These notes are provided for completeness and a possible need in your
+further studies. These are out of the introductory scope of the book.</p>
+<ul class="simple">
+<li><p>It is possible that the derived class overrides the base class’s
+member function. But, still want to access the (former) definition in
+the base class. One can access that definition by prefixing the
+function call by <code class="docutils literal notranslate"><span class="pre">super().</span></code> (no space after the dot).</p></li>
+<li><p>There is no proper destructor in Python. This is because the Python
+engine does all the memory allocation and book-keeping. Though
+entirely under the control of Python, sometimes the so-called
+<em>Garbage Collection</em> is carried out. At that moment, all unused
+object instances are wiped out of the memory. Before that, a special
+member function <code class="docutils literal notranslate"><span class="pre">__del__</span></code> is called. If you want to do a special
+treatment of an object before it is wiped forever, you can define the
+<code class="docutils literal notranslate"><span class="pre">__del__</span></code> function. The concept of garbage collection is complex
+and it is wrong to assume that <code class="docutils literal notranslate"><span class="pre">__del__</span></code> will right away be called
+even if an object instance is deleted by the <code class="docutils literal notranslate"><span class="pre">del</span></code> statement
+(<code class="docutils literal notranslate"><span class="pre">del</span></code> will mark the object as unused but it will not necessarily
+trigger a garbage collection phase).</p></li>
+<li><p>Infix operators have special, associated member functions (those that
+start and end with double underscores). If you want your objects to
+participate in infix expressions, then you have to define those. For
+example ‘<code class="docutils literal notranslate"><span class="pre">+</span></code>’ has the associated special member function
+<code class="docutils literal notranslate"><span class="pre">__add__</span></code>. For a complete list and how-to-do’s, search for “special
+functions of Python” and “operator overloading”.</p></li>
+<li><p>You can restrict the accessibility of variables defined in a class.
+There are three types of accessibility modifications you can perform:
+public, private, and protected. The default is public.</p>
+<ul>
+<li><p>Public access variables can be accessed anywhere inside or outside
+the class.</p></li>
+<li><p>Private variables can only be accessed inside the class
+definitions. A variable which starts with two underscores is
+recognized as private.</p></li>
+<li><p>Protected variables can be accessed within the same package
+(file). A variable which starts with a single underscore is
+recognized as private.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="widely-used-member-functions-of-containers">
+<h2><span class="section-number">7.3. </span>Widely-used Member Functions of Containers<a class="headerlink" href="#widely-used-member-functions-of-containers" title="Permalink to this headline">¶</a></h2>
+<p>Being acquainted with the OOP concepts, it is time to reveal the
+‘object’ properties of some Python components. In Python, every data is
+an object. However, here we will look at the OOP components of
+containers.</p>
+<p><strong>Strings</strong></p>
+<p>Assume <code class="docutils literal notranslate"><span class="pre">S</span></code> is a string. In the table below, you will find some of the
+very frequently used member functions of strings (in the <strong>Operation</strong>
+column, anything in square brackets denotes that the content is optional
+– if you enter the optional content, do no type in the square brackets):</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Operation</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">S.capitalize()</span></code></p></td>
+<td><p>Returns a copy of <code class="docutils literal notranslate"><span class="pre">S</span></code> with its
+first character capitalized, and
+the rest of the characters
+lowercased.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">S</span>
+<span class="pre">.count(sub</span> <span class="pre">[,</span> <span class="pre">start</span> <span class="pre">[,</span> <span class="pre">end]])</span></code></p></td>
+<td><p>Returns the number of occurrences
+of substring <code class="docutils literal notranslate"><span class="pre">sub</span></code> in string
+<code class="docutils literal notranslate"><span class="pre">S</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p>``
+S.find(sub [, start [, end]])``</p></td>
+<td><p>Returns the lowest index in <code class="docutils literal notranslate"><span class="pre">S</span></code>
+where substring sub is found.
+Returns <code class="docutils literal notranslate"><span class="pre">-1</span></code> if sub is not
+found.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">S.isalnum()</span></code></p></td>
+<td><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if all characters
+in <code class="docutils literal notranslate"><span class="pre">S</span></code> are alphanumeric,
+<code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">S.isalpha()</span></code></p></td>
+<td><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if all characters
+in <code class="docutils literal notranslate"><span class="pre">S</span></code> are alphabetic, <code class="docutils literal notranslate"><span class="pre">False</span></code>
+otherwise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">S.isdigit()</span></code></p></td>
+<td><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if all characters
+in <code class="docutils literal notranslate"><span class="pre">S</span></code> are digit characters,
+<code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">S.islower()</span></code></p></td>
+<td><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if all characters
+in <code class="docutils literal notranslate"><span class="pre">S</span></code> are lowercase, <code class="docutils literal notranslate"><span class="pre">False</span></code>
+otherwise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">S.isspace()</span></code></p></td>
+<td><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if all characters
+in <code class="docutils literal notranslate"><span class="pre">S</span></code> are whitespace
+characters, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">S.isupper()</span></code></p></td>
+<td><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if all characters
+in <code class="docutils literal notranslate"><span class="pre">S</span></code> are uppercase, <code class="docutils literal notranslate"><span class="pre">False</span></code>
+otherwise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">separator.join(seq)</span></code></p></td>
+<td><p>Returns a concatenation of the
+strings in the sequence <code class="docutils literal notranslate"><span class="pre">seq</span></code>,
+separated by string <code class="docutils literal notranslate"><span class="pre">separator</span></code>,
+e.g.:
+<code class="docutils literal notranslate"><span class="pre">&quot;#&quot;.join([&quot;a&quot;,&quot;bb&quot;,&quot;ccc&quot;</span></code>])
+returns <code class="docutils literal notranslate"><span class="pre">&quot;a#bb#ccc&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">S.ljust/rjust/c</span>
+<span class="pre">enter(width</span> <span class="pre">[,</span> <span class="pre">fillChar='</span> <span class="pre">)</span></code></p></td>
+<td><p>Returns <code class="docutils literal notranslate"><span class="pre">S</span></code> left/right
+justified/centered in a string of
+length width. surrounded by the
+appropriate number of <code class="docutils literal notranslate"><span class="pre">fillChar</span></code>
+characters.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">S.lower()</span></code></p></td>
+<td><p>Returns a copy of <code class="docutils literal notranslate"><span class="pre">S</span></code> converted
+to lowercase.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">S.lstrip([chars])</span></code></p></td>
+<td><p>Returns a copy of <code class="docutils literal notranslate"><span class="pre">S</span></code> with
+leading <code class="docutils literal notranslate"><span class="pre">chars</span></code> (default: blank
+chars) removed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">S.partition(separ)</span></code></p></td>
+<td><p>Searches for the separator
+<code class="docutils literal notranslate"><span class="pre">separ</span></code> in <code class="docutils literal notranslate"><span class="pre">S</span></code>, and returns a
+tuple <code class="docutils literal notranslate"><span class="pre">(head,</span> <span class="pre">sep,</span> <span class="pre">tail)</span></code>
+containing the part before it, the
+separator itself, and the part
+after it.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">S.replac</span>
+<span class="pre">e(old,</span> <span class="pre">new</span> <span class="pre">[,</span> <span class="pre">maxCount</span> <span class="pre">=</span> <span class="pre">-1])</span></code></p></td>
+<td><p>Returns a copy of <code class="docutils literal notranslate"><span class="pre">S</span></code> with the
+first <code class="docutils literal notranslate"><span class="pre">maxCount</span></code> (<code class="docutils literal notranslate"><span class="pre">-1</span></code>:
+unlimited) occurrences of
+substring <code class="docutils literal notranslate"><span class="pre">old</span></code> replaced by
+<code class="docutils literal notranslate"><span class="pre">new</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">S.sp</span>
+<span class="pre">lit([separator</span> <span class="pre">[,</span> <span class="pre">maxsplit]])</span></code></p></td>
+<td><p>Returns a list of the words in
+<code class="docutils literal notranslate"><span class="pre">S</span></code>, using <code class="docutils literal notranslate"><span class="pre">separator</span></code> as the
+delimiter string.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">S.splitlines([keepends])</span></code></p></td>
+<td><p>Returns a list of the lines in
+<code class="docutils literal notranslate"><span class="pre">S</span></code>, breaking at line
+boundaries.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">S.startsw</span>
+<span class="pre">ith(prefix</span> <span class="pre">[,</span> <span class="pre">start</span> <span class="pre">[,</span> <span class="pre">end]])</span></code></p></td>
+<td><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if <code class="docutils literal notranslate"><span class="pre">S</span></code> starts
+with the specified prefix,
+otherwise returns <code class="docutils literal notranslate"><span class="pre">False</span></code>.
+Negative numbers may be used for
+<code class="docutils literal notranslate"><span class="pre">start</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span></code>. Prefix can
+also be a tuple of strings to try.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">S.strip([chars])</span></code></p></td>
+<td><p>Returns a copy of <code class="docutils literal notranslate"><span class="pre">S</span></code> with
+leading and trailing <code class="docutils literal notranslate"><span class="pre">chars</span></code>
+(default: blank chars) removed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">S.swapcase()</span></code></p></td>
+<td><p>Returns a copy of <code class="docutils literal notranslate"><span class="pre">S</span></code> with
+uppercase characters converted to
+lowercase and vice versa.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">S.upper()</span></code></p></td>
+<td><p>Returns a copy of <code class="docutils literal notranslate"><span class="pre">S</span></code> converted
+to uppercase.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Lists</strong></p>
+<p>Assume <strong>L</strong> is a list. In the table below, you will find some of the
+very frequently used member functions of lists (in the <strong>Operation</strong>
+column, anything in square brackets denotes that the content is optional
+– if you enter the optional content, do no type in the square brackets):</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Operation</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>L</strong><code class="docutils literal notranslate"><span class="pre">.append(</span></code><em>x</em><code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
+<td><p>same as
+**
+L**<code class="docutils literal notranslate"><span class="pre">[len(</span></code><strong>L</strong><code class="docutils literal notranslate"><span class="pre">)</span> <span class="pre">:</span> <span class="pre">len(</span>
+<span class="pre">``\</span> <span class="pre">**L**\</span> <span class="pre">``)]</span> <span class="pre">=</span> <span class="pre">[</span></code><em>x</em><code class="docutils literal notranslate"><span class="pre">]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>L</strong><code class="docutils literal notranslate"><span class="pre">.extend(</span></code><em>x</em><code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
+<td><p>same as
+<strong>L</strong><code class="docutils literal notranslate"><span class="pre">[len(</span></code><strong>L
+**``) : len(``**L</strong><code class="docutils literal notranslate"><span class="pre">)]</span> <span class="pre">=</span></code>
+<em>x</em></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>L</strong><code class="docutils literal notranslate"><span class="pre">.count(</span></code><em>x</em><code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
+<td><p>returns number of <em>i</em>’s for
+which
+<strong>L</strong><code class="docutils literal notranslate"><span class="pre">[</span></code><em>i</em><code class="docutils literal notranslate"><span class="pre">]</span> <span class="pre">==</span></code><em>x</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>L</strong><code class="docutils literal notranslate"><span class="pre">.index(</span></code><em>x</em> [,
+<em>start</em> [, <em>stop</em> ]]<code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
+<td><p>returns smallest <em>i</em> such that
+<strong>L</strong><code class="docutils literal notranslate"><span class="pre">[</span></code><em>i</em><code class="docutils literal notranslate"><span class="pre">]</span> <span class="pre">==</span></code><em>x</em>
+. <em>start</em> and <em>stop</em> limit search
+to only part of the list.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>L</strong><code class="docutils literal notranslate"><span class="pre">.insert(</span></code><em>i</em>,
+<em>x</em><code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
+<td><p>same as
+<strong>L</strong><code class="docutils literal notranslate"><span class="pre">[</span></code><em>i</em><code class="docutils literal notranslate"><span class="pre">:</span></code><em>i</em><code class="docutils literal notranslate"><span class="pre">]</span> <span class="pre">=</span> <span class="pre">[</span></code><em>x</em><code class="docutils literal notranslate"><span class="pre">]</span></code>
+if <em>i</em>≥0. if <em>i</em> <strong>≟</strong>-1
+inserts before the last element.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>L</strong><code class="docutils literal notranslate"><span class="pre">.remove(</span></code><em>x</em><code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
+<td><p>same as del
+<strong>L</strong></p>
+<blockquote>
+<div><p>[<strong>L</strong><code class="docutils literal notranslate"><span class="pre">.index(</span></code><em>x</em><code class="docutils literal notranslate"><span class="pre">)</span></code>]</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>L</strong><code class="docutils literal notranslate"><span class="pre">.pop(</span></code>[<em>i</em> ]<code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
+<td><p>same as
+<em>x</em><code class="docutils literal notranslate"><span class="pre">=</span></code>**
+L**<code class="docutils literal notranslate"><span class="pre">[</span></code><em>i</em><code class="docutils literal notranslate"><span class="pre">];</span> <span class="pre">del</span></code><a href="#id1"><span class="problematic" id="id2">**</span></a>L*
+<em>``[``*i</em><code class="docutils literal notranslate"><span class="pre">];</span> <span class="pre">return</span></code><em>x</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>L</strong><code class="docutils literal notranslate"><span class="pre">.reverse()</span></code></p></td>
+<td><p>reverses the items of <strong>L</strong> in
+place</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>L</strong><code class="docutils literal notranslate"><span class="pre">.sort(</span></code>[<em>cmp</em>
+]<code class="docutils literal notranslate"><span class="pre">)</span></code> <strong>L</strong><code class="docutils literal notranslate"><span class="pre">.sort(</span></code>[
+<em>cmp=cmpFct</em> ] [, <em>key=keyGetter</em>
+] [, <em>reverse=bool</em> ]<code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
+<td><p>sorts the items of <strong>L</strong> in place</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dictionaries</strong></p>
+<p>Assume <strong>D</strong> is a dictionary. In the table below, you will find some of
+the very frequently used member functions of dictionaries (in the
+<strong>Operation</strong> column anything in square brackets denotes that the
+content is optional – if you enter the optional content, do no type in
+the square brackets):</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Operation</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>D</strong><code class="docutils literal notranslate"><span class="pre">.fromkeys(</span></code>
+<em>iterable</em> , <em>value=None</em>
+<code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
+<td><p>Class method to create a dictionary
+with keys provided by iterator, and
+all values set to value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>D</strong><code class="docutils literal notranslate"><span class="pre">.clear()</span></code></p></td>
+<td><p>Removes all items from <strong>D</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>D</strong><code class="docutils literal notranslate"><span class="pre">.copy()</span></code></p></td>
+<td><p>A shallow copy of <strong>D</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>D</strong>``
+.has_key(<code class="docutils literal notranslate"><span class="pre">\</span> <span class="pre">*k*\</span> <span class="pre">``)</span></code><em>k</em>
+<code class="docutils literal notranslate"><span class="pre">in</span></code> <strong>D</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if <strong>D</strong> has key <em>k</em>, else
+<code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>D</strong><code class="docutils literal notranslate"><span class="pre">.items()</span></code></p></td>
+<td><p>A copy of <strong>D</strong>’s list of <code class="docutils literal notranslate"><span class="pre">(</span></code>
+<em>key</em>, <em>item</em> <code class="docutils literal notranslate"><span class="pre">)</span></code> pairs</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>D</strong><code class="docutils literal notranslate"><span class="pre">.keys()</span></code></p></td>
+<td><p>A copy of <strong>D</strong>’s list of keys</p></td>
+</tr>
+<tr class="row-even"><td><dl class="simple">
+<dt><strong>D1</strong></dt><dd><p><code class="docutils literal notranslate"><span class="pre">.update(</span></code><strong>D2</strong><code class="docutils literal notranslate"><span class="pre">)</span></code></p>
+</dd>
+</dl>
+</td>
+<td><p>for <em>k</em>, <em>v</em> in
+<strong>D2</strong><code class="docutils literal notranslate"><span class="pre">.items()</span>
+<span class="pre">:</span></code><strong>D2</strong><code class="docutils literal notranslate"><span class="pre">[</span></code><em>k</em><code class="docutils literal notranslate"><span class="pre">]</span> <span class="pre">=</span></code><em>v</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>D</strong><code class="docutils literal notranslate"><span class="pre">.values()</span></code></p></td>
+<td><p>A copy of <strong>D</strong>’s list of values</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>D</strong><code class="docutils literal notranslate"><span class="pre">.get(</span></code><em>k,
+defaultval</em> <code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
+<td><p>The item of <strong>D</strong> with key <em>k</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>D</strong><code class="docutils literal notranslate"><span class="pre">.setdefault(</span></code><em>k</em>
+[, <em>defaultval</em> ]<code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
+<td><p><strong>D</strong><code class="docutils literal notranslate"><span class="pre">[</span></code><em>k</em><code class="docutils literal notranslate"><span class="pre">]</span></code> if <em>k</em> in
+<strong>D</strong>, else <em>defaultval</em> (also
+setting it)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>D</strong><code class="docutils literal notranslate"><span class="pre">.iteritems()</span></code></p></td>
+<td><p>Returns an iterator over <code class="docutils literal notranslate"><span class="pre">(</span></code> <em>key,
+value</em> <code class="docutils literal notranslate"><span class="pre">)</span></code> pairs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>D</strong><code class="docutils literal notranslate"><span class="pre">.iterkeys()</span></code></p></td>
+<td><p>Returns an iterator over the
+mapping’s keys.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>D</strong><code class="docutils literal notranslate"><span class="pre">.itervalues()</span></code></p></td>
+<td><p>Returns an iterator over the
+mapping’s values.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>D</strong><code class="docutils literal notranslate"><span class="pre">.pop(</span></code><em>k</em>[,
+<em>default</em> ]<code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
+<td><p>Removes key <em>k</em> and returns the
+corresponding value. If key is not
+found,default is returned if given,
+otherwise KeyError is raised.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>D</strong><code class="docutils literal notranslate"><span class="pre">.popitem()</span></code></p></td>
+<td><p>Removes and returns an arbitrary
+<code class="docutils literal notranslate"><span class="pre">(</span></code> <em>key, value</em> <code class="docutils literal notranslate"><span class="pre">)</span></code> pair from
+<strong>D</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sets</strong></p>
+<p>Assume <strong>T</strong>, <strong>T1</strong>, <strong>T2</strong> are sets (unless otherwise stated). In the
+table below you will find some of the very frequently used member
+functions of sets (in the <strong>Operation</strong> column anything in square
+brackets denotes that the content is optional – if you enter the
+optional content, do no type in the square brackets):</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 46%" />
+<col style="width: 54%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Operation</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><dl class="simple">
+<dt><strong>T1</strong></dt><dd><p><code class="docutils literal notranslate"><span class="pre">.issubset(</span></code><strong>T2</strong><code class="docutils literal notranslate"><span class="pre">)</span></code></p>
+</dd>
+</dl>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if every element in <strong>T1</strong>
+is in iterable <strong>T2</strong>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>T1</strong>`
+<cite>.issuperset(`</cite><strong>T2</strong><code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if every element in <strong>T2</strong>
+is in iterable <strong>T1</strong>.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>T</strong><code class="docutils literal notranslate"><span class="pre">.add(</span></code><em>elt</em><code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
+<td><p>Adds element <em>elt</em> to set <strong>T</strong> (if
+it doesn’t already exist).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a href="#id3"><span class="problematic" id="id4">**</span></a>T
+<a href="#id5"><span class="problematic" id="id6">**</span></a><code class="docutils literal notranslate"><span class="pre">.remove(</span></code><em>elt</em><code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
+<td><p>Removes element <em>elt</em> from set
+<strong>T</strong>. <code class="docutils literal notranslate"><span class="pre">KeyError</span></code> if element not
+found.</p></td>
+</tr>
+<tr class="row-even"><td><p><a href="#id7"><span class="problematic" id="id8">**</span></a>T*
+<em>``.discard(``*elt</em><code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
+<td><p>Removes element <em>elt</em> from set
+<strong>T</strong> if present.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>T</strong><code class="docutils literal notranslate"><span class="pre">.pop()</span></code></p></td>
+<td><p>Removes and returns an arbitrary
+element from set <strong>T</strong>; raises
+<code class="docutils literal notranslate"><span class="pre">KeyError</span></code> if empty.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>T</strong><code class="docutils literal notranslate"><span class="pre">.clear()</span></code></p></td>
+<td><p>Removes all elements from this set.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>T1
+**``.intersection(``**T2</strong>
+[, <strong>T3</strong>…]<code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
+<td><p>Synonym to <code class="docutils literal notranslate"><span class="pre">(</span></code><strong>T1</strong> <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>
+<strong>T2</strong><code class="docutils literal notranslate"><span class="pre">)</span></code>. Returns a new Set
+with elements common to all sets
+(in the method <strong>T2</strong> , <strong>T3</strong>,…
+can be any iterable).</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>T1</strong><code class="docutils literal notranslate"><span class="pre">.union(</span></code><strong>T2</strong> [,
+<strong>T3</strong>…]<code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
+<td><p>Synonym to <code class="docutils literal notranslate"><span class="pre">(</span></code><strong>T1</strong> <code class="docutils literal notranslate"><span class="pre">\|</span></code>
+<strong>T2</strong><code class="docutils literal notranslate"><span class="pre">)</span></code>. Returns a new Set
+with elements from either set (in
+the method <strong>T2</strong> , <strong>T3</strong>,… can be
+any iterable).</p></td>
+</tr>
+<tr class="row-odd"><td><p>**
+T1**<code class="docutils literal notranslate"><span class="pre">.difference(</span></code><strong>T2</strong>
+[, <strong>T3</strong>…]<code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
+<td><p>Synonym to <code class="docutils literal notranslate"><span class="pre">(</span></code><strong>T1</strong> <code class="docutils literal notranslate"><span class="pre">-</span></code>
+<strong>T2</strong><code class="docutils literal notranslate"><span class="pre">)</span></code>. Returns a new Set
+with elements in <strong>T1</strong> but not in
+any of <strong>T2</strong> , <strong>T3</strong>,.. (in the
+method <strong>T2</strong>, <strong>T3</strong>,… can be any
+iterable).</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>T1</strong><code class="docutils literal notranslate"><span class="pre">.symmetri</span>
+<span class="pre">c_difference(</span></code><strong>T2</strong><code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
+<td><p>Synonym to <code class="docutils literal notranslate"><span class="pre">(</span></code><strong>T1</strong> <code class="docutils literal notranslate"><span class="pre">^</span></code>
+<strong>T2</strong><code class="docutils literal notranslate"><span class="pre">)</span></code>. Returns a new Set
+with elements from either of two
+sets but not in their intersection.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>T</strong><code class="docutils literal notranslate"><span class="pre">.copy()</span></code></p></td>
+<td><p>Returns a shallow copy of set
+<strong>T</strong>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="important-concepts">
+<h2><span class="section-number">7.4. </span>Important Concepts<a class="headerlink" href="#important-concepts" title="Permalink to this headline">¶</a></h2>
+<p>We would like our readers to have grasped the following crucial concepts
+and keywords from this chapter:</p>
+<ul class="simple">
+<li><p>Encapsulation, inheritance and polymorphism.</p></li>
+<li><p>Benefits of the Object-Oriented Paradigm.</p></li>
+<li><p>Concepts such as class, instance, object, member, method, message
+passing.</p></li>
+<li><p>Concepts such as base class, ancestor, descendant.</p></li>
+</ul>
+</div>
+<div class="section" id="further-reading">
+<h2><span class="section-number">7.5. </span>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Special Methods in Python:
+<a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#special-method-names">https://docs.python.org/3/reference/datamodel.html#special-method-names</a></p></li>
+<li><p>Object-oriented Programming chapter:
+<a class="reference external" href="https://link.springer.com/chapter/10.1007/978-3-7091-1343-1_7">https://link.springer.com/chapter/10.1007/978-3-7091-1343-1_7</a></p></li>
+</ul>
+</div>
+<div class="section" id="exercises">
+<h2><span class="section-number">7.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<p>Go to the interactive example and modify it as follows:</p>
+<ol class="arabic simple">
+<li><p>Add a <code class="docutils literal notranslate"><span class="pre">triange</span></code> class. It should take, at creation time,
+<code class="docutils literal notranslate"><span class="pre">(x,y,dx2,dy2,dx3,dy3)</span></code> as parameter, where <code class="docutils literal notranslate"><span class="pre">x,y</span></code> are the
+coordinates of one of the corners of the triangle on the canvas, and
+<code class="docutils literal notranslate"><span class="pre">dx2</span></code>,<code class="docutils literal notranslate"><span class="pre">dy2</span></code> are the increments relative to <code class="docutils literal notranslate"><span class="pre">x1</span></code>,<code class="docutils literal notranslate"><span class="pre">y1</span></code> to
+reach the second corner of the triangle (so, the absolute coordinate
+on the canvas of the second corner becomes (<code class="docutils literal notranslate"><span class="pre">x+dx2</span></code>,<code class="docutils literal notranslate"><span class="pre">y+dy2</span></code>)),
+<code class="docutils literal notranslate"><span class="pre">dx3</span></code>,<code class="docutils literal notranslate"><span class="pre">dy3</span></code> have a similar meaning to reach the third corner.
+You are expected to define all member functions present in <code class="docutils literal notranslate"><span class="pre">circle</span></code>
+or <code class="docutils literal notranslate"><span class="pre">rectangle</span></code>, this time for <code class="docutils literal notranslate"><span class="pre">triangle</span></code>. For the <code class="docutils literal notranslate"><span class="pre">draw</span></code> member
+function, you can investigate the content of the <code class="docutils literal notranslate"><span class="pre">draw</span></code> of the
+<code class="docutils literal notranslate"><span class="pre">rectangle</span></code> class.</p></li>
+<li><p>Implement a <code class="docutils literal notranslate"><span class="pre">move_on_line(x_fin,</span> <span class="pre">y_fin,</span> <span class="pre">count_of_steps)</span></code> that will
+work for all geometric shapes and displace a geometric shape starting
+from its current position on the canvas and ending at
+(<code class="docutils literal notranslate"><span class="pre">x_fin</span></code>,<code class="docutils literal notranslate"><span class="pre">y_fin</span></code>) coordinate in <code class="docutils literal notranslate"><span class="pre">count_of_steps</span></code> many
+displacements.</p></li>
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">car</span></code>, which is a child-drawing style car, that
+consists of a rectangle and two circles below it. It should implement
+all member functions of <code class="docutils literal notranslate"><span class="pre">circle</span></code> or <code class="docutils literal notranslate"><span class="pre">rectangle</span></code>. Make use of the
+existing <code class="docutils literal notranslate"><span class="pre">rectangle</span></code> and <code class="docutils literal notranslate"><span class="pre">circle</span></code> classes.</p></li>
+</ol>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">7. A Gentle Introduction to Object-Oriented Programming</a><ul>
+<li><a class="reference internal" href="#properties-of-object-oriented-programming">7.1. Properties of Object-Oriented Programming</a><ul>
+<li><a class="reference internal" href="#encapsulation">7.1.1. Encapsulation</a></li>
+<li><a class="reference internal" href="#inheritance">7.1.2. Inheritance</a></li>
+<li><a class="reference internal" href="#polymorphism">7.1.3. Polymorphism</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#basic-oop-in-python">7.2. Basic OOP in Python</a><ul>
+<li><a class="reference internal" href="#the-class-syntax">7.2.1. The Class Syntax</a></li>
+<li><a class="reference internal" href="#special-methods-operator-overloading">7.2.2. Special Methods/Operator Overloading</a></li>
+<li><a class="reference internal" href="#example-1-counter">7.2.3. Example 1: Counter</a></li>
+<li><a class="reference internal" href="#example-2-rational-number">7.2.4. Example 2: Rational Number</a></li>
+<li><a class="reference internal" href="#inheritance-with-python">7.2.5. Inheritance with Python</a></li>
+<li><a class="reference internal" href="#interactive-example-a-simple-shape-drawing-program">7.2.6. Interactive Example: A Simple Shape Drawing Program</a></li>
+<li><a class="reference internal" href="#useful-short-notes-on-pythons-oop">7.2.7. Useful Short Notes on Python’s OOP</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#widely-used-member-functions-of-containers">7.3. Widely-used Member Functions of Containers</a></li>
+<li><a class="reference internal" href="#important-concepts">7.4. Important Concepts</a></li>
+<li><a class="reference internal" href="#further-reading">7.5. Further Reading</a></li>
+<li><a class="reference internal" href="#exercises">7.6. Exercises</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="ch6_functions.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L fas fa-arrow-left fa-lg"></i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>6. Functions</div>
+         </div>
+     </a>
+  </div>
+        
+        </main>
+    </div>
+  </body>
+</html>

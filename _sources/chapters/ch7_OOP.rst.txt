@@ -1,0 +1,1272 @@
+
+A Gentle Introduction to Object-Oriented Programming
+====================================================
+
+At this stage of programming, you must have realized that programming
+possesses some idiosyncrasies:
+
+-  Unless a randomization is explicitly build in, all computations are
+   deterministic; i.e., the result is always the same for the same
+   input.
+-  The logic involved is binary; i.e., two truth values exist: True and
+   False.
+-  There is a clear distinction of *actions* and *data*. Actions are
+   coded into expressions, statements and functions. Data is coded into
+   integers, floating points and containers (strings, tuples and lists).
+
+The first two can be dealt with in a controlled manner. Furthermore,
+mostly it is very much preferred to have a crisp and deterministic
+outcome. But, the third is not so natural. The world we live in is not
+made of data and independent actions acting on that data. This is merely
+an abstraction. The need for this abstraction stems from the very nature
+of the computing device mankind has manufactured, the von Neumann
+Machine. What you store in the *memory* is either some data (integer or
+floating point) or some instruction. The *processor* processes the data
+based on a series of instructions. Therefore, we have a clear separation
+of data and action in computers.
+
+But when we look around, we don’t see such a distinction. We see
+*objects*. We see a tree, a house, a table, a computer, a notebook, a
+pencil, a lecturer and a student. Objects have some properties which
+would be quantified as data, but they also have some capabilities that
+would correspond to some actions. What about reuniting data and action
+under the natural concept of “object”? *Object Oriented Programming*,
+abbreviated as OOP, is the answer to this question.
+
+Properties of Object-Oriented Programming
+-----------------------------------------
+
+OOP is a paradigm that comes with some properties:
+
+-  *Encapsulation:* Combining data and functions that manipulate that
+   data under a concept that we name as ‘object’ so that a rule of
+   “need-to-know” and “maximal-privacy” is satisfied.
+
+-  *Inheritance:* Defining an object and then using it to create
+   “descendant” objects so that the descendant objects inherit all
+   functions and data of their ancestors.
+
+-  *Polymorphism:* A mechanism allowing a descendant object to appear
+   and function like its ancestor object when necessary.
+
+Encapsulation
+~~~~~~~~~~~~~
+
+Encapsulation is the property that data and actions are glued together
+in a data-action structure called ‘object’ that conforms to a rule of
+“need-to-know” and “maximal-privacy”. In other words, an object should
+provide access only to data and actions that are needed by other objects
+and other data & actions that are not needed should be hidden and used
+by the object itself for its own merit.
+
+This is important especially to keep implementation modular and
+manageable: An object stores some data and implements certain actions.
+Some of these are private and hidden from other objects whereas others
+are *public* to other objects so that they can access such public data
+and actions to suit their needs.
+
+The public data and actions function as the interface of the object to
+the outside world. In this way, objects interact with each other’s
+interfaces by accessing public data and actions. This can be considered
+as a message passing mechanism: Object1 calls Object2’s action f, which
+calls Object3’s function g, which returns a message (a value) back to
+Object2, which, after some calculation returns another value to Object
+1. As a realistic example of a university registration system, assume
+``Student`` object calls ``register`` action of a ``Course`` object and
+it calls ``checkPrerequisite`` action of a ``Curriculum`` object.
+``checkPrerequisite`` checks if course can be taken by student and
+returns the result. ``register`` action does additional controls and
+returns the success status of the registration to the ``Student``.
+
+In this modular approach, Object1 does not need to know how Object2
+implements its actions or how it stores data. All Object1 needs to know
+is the public interface via which ‘messages’ are passed to compute the
+solution.
+
+Assume you need to implement a simple weather forecasting system. This
+hypothetical system gets a set of meteorological sensor data like
+humidity, pressure, temperature from various levels of atmosphere and
+try to estimate the weather conditions for the next couple of days. The
+data of such a system may have a time series of sensor values. The
+actions of such system would be a group of functions adding sensor data
+as they are measured and forecasting functions for getting the future
+estimate of weather conditions. For example:
+
+.. code:: python
+
+   sensors = [{'datetime':'20201011 10:00','temperature':12.3,
+               'humidity': 32.2, 'pressure':1.2,
+               'altitute':1010.0},
+               {'datetime':'20201011 12:00','temperature':14.2,
+               'humidity': 31.2, 'pressure':1.22,
+               'altitute':1010.0},
+               ....]
+
+   def addSensorData(sensorarr, temp, hum, press, alt):
+       '''Add sensor data to sensor array with
+          current time and date'''
+       ....
+
+   def estimate(sensorarr, offset):
+       '''return whether forecast for given
+          offset days in future'''
+       ...
+   ...
+   addSensorData(sensors, 20.3, 15.4, 0.82, 10000)
+   ...
+   print(estimate(sensors, 1))
+   ...
+
+In the implementation above, the data and actions are separated. The
+programmer should maintain the list containing the data and make sure
+actions are available and called as needed with the correct data. This
+approach has a couple of disadvantages:
+
+1. There is no way to make sure actions are called with the correct
+   sensor data format and values
+   (i.e. ``estimate('Hello world', 1,1,1,1)``).
+
+2. ``addSensorData`` can make sure that sensor list contains correct
+   data, however, since sensors data can be directly modified, its
+   integrity can be violated later on
+   (i.e. ``sensors[0]='Hello World'``).
+
+3. When you need to have forecast of more than one location, you need to
+   duplicate all data and maintain them separately. Keeping track of
+   which list contains which location requires extra special care.
+
+4. When you need to improve your code and change data representation
+   like storing each sensor type on a separate sorted list by time, you
+   need to change the action functions. However, if some code directly
+   accesses the sensor data, it may conflict with the changes you made
+   on data representation. For example, if the new data representation
+   is as follows:
+
+.. code:: python
+
+   sensors = {'temperature': [('202010101000',23),...],
+              'humidity': [('2020101000',45.3),...],
+              'pressure': [('2020100243',1.02),...]}
+
+Any access to ``sensors[0]`` as a dictionary directly by code segments
+will be incorrect.
+
+With encapsulation, sensor data and actions are put into the same body
+of definition so that the only way to interact with the data would be
+through the actions. In this way:
+
+1. Data and actions maintained together. Encapsulation mechanism
+   guarantees that data exists and it has correct format and values.
+
+2. Multiple instances can be created for forecasting for multiple
+   locations, and each location is maintained in its object as if it was
+   a simple variable.
+
+3. Since no code part accesses the data directly but calls the actions,
+   changing internal representation and implementation of functions will
+   not cause any problem.
+
+The following is an example OOP implementation for the problem at hand:
+
+.. code:: python
+
+   class WhetherForecast:
+     # Data
+     __sensors = None
+
+     # Actions acting on the data
+     def __init__(self):
+       self.__sensors = []   # this will create initial sensor data
+
+     def addSensorData(self, temp, hum, press, alt):
+       ....
+
+     def estimate(self, offset):
+       ...
+       return {'lowest':elow, 'highest':ehigh,...}
+
+
+   ankara = WhetherForecast() # Create an instance for location Ankara
+   ankara.addSensorData(...)
+   ....
+
+   izmir = WhetherForecast()  # Create an instance for location Izmir
+   izmir.addSensordata(...)
+   ....
+
+   print(ankara.estimate(1))  # Work with the data for Ankara
+   print(izmir.estimate(2))   # Work with the data for Izmir
+
+The above syntax will be more clear in the following sections; however,
+please note how the newly created objects ``ankara`` and ``izmir``
+behave. They contain their sensor data internally, and the programmer
+does not need to care about their internals. The resulting object will
+syntactically behave like a built-in data type of Python.
+
+Inheritance
+~~~~~~~~~~~
+
+In many applications, the objects we are going to work with are going to
+be related. For example, in a drawing program, we are going to work with
+shapes such as rectangles, circles, triangles which have some common
+data and actions, e.g.:
+
+-  Data:
+
+   -  Position
+   -  Area
+   -  Color
+   -  Circumference
+
+-  and actions:
+
+   -  draw()
+   -  move()
+   -  rotate()
+
+What kind of data structure we use for these data and how we implement
+the actions are important. For example, if one shape is using Cartesian
+coordinates (:math:`x,y`) for position and another is using Polar
+coordinates (:math:`r,\theta`), a programmer can easily make a mistake
+by providing (:math:`x,y`) to a shape using Polar coordinates.
+
+As for actions, implementing such overlapping actions in each shape from
+scratch is redundant and inefficient. In the case of separate
+implementations of overlapping actions in each shape, we would have to
+update all overlapping actions if we want to correct an error in our
+implementation or switch to a more efficient algorithm for the
+overlapping actions. Therefore, it makes sense to implement the common
+functionalities in another object and reuse them whenever needed.
+
+These two issues are handled in OOP via inheritance. We place common
+data and functionalities into an ancestor object (e.g. ``Shape`` object
+for our example) and other objects (``Rectangle``, ``Triangle``,
+``Circle``) can inherit (reuse) these data and definitions in their
+definitions as if those data and actions were defined in their object
+definitions.
+
+In real life entities, you can observe many similar relations. For
+example:
+
+-  A ``Student`` is a ``Person`` and an ``Instructor`` is a ``Person``.
+   Updating personal records of a ``Student`` is no different than that
+   of an ``Instructor``.
+
+-  An ``DCEngine``, a ``DieselEngine``, and a ``StreamEngine`` are all
+   ``Engine``\ s. They have the same characteristic features like horse
+   power, torque etc. However, ``DCEngine`` has power consumption in
+   units of Watt whereas ``DieselEngine`` consumption can be measured as
+   litres per km.
+
+-  In a transportation problem, a ``Ship``, a ``Cargo_Plane`` and a
+   ``Truck`` are all ``Vehicle``\ s. They have the same behaviour of
+   carrying a load; however, they have different capacities, speeds,
+   costs and ranges.
+
+Assume we like to improve the forecasting accuracy through adding radar
+information in our ``WhetherForecast`` example above. We need to get our
+traditional estimate and combine it with the radar image data. Instead
+of duplicating the traditional estimator, it is wiser to use existing
+implementation and *extend* its functionality with the newly introduced
+features. This way, we avoid code duplication and when we improve our
+traditional estimator, our new estimator will automatically use it.
+
+Inheritance is a very useful and important concept in OOP. Together with
+encapsulation, it improves reusability, maintenance, and reduces
+redundancy.
+
+Polymorphism
+~~~~~~~~~~~~
+
+Polymorphism is a property that enables a programmer to write functions
+that can operate on different data types uniformly. For example,
+calculating the sum of elements of a list is actually the same for a
+list of integers, a list of floats and a list of complex numbers. As
+long as the addition operation is defined among the members of the list,
+the summation operation would be the same. If we can implement a
+polymorphic ``sum`` function, it will be able to calculate the summation
+of distinct datatypes, hence it will be polymorphic.
+
+In OOP, all descendants of a parent object can act as objects of more
+than one types. Consider our example on shapes above: The ``Rectangle``
+object that inherits from the ``Shape`` object can also be used as a
+``Shape`` object since it bears data and actions defined in a ``Shape``
+object. In other words, a ``Rectangle`` object can be assumed to have
+two data types: ``Rectangle`` and ``Shape``. We can exploit this for
+writing polymorphic functions. If we write functions or classes that
+operate on ``Shape`` with well-defined actions, they can operate on all
+descendants of it including, ``Rectangle``, ``Circle``, and all objects
+inheriting ``Shape``. Similarly, actions of a parent object can operate
+on all its descendants if it uses a well-defined interface.
+
+Polymorphism improves modularity, code reusability and expandability of
+a program.
+
+Basic OOP in Python
+-------------------
+
+The way Python implements OOP is not to the full extent in terms of the
+properties listed in the previous section. Encapsulation, for example,
+is not implemented strongly. But inheritance and polymorphism are there.
+Also, operator overloading, a feature that is much demanded in OOP, is
+present.
+
+In the last decade, Python started to become a standard for Science and
+Engineering computation. For various computational purposes, software
+packages were already there. Packages to do numerical computations,
+statistical computations, symbolic computations, computational
+chemistry, computational physics, all sorts of simulations were
+developed over four decades. Now many such packages, free or
+proprietary, are *wrapped* to be called through Python. This packaging
+is done mostly in an OOP manner. Therefore, it is vital to know some
+basics of OOP in Python.
+
+The Class Syntax
+~~~~~~~~~~~~~~~~
+
+In Python, an object is a code structure that is like in
+:numref:`ch7_oop`:
+
+.. _ch7_oop:
+
+.. figure:: ../figures/ch7_oop1.png
+   :width: 200px
+
+   An object includes both data and actions (methods and special
+   methods) as one data item.
+
+
+
+First, a piece of jargon:
+
+-  **Class:** A prescription that defines a particular object. The
+   blueprint of an object.
+
+-  **Class Instance**\ $;:raw-latex:`\equiv`; $\ **Object:** A
+   computational structure that has functions and data fields built
+   according the blueprint, namely the class. Similar to the
+   construction of buildings according to an architectural blueprint, in
+   Python we can create *objects* (more than one) conforming to a class
+   definition. Each of these objects will have their own data space and
+   in some cases customized functions. Objects are equivalently called
+   *Class instances*. Each object provides the following:
+
+   -  **Methods:** Functions that belong to the object.
+   -  **Sending a message to an object:** Calling a method of the
+      object.
+   -  **Member:** Any data or method that is defined in the class.
+
+So, as you would guess, we start with a structural plan, using the
+jargon, the ‘class definition’. In Python this is done by the keyword
+``class``:
+
+``class`` :math:`\boxed{\color{Red}{ClassName\strut\ }}` ``:``
+
+:math:`\hspace{2cm} \boxed{\ \\ \ \\ \ \\ \hspace{0.3cm} \color{Red}{\ Statement\ block}\hspace{0.3cm} \\ \ \\ \strut}`
+
+Here is an example:
+
+.. code:: python
+
+   class shape:
+      color = None
+      x = None
+      y = None
+
+      def set_color(self, red, green, blue):
+         self.color = (red, green, blue)
+
+      def move_to(self, x, y):
+         self.x = x
+         self.y = y
+
+This blueprint tells Python that:
+
+1. The name of this class is ``shape``.
+
+2. Any object that will be created according to this blueprint has three
+   data fields, named ``color``, ``x`` and ``y``. At the moment of
+   creation, these fields are set to ``None`` (a special value of Python
+   indicating that there is a variable here but no value is assigned
+   yet).
+
+3. Two member functions, the so-called methods, are defined:
+   ``set_color`` and ``move_to``. The first takes four arguments,
+   constructs a tuple of the last three values and stores it into the
+   ``color`` data field of the object. The second, ``move_to``, takes
+   three arguments and assign the last two of them to the ``x`` and
+   ``y`` data_fields, respectively.
+
+The peculiar keyword ``self`` in the blueprint refers to the particular
+instance (when an object is created based on this blueprint). The first
+argument to all methods (the member functions) have to be coded as
+``self``. That is a rule. The Python system will fill it out when that
+function is activated.
+
+To refer to any function or any data field of an object, we use the (.)
+dot notation. Inside the class definition, it is ``self.∎``. Outside of
+the object, the object is certainly stored somewhere (a variable or a
+container). The way (syntax) to access the stored object is followed.
+Then, this syntax is appended by the (.) dot which is then followed by
+the data field name or the method name.
+
+For our example ``shape`` class, let us create two objects and assign
+them to two global variables ``p`` and ``s``, respectively:
+
+.. code:: python
+
+   p = shape()
+   s = shape()
+   p.move_to(22, 55)
+   p.set_color(255, 0, 0)
+   s.move_to(49, 71)
+   s.set_color(0, 127, 0)
+
+The object creation is triggered by calling the class name as if it is a
+function (i.e. ``shape()``). This creates an *instance* of the class.
+Each instance has its private data space. In the example, two ``shape``
+objects are created and stored in the variables ``p`` and ``s``. As
+said, the object stored in ``p`` has its private data space and so does
+``s``. We can verify this by:
+
+.. code:: python
+
+   print(p.x, p.y)
+   print(s.x, s.y)
+
+When a class is defined, there are a bunch of methods, which are
+automatically created, and they serve the integration of the object with
+the Python language. For example, what if we issue a print statement on
+the object? What will
+
+.. code:: python
+
+   print(s)
+
+print?
+
+These default methods can be overwritten (redefined). Let us do it for
+two of them: ``__str__`` is the method that is automatically activated
+when a ``print`` function has an object to be printed. The built-in
+print function sends to the object an ``__str__`` message (that was the
+OOP jargon, i.e. calls the ``__str__`` member function (method)). All
+objects, when created, have a some *special methods* predefined. Many of
+them are out of the scope of this course, but ``__str__`` and
+``__init__`` are among these special methods.
+
+It is possible that the programmer, in the class definition, overwrites
+(redefines) these predefinitions. ``__str__`` is set to a default
+definition so that when an object is printed such an internal location
+information is printed:
+
+.. code:: python
+
+   <__main__.shape object at 0x7f295325a6a0>
+
+Not very informative, is it? We will overwrite this function to output
+the color and coordinate information, which will look like:
+
+.. code:: python
+
+   shape object: color=(0,127,0) coordinates=(47,71)
+
+The second special method that we will overwrite is the ``__init__``
+method. ``__init__`` is the method that is automatically activated when
+the object is first created. As default, it will do nothing, but can
+also be overwritten. Observe the following statement in the code above:
+
+.. code:: python
+
+   s = shape()
+
+The object creation is triggered by calling the class name as if it is a
+function. Python (and many other OOP languages) adopt this syntax for
+object creation. What is done is that the arguments passed to the class
+name is sent ‘internally’ to the special member function ``__init__``.
+We will overwrite it to take two arguments at object creation, and these
+arguments will become the initial values for the x and y coordinates.
+
+Now, let us switch to the real interpreter and give it a go:
+
+.. code:: python
+
+    class shape:
+      color = None
+      x = None
+      y = None
+    
+      def set_color(self, red, green, blue):
+        self.color = (red, green, blue)
+    
+      def move_to(self, x, y):
+        self.x = x
+        self.y = y
+    
+      def __str__(self):
+        return "shape object: color=%s coordinates=%s" % (self.color, (self.x,self.y))
+    
+      def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    
+      def __lt__(self, other):
+        return self.x + self.y < other.x + other.y
+    
+    p = shape(22,55)
+    s = shape(12,124)
+    p.set_color(255,0,0)
+    s.set_color(0,127,0)
+    
+    print(s)
+    s.move_to(49,71)
+    print(s)
+    
+    print(p.__lt__(s))
+    print(p < s)  # just the same as above but now infix
+    
+    print(s.__dir__())
+
+
+.. parsed-literal::
+    :class: output
+
+    shape object: color=(0, 127, 0) coordinates=(12, 124)
+    shape object: color=(0, 127, 0) coordinates=(49, 71)
+    True
+    True
+    ['x', 'y', 'color', '__module__', 'set_color', 'move_to', '__str__', '__init__', '__lt__', '__dict__', '__weakref__', '__doc__', '__repr__', '__hash__', '__getattribute__', '__setattr__', '__delattr__', '__le__', '__eq__', '__ne__', '__gt__', '__ge__', '__new__', '__reduce_ex__', '__reduce__', '__subclasshook__', '__init_subclass__', '__format__', '__sizeof__', '__dir__', '__class__']
+
+
+Special Methods/Operator Overloading
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+There are many more special methods than the ones we described above.
+For a complete reference, we refer you to `“Section 3.3 of the Python
+Language Reference” <https://docs.python.org/3/reference/>`__.
+
+Last, but not least, a special method to mention is the magnitude
+comparison for an object. In other words, if you have an object, how
+will it behave under comparison? For example, the following rich
+comparisons are possible:
+
+-  ``x<y`` calls ``x.__lt__(y)``,
+-  ``x<=y`` calls ``x.__le__(y)``,
+-  ``x==y`` calls ``x.__eq__(y)``,
+-  ``x!=y`` calls ``x.__ne__(y)``,
+-  ``x>y`` calls ``x.__gt__(y)``, and
+-  ``x>=y`` calls ``x.__ge__(y)``.
+
+Having learned this, please copy-and-paste the following definition to
+the class definition of ``shape`` above in to the code box. Now, you
+have the (``<``) comparison operator available.
+
+.. code:: python
+
+   def __lt__(self, other):
+       return self.x + self.y < other.x + other.y
+
+As you can see, the comparison result is based on the *Manhattan
+distance* from the origin. You can give it a test right away and compare
+the two objects ``s`` and ``p`` as follows:
+
+.. code:: python
+
+   print(s<p)
+
+How would you modify the comparison method so that it compares the
+Euclidean distances from the origin?
+
+As we have created our first object in Python, we strongly advise that
+the ‘encapsulation’ property of OOP is followed by the programmer,
+i.e. you. This property is that the data of an object is private to the
+object and not open to modification (or not even to inspection if
+‘encapsulation’ is taken extremely strictly) by a piece of code external
+to the object. Only member functions, the so-called methods, of that
+object can do this. Therefore, if you want to update the ``color``
+value, for example, of an ``shape`` object, though you can do it
+‘brutally’ by e.g.:
+
+.. code:: python
+
+   p.color = (127,64,5)
+
+However, you should not to do so. In contrary to some other OOP
+programming languages, Python does not forbid this by a brutal force.
+Therefore, it is not a **you cannot** but a **you should not** type of
+action. All data access should be done through messages (functions).
+
+Example 1: Counter
+~~~~~~~~~~~~~~~~~~
+
+Now, let us implement a very simple object called ``Counter``. Counter
+has two important restrictions: it starts with zero and it can only be
+incremented. If you use a simple integer variable instead of
+``Counter``, its value can be initialized to any value and it can
+directly be assigned to an arbitrary value. Implementing a Python class
+for a ``Counter`` will let you enforce those restrictions since you
+define the initialization and the actions.
+
+.. code:: python
+
+    class Counter:
+      def __init__(self):
+        self.value = 0    # this is the initialization
+    
+      def increment(self):
+        '''increment the inner counter'''
+        self.value += 1
+    
+      def get(self):
+        '''return the counter as value'''
+        return self.value
+    
+      def __str__(self):
+        '''define how your counter is displayed'''
+        return 'Counter:{}'.format(self.value)
+    
+    stcnt = Counter()    # create the counter
+    stcnt.increment()
+    stcnt.increment()
+    print("# of students", stcnt)
+    
+    sheep = Counter()
+    while sheep.get() < 1000:
+      sheep.increment()
+    
+    print("# of sheep",sheep)
+
+
+.. parsed-literal::
+    :class: output
+
+    # of students Counter:2
+    # of sheep Counter:1000
+
+
+Example 2: Rational Number
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+As our next example, let us try to define a new data type, **Rational
+Number**, as a Python class. Representing a rational number simply as a
+tuple of integers as ``(numerator, denominator)`` is possible. However,
+this representation has a couple of issues. First, the denominator can
+be 0, which leads to an invalid value. Second, many distinct tuples
+represent practically the same value and they need to be interpreted in
+a special way in operators like comparison. We need to either normalize
+all into their simplest form or implement comparison operators to
+respect the values they represent. In the following implementation, we
+choose the first approach: We find greatest common divisor of numerator
+and denominator and normalize them.
+
+.. code:: python
+
+    import math
+    
+    class Rational:
+      def __init__(self, n, d):
+        '''initialize from numerator and denominator values'''
+        if d == 0:
+          raise ZeroDivisionError   # raise an error. Explained in following chapters
+        self.num = n
+        self.den = d
+        self.simplify()
+    
+      def simplify(self):
+        if self.num == 0:
+          self.den = 1
+          return
+        gcd = math.gcd(self.num,self.den)
+        if self.den < 0:             # flip their signs if denominator is negative
+          self.den *= -1
+          self.num *= -1    
+        self.num = self.num // gcd
+        self.den = self.den // gcd   # normalize them by dividing by greatest common divisor
+    
+      def __str__(self):
+        return '{}/{}'.format(self.num, self.den)
+    
+      def __mul__(self, rhs):        # this special method is called when * operator is used
+         ''' (a/b)*(c/d) -> a*c/b*d in a new object '''
+         retval = Rational(self.num * rhs.num, self.den * rhs.den) # create a new object
+         return retval
+    
+      def __add__(self, rhs):        # this special method is called when * operator is used
+         ''' (a/b)+(c/d) -> a*d+b*c/d*b in a new object '''
+         retval = Rational(self.num * rhs.den + rhs.num * self.den,
+                           self.den * rhs.den) # create a new object with sum
+         return retval
+    
+      # -, /, and other operators left as exercise
+    
+      def __eq__(self, rhs):        # called when == operator is used
+        '''a*d == b*c '''
+        return self.num*rhs.den == self.den*rhs.num
+    
+      def __lt__(self, rhs):        # called when < operator is used
+        '''a*d < b*c '''
+        return self.num*rhs.den < self.den*rhs.num
+    
+      # rest can be defined in terms of the first two
+      def __ne__(self, rhs):  return not self == rhs
+    
+      def __le__(self, rhs):  return self < rhs or self == rhs
+    
+      def __gt__(self, rhs):  return not self <= rhs
+    
+      def __ge__(self, rhs):  return not self < rhs
+
+.. code:: python
+
+    # Let us play with our Rational class
+    
+    a = Rational(3, 9)
+    b = Rational(16, 24)
+    print(a, b, a*b+b*a)
+    print(a<b, a+b == Rational(1, 1))
+
+
+.. parsed-literal::
+    :class: output
+
+    1/3 2/3 4/9
+    True True
+
+
+This class definition only implements ``*, +``, and comparison
+operators. The remaining operators are left as an exercise. Our new
+class ``Rational`` behaves like a built-in data type in Python, thanks
+to the special methods implemented. User-defined data types implementing
+integrity restrictions through encapsulation are called **Abstract Data
+Types**.
+
+Inheritance with Python
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Now let’s have a look on the second property on OOP, namely
+‘inheritance’, in Python. We will do that by extending our ``shape``
+example.
+
+A ``shape`` is relatively a general term. We have many types of shapes:
+Triangles, circles, ovals, rectangles, even polygons. If we incorporated
+them into a software, for example, a simple drawing and painting
+application for children, each of them would have a position on the
+screen and a color. This would be common to all shapes. But then, a
+circle would be identified (additionally) by a radius; a triangle by two
+additional corner coordinates etc.
+
+Therefore, a ``triangle`` object should inherit all the properties and
+member functions of a ``shape`` object plus some other.
+
+Starting to define a ``triangle`` object, for example, with all
+properties and member functions copied from ``shape`` is done by a first
+line:
+
+.. code:: python
+
+   class triangle(shape):
+
+following the general syntax below:
+
+``class`` :math:`\boxed{\color{Red}{ClassName\strut\ }}` ``(``
+:math:`\color{Red}{BaseClass_1}`, :math:`{\color{Red}{BaseClass_2}}`,
+.., ``):``
+
+:math:`\hspace{2cm} \boxed{\ \\ \ \\ \ \\ \hspace{0.3cm} \color{Red}{\ Statement\ block}\hspace{0.3cm} \\ \ \\ \strut}`
+
+Though multiple inheritance (inheriting form more than one class) is
+possible, it is seldom used and is not preferred. It has elaborated
+rules for resolving member function name clashes, which is beyond the
+scope of an introductory book. We will continue with an example that
+does inheritance from a single base class.
+
+Interactive Example: A Simple Shape Drawing Program
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Below, you see a simple object-oriented Python code that draws a red
+circle and a green rectangle, and then moves the green rectangle towards
+the circe. When you hover your mouse over the code below, a popup window
+will explain that line of code.
+
+Following this interactive code display, you can find a code box, the
+one with a small triangle on the left, which is the same code. So, you
+can run it, and observe the code code live, running. In the exercise
+part, you will be asked to modify the code.
+
+The dark brownish sections in the code contain calls to a drawing
+library (named ``calysto``) which is also object oriented but has
+nothing to do with you. Not to distract the reader intentionally, we
+have darkened it out.
+
+Our object-oriented programming (OOP) intention in this example is to
+define a general class that we will name ``shape``. ``shape`` contains
+all the properties and functions that a drawable geometric object
+(circle, rectangle, triangle, …) possesses. All of them are drawn on an
+imaginary canvas at a certain coordinate with some color. So, all shapes
+have a coordinate at which they are drawn and a color. The first lines
+of the ``class shape`` definition starts with these variables.
+
+**[You can get additional information by hovering your mouse over any
+piece of code.]**
+
+In this example, we implement just two geometric shapes, the circle and
+the rectangle. This piece of code with the green background is the
+definition of the ``circle`` class. It is *derived* from the *base*
+class ``shape``. So, it *inherits* all the definitions of ``shape`` (but
+these definitions can be overwritten, in other words, can be redefined).
+As you observe, it defines a ``radius`` variable (in addition to the
+``color``, ``x``, ``y`` variables that were inherited form the base
+class). Also, it defines, for the first time, a ``draw`` member function
+which has the duty to draw a ``circle`` on the canvas, based on the
+parameters ``x``, ``y``, ``radius`` and ``color`` using some functions
+of the library ``calysto``. The details of this drawing implementation
+is not the reader’s concern (therefore it is darkened out).
+
+**[You can get additional information by hovering your mouse over any
+piece of code.]**
+
+The second geometric shape, which is implemented, is the rectangle. The
+orange backgrounded code defines this class. Again, it is a *descendent*
+of the base class ``shape``. Hence, it *inherits* all the definitions of
+``shape`` (just as circle did). This time, it does not add a ``radius``
+but a ``width`` and a ``height`` variables to the class. In addition to
+the redefinition of the initializer ``__init__``, which is activated the
+moment an instance is created, this class has its own definition of the
+``draw`` member function.
+
+**[You can get additional information by hovering your mouse over any
+piece of code.]**
+
+Now, for an instance, return to the ``class shape`` definition (the
+yellow box). There, you will see a ``displace`` member function being
+defined. It is a function that displaces a geometric shape by an amount
+of :math:`(\Delta x,\Delta y)`. Please inspect the function now. You
+will discover that the function:
+
+-  memorizes the color of the shape,
+-  changes the color to white,
+-  calls the ``draw`` member function and draws a white shape exactly on
+   top of the old one,
+-  restores the drawing color (from white to the memorized color),
+-  changes the ``x``, ``y`` values by amounts ``delta_x`` and
+   ``delta_y``, respectively,
+-  calls the ``draw`` member function and draws at the new ``x``,\ ``y``
+   coordinates the shape with the original color.
+
+Now we have an interesting phenomenon. ``draw`` is even not defined in
+``shape``. It will be defined differently for each class that is derived
+from the ``shape`` base class. How can a function of ``shape`` make a
+reference to a function which does not exist for ``shape`` and will only
+be defined in classes that are descendants of this base class? Also note
+that the each of the descendant classes (``circle`` and ``rectangle``)
+are going to define it (the ``draw`` function) their own way. This is
+called forward-referencing and polymorphism, a nice and powerful feature
+of OOP.
+
+Note that the class definitions (``class shape``, ``class circle``,
+``class rectangle``) are merely blueprints. They do not create any data.
+They define how they will be created and which functions will act how.
+The actual creation (based on these blueprints) are done in the code in
+the last (turquoise colored) box.
+
+In summary, the code below performs the following:
+
+-  An instance of the ``circle class`` is created (by calling its
+   initializer) at coordinates (``100``,\ ``100``) with a radius of
+   ``50``. This instance is stored into the variable ``mycircle``.
+-  The color of this freshly created object is changed to the brightest
+   red.
+-  The object’s ``draw`` function is called (in OOP jargon: a ``draw``
+   message is sent to the object stored in ``mycircle``)
+-  Similarly, an instance of ``rectangle class`` is created at
+   coordinates (``200``,\ ``100``) and with ``width=50``, ``height=80``.
+   This instance is stored into the variable ``myrectangle``.
+-  The color of the rectangle is changed to the brightest green.
+-  The rectangles ``draw`` function is called.
+-  The program pauses (waits) for ``1`` second.
+-  Finally, it calls the displace function of the rectangle. Though it
+   was defined in the base class, ``displace`` locates the correct
+   ``draw`` (the draw of the rectangle) and performs the job.
+
+:math:`\textbf{\textrm{Please use the Colab link at the top to see the interactive demo.}}`
+
+Useful Short Notes on Python’s OOP
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+These notes are provided for completeness and a possible need in your
+further studies. These are out of the introductory scope of the book.
+
+-  It is possible that the derived class overrides the base class’s
+   member function. But, still want to access the (former) definition in
+   the base class. One can access that definition by prefixing the
+   function call by ``super().`` (no space after the dot).
+
+-  There is no proper destructor in Python. This is because the Python
+   engine does all the memory allocation and book-keeping. Though
+   entirely under the control of Python, sometimes the so-called
+   *Garbage Collection* is carried out. At that moment, all unused
+   object instances are wiped out of the memory. Before that, a special
+   member function ``__del__`` is called. If you want to do a special
+   treatment of an object before it is wiped forever, you can define the
+   ``__del__`` function. The concept of garbage collection is complex
+   and it is wrong to assume that ``__del__`` will right away be called
+   even if an object instance is deleted by the ``del`` statement
+   (``del`` will mark the object as unused but it will not necessarily
+   trigger a garbage collection phase).
+
+-  Infix operators have special, associated member functions (those that
+   start and end with double underscores). If you want your objects to
+   participate in infix expressions, then you have to define those. For
+   example ‘``+``’ has the associated special member function
+   ``__add__``. For a complete list and how-to-do’s, search for “special
+   functions of Python” and “operator overloading”.
+
+-  You can restrict the accessibility of variables defined in a class.
+   There are three types of accessibility modifications you can perform:
+   public, private, and protected. The default is public.
+
+   -  Public access variables can be accessed anywhere inside or outside
+      the class.
+   -  Private variables can only be accessed inside the class
+      definitions. A variable which starts with two underscores is
+      recognized as private.
+   -  Protected variables can be accessed within the same package
+      (file). A variable which starts with a single underscore is
+      recognized as private.
+
+Widely-used Member Functions of Containers
+------------------------------------------
+
+Being acquainted with the OOP concepts, it is time to reveal the
+‘object’ properties of some Python components. In Python, every data is
+an object. However, here we will look at the OOP components of
+containers.
+
+**Strings**
+
+Assume ``S`` is a string. In the table below, you will find some of the
+very frequently used member functions of strings (in the **Operation**
+column, anything in square brackets denotes that the content is optional
+– if you enter the optional content, do no type in the square brackets):
+
++---------------------------------+------------------------------------+
+| Operation                       | Result                             |
++=================================+====================================+
+| ``S.capitalize()``              | Returns a copy of ``S`` with its   |
+|                                 | first character capitalized, and   |
+|                                 | the rest of the characters         |
+|                                 | lowercased.                        |
++---------------------------------+------------------------------------+
+| ``S                             | Returns the number of occurrences  |
+| .count(sub [, start [, end]])`` | of substring ``sub`` in string     |
+|                                 | ``S``.                             |
++---------------------------------+------------------------------------+
+| ``                              | Returns the lowest index in ``S``  |
+| S.find(sub [, start [, end]])`` | where substring sub is found.      |
+|                                 | Returns ``-1`` if sub is not       |
+|                                 | found.                             |
++---------------------------------+------------------------------------+
+| ``S.isalnum()``                 | Returns ``True`` if all characters |
+|                                 | in ``S`` are alphanumeric,         |
+|                                 | ``False`` otherwise.               |
++---------------------------------+------------------------------------+
+| ``S.isalpha()``                 | Returns ``True`` if all characters |
+|                                 | in ``S`` are alphabetic, ``False`` |
+|                                 | otherwise.                         |
++---------------------------------+------------------------------------+
+| ``S.isdigit()``                 | Returns ``True`` if all characters |
+|                                 | in ``S`` are digit characters,     |
+|                                 | ``False`` otherwise.               |
++---------------------------------+------------------------------------+
+| ``S.islower()``                 | Returns ``True`` if all characters |
+|                                 | in ``S`` are lowercase, ``False``  |
+|                                 | otherwise.                         |
++---------------------------------+------------------------------------+
+| ``S.isspace()``                 | Returns ``True`` if all characters |
+|                                 | in ``S`` are whitespace            |
+|                                 | characters, ``False`` otherwise.   |
++---------------------------------+------------------------------------+
+| ``S.isupper()``                 | Returns ``True`` if all characters |
+|                                 | in ``S`` are uppercase, ``False``  |
+|                                 | otherwise.                         |
++---------------------------------+------------------------------------+
+| ``separator.join(seq)``         | Returns a concatenation of the     |
+|                                 | strings in the sequence ``seq``,   |
+|                                 | separated by string ``separator``, |
+|                                 | e.g.:                              |
+|                                 | ``"#".join(["a","bb","ccc"``])     |
+|                                 | returns ``"a#bb#ccc"``             |
++---------------------------------+------------------------------------+
+| ``S.ljust/rjust/c               | Returns ``S`` left/right           |
+| enter(width [, fillChar=' '])`` | justified/centered in a string of  |
+|                                 | length width. surrounded by the    |
+|                                 | appropriate number of ``fillChar`` |
+|                                 | characters.                        |
++---------------------------------+------------------------------------+
+| ``S.lower()``                   | Returns a copy of ``S`` converted  |
+|                                 | to lowercase.                      |
++---------------------------------+------------------------------------+
+| ``S.lstrip([chars])``           | Returns a copy of ``S`` with       |
+|                                 | leading ``chars`` (default: blank  |
+|                                 | chars) removed.                    |
++---------------------------------+------------------------------------+
+| ``S.partition(separ)``          | Searches for the separator         |
+|                                 | ``separ`` in ``S``, and returns a  |
+|                                 | tuple ``(head, sep, tail)``        |
+|                                 | containing the part before it, the |
+|                                 | separator itself, and the part     |
+|                                 | after it.                          |
++---------------------------------+------------------------------------+
+| ``S.replac                      | Returns a copy of ``S`` with the   |
+| e(old, new [, maxCount = -1])`` | first ``maxCount`` (``-1``:        |
+|                                 | unlimited) occurrences of          |
+|                                 | substring ``old`` replaced by      |
+|                                 | ``new``.                           |
++---------------------------------+------------------------------------+
+| ``S.sp                          | Returns a list of the words in     |
+| lit([separator [, maxsplit]])`` | ``S``, using ``separator`` as the  |
+|                                 | delimiter string.                  |
++---------------------------------+------------------------------------+
+| ``S.splitlines([keepends])``    | Returns a list of the lines in     |
+|                                 | ``S``, breaking at line            |
+|                                 | boundaries.                        |
++---------------------------------+------------------------------------+
+| ``S.startsw                     | Returns ``True`` if ``S`` starts   |
+| ith(prefix [, start [, end]])`` | with the specified prefix,         |
+|                                 | otherwise returns ``False``.       |
+|                                 | Negative numbers may be used for   |
+|                                 | ``start`` and ``end``. Prefix can  |
+|                                 | also be a tuple of strings to try. |
++---------------------------------+------------------------------------+
+| ``S.strip([chars])``            | Returns a copy of ``S`` with       |
+|                                 | leading and trailing ``chars``     |
+|                                 | (default: blank chars) removed.    |
++---------------------------------+------------------------------------+
+| ``S.swapcase()``                | Returns a copy of ``S`` with       |
+|                                 | uppercase characters converted to  |
+|                                 | lowercase and vice versa.          |
++---------------------------------+------------------------------------+
+| ``S.upper()``                   | Returns a copy of ``S`` converted  |
+|                                 | to uppercase.                      |
++---------------------------------+------------------------------------+
+
+**Lists**
+
+Assume **L** is a list. In the table below, you will find some of the
+very frequently used member functions of lists (in the **Operation**
+column, anything in square brackets denotes that the content is optional
+– if you enter the optional content, do no type in the square brackets):
+
++-----------------------------------+-----------------------------------+
+| Operation                         | Result                            |
++===================================+===================================+
+| **L**\ ``.append(``\ *x*\ ``)``   | same as                           |
+|                                   | **                                |
+|                                   | L**\ ``[len(``\ **L**\ ``) : len( |
+|                                   | ``\ **L**\ ``)] = [``\ *x*\ ``]`` |
++-----------------------------------+-----------------------------------+
+| **L**\ ``.extend(``\ *x*\ ``)``   | same as                           |
+|                                   | **L**\ ``[len(``\ **L             |
+|                                   | **\ ``) : len(``\ **L**\ ``)] =`` |
+|                                   | *x*                               |
++-----------------------------------+-----------------------------------+
+| **L**\ ``.count(``\ *x*\ ``)``    | returns number of *i*\ ’s for     |
+|                                   | which                             |
+|                                   | **L**\ ``[``\ *i*\ ``] ==``\ *x*  |
++-----------------------------------+-----------------------------------+
+| **L**\ ``.index(``\ *x* [,        | returns smallest *i* such that    |
+| *start* [, *stop* ]]\ ``)``       | **L**\ ``[``\ *i*\ ``] ==``\ *x*  |
+|                                   | . *start* and *stop* limit search |
+|                                   | to only part of the list.         |
++-----------------------------------+-----------------------------------+
+| **L**\ ``.insert(``\ *i*,         | same as                           |
+| *x*\ ``)``                        | **L**\ ``[``\ *i*\                |
+|                                   | ``:``\ *i*\ ``] = [``\ *x*\ ``]`` |
+|                                   | if *i*\ ≥0. if *i* **≟**-1        |
+|                                   | inserts before the last element.  |
++-----------------------------------+-----------------------------------+
+| **L**\ ``.remove(``\ *x*\ ``)``   | same as del                       |
+|                                   | **L**\                            |
+|                                   |  [**L**\ ``.index(``\ *x*\ ``)``] |
++-----------------------------------+-----------------------------------+
+| **L**\ ``.pop(``\ [*i* ]\ ``)``   | same as                           |
+|                                   | *x*\ ``=``\ **                    |
+|                                   | L**\ ``[``\ *i*\ ``]; del``\ **L* |
+|                                   | *\ ``[``\ *i*\ ``]; return``\ *x* |
++-----------------------------------+-----------------------------------+
+| **L**\ ``.reverse()``             | reverses the items of **L** in    |
+|                                   | place                             |
++-----------------------------------+-----------------------------------+
+| **L**\ ``.sort(``\ [*cmp*         | sorts the items of **L** in place |
+| ]\ ``)`` **L**\ ``.sort(``\ [     |                                   |
+| *cmp=cmpFct* ] [, *key=keyGetter* |                                   |
+| ] [, *reverse=bool* ]\ ``)``      |                                   |
++-----------------------------------+-----------------------------------+
+
+**Dictionaries**
+
+Assume **D** is a dictionary. In the table below, you will find some of
+the very frequently used member functions of dictionaries (in the
+**Operation** column anything in square brackets denotes that the
+content is optional – if you enter the optional content, do no type in
+the square brackets):
+
++------------------------------+---------------------------------------+
+| Operation                    | Result                                |
++==============================+=======================================+
+| **D**\ ``.fromkeys(``        | Class method to create a dictionary   |
+| *iterable* , *value=None*    | with keys provided by iterator, and   |
+| ``)``                        | all values set to value.              |
++------------------------------+---------------------------------------+
+| **D**\ ``.clear()``          | Removes all items from **D**          |
++------------------------------+---------------------------------------+
+| **D**\ ``.copy()``           | A shallow copy of **D**               |
++------------------------------+---------------------------------------+
+| **D**\ ``                    | ``True`` if **D** has key *k*, else   |
+| .has_key(``\ *k*\ ``)``\ *k* | ``False``                             |
+| ``in`` **D**                 |                                       |
++------------------------------+---------------------------------------+
+| **D**\ ``.items()``          | A copy of **D**\ ’s list of ``(``     |
+|                              | *key*, *item* ``)`` pairs             |
++------------------------------+---------------------------------------+
+| **D**\ ``.keys()``           | A copy of **D**\ ’s list of keys      |
++------------------------------+---------------------------------------+
+| **D1**\                      | for *k*, *v* in                       |
+|  ``.update(``\ **D2**\ ``)`` | **D2**\ ``.items()                    |
+|                              | :``\ **D2**\ ``[``\ *k*\ ``] =``\ *v* |
++------------------------------+---------------------------------------+
+| **D**\ ``.values()``         | A copy of **D**\ ’s list of values    |
++------------------------------+---------------------------------------+
+| **D**\ ``.get(``\ *k,        | The item of **D** with key *k*        |
+| defaultval* ``)``            |                                       |
++------------------------------+---------------------------------------+
+| **D**\ ``.setdefault(``\ *k* | **D**\ ``[``\ *k*\ ``]`` if *k* in    |
+| [, *defaultval* ]\ ``)``     | **D**, else *defaultval* (also        |
+|                              | setting it)                           |
++------------------------------+---------------------------------------+
+| **D**\ ``.iteritems()``      | Returns an iterator over ``(`` *key,  |
+|                              | value* ``)`` pairs.                   |
++------------------------------+---------------------------------------+
+| **D**\ ``.iterkeys()``       | Returns an iterator over the          |
+|                              | mapping’s keys.                       |
++------------------------------+---------------------------------------+
+| **D**\ ``.itervalues()``     | Returns an iterator over the          |
+|                              | mapping’s values.                     |
++------------------------------+---------------------------------------+
+| **D**\ ``.pop(``\ *k*\ [,    | Removes key *k* and returns the       |
+| *default* ]\ ``)``           | corresponding value. If key is not    |
+|                              | found,default is returned if given,   |
+|                              | otherwise KeyError is raised.         |
++------------------------------+---------------------------------------+
+| **D**\ ``.popitem()``        | Removes and returns an arbitrary      |
+|                              | ``(`` *key, value* ``)`` pair from    |
+|                              | **D**                                 |
++------------------------------+---------------------------------------+
+
+**Sets**
+
+Assume **T**, **T1**, **T2** are sets (unless otherwise stated). In the
+table below you will find some of the very frequently used member
+functions of sets (in the **Operation** column anything in square
+brackets denotes that the content is optional – if you enter the
+optional content, do no type in the square brackets):
+
++--------------------------------+-------------------------------------+
+| Operation                      | Result                              |
++================================+=====================================+
+| **T1**\                        | ``True`` if every element in **T1** |
+|  ``.issubset(``\ **T2**\ ``)`` | is in iterable **T2**.              |
++--------------------------------+-------------------------------------+
+| **T1**\ `                      | ``True`` if every element in **T2** |
+| `.issuperset(``\ **T2**\ ``)`` | is in iterable **T1**.              |
++--------------------------------+-------------------------------------+
+| **T**\ ``.add(``\ *elt*\ ``)`` | Adds element *elt* to set **T** (if |
+|                                | it doesn’t already exist).          |
++--------------------------------+-------------------------------------+
+| **T                            | Removes element *elt* from set      |
+| **\ ``.remove(``\ *elt*\ ``)`` | **T**. ``KeyError`` if element not  |
+|                                | found.                              |
++--------------------------------+-------------------------------------+
+| **T*                           | Removes element *elt* from set      |
+| *\ ``.discard(``\ *elt*\ ``)`` | **T** if present.                   |
++--------------------------------+-------------------------------------+
+| **T**\ ``.pop()``              | Removes and returns an arbitrary    |
+|                                | element from set **T**; raises      |
+|                                | ``KeyError`` if empty.              |
++--------------------------------+-------------------------------------+
+| **T**\ ``.clear()``            | Removes all elements from this set. |
++--------------------------------+-------------------------------------+
+| **T1                           | Synonym to ``(``\ **T1** ``&``      |
+| **\ ``.intersection(``\ **T2** | **T2**\ ``)``. Returns a new Set    |
+| [, **T3**\ …]\ ``)``           | with elements common to all sets    |
+|                                | (in the method **T2** , **T3**,…    |
+|                                | can be any iterable).               |
++--------------------------------+-------------------------------------+
+| **T1**\ ``.union(``\ **T2** [, | Synonym to ``(``\ **T1** ``\|``     |
+| **T3**\ …]\ ``)``              | **T2**\ ``)``. Returns a new Set    |
+|                                | with elements from either set (in   |
+|                                | the method **T2** , **T3**,… can be |
+|                                | any iterable).                      |
++--------------------------------+-------------------------------------+
+| **                             | Synonym to ``(``\ **T1** ``-``      |
+| T1**\ ``.difference(``\ **T2** | **T2**\ ``)``. Returns a new Set    |
+| [, **T3**\ …]\ ``)``           | with elements in **T1** but not in  |
+|                                | any of **T2** , **T3**,.. (in the   |
+|                                | method **T2**, **T3**,… can be any  |
+|                                | iterable).                          |
++--------------------------------+-------------------------------------+
+| **T1**\ ``.symmetri            | Synonym to ``(``\ **T1** ``^``      |
+| c_difference(``\ **T2**\ ``)`` | **T2**\ ``)``. Returns a new Set    |
+|                                | with elements from either of two    |
+|                                | sets but not in their intersection. |
++--------------------------------+-------------------------------------+
+| **T**\ ``.copy()``             | Returns a shallow copy of set       |
+|                                | **T**.                              |
++--------------------------------+-------------------------------------+
+
+Important Concepts
+------------------
+
+We would like our readers to have grasped the following crucial concepts
+and keywords from this chapter:
+
+-  Encapsulation, inheritance and polymorphism.
+-  Benefits of the Object-Oriented Paradigm.
+-  Concepts such as class, instance, object, member, method, message
+   passing.
+-  Concepts such as base class, ancestor, descendant.
+
+Further Reading
+---------------
+
+-  Special Methods in Python:
+   https://docs.python.org/3/reference/datamodel.html#special-method-names
+-  Object-oriented Programming chapter:
+   https://link.springer.com/chapter/10.1007/978-3-7091-1343-1_7
+
+Exercises
+---------
+
+Go to the interactive example and modify it as follows:
+
+1. Add a ``triange`` class. It should take, at creation time,
+   ``(x,y,dx2,dy2,dx3,dy3)`` as parameter, where ``x,y`` are the
+   coordinates of one of the corners of the triangle on the canvas, and
+   ``dx2``,\ ``dy2`` are the increments relative to ``x1``,\ ``y1`` to
+   reach the second corner of the triangle (so, the absolute coordinate
+   on the canvas of the second corner becomes (``x+dx2``,\ ``y+dy2``)),
+   ``dx3``,\ ``dy3`` have a similar meaning to reach the third corner.
+   You are expected to define all member functions present in ``circle``
+   or ``rectangle``, this time for ``triangle``. For the ``draw`` member
+   function, you can investigate the content of the ``draw`` of the
+   ``rectangle`` class.
+
+2. Implement a ``move_on_line(x_fin, y_fin, count_of_steps)`` that will
+   work for all geometric shapes and displace a geometric shape starting
+   from its current position on the canvas and ending at
+   (``x_fin``,\ ``y_fin``) coordinate in ``count_of_steps`` many
+   displacements.
+
+3. Create a ``class car``, which is a child-drawing style car, that
+   consists of a rectangle and two circles below it. It should implement
+   all member functions of ``circle`` or ``rectangle``. Make use of the
+   existing ``rectangle`` and ``circle`` classes.

@@ -22,3 +22,4 @@ Programming with Python for Engineers
    chapters/ch4_dive_into_python.md
    chapters/ch5_conditional_and_repetitive.md
    chapters/ch6_functions.md
+   chapters/ch7_OOP.md
