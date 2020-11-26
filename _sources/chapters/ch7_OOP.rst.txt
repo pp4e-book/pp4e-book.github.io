@@ -360,9 +360,9 @@ So, as you would guess, we start with a structural plan, using the
 jargon, the ‘class definition’. In Python this is done by the keyword
 ``class``:
 
-``class`` :math:`\boxed{\color{Red}{ClassName\strut\ }}` ``:``
+``class`` :math:`\boxed{\color{red}{ClassName\strut\ }}` ``:``
 
-:math:`\hspace{2cm} \boxed{\ \\ \ \\ \ \\ \hspace{0.3cm} \color{Red}{\ Statement\ block}\hspace{0.3cm} \\ \ \\ \strut}`
+:math:`\hspace{2cm} \boxed{\ \\ \ \\ \ \\ \hspace{0.3cm} \color{red}{\ Statement\ block}\hspace{0.3cm} \\ \ \\ \strut}`
 
 Here is an example:
 
@@ -767,11 +767,11 @@ line:
 
 following the general syntax below:
 
-``class`` :math:`\boxed{\color{Red}{ClassName\strut\ }}` ``(``
-:math:`\color{Red}{BaseClass_1}`, :math:`{\color{Red}{BaseClass_2}}`,
+``class`` :math:`\boxed{\color{red}{ClassName\strut\ }}` ``(``
+:math:`\color{red}{BaseClass_1}`, :math:`{\color{red}{BaseClass_2}}`,
 .., ``):``
 
-:math:`\hspace{2cm} \boxed{\ \\ \ \\ \ \\ \hspace{0.3cm} \color{Red}{\ Statement\ block}\hspace{0.3cm} \\ \ \\ \strut}`
+:math:`\hspace{2cm} \boxed{\ \\ \ \\ \ \\ \hspace{0.3cm} \color{red}{\ Statement\ block}\hspace{0.3cm} \\ \ \\ \strut}`
 
 Though multiple inheritance (inheriting form more than one class) is
 possible, it is seldom used and is not preferred. It has elaborated
@@ -928,10 +928,10 @@ further studies. These are out of the introductory scope of the book.
       the class.
    -  Private variables can only be accessed inside the class
       definitions. A variable which starts with two underscores is
-      recognized as private.
+      recognized by programmers as private.
    -  Protected variables can be accessed within the same package
       (file). A variable which starts with a single underscore is
-      recognized as private.
+      recognized by programmers as protected.
 
 Widely-used Member Functions of Containers
 ------------------------------------------
@@ -996,7 +996,7 @@ column, anything in square brackets denotes that the content is optional
 |                                 | ``"#".join(["a","bb","ccc"``])     |
 |                                 | returns ``"a#bb#ccc"``             |
 +---------------------------------+------------------------------------+
-| ``S.ljust/rjust/c               | Returns ``S`` left/right           |
+| ``S.ljust/rjust/c               | Returns ``S``, left/right          |
 | enter(width [, fillChar=' '])`` | justified/centered in a string of  |
 |                                 | length width. surrounded by the    |
 |                                 | appropriate number of ``fillChar`` |
@@ -1059,47 +1059,35 @@ column, anything in square brackets denotes that the content is optional
 +-----------------------------------+-----------------------------------+
 | Operation                         | Result                            |
 +===================================+===================================+
-| **L**\ ``.append(``\ *x*\ ``)``   | same as                           |
-|                                   | **                                |
-|                                   | L**\ ``[len(``\ **L**\ ``) : len( |
-|                                   | ``\ **L**\ ``)] = [``\ *x*\ ``]`` |
+| ``L.append(x)``                   | same as                           |
+|                                   | ``L[len(L) : len(L)] = [x]``      |
 +-----------------------------------+-----------------------------------+
-| **L**\ ``.extend(``\ *x*\ ``)``   | same as                           |
-|                                   | **L**\ ``[len(``\ **L             |
-|                                   | **\ ``) : len(``\ **L**\ ``)] =`` |
-|                                   | *x*                               |
+| ``L.extend(x)``                   | same as                           |
+|                                   | ``L[len(L) : len(L)] = x``        |
 +-----------------------------------+-----------------------------------+
-| **L**\ ``.count(``\ *x*\ ``)``    | returns number of *i*\ ’s for     |
-|                                   | which                             |
-|                                   | **L**\ ``[``\ *i*\ ``] ==``\ *x*  |
+| ``L.count(x)``                    | returns number of ``i``\ ’s for   |
+|                                   | which ``L[i] == x``               |
 +-----------------------------------+-----------------------------------+
-| **L**\ ``.index(``\ *x* [,        | returns smallest *i* such that    |
-| *start* [, *stop* ]]\ ``)``       | **L**\ ``[``\ *i*\ ``] ==``\ *x*  |
-|                                   | . *start* and *stop* limit search |
-|                                   | to only part of the list.         |
+| `                                 | returns smallest ``i`` such that  |
+| `L.index(x [, start [, stop ]])`` | ``L[i] == x``. ``start`` and      |
+|                                   | ``stop`` limit search to only     |
+|                                   | part of the list.                 |
 +-----------------------------------+-----------------------------------+
-| **L**\ ``.insert(``\ *i*,         | same as                           |
-| *x*\ ``)``                        | **L**\ ``[``\ *i*\                |
-|                                   | ``:``\ *i*\ ``] = [``\ *x*\ ``]`` |
-|                                   | if *i*\ ≥0. if *i* **≟**-1        |
-|                                   | inserts before the last element.  |
+| ``L.insert(i, x)``                | same as ``L[i:i] = [x]`` if       |
+|                                   | ``i_≥ 0``. if ``i ≟ -1``, inserts |
+|                                   | before the last element.          |
 +-----------------------------------+-----------------------------------+
-| **L**\ ``.remove(``\ *x*\ ``)``   | same as del                       |
-|                                   | **L**\                            |
-|                                   |  [**L**\ ``.index(``\ *x*\ ``)``] |
+| ``L.remove(x)``                   | same as ``del L[L.index(x)]``     |
 +-----------------------------------+-----------------------------------+
-| **L**\ ``.pop(``\ [*i* ]\ ``)``   | same as                           |
-|                                   | *x*\ ``=``\ **                    |
-|                                   | L**\ ``[``\ *i*\ ``]; del``\ **L* |
-|                                   | *\ ``[``\ *i*\ ``]; return``\ *x* |
+| ``L.pop([i])``                    | same as                           |
+|                                   | ``x = L[i]; del L[i]; return  x`` |
 +-----------------------------------+-----------------------------------+
-| **L**\ ``.reverse()``             | reverses the items of **L** in    |
+| ``L.reverse()``                   | reverses the items of ``L`` in    |
 |                                   | place                             |
 +-----------------------------------+-----------------------------------+
-| **L**\ ``.sort(``\ [*cmp*         | sorts the items of **L** in place |
-| ]\ ``)`` **L**\ ``.sort(``\ [     |                                   |
-| *cmp=cmpFct* ] [, *key=keyGetter* |                                   |
-| ] [, *reverse=bool* ]\ ``)``      |                                   |
+| ``L.sort([cmp])`` OR              | sorts the items of ``L`` in place |
+| ``L.sort([ cmp=cmpFct ] [, key    |                                   |
+| =keyGetter ] [, reverse=bool ])`` |                                   |
 +-----------------------------------+-----------------------------------+
 
 **Dictionaries**
@@ -1113,53 +1101,47 @@ the square brackets):
 +------------------------------+---------------------------------------+
 | Operation                    | Result                                |
 +==============================+=======================================+
-| **D**\ ``.fromkeys(``        | Class method to create a dictionary   |
-| *iterable* , *value=None*    | with keys provided by iterator, and   |
-| ``)``                        | all values set to value.              |
+| ``D.from                     | Class method to create a dictionary   |
+| keys(iterable, value=None)`` | with keys provided by iterator, and   |
+|                              | all values set to value               |
 +------------------------------+---------------------------------------+
-| **D**\ ``.clear()``          | Removes all items from **D**          |
+| ``D.clear()``                | Removes all items from D              |
 +------------------------------+---------------------------------------+
-| **D**\ ``.copy()``           | A shallow copy of **D**               |
+| ``D.copy()``                 | A shallow copy of D                   |
 +------------------------------+---------------------------------------+
-| **D**\ ``                    | ``True`` if **D** has key *k*, else   |
-| .has_key(``\ *k*\ ``)``\ *k* | ``False``                             |
-| ``in`` **D**                 |                                       |
+| ``D.has_key(k)`` OR          | ``True`` if D has key ``k``, else     |
+| ``k in D``                   | ``False``                             |
 +------------------------------+---------------------------------------+
-| **D**\ ``.items()``          | A copy of **D**\ ’s list of ``(``     |
-|                              | *key*, *item* ``)`` pairs             |
+| ``D.items()``                | A copy of ``D``\ ’s list of           |
+|                              | ``(key, item)`` pairs                 |
 +------------------------------+---------------------------------------+
-| **D**\ ``.keys()``           | A copy of **D**\ ’s list of keys      |
+| ``D.keys()``                 | A copy of ``D``\ ’s list of keys      |
 +------------------------------+---------------------------------------+
-| **D1**\                      | for *k*, *v* in                       |
-|  ``.update(``\ **D2**\ ``)`` | **D2**\ ``.items()                    |
-|                              | :``\ **D2**\ ``[``\ *k*\ ``] =``\ *v* |
+| ``D1.update(D2)``            | ``for k, v in D2.items(): D2[k] = v`` |
 +------------------------------+---------------------------------------+
-| **D**\ ``.values()``         | A copy of **D**\ ’s list of values    |
+| ``D.values()``               | A copy of ``D``\ ’s list of values    |
 +------------------------------+---------------------------------------+
-| **D**\ ``.get(``\ *k,        | The item of **D** with key *k*        |
-| defaultval* ``)``            |                                       |
+| ``D.get(k, defaultval)``     | The item of ``D`` with key ``k``      |
 +------------------------------+---------------------------------------+
-| **D**\ ``.setdefault(``\ *k* | **D**\ ``[``\ *k*\ ``]`` if *k* in    |
-| [, *defaultval* ]\ ``)``     | **D**, else *defaultval* (also        |
-|                              | setting it)                           |
+| ``D.se                       | ``D[k] if k in D, else defaultval``   |
+| tdefault(k [, defaultval])`` | (also setting it)                     |
 +------------------------------+---------------------------------------+
-| **D**\ ``.iteritems()``      | Returns an iterator over ``(`` *key,  |
-|                              | value* ``)`` pairs.                   |
+| ``D.iteritems()``            | Returns an iterator over              |
+|                              | ``(key, value)`` pairs                |
 +------------------------------+---------------------------------------+
-| **D**\ ``.iterkeys()``       | Returns an iterator over the          |
-|                              | mapping’s keys.                       |
+| ``D.iterkeys()``             | Returns an iterator over the          |
+|                              | mapping’s keys                        |
 +------------------------------+---------------------------------------+
-| **D**\ ``.itervalues()``     | Returns an iterator over the          |
+| ``D.itervalues()``           | Returns an iterator over the          |
 |                              | mapping’s values.                     |
 +------------------------------+---------------------------------------+
-| **D**\ ``.pop(``\ *k*\ [,    | Removes key *k* and returns the       |
-| *default* ]\ ``)``           | corresponding value. If key is not    |
-|                              | found,default is returned if given,   |
-|                              | otherwise KeyError is raised.         |
+| ``D.pop(k [, default ])``    | Removes key ``k`` and returns the     |
+|                              | corresponding value. If key is not    |
+|                              | found, default is returned if given,  |
+|                              | otherwise ``KeyError`` is raised.     |
 +------------------------------+---------------------------------------+
-| **D**\ ``.popitem()``        | Removes and returns an arbitrary      |
-|                              | ``(`` *key, value* ``)`` pair from    |
-|                              | **D**                                 |
+| ``D.popitem()``              | Removes and returns an arbitrary      |
+|                              | ``(key, value)`` pair from ``D``      |
 +------------------------------+---------------------------------------+
 
 **Sets**
@@ -1173,54 +1155,50 @@ optional content, do no type in the square brackets):
 +--------------------------------+-------------------------------------+
 | Operation                      | Result                              |
 +================================+=====================================+
-| **T1**\                        | ``True`` if every element in **T1** |
-|  ``.issubset(``\ **T2**\ ``)`` | is in iterable **T2**.              |
+| ``T1.issubset(T2)``            | ``True`` if every element in ``T1`` |
+|                                | is in iterable ``T2``               |
 +--------------------------------+-------------------------------------+
-| **T1**\ `                      | ``True`` if every element in **T2** |
-| `.issuperset(``\ **T2**\ ``)`` | is in iterable **T1**.              |
+| ``T1.issuperset(T2)``          | ``True`` if every element in ``T2`` |
+|                                | is in iterable ``T1``               |
 +--------------------------------+-------------------------------------+
-| **T**\ ``.add(``\ *elt*\ ``)`` | Adds element *elt* to set **T** (if |
-|                                | it doesn’t already exist).          |
+| ``T.add(elt)``                 | Adds element ``elt`` to set ``T``   |
+|                                | (if it doesn’t already exist)       |
 +--------------------------------+-------------------------------------+
-| **T                            | Removes element *elt* from set      |
-| **\ ``.remove(``\ *elt*\ ``)`` | **T**. ``KeyError`` if element not  |
-|                                | found.                              |
+| ``T.remove(elt)``              | Removes element ``elt`` from set    |
+|                                | ``T``. ``KeyError`` if element not  |
+|                                | found                               |
 +--------------------------------+-------------------------------------+
-| **T*                           | Removes element *elt* from set      |
-| *\ ``.discard(``\ *elt*\ ``)`` | **T** if present.                   |
+| ``T.discard(elt)``             | Removes element ``elt`` from set    |
+|                                | ``T`` if present                    |
 +--------------------------------+-------------------------------------+
-| **T**\ ``.pop()``              | Removes and returns an arbitrary    |
-|                                | element from set **T**; raises      |
-|                                | ``KeyError`` if empty.              |
+| ``T.pop()``                    | Removes and returns an arbitrary    |
+|                                | element from set ``T``; raises      |
+|                                | ``KeyError`` if empty               |
 +--------------------------------+-------------------------------------+
-| **T**\ ``.clear()``            | Removes all elements from this set. |
+| ``T.clear()``                  | Removes all elements from this set  |
 +--------------------------------+-------------------------------------+
-| **T1                           | Synonym to ``(``\ **T1** ``&``      |
-| **\ ``.intersection(``\ **T2** | **T2**\ ``)``. Returns a new Set    |
-| [, **T3**\ …]\ ``)``           | with elements common to all sets    |
-|                                | (in the method **T2** , **T3**,…    |
-|                                | can be any iterable).               |
+| ``T1                           | Synonym to ``(T1 & T2)``. Returns a |
+| .intersection(T2 [, T3 ...])`` | new Set with elements common to all |
+|                                | sets (in the method ``T2``,         |
+|                                | ``T3``,… can be any iterable)       |
 +--------------------------------+-------------------------------------+
-| **T1**\ ``.union(``\ **T2** [, | Synonym to ``(``\ **T1** ``\|``     |
-| **T3**\ …]\ ``)``              | **T2**\ ``)``. Returns a new Set    |
-|                                | with elements from either set (in   |
-|                                | the method **T2** , **T3**,… can be |
-|                                | any iterable).                      |
+| ``T1.union(T2 [, T3 ...])``    | Synonym to ``(T1 | T2)``. Returns a |
+|                                | new Set with elements from either   |
+|                                | set (in the method ``T2, T3, ...``  |
+|                                | can be any iterable)                |
 +--------------------------------+-------------------------------------+
-| **                             | Synonym to ``(``\ **T1** ``-``      |
-| T1**\ ``.difference(``\ **T2** | **T2**\ ``)``. Returns a new Set    |
-| [, **T3**\ …]\ ``)``           | with elements in **T1** but not in  |
-|                                | any of **T2** , **T3**,.. (in the   |
-|                                | method **T2**, **T3**,… can be any  |
-|                                | iterable).                          |
+| ``                             | Synonym to ``(T1 - T2)``. Returns a |
+| T1.difference(T2 [, T3 ...])`` | new Set with elements in ``T1`` but |
+|                                | not in any of ``T2, T3, ..`` (in    |
+|                                | the method ``T2, T3, ...`` can be   |
+|                                | any iterable)                       |
 +--------------------------------+-------------------------------------+
-| **T1**\ ``.symmetri            | Synonym to ``(``\ **T1** ``^``      |
-| c_difference(``\ **T2**\ ``)`` | **T2**\ ``)``. Returns a new Set    |
-|                                | with elements from either of two    |
-|                                | sets but not in their intersection. |
+| `                              | Synonym to ``(T1 ^ T2)``. Returns a |
+| `T1.symmetric_difference(T2)`` | new Set with elements from either   |
+|                                | of two sets but not in their        |
+|                                | intersection                        |
 +--------------------------------+-------------------------------------+
-| **T**\ ``.copy()``             | Returns a shallow copy of set       |
-|                                | **T**.                              |
+| ``T.copy()``                   | Returns a shallow copy of set ``T`` |
 +--------------------------------+-------------------------------------+
 
 Important Concepts

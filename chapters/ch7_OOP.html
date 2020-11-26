@@ -460,10 +460,10 @@ basics of OOP in Python.</p>
 <h3><span class="section-number">7.2.1. </span>The Class Syntax<a class="headerlink" href="#the-class-syntax" title="Permalink to this headline">¶</a></h3>
 <p>In Python, an object is a code structure that is like in
 <a class="reference internal" href="#ch7-oop"><span class="std std-numref">Fig. 7.2.1</span></a>:</p>
-<div class="figure align-default" id="id9">
+<div class="figure align-default" id="id1">
 <span id="ch7-oop"></span><a class="reference internal image-reference" href="../_images/ch7_oop1.png"><img alt="../_images/ch7_oop1.png" src="../_images/ch7_oop1.png" style="width: 200px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 7.2.1 </span><span class="caption-text">An object includes both data and actions (methods and special
-methods) as one data item.</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+methods) as one data item.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <p>First, a piece of jargon:</p>
 <ul class="simple">
@@ -488,8 +488,8 @@ object.</p></li>
 <p>So, as you would guess, we start with a structural plan, using the
 jargon, the ‘class definition’. In Python this is done by the keyword
 <code class="docutils literal notranslate"><span class="pre">class</span></code>:</p>
-<p><code class="docutils literal notranslate"><span class="pre">class</span></code> <span class="math notranslate nohighlight">\(\boxed{\color{Red}{ClassName\strut\ }}\)</span> <code class="docutils literal notranslate"><span class="pre">:</span></code></p>
-<p><span class="math notranslate nohighlight">\(\hspace{2cm} \boxed{\ \\ \ \\ \ \\ \hspace{0.3cm} \color{Red}{\ Statement\ block}\hspace{0.3cm} \\ \ \\ \strut}\)</span></p>
+<p><code class="docutils literal notranslate"><span class="pre">class</span></code> <span class="math notranslate nohighlight">\(\boxed{\color{red}{ClassName\strut\ }}\)</span> <code class="docutils literal notranslate"><span class="pre">:</span></code></p>
+<p><span class="math notranslate nohighlight">\(\hspace{2cm} \boxed{\ \\ \ \\ \ \\ \hspace{0.3cm} \color{red}{\ Statement\ block}\hspace{0.3cm} \\ \ \\ \strut}\)</span></p>
 <p>Here is an example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">shape</span><span class="p">:</span>
    <span class="n">color</span> <span class="o">=</span> <span class="kc">None</span>
@@ -837,10 +837,10 @@ line:</p>
 </pre></div>
 </div>
 <p>following the general syntax below:</p>
-<p><code class="docutils literal notranslate"><span class="pre">class</span></code> <span class="math notranslate nohighlight">\(\boxed{\color{Red}{ClassName\strut\ }}\)</span> <code class="docutils literal notranslate"><span class="pre">(</span></code>
-<span class="math notranslate nohighlight">\(\color{Red}{BaseClass_1}\)</span>, <span class="math notranslate nohighlight">\({\color{Red}{BaseClass_2}}\)</span>,
+<p><code class="docutils literal notranslate"><span class="pre">class</span></code> <span class="math notranslate nohighlight">\(\boxed{\color{red}{ClassName\strut\ }}\)</span> <code class="docutils literal notranslate"><span class="pre">(</span></code>
+<span class="math notranslate nohighlight">\(\color{red}{BaseClass_1}\)</span>, <span class="math notranslate nohighlight">\({\color{red}{BaseClass_2}}\)</span>,
 .., <code class="docutils literal notranslate"><span class="pre">):</span></code></p>
-<p><span class="math notranslate nohighlight">\(\hspace{2cm} \boxed{\ \\ \ \\ \ \\ \hspace{0.3cm} \color{Red}{\ Statement\ block}\hspace{0.3cm} \\ \ \\ \strut}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\hspace{2cm} \boxed{\ \\ \ \\ \ \\ \hspace{0.3cm} \color{red}{\ Statement\ block}\hspace{0.3cm} \\ \ \\ \strut}\)</span></p>
 <p>Though multiple inheritance (inheriting form more than one class) is
 possible, it is seldom used and is not preferred. It has elaborated
 rules for resolving member function name clashes, which is beyond the
@@ -980,10 +980,10 @@ public, private, and protected. The default is public.</p>
 the class.</p></li>
 <li><p>Private variables can only be accessed inside the class
 definitions. A variable which starts with two underscores is
-recognized as private.</p></li>
+recognized by programmers as private.</p></li>
 <li><p>Protected variables can be accessed within the same package
 (file). A variable which starts with a single underscore is
-recognized as private.</p></li>
+recognized by programmers as protected.</p></li>
 </ul>
 </li>
 </ul>
@@ -1070,7 +1070,7 @@ returns <code class="docutils literal notranslate"><span class="pre">&quot;a#bb#
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">S.ljust/rjust/c</span>
 <span class="pre">enter(width</span> <span class="pre">[,</span> <span class="pre">fillChar='</span> <span class="pre">)</span></code></p></td>
-<td><p>Returns <code class="docutils literal notranslate"><span class="pre">S</span></code> left/right
+<td><p>Returns <code class="docutils literal notranslate"><span class="pre">S</span></code>, left/right
 justified/centered in a string of
 length width. surrounded by the
 appropriate number of <code class="docutils literal notranslate"><span class="pre">fillChar</span></code>
@@ -1153,60 +1153,45 @@ column, anything in square brackets denotes that the content is optional
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><strong>L</strong><code class="docutils literal notranslate"><span class="pre">.append(</span></code><em>x</em><code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">L.append(x)</span></code></p></td>
 <td><p>same as
-**
-L**<code class="docutils literal notranslate"><span class="pre">[len(</span></code><strong>L</strong><code class="docutils literal notranslate"><span class="pre">)</span> <span class="pre">:</span> <span class="pre">len(</span>
-<span class="pre">``\</span> <span class="pre">**L**\</span> <span class="pre">``)]</span> <span class="pre">=</span> <span class="pre">[</span></code><em>x</em><code class="docutils literal notranslate"><span class="pre">]</span></code></p></td>
+<code class="docutils literal notranslate"><span class="pre">L[len(L)</span> <span class="pre">:</span> <span class="pre">len(L)]</span> <span class="pre">=</span> <span class="pre">[x]</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>L</strong><code class="docutils literal notranslate"><span class="pre">.extend(</span></code><em>x</em><code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">L.extend(x)</span></code></p></td>
 <td><p>same as
-<strong>L</strong><code class="docutils literal notranslate"><span class="pre">[len(</span></code><strong>L
-**``) : len(``**L</strong><code class="docutils literal notranslate"><span class="pre">)]</span> <span class="pre">=</span></code>
-<em>x</em></p></td>
+<code class="docutils literal notranslate"><span class="pre">L[len(L)</span> <span class="pre">:</span> <span class="pre">len(L)]</span> <span class="pre">=</span> <span class="pre">x</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><strong>L</strong><code class="docutils literal notranslate"><span class="pre">.count(</span></code><em>x</em><code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
-<td><p>returns number of <em>i</em>’s for
-which
-<strong>L</strong><code class="docutils literal notranslate"><span class="pre">[</span></code><em>i</em><code class="docutils literal notranslate"><span class="pre">]</span> <span class="pre">==</span></code><em>x</em></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">L.count(x)</span></code></p></td>
+<td><p>returns number of <code class="docutils literal notranslate"><span class="pre">i</span></code>’s for
+which <code class="docutils literal notranslate"><span class="pre">L[i]</span> <span class="pre">==</span> <span class="pre">x</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>L</strong><code class="docutils literal notranslate"><span class="pre">.index(</span></code><em>x</em> [,
-<em>start</em> [, <em>stop</em> ]]<code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
-<td><p>returns smallest <em>i</em> such that
-<strong>L</strong><code class="docutils literal notranslate"><span class="pre">[</span></code><em>i</em><code class="docutils literal notranslate"><span class="pre">]</span> <span class="pre">==</span></code><em>x</em>
-. <em>start</em> and <em>stop</em> limit search
-to only part of the list.</p></td>
+<tr class="row-odd"><td><p>`
+<cite>L.index(x [, start [, stop ]])`</cite></p></td>
+<td><p>returns smallest <code class="docutils literal notranslate"><span class="pre">i</span></code> such that
+<code class="docutils literal notranslate"><span class="pre">L[i]</span> <span class="pre">==</span> <span class="pre">x</span></code>. <code class="docutils literal notranslate"><span class="pre">start</span></code> and
+<code class="docutils literal notranslate"><span class="pre">stop</span></code> limit search to only
+part of the list.</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>L</strong><code class="docutils literal notranslate"><span class="pre">.insert(</span></code><em>i</em>,
-<em>x</em><code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">L.insert(i,</span> <span class="pre">x)</span></code></p></td>
+<td><p>same as <code class="docutils literal notranslate"><span class="pre">L[i:i]</span> <span class="pre">=</span> <span class="pre">[x]</span></code> if
+<code class="docutils literal notranslate"><span class="pre">i_≥</span> <span class="pre">0</span></code>. if <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">≟</span> <span class="pre">-1</span></code>, inserts
+before the last element.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">L.remove(x)</span></code></p></td>
+<td><p>same as <code class="docutils literal notranslate"><span class="pre">del</span> <span class="pre">L[L.index(x)]</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">L.pop([i])</span></code></p></td>
 <td><p>same as
-<strong>L</strong><code class="docutils literal notranslate"><span class="pre">[</span></code><em>i</em><code class="docutils literal notranslate"><span class="pre">:</span></code><em>i</em><code class="docutils literal notranslate"><span class="pre">]</span> <span class="pre">=</span> <span class="pre">[</span></code><em>x</em><code class="docutils literal notranslate"><span class="pre">]</span></code>
-if <em>i</em>≥0. if <em>i</em> <strong>≟</strong>-1
-inserts before the last element.</p></td>
+<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">L[i];</span> <span class="pre">del</span> <span class="pre">L[i];</span> <span class="pre">return</span>&#160; <span class="pre">x</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>L</strong><code class="docutils literal notranslate"><span class="pre">.remove(</span></code><em>x</em><code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
-<td><p>same as del
-<strong>L</strong></p>
-<blockquote>
-<div><p>[<strong>L</strong><code class="docutils literal notranslate"><span class="pre">.index(</span></code><em>x</em><code class="docutils literal notranslate"><span class="pre">)</span></code>]</p>
-</div></blockquote>
-</td>
-</tr>
-<tr class="row-even"><td><p><strong>L</strong><code class="docutils literal notranslate"><span class="pre">.pop(</span></code>[<em>i</em> ]<code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
-<td><p>same as
-<em>x</em><code class="docutils literal notranslate"><span class="pre">=</span></code>**
-L**<code class="docutils literal notranslate"><span class="pre">[</span></code><em>i</em><code class="docutils literal notranslate"><span class="pre">];</span> <span class="pre">del</span></code><a href="#id1"><span class="problematic" id="id2">**</span></a>L*
-<em>``[``*i</em><code class="docutils literal notranslate"><span class="pre">];</span> <span class="pre">return</span></code><em>x</em></p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>L</strong><code class="docutils literal notranslate"><span class="pre">.reverse()</span></code></p></td>
-<td><p>reverses the items of <strong>L</strong> in
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">L.reverse()</span></code></p></td>
+<td><p>reverses the items of <code class="docutils literal notranslate"><span class="pre">L</span></code> in
 place</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>L</strong><code class="docutils literal notranslate"><span class="pre">.sort(</span></code>[<em>cmp</em>
-]<code class="docutils literal notranslate"><span class="pre">)</span></code> <strong>L</strong><code class="docutils literal notranslate"><span class="pre">.sort(</span></code>[
-<em>cmp=cmpFct</em> ] [, <em>key=keyGetter</em>
-] [, <em>reverse=bool</em> ]<code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
-<td><p>sorts the items of <strong>L</strong> in place</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">L.sort([cmp])</span></code> OR
+<code class="docutils literal notranslate"><span class="pre">L.sort([</span> <span class="pre">cmp=cmpFct</span> <span class="pre">]</span> <span class="pre">[,</span> <span class="pre">key</span>
+<span class="pre">=keyGetter</span> <span class="pre">]</span> <span class="pre">[,</span> <span class="pre">reverse=bool</span> <span class="pre">])</span></code></p></td>
+<td><p>sorts the items of <code class="docutils literal notranslate"><span class="pre">L</span></code> in place</p></td>
 </tr>
 </tbody>
 </table>
@@ -1227,77 +1212,65 @@ the square brackets):</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><strong>D</strong><code class="docutils literal notranslate"><span class="pre">.fromkeys(</span></code>
-<em>iterable</em> , <em>value=None</em>
-<code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">D.from</span>
+<span class="pre">keys(iterable,</span> <span class="pre">value=None)</span></code></p></td>
 <td><p>Class method to create a dictionary
 with keys provided by iterator, and
-all values set to value.</p></td>
+all values set to value</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>D</strong><code class="docutils literal notranslate"><span class="pre">.clear()</span></code></p></td>
-<td><p>Removes all items from <strong>D</strong></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">D.clear()</span></code></p></td>
+<td><p>Removes all items from D</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>D</strong><code class="docutils literal notranslate"><span class="pre">.copy()</span></code></p></td>
-<td><p>A shallow copy of <strong>D</strong></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">D.copy()</span></code></p></td>
+<td><p>A shallow copy of D</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>D</strong>``
-.has_key(<code class="docutils literal notranslate"><span class="pre">\</span> <span class="pre">*k*\</span> <span class="pre">``)</span></code><em>k</em>
-<code class="docutils literal notranslate"><span class="pre">in</span></code> <strong>D</strong></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if <strong>D</strong> has key <em>k</em>, else
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">D.has_key(k)</span></code> OR
+<code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">in</span> <span class="pre">D</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if D has key <code class="docutils literal notranslate"><span class="pre">k</span></code>, else
 <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><strong>D</strong><code class="docutils literal notranslate"><span class="pre">.items()</span></code></p></td>
-<td><p>A copy of <strong>D</strong>’s list of <code class="docutils literal notranslate"><span class="pre">(</span></code>
-<em>key</em>, <em>item</em> <code class="docutils literal notranslate"><span class="pre">)</span></code> pairs</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">D.items()</span></code></p></td>
+<td><p>A copy of <code class="docutils literal notranslate"><span class="pre">D</span></code>’s list of
+<code class="docutils literal notranslate"><span class="pre">(key,</span> <span class="pre">item)</span></code> pairs</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>D</strong><code class="docutils literal notranslate"><span class="pre">.keys()</span></code></p></td>
-<td><p>A copy of <strong>D</strong>’s list of keys</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">D.keys()</span></code></p></td>
+<td><p>A copy of <code class="docutils literal notranslate"><span class="pre">D</span></code>’s list of keys</p></td>
 </tr>
-<tr class="row-even"><td><dl class="simple">
-<dt><strong>D1</strong></dt><dd><p><code class="docutils literal notranslate"><span class="pre">.update(</span></code><strong>D2</strong><code class="docutils literal notranslate"><span class="pre">)</span></code></p>
-</dd>
-</dl>
-</td>
-<td><p>for <em>k</em>, <em>v</em> in
-<strong>D2</strong><code class="docutils literal notranslate"><span class="pre">.items()</span>
-<span class="pre">:</span></code><strong>D2</strong><code class="docutils literal notranslate"><span class="pre">[</span></code><em>k</em><code class="docutils literal notranslate"><span class="pre">]</span> <span class="pre">=</span></code><em>v</em></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">D1.update(D2)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">k,</span> <span class="pre">v</span> <span class="pre">in</span> <span class="pre">D2.items():</span> <span class="pre">D2[k]</span> <span class="pre">=</span> <span class="pre">v</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>D</strong><code class="docutils literal notranslate"><span class="pre">.values()</span></code></p></td>
-<td><p>A copy of <strong>D</strong>’s list of values</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">D.values()</span></code></p></td>
+<td><p>A copy of <code class="docutils literal notranslate"><span class="pre">D</span></code>’s list of values</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>D</strong><code class="docutils literal notranslate"><span class="pre">.get(</span></code><em>k,
-defaultval</em> <code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
-<td><p>The item of <strong>D</strong> with key <em>k</em></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">D.get(k,</span> <span class="pre">defaultval)</span></code></p></td>
+<td><p>The item of <code class="docutils literal notranslate"><span class="pre">D</span></code> with key <code class="docutils literal notranslate"><span class="pre">k</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>D</strong><code class="docutils literal notranslate"><span class="pre">.setdefault(</span></code><em>k</em>
-[, <em>defaultval</em> ]<code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
-<td><p><strong>D</strong><code class="docutils literal notranslate"><span class="pre">[</span></code><em>k</em><code class="docutils literal notranslate"><span class="pre">]</span></code> if <em>k</em> in
-<strong>D</strong>, else <em>defaultval</em> (also
-setting it)</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">D.se</span>
+<span class="pre">tdefault(k</span> <span class="pre">[,</span> <span class="pre">defaultval])</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">D[k]</span> <span class="pre">if</span> <span class="pre">k</span> <span class="pre">in</span> <span class="pre">D,</span> <span class="pre">else</span> <span class="pre">defaultval</span></code>
+(also setting it)</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>D</strong><code class="docutils literal notranslate"><span class="pre">.iteritems()</span></code></p></td>
-<td><p>Returns an iterator over <code class="docutils literal notranslate"><span class="pre">(</span></code> <em>key,
-value</em> <code class="docutils literal notranslate"><span class="pre">)</span></code> pairs.</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">D.iteritems()</span></code></p></td>
+<td><p>Returns an iterator over
+<code class="docutils literal notranslate"><span class="pre">(key,</span> <span class="pre">value)</span></code> pairs</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>D</strong><code class="docutils literal notranslate"><span class="pre">.iterkeys()</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">D.iterkeys()</span></code></p></td>
 <td><p>Returns an iterator over the
-mapping’s keys.</p></td>
+mapping’s keys</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>D</strong><code class="docutils literal notranslate"><span class="pre">.itervalues()</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">D.itervalues()</span></code></p></td>
 <td><p>Returns an iterator over the
 mapping’s values.</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>D</strong><code class="docutils literal notranslate"><span class="pre">.pop(</span></code><em>k</em>[,
-<em>default</em> ]<code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
-<td><p>Removes key <em>k</em> and returns the
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">D.pop(k</span> <span class="pre">[,</span> <span class="pre">default</span> <span class="pre">])</span></code></p></td>
+<td><p>Removes key <code class="docutils literal notranslate"><span class="pre">k</span></code> and returns the
 corresponding value. If key is not
-found,default is returned if given,
-otherwise KeyError is raised.</p></td>
+found, default is returned if given,
+otherwise <code class="docutils literal notranslate"><span class="pre">KeyError</span></code> is raised.</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>D</strong><code class="docutils literal notranslate"><span class="pre">.popitem()</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">D.popitem()</span></code></p></td>
 <td><p>Removes and returns an arbitrary
-<code class="docutils literal notranslate"><span class="pre">(</span></code> <em>key, value</em> <code class="docutils literal notranslate"><span class="pre">)</span></code> pair from
-<strong>D</strong></p></td>
+<code class="docutils literal notranslate"><span class="pre">(key,</span> <span class="pre">value)</span></code> pair from <code class="docutils literal notranslate"><span class="pre">D</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -1318,79 +1291,65 @@ optional content, do no type in the square brackets):</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><dl class="simple">
-<dt><strong>T1</strong></dt><dd><p><code class="docutils literal notranslate"><span class="pre">.issubset(</span></code><strong>T2</strong><code class="docutils literal notranslate"><span class="pre">)</span></code></p>
-</dd>
-</dl>
-</td>
-<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if every element in <strong>T1</strong>
-is in iterable <strong>T2</strong>.</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">T1.issubset(T2)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if every element in <code class="docutils literal notranslate"><span class="pre">T1</span></code>
+is in iterable <code class="docutils literal notranslate"><span class="pre">T2</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>T1</strong>`
-<cite>.issuperset(`</cite><strong>T2</strong><code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if every element in <strong>T2</strong>
-is in iterable <strong>T1</strong>.</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">T1.issuperset(T2)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if every element in <code class="docutils literal notranslate"><span class="pre">T2</span></code>
+is in iterable <code class="docutils literal notranslate"><span class="pre">T1</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><strong>T</strong><code class="docutils literal notranslate"><span class="pre">.add(</span></code><em>elt</em><code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
-<td><p>Adds element <em>elt</em> to set <strong>T</strong> (if
-it doesn’t already exist).</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">T.add(elt)</span></code></p></td>
+<td><p>Adds element <code class="docutils literal notranslate"><span class="pre">elt</span></code> to set <code class="docutils literal notranslate"><span class="pre">T</span></code>
+(if it doesn’t already exist)</p></td>
 </tr>
-<tr class="row-odd"><td><p><a href="#id3"><span class="problematic" id="id4">**</span></a>T
-<a href="#id5"><span class="problematic" id="id6">**</span></a><code class="docutils literal notranslate"><span class="pre">.remove(</span></code><em>elt</em><code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
-<td><p>Removes element <em>elt</em> from set
-<strong>T</strong>. <code class="docutils literal notranslate"><span class="pre">KeyError</span></code> if element not
-found.</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">T.remove(elt)</span></code></p></td>
+<td><p>Removes element <code class="docutils literal notranslate"><span class="pre">elt</span></code> from set
+<code class="docutils literal notranslate"><span class="pre">T</span></code>. <code class="docutils literal notranslate"><span class="pre">KeyError</span></code> if element not
+found</p></td>
 </tr>
-<tr class="row-even"><td><p><a href="#id7"><span class="problematic" id="id8">**</span></a>T*
-<em>``.discard(``*elt</em><code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
-<td><p>Removes element <em>elt</em> from set
-<strong>T</strong> if present.</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">T.discard(elt)</span></code></p></td>
+<td><p>Removes element <code class="docutils literal notranslate"><span class="pre">elt</span></code> from set
+<code class="docutils literal notranslate"><span class="pre">T</span></code> if present</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>T</strong><code class="docutils literal notranslate"><span class="pre">.pop()</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">T.pop()</span></code></p></td>
 <td><p>Removes and returns an arbitrary
-element from set <strong>T</strong>; raises
-<code class="docutils literal notranslate"><span class="pre">KeyError</span></code> if empty.</p></td>
+element from set <code class="docutils literal notranslate"><span class="pre">T</span></code>; raises
+<code class="docutils literal notranslate"><span class="pre">KeyError</span></code> if empty</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>T</strong><code class="docutils literal notranslate"><span class="pre">.clear()</span></code></p></td>
-<td><p>Removes all elements from this set.</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">T.clear()</span></code></p></td>
+<td><p>Removes all elements from this set</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>T1
-**``.intersection(``**T2</strong>
-[, <strong>T3</strong>…]<code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
-<td><p>Synonym to <code class="docutils literal notranslate"><span class="pre">(</span></code><strong>T1</strong> <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>
-<strong>T2</strong><code class="docutils literal notranslate"><span class="pre">)</span></code>. Returns a new Set
-with elements common to all sets
-(in the method <strong>T2</strong> , <strong>T3</strong>,…
-can be any iterable).</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">T1</span>
+<span class="pre">.intersection(T2</span> <span class="pre">[,</span> <span class="pre">T3</span> <span class="pre">...])</span></code></p></td>
+<td><p>Synonym to <code class="docutils literal notranslate"><span class="pre">(T1</span> <span class="pre">&amp;</span> <span class="pre">T2)</span></code>. Returns a
+new Set with elements common to all
+sets (in the method <code class="docutils literal notranslate"><span class="pre">T2</span></code>,
+<code class="docutils literal notranslate"><span class="pre">T3</span></code>,… can be any iterable)</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>T1</strong><code class="docutils literal notranslate"><span class="pre">.union(</span></code><strong>T2</strong> [,
-<strong>T3</strong>…]<code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
-<td><p>Synonym to <code class="docutils literal notranslate"><span class="pre">(</span></code><strong>T1</strong> <code class="docutils literal notranslate"><span class="pre">\|</span></code>
-<strong>T2</strong><code class="docutils literal notranslate"><span class="pre">)</span></code>. Returns a new Set
-with elements from either set (in
-the method <strong>T2</strong> , <strong>T3</strong>,… can be
-any iterable).</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">T1.union(T2</span> <span class="pre">[,</span> <span class="pre">T3</span> <span class="pre">...])</span></code></p></td>
+<td><p>Synonym to <code class="docutils literal notranslate"><span class="pre">(T1</span> <span class="pre">|</span> <span class="pre">T2)</span></code>. Returns a
+new Set with elements from either
+set (in the method <code class="docutils literal notranslate"><span class="pre">T2,</span> <span class="pre">T3,</span> <span class="pre">...</span></code>
+can be any iterable)</p></td>
 </tr>
-<tr class="row-odd"><td><p>**
-T1**<code class="docutils literal notranslate"><span class="pre">.difference(</span></code><strong>T2</strong>
-[, <strong>T3</strong>…]<code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
-<td><p>Synonym to <code class="docutils literal notranslate"><span class="pre">(</span></code><strong>T1</strong> <code class="docutils literal notranslate"><span class="pre">-</span></code>
-<strong>T2</strong><code class="docutils literal notranslate"><span class="pre">)</span></code>. Returns a new Set
-with elements in <strong>T1</strong> but not in
-any of <strong>T2</strong> , <strong>T3</strong>,.. (in the
-method <strong>T2</strong>, <strong>T3</strong>,… can be any
-iterable).</p></td>
+<tr class="row-odd"><td><p>``
+T1.difference(T2 [, T3 …])``</p></td>
+<td><p>Synonym to <code class="docutils literal notranslate"><span class="pre">(T1</span> <span class="pre">-</span> <span class="pre">T2)</span></code>. Returns a
+new Set with elements in <code class="docutils literal notranslate"><span class="pre">T1</span></code> but
+not in any of <code class="docutils literal notranslate"><span class="pre">T2,</span> <span class="pre">T3,</span> <span class="pre">..</span></code> (in
+the method <code class="docutils literal notranslate"><span class="pre">T2,</span> <span class="pre">T3,</span> <span class="pre">...</span></code> can be
+any iterable)</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>T1</strong><code class="docutils literal notranslate"><span class="pre">.symmetri</span>
-<span class="pre">c_difference(</span></code><strong>T2</strong><code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
-<td><p>Synonym to <code class="docutils literal notranslate"><span class="pre">(</span></code><strong>T1</strong> <code class="docutils literal notranslate"><span class="pre">^</span></code>
-<strong>T2</strong><code class="docutils literal notranslate"><span class="pre">)</span></code>. Returns a new Set
-with elements from either of two
-sets but not in their intersection.</p></td>
+<tr class="row-even"><td><p>`
+<cite>T1.symmetric_difference(T2)`</cite></p></td>
+<td><p>Synonym to <code class="docutils literal notranslate"><span class="pre">(T1</span> <span class="pre">^</span> <span class="pre">T2)</span></code>. Returns a
+new Set with elements from either
+of two sets but not in their
+intersection</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>T</strong><code class="docutils literal notranslate"><span class="pre">.copy()</span></code></p></td>
-<td><p>Returns a shallow copy of set
-<strong>T</strong>.</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">T.copy()</span></code></p></td>
+<td><p>Returns a shallow copy of set <code class="docutils literal notranslate"><span class="pre">T</span></code></p></td>
 </tr>
 </tbody>
 </table>
