@@ -23,3 +23,4 @@ Programming with Python for Engineers
    chapters/ch5_conditional_and_repetitive.md
    chapters/ch6_functions.md
    chapters/ch7_OOP.md
+   chapters/ch8_file_handling.md
