@@ -269,7 +269,7 @@ so that we will have ``'10.0','5.0','5.0'`` for the above string. The
 next step will be converting them into numbers:
 
 ``'10.0 5.0 5.0'`` :math:`\overset{Step\ 1}{\longrightarrow}`
-``['10.0','5.0','5.0']`` :math:`\overset{Step\ 2}{\longrightarrow}`
+[``'10.0','5.0','5.0'``] :math:`\overset{Step\ 2}{\longrightarrow}`
 ``[10.0, 5.0, 5.0]``
 
 For the first step, we will use the ``split()`` method of a string.
