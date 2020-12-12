@@ -1,0 +1,1193 @@
+
+Error Handling and Debugging
+============================
+
+As Turkish song says “*There is no servant without fault, love me with
+the faults I have*”, we all make mistakes and programming is far from
+being an exception to this. It is a highly technical, error-intolerant
+task requiring full attention from the programmer. Even a single letter
+you mistype can produce in complete opposite of what you aim to get. The
+history of computing is full of examples on large of amounts of money
+wasted on small programming mistakes (banks losing millions due to penny
+roundings, satellites turning into most expensive fireworks, robots
+bricked on Mars surface etc). Even worse, lives of some people can
+depend on proper functioning of a program.
+
+For this reason, writing programs as error free as possible is an
+important challenge and responsibility for a programmer. Programming
+errors can be classified in three groups:
+
+1. Syntax errors
+2. Run-time errors
+3. Logical errors
+
+Types of Errors
+---------------
+
+Syntax Errors
+~~~~~~~~~~~~~
+
+Syntax errors are due to strict wellformedness requirements of
+programming languages. In a natural language essay, we can use no
+punctuation at all, we can use silly abbreviations, mix the ordering of
+words, make typing mistakes and still it will make sense to a reader
+(though your English teacher might reduce some points).
+
+Computer programs are entirely different. When a programming language
+specification tells you to define blocks based on indentation, to match
+parentheses properly, to follow certain statements with some certain
+punctuation (i.e. loops and functions and ``:``), you have to obey that.
+Because our compilers and interpreters cannot convert a program with
+syntax errors into a machine understandable form.
+
+The first step of the Python interpreter reading your program is to
+break it up into parts and construct a machine-readable structure out of
+it. If it fails, you will get a syntax error, for example:
+
+.. code:: python
+
+   >>> for i in range(10)
+   ...    print(i)
+
+   File "<ipython-input-1-12d72cac235a>", line 1
+       for i in range(10)
+                         ^
+   SyntaxError: invalid syntax
+
+.. code:: python
+
+   >>> x = float(input())
+   >>> a = ((x+5)*12+4
+
+   File "<ipython-input-2-dead5b360d91>", line 2
+     a = ((x+5)*12+4
+                    ^
+   SyntaxError: invalid syntax
+
+.. code:: python
+
+   >>> s = 0
+   >>> for i in range(10):
+   ...  s += i
+   ...    print(i)
+
+   File "<ipython-input-3-c3ef5d622e47>", line 4
+     print(i)
+     ^
+   IndentationError: unexpected indent
+
+.. code:: python
+
+   >>> while x = 4:
+   ...    s += x
+
+   File "<ipython-input-4-befcf7769cec>", line 1
+     while x = 4:
+             ^
+   SyntaxError: invalid syntax
+
+In the examples above, syntax errors are:
+
+1. ``:`` is missing at the end of the ``for`` loop.
+
+2. The first parenthesis does not have a matching closing parenthesis.
+
+3. Different indentation levels are used in the loop body.
+
+4. ``while`` expects a boolean expression but an assignment is given
+   (``=`` is used instead of ``==``).
+
+These are only a small sample of large number of possible syntax errors
+one can do.
+
+Syntax errors are the most innocent errors since you are notified of the
+error immediately when you start running your program. Running your
+program once will give you the exact spot (though, sometimes parentheses
+and quote matching can be non-trivial) in the error output. If you have
+learnt the syntax of your language, you can fix it with a small effort.
+
+Type errors
+~~~~~~~~~~~
+
+Python is an interpreted language and it does not make strict type
+checks like a compiler would check type compatibility at compile time.
+Though, when it comes to performing an operation that is not compatible
+with the current type of a variable/data, Python will complain. For
+example, when you try to override a string element with an integer
+value, use an integer on a string context, select an element out of a
+float variables etc., you will get an error:
+
+.. code:: python
+
+   astr = 'hello'
+   bflt = 4.56
+   cdict = {'a':4, 'b':5}
+
+   print(astr ** 3)       # second power of a string
+   print(bflt[1])         # select first member of a float
+   print(cdict * 2)       # multiply a dictionary by two
+   cdict < astr           # compare a dictionary with a string
+
+These will lead to the following errors:
+
+.. code:: python
+
+   >>> print(astr ** 3)
+   Traceback (most recent call last):
+     File "<stdin>", line 1, in <module>
+   TypeError: unsupported operand type(s) for ** or pow(): 'str' and 'int'
+   >>> print(bflt[1])
+   Traceback (most recent call last):
+     File "<stdin>", line 1, in <module>
+   TypeError: 'float' object is not subscriptable
+   >>> print(cdict * 2)
+   Traceback (most recent call last):
+     File "<stdin>", line 1, in <module>
+   TypeError: unsupported operand type(s) for *: 'dict' and 'int'
+   >>> cdict < astr
+   Traceback (most recent call last):
+     File "<stdin>", line 1, in <module>
+   TypeError: '<' not supported between instances of 'dict' and 'str'
+
+Compiled languages and some interpreters enforce type compatibility at
+compile time and treat all such errors as if they are syntax errors,
+providing a safer programming experience at run time. However, Python
+and most other interpreters wait until command is first executed and
+raise the error at the execution time, causing a **run-time error**.
+
+Run-Time Errors
+~~~~~~~~~~~~~~~
+
+Run-time errors are more sneaky compared to syntax and other
+compile-time errors. Your program starts to execute silently, visit many
+loops and functions without an error, produce some intermediate output,
+and suddenly, in the most unexpected moment, it raises an error and you
+get a disappointing error text instead of the decent result output that
+you expected.
+
+The following example gets an input value and counts how many of the
+integers in the range :math:`[1, 1000]` are divisible by the input
+value.
+
+.. code:: python
+
+   def divisible(m, n):
+     return m % n == 0
+
+   def count(m):
+     sum = 0
+     for i in range(1,1000):
+       if divisible(i, m):
+         sum += 1
+
+     return sum
+
+   value = int(input())
+   print('input value is:', value)
+   print(value,' divides ', count(value), ' many integers in range [1, 1000]')
+
+It works without any problem for non-zero input values. However if you
+enter ``0``, it outputs:
+
+.. figure:: ../figures/ch9_traceback.png
+   :width: 800px
+
+   A traceback example.
+
+
+This output is called error **Traceback**. When a run-time error occurs,
+you will get one of these and the execution of the program will be
+terminated. Depending on the settings, the output may be more brief but
+you will get line numbers and the line leading to the error.
+
+The reason for this example error is called an **Exception** and colored
+red in the above output. It is given in the first line and repeated with
+explanation in the last line. Traceback also reports the functions
+involving the error, from the outermost to the innermost. Each arrow
+(colored green) marks the program line causing the error. The last item
+in the traceback is the actual position where the error occurred; the
+2\ :math:`^{nd}` line having ``return m % n == 0`` in this case. The
+``divisible()`` function containing the error line is called by the
+7\ :math:`^{th}` line, the ``count()`` function, which is called by
+14\ :math:`^{th}` line of the program. By looking at the error output,
+you will see the whole chain of calls that lead your program to the
+error state. The last one is the most important one, where Python tried
+to execute an operation and failed.
+
+The reason for failure is ``ZeroDivisionError`` in this case. If you
+trace the program with input value 0, you will see that Python tried to
+evaluated ``m % 0 == 0`` for some ``m`` value. The remainder operator is
+division based and dividing something by 0 is impossible mathematically.
+All programming languages reject this operation by a run-time error, and
+this is the Python style.
+
+The following are the most common exceptions and run-time errors in
+Python:
+
++-----------------------------------+-----------------------------------+
+| Exception                         | Reason                            |
++===================================+===================================+
+| **KeyboardInterrupt**             | User presses ``Ctrl-C``; not an   |
+|                                   | error but user intervention       |
++-----------------------------------+-----------------------------------+
+| **ZeroDivisionError**             | Right-hand side of ``/`` or ``%`` |
+|                                   | is 0                              |
++-----------------------------------+-----------------------------------+
+| **AttributeError**                | Object/class does not have a      |
+|                                   | member                            |
++-----------------------------------+-----------------------------------+
+| **EOFError**                      | ``input()`` function gets         |
+|                                   | End-of-Input by user              |
++-----------------------------------+-----------------------------------+
+| **IndexError**                    | Container index is not valid      |
+|                                   | (negative or larger than length)  |
++-----------------------------------+-----------------------------------+
+| **KeyError**                      | ``dict`` has no such key          |
++-----------------------------------+-----------------------------------+
+| **FileNotFoundError**             | The target file of ``open()``     |
+|                                   | does not exist                    |
++-----------------------------------+-----------------------------------+
+| **TypeError**                     | The operation is not supported    |
+|                                   | for the given types               |
++-----------------------------------+-----------------------------------+
+| **ValueError**                    | The number of parameters of a     |
+|                                   | function is invalid (i.e. less    |
+|                                   | than defined)                     |
++-----------------------------------+-----------------------------------+
+
+The following code illustrates each of these errors (except for the
+user-generated ones):
+
+.. code:: python
+
+   b = 0
+   a = a / b                # ZeroDivisionError
+
+   x = [1,2,3]
+   print(x.length)          # AttributeError: lists does not have a length attribute (use len(x))
+
+   print(x[4])              # IndexError: last valid index of list x is 2
+
+   person = { 'name' : 'Han', 'surname': 'Solo'}
+   print(person['Name'])    # KeyError: person does not have 'Name' key but 'name'
+
+   fp = open("example.txt") # FileNotFoundError: file "example.txt" does not exist
+
+   print([1,2,3] / 12)      # TypeError: Division is not defined for lists
+
+   def f(x, y):
+     return x*x+y
+
+   print(f(5))              # ValueError: Only one element is supplied instead of 2.
+
+Logical Errors
+~~~~~~~~~~~~~~
+
+This is the worst among all errors because Python does not raise an
+error. It single-mindedly keeps running your program; however, your
+program has a mistake about what it intends to compute. In other words,
+it simply does not do what it is supposed to do because of an error.
+
+Such an error can be due to a small typo, improper nesting of blocks,
+bad initialization of variables, and many other reasons. However, the
+code segment containing the error has correct syntax and hence, it does
+not cause a run-time error. As a result, you will not know such an error
+exists until you see some problems in your output.
+
+The following are a few examples for logical errors:
+
+.. code:: python
+
+   y = x / x+1             # you meant y = x / (x+1), forgetting about precedence
+
+   lastresult = 0
+   def missglobal(x):                           
+     result = x*x+1                  # you intend to update the global variable
+     if lastresult != result:        # but you assign a local variable instead
+       lastresult = result           # you should have used "global lastresult"
+
+
+   def returnsnothing(x, y):
+     y = x*x+y*y
+     if x <= y:
+       return x                      # if x > y, the function returns nothing
+   print(returnsnothing(0.1, 0.1))   # does not have any value. prints "None"
+
+   s = 1
+   while i < n:                      # you forgot incrementing i as i+=1
+      s += s*x/i                     # loop will run forever. "infinite loop"
+
+How to Work with Errors
+-----------------------
+
+Errors are unavoidable in programming. As you get experience, they will
+decrease but they will still be there. Fortunately, we have methods to
+have less errors but completely getting rid of them is not possible.
+
+The following is a list of strategies for eliminating errors:
+
+1. Program with care
+2. Place controls in your code
+3. Handle exceptions
+4. Write verification code and raise exceptions
+5. Debug your program
+6. Write test cases
+
+Those strategies can be applied by programmers with different experience
+levels. In the extreme case, assuring quality of programs and software
+testing are important professions of the software engineering discipline
+and handled by dedicated engineers.
+
+Program with Care
+~~~~~~~~~~~~~~~~~
+
+The best way to write error-free programs is not to cause one in the
+first place. Instead of cleaning your living room every day, you may
+just choose not to throw garbage around. Programming is similar, the
+great percentage of errors are due to the careless acts of a programmer.
+
+Programming is **not** an evolutionary process where you start from an
+ugly code and make it better and better as you correct errors. This way
+of programming is possible but not efficient. You better spend some time
+before starting to write code to to design your solution and develop a
+strategy: which functions you need, which data structures you use, which
+algorithms you use, and which order you will write the code. It is a
+good practice to divide your problem into pieces (functions for
+example). Write one function at a time and test it before going into the
+next step.
+
+This strategy will get better as you become a more experienced
+programmer but nothing stops you from paying more attention on your
+first day of coding.
+
+Place Controls in Your Code
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The values that a variable can have or a function may return are not
+known in advance. Especially, what input user may provide is completely
+untrustable. Also, there are other environmental issues like existence
+of a file.
+
+If you have such an untrustable value, the next operation may fail as a
+result of it like:
+
+.. code:: python
+
+   a = [1,2,3]
+   age = {'Han': 30, 'Leia': 20, 'Luke': 20}
+
+   # CASE 1
+   n = int(input())
+   print(a[n])          # will fail for n > 2 or n < -2
+
+   # CASE 2
+   name = input()
+   print(age[name])     # will fail names other than 'Han', 'Leia', 'Luke'
+
+   # CASE 3
+   x = float(input())
+   y = math.sqrt(x)     # will fail for x < 0
+   y = 1 / x            # will fail for x == 0
+
+In order to deal with such errors, you can check all values, especially
+user supplied ones. Checking all input values before starting a
+computation is called **Input Sanitization**.
+
+.. code:: python
+
+   # CASE 1 with sanitization
+   n = int(input())
+   if 0 <= n < len(a):
+     print(a[n])        
+   else:
+     print("n is not valid:", n)
+
+   # CASE 2 with sanitization
+   name = input()
+   if name in age:      # membership test for dictionaries
+     print(age[name])
+   else:
+     print("dictionary does not have member:", name)
+
+   # CASE 3 with sanitization
+   x = float(input())
+   if x >= 0:
+     y = math.sqrt(x)   
+   else:
+     print("invalid for sqrt operation: ", x)
+
+   if x != 0:
+     y = 1 / x
+   else:
+     print("divisor cannot be 0")
+
+Writing such conditions look like a tedious job at first, but dealing
+with them while your program is running is much worse for users. If you
+are writing a program that will be really useful, you have to do these
+types of input checks.
+
+Handle Exceptions
+~~~~~~~~~~~~~~~~~
+
+This is an alternative to putting check conditions in your code.
+Sometimes there are too many conditions, one for each step of your
+computation, so that each line of code opens a new ``if`` block and
+nests like the branches of a tree. Instead of writing whole
+nested-sequence of ``if ... else`` statements, exceptions give you a
+chance to handle all errros in the same place. Especially, they allow
+you to handle the errors in the caller function rather than the original
+place where error occurred. Before we can see how this works, we have to
+learn a new syntax first:
+
+.. code:: python
+
+   try:
+     ......    # a block with possible errors
+     ......    # if there are function calls here
+     ......    # and error occurs in the function, we can handle error here
+   except exceptionname:     # exceptionname is optional
+     .....     # this is error handling block.
+     .....     # when there is an error, execution jumps here
+
+This ``try-except`` block has two parts: A group of code (after
+``try:``) that possibly generates run-time errors and a second or more
+blocks to handle the errors. When the first error occurs in the ``try``
+part, the execution jumps to the ``except`` part. If ``except`` part
+matches the corresponding block, it is executed. Multiple ``except``
+blocks are allowed for different kinds of exceptions. ``except :``,
+without an exception name, matches all errors and can be used to handle
+all of them one block.
+
+The following is the same example in the previous section, but errors
+are handled in the same place.
+
+.. code:: python
+
+    import math
+    
+    a = [1,2,3]
+    age = {'Han': 30, 'Leia': 20, 'Luke': 20}
+    
+    try:
+      n = int(input())
+      print(a[n])          # will fail for n > 2 or n < -2
+    
+      name = input()
+      print(age[name])     # will fail names other than 'Han', 'Leia', 'Luke'
+    
+      x = float(input())
+      y = math.sqrt(x)     # will fail for x < 0
+      y = 1 / x            # will fail for x == 0
+    except IndexError:
+      print('List index is not valid')
+    except KeyError:
+      print('Dictionary does not have such key')
+    except ValueError:
+      print('Invalid value for square root operation')
+    except ZeroDivisionError:
+      print('Division by zero does not have value')
+    except:
+      print('None of the known errors. Something happened even if nothing happened')
+
+
+.. parsed-literal::
+    :class: output
+
+    None of the known errors. Something happened even if nothing happened
+
+
+You can try the above example with different inputs:
+
+1. ``-1``
+2. ``2 'Obi'``
+3. ``2 'Han' -2``
+4. ``2 'Han' 0``
+5. ``2 'Han' 1``
+
+The first will have ``a[n]`` raise an ``IndexError``. The second will
+have ``age[name]`` raise a ``KeyError``. The third will have ``sqrt(x)``
+raise a ``ValueError``. The fourth will have ``1 / x`` raise a
+``ZeroDivisionError``. The last one will have no error and finish the
+``try`` block and continue with the next instruction jumping over
+``except`` blocks. You can also create exceptions with ``raise``
+statement. ``raise ValueError`` will create the error.
+
+Exceptions save you from nested ``if .. else`` statements for data
+validation, e.g.:
+
+.. code:: python
+
+   if cond1:
+      ..1..
+      if cond2:
+        ..2..
+        if cond3:
+          ..3..
+          ..4..       # success at last
+        else:
+          # report error
+      else:
+        # report error
+   else:
+     # report error
+
+is harder to read compared to the following:
+
+.. code:: python
+
+   try:
+     if !cond1:
+       raise Error
+
+     ..1..
+
+     if !cond2:
+       raise Error
+
+     ..2..
+
+     if !cond3:
+       raise Error
+
+     ..3..
+     ..4..  # success
+   except :
+     ... Error handling
+
+which is more flat and allows you to focus on the actual code.
+
+Write verification code and raise exceptions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Even if you sanitize user input and check all arguments for valid
+values, your program can still have logical errors and it might
+calculate incorrect intermediate/final values. If your program consists
+of multiple steps, a logical error in step one will cause step two to
+calculate an incorrect value and this will create a *snowball effect*,
+potentially causing all steps and the last to fail.
+
+For example, you wrote a function for solving second-order equations
+:math:`a x^2 + b x + c = 0`, named it ``solvesecond(a,b,c)`` which
+returns ``(x1, x2)`` as the roots. You are (*almost*) sure that you
+always send correct ``a,b,c`` values to this function. However, it won’t
+hurt if you add a check like the following:
+
+.. code:: python
+
+   def solvesecond(a,b,c):
+     det = b*b - 4*a*c
+     # the following is the verification code
+     if det < 0:
+       print("Equation has no real roots for", a, b, c)
+       raise ValueError
+     ....
+     ...
+
+The ``math.sqrt`` function would have raised the exception anyway.
+However, you add extra error message about what caused the problem.
+Also, in logical errors, there is no run-time error and this error may
+be as serious as finding imaginary roots.
+
+Debug Your Code
+~~~~~~~~~~~~~~~
+
+Finding the position and the cause of a programming error and fixing it
+is called **debugging**. It involves pinpointing the position of the
+error, reasons causing the error and updating the code so that it does
+not cause the error any more.
+
+Debugging methods are explained in detail in its own section below.
+
+Write Test Cases
+~~~~~~~~~~~~~~~~
+
+In order to make sure your program is working properly, in other words,
+it contains no logical errors, you need to test it. Testing is an
+important yet non-trivial part of all engineering disciplines.
+
+In order to test a program, you should create a set of inputs, run your
+program for each input case and collect the outputs. If there is a way
+of verifying the outputs, you can verify them. For example, if you solve
+an equation, you substitute the found variable in the equation to test
+if it holds:
+
+.. code:: python
+
+   (x1, x2) = findrootsecond(a,b,c)
+
+   if a*x1*x1 + b*x1 + c != 0 or a*x2*X2 + b*x2 +c != 0:
+      print('test failed for', a, b, c, 'roots', x1, x2)
+
+You can generate millions of such numbers and automatically verify them.
+
+If the problem is not verifiable, you can get a set of known solutions
+and compare your solutions against the known solutions.
+
+Debugging
+---------
+
+Debugging is an act of looking for errors in a code, finding what causes
+the errors and correcting them. As even the modest programs can go as
+large as hundreds of lines of code, debugging is not an easy task. Even
+if a run-time error gives you the exact location of the error, the
+variable value causing the error can be owing to a different place in
+your code and you will not get the variable state of the program at the
+moment.
+
+Debugging is an iterative activity. You divide your program into parts
+and eliminate each part one by one, ruling out the error: Narrow down
+all possibilities step by step to find the exact step where you made the
+mistake. Run-time errors help you speed-up this process.
+
+There are several methods for debugging. A programmer may use one or
+more of them for debugging.
+
+The following is a sample program with an error (you may check the Colab
+link and run this interactive example):
+
+.. code:: python
+
+   def startswith(srcstr, tarstr):
+       '''check if tarstr starts with srcstr
+         like srcstr="abra" tarstr="abracadabra" '''
+       for i in range(len(srcstr)): # check all characters of srcstr
+           if srcstr[i] != tarstr[i]:  # if does not match return False
+               return False
+       return True   # if False is not returned yet, it matches
+
+
+   def findstr(srcstr, tarstr):
+       '''Find position of srcstr in tarstr'''
+       for i in range(len(tarstr)):
+           # if scrstr is same as tarstr from i to rest
+           # return i
+           if startswith(srcstr, tarstr[i:]):     
+                   return i
+       return -1
+
+   print(findstr("ada", "abracadabra"))
+   print(findstr("aba", "abracadabra"))
+
+which outputs the following when run:
+
+.. code:: python
+
+   5
+   ---------------------------------------------------------------------------
+   IndexError                                Traceback (most recent call last)
+   <ipython-input-3-b00405b7708c> in <module>()
+        18
+        19 print(findstr("ada", "abracadabra"))
+   ---> 20 print(findstr("aba", "abracadabra"))
+
+   1 frames
+   <ipython-input-3-b00405b7708c> in startswith(srcstr, tarstr)
+         3       like srcstr="abra" tarstr="abracadabra" '''
+         4     for i in range(len(srcstr)): # check all characters of srcstr
+   ----> 5         if srcstr[i] != tarstr[i]:  # if does not match return False
+         6             return False
+         7     return True   # if False is not returned yet, it matches
+
+   IndexError: string index out of range
+
+The first call returns 5, which is printed on screen, telling us that
+``"ada"`` is at position 5 of ``"abracadabra"``, matches after
+``"abrac"``. However, the second call should return ``-1`` since the
+``"aba"`` substring does not exist in ``"abracadabra"`` but it generates
+an error.
+
+Debugging Using Debugging Outputs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This is one of the simplest, oldest but still an effective method for
+debugging a program. In this method, you add extra output lines that
+shed light on the behaviour of your program. This way, you can trace
+where your program diverted from the expected behaviour. For example
+(you may check the Colab link and run this interactive example):
+
+.. code:: python
+
+   def startswith(srcstr, tarstr):
+       '''check if tarstr starts with srcstr
+         like srcstr="abra" tarstr="abracadabra" '''
+       for i in range(len(srcstr)): # check all characters of srcstr
+           print("check if ", srcstr, '!=', tarstr, 'for i=', i)
+           if srcstr[i] != tarstr[i]:  # if does not match return False
+               return False
+       return True   # if False is not returned yet, it matches
+
+
+   def findstr(srcstr, tarstr):
+       '''Find position of srcstr in tarstr'''
+       for i in range(len(tarstr)):
+           # if scrstr is same as tarstr from i to rest
+           # return i
+           print("calling startswith", srcstr, tarstr[i:])
+           if startswith(srcstr, tarstr[i:]):     
+                   return i
+       return -1
+
+   print(findstr("aba", "abracadabra"))
+
+which outputs the following when run:
+
+.. code:: python
+
+   calling startswith aba abracadabra
+   check if  aba != abracadabra for i= 0
+   check if  aba != abracadabra for i= 1
+   check if  aba != abracadabra for i= 2
+   calling startswith aba bracadabra
+   check if  aba != bracadabra for i= 0
+   calling startswith aba racadabra
+   check if  aba != racadabra for i= 0
+   calling startswith aba acadabra
+   check if  aba != acadabra for i= 0
+   check if  aba != acadabra for i= 1
+   calling startswith aba cadabra
+   check if  aba != cadabra for i= 0
+   calling startswith aba adabra
+   check if  aba != adabra for i= 0
+   check if  aba != adabra for i= 1
+   calling startswith aba dabra
+   check if  aba != dabra for i= 0
+   calling startswith aba abra
+   check if  aba != abra for i= 0
+   check if  aba != abra for i= 1
+   check if  aba != abra for i= 2
+   calling startswith aba bra
+   check if  aba != bra for i= 0
+   calling startswith aba ra
+   check if  aba != ra for i= 0
+   calling startswith aba a
+   check if  aba != a for i= 0
+   check if  aba != a for i= 1
+   ---------------------------------------------------------------------------
+   IndexError                                Traceback (most recent call last)
+   <ipython-input-6-b415ffe46a64> in <module>()
+        19     return -1
+        20
+   ---> 21 print(findstr("aba", "abracadabra"))
+
+   1 frames
+   <ipython-input-6-b415ffe46a64> in findstr(srcstr, tarstr)
+        15         # return i
+        16         print("calling startswith", srcstr, tarstr[i:])
+   ---> 17         if startswith(srcstr, tarstr[i:]):
+        18                 return i
+        19     return -1
+
+   <ipython-input-6-b415ffe46a64> in startswith(srcstr, tarstr)
+         4     for i in range(len(srcstr)): # check all characters of srcstr
+         5         print("check if ", srcstr, '!=', tarstr, 'for i=', i)
+   ----> 6         if srcstr[i] != tarstr[i]:  # if does not match return False
+         7             return False
+         8     return True   # if False is not returned yet, it matches
+
+   IndexError: string index out of range
+
+In the output, you can see that execution failed after output
+“``check if  aba != a for i= 1``”. Therefore, we can reason that an
+error occurred at the next step. The following test is:
+
+``if srcstr[i] != tarstr[i]`` for ``"aba"`` and ``"a"`` for ``i = 1``.
+
+Apparently, getting ``tarstr[1]`` for ``tarstr == "a"`` fails since the
+length of ``tarstr`` is 1 and the only valid index is 0. There are
+different ways to get rid of this error. One quick solution is to test
+if lengths of ``srcstr`` and ``tarstr`` are compatible as
+``len(tarstr) >= len(srcstr)`` should hold in ``startswith``. The
+programmer should have considered this and handled this case. Now, we
+can correct it as a result of our debugging session.
+
+Of course, debugging output should be added in the correct places with
+sufficient descriptive information. If you add too much debugging
+output, you may be lost in output lines. If there is not sufficient
+output, you may not find the error.
+
+For generic tracing of programs with multiple functions, you can use the
+following Python magic called **decorator**, which reports all function
+calls with parameters when a function is decorated as (you may check the
+Colab link and run this interactive example):
+
+.. code:: python
+
+   def tracedec(f):
+       def traced(*p, **kw):
+           print('  ' * tracedec.level + "->", f.__name__,'(',p, kw,')')
+           tracedec.level += 1
+           val = f(*p, **kw)
+           tracedec.level -= 1
+           print('  ' * tracedec.level + "<-", f.__name__, 'returns ', val)
+           return val
+       return traced
+   tracedec.level = 0
+
+   @tracedec
+   def startswith(srcstr, tarstr):
+       '''check if tarstr starts with srcstr
+         like srcstr="abra" tarstr="abracadabra" '''
+       for i in range(len(srcstr)):    # check all characters of srcstr
+           if srcstr[i] != tarstr[i]:  # if does not match, return False
+               return False
+       return True   # if False is not returned yet, it matches
+
+   @tracedec
+   def findstr(srcstr, tarstr):
+       '''Find position of srcstr in tarstr'''
+       for i in range(len(tarstr)):
+           # if scrstr is same as tarstr from i to rest
+           # return i
+           if startswith(srcstr, tarstr[i:]):     
+                   return i
+       return -1
+
+
+   print(findstr("aba", "abracadabra"))
+
+which outputs the following when run:
+
+.. code:: python
+
+   -> findstr ( ('aba', 'abracadabra') {} )
+     -> startswith ( ('aba', 'abracadabra') {} )
+     <- startswith returns  False
+     -> startswith ( ('aba', 'bracadabra') {} )
+     <- startswith returns  False
+     -> startswith ( ('aba', 'racadabra') {} )
+     <- startswith returns  False
+     -> startswith ( ('aba', 'acadabra') {} )
+     <- startswith returns  False
+     -> startswith ( ('aba', 'cadabra') {} )
+     <- startswith returns  False
+     -> startswith ( ('aba', 'adabra') {} )
+     <- startswith returns  False
+     -> startswith ( ('aba', 'dabra') {} )
+     <- startswith returns  False
+     -> startswith ( ('aba', 'abra') {} )
+     <- startswith returns  False
+     -> startswith ( ('aba', 'bra') {} )
+     <- startswith returns  False
+     -> startswith ( ('aba', 'ra') {} )
+     <- startswith returns  False
+     -> startswith ( ('aba', 'a') {} )
+   ---------------------------------------------------------------------------
+   IndexError                                Traceback (most recent call last)
+   <ipython-input-2-f5cc3f720290> in <module>()
+        30
+        31
+   ---> 32 print(findstr("aba", "abracadabra"))
+
+   3 frames
+   <ipython-input-2-f5cc3f720290> in traced(*p, **kw)
+         3         print('  ' * tracedec.level + "->", f.__name__,'(',p, kw,')')
+         4         tracedec.level += 1
+   ----> 5         val = f(*p,**kw)
+         6         tracedec.level -= 1
+         7         print('  ' * tracedec.level + "<-", f.__name__, 'returns ', val)
+
+   <ipython-input-2-f5cc3f720290> in findstr(srcstr, tarstr)
+        25         # if scrstr is same as tarstr from i to rest
+        26         # return i
+   ---> 27         if startswith(srcstr, tarstr[i:]):
+        28                 return i
+        29     return -1
+
+   <ipython-input-2-f5cc3f720290> in traced(*p, **kw)
+         3         print('  ' * tracedec.level + "->", f.__name__,'(',p, kw,')')
+         4         tracedec.level += 1
+   ----> 5         val = f(*p,**kw)
+         6         tracedec.level -= 1
+         7         print('  ' * tracedec.level + "<-", f.__name__, 'returns ', val)
+
+   <ipython-input-2-f5cc3f720290> in startswith(srcstr, tarstr)
+        15       like srcstr="abra" tarstr="abracadabra" '''
+        16     for i in range(len(srcstr)): # check all characters of srcstr
+   ---> 17         if srcstr[i] != tarstr[i]:  # if does not match return False
+        18             return False
+        19     return True   # if False is not returned yet, it matches
+
+   IndexError: string index out of range
+
+Putting ‘@tracedec’ before function definitions will give you the entry
+and return states of these functions. How this decorator works and the
+‘@’ syntax are far beyond the scope of this book. You may adapt and use
+this example if it suits you.
+
+Handle the Exception to Get More Information
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+One problem with the run-time errors is that they do not give
+information about the current state of the program, basically the set of
+variables. They give the traceback which includes the line causing the
+exception and how program came to that state (which functions are
+active). In order to get the values of the variables, you can handle the
+exception and add log output to the handler as follows (you may check
+the Colab link and run this interactive example):
+
+.. code:: python
+
+   def startswith(srcstr, tarstr):
+       '''check if tarstr starts with srcstr
+         like srcstr="abra" tarstr="abracadabra" '''
+       try:
+         for i in range(len(srcstr)): # check all characters of srcstr
+             if srcstr[i] != tarstr[i]:  # if does not match return False
+                 return False
+       except IndexError:
+         print('Error: srcstr: ', srcstr, ', tarstr:', tarstr, ', i:',i)
+         raise IndexError          # if you like, generate an additional exception
+       return True   # if False is not returned yet, it matches
+
+   def findstr(srcstr, tarstr):
+       '''Find position of srcstr in tarstr'''
+       for i in range(len(tarstr)):
+           # if scrstr is same as tarstr from i to rest
+           # return i
+           if startswith(srcstr, tarstr[i:]):     
+                   return i
+       return -1
+
+   findstr("aba", "abracadabra")
+
+which outputs the following when run:
+
+.. code:: python
+
+   Error: srcstr:  aba , tarstr: a , i: 1
+   ---------------------------------------------------------------------------
+   IndexError                                Traceback (most recent call last)
+   <ipython-input-11-b4556283ff77> in startswith(srcstr, tarstr)
+         5       for i in range(len(srcstr)): # check all characters of srcstr
+   ----> 6           if srcstr[i] != tarstr[i]:  # if does not match return False
+         7               return False
+
+   IndexError: string index out of range
+
+   During handling of the above exception, another exception occurred:
+
+   IndexError                                Traceback (most recent call last)
+   2 frames
+   <ipython-input-11-b4556283ff77> in startswith(srcstr, tarstr)
+         8     except IndexError:
+         9       print('Error: srcstr: ',srcstr, ', tarstr:', tarstr, ', i:',i)
+   ---> 10       raise IndexError          # if you like generate error again
+        11     return True   # if False is not returned yet, it matches
+        12
+
+   IndexError:
+
+This way, we get the output:
+
+``Error: srcstr:  aba , tarstr: a , i: 1``
+
+which gives us the state of the variables at the moment of the error.
+
+Use Python Debugger
+~~~~~~~~~~~~~~~~~~~
+
+All programming environments come with a **debugger software** which
+helps a programmer to execute a program step by step, observe the
+current state, add break-points (stops) to inspect, and provide a
+controlled execution environment.
+
+For compiled languages, debuggers are external programs getting user’s
+program as input. For Python, it is a module called **pdb**, which
+stands for *Python DeBugger*. If you use an integrated development
+environment (IDE), a debugger is embedded in the tool so you can use it
+via the graphical user interface controls. Otherwise, you can use the
+command line interface.
+
+In the command line, the only thing you need to do is to put:
+
+.. code:: python
+
+   import pdb
+
+at the beginning of your program, and type:
+
+.. code:: python
+
+   pdb.set_trace()
+
+at any place you like to stop execution and go into the **debugging
+mode**\ \*. When you run your program or call a function, your program
+will start executing and when the execution hits one of the trace
+points, execution will stop and a debugger prompt (``(Pdb)``) will be
+displayed:
+
+.. code:: python
+
+   > <ipython-input-14-110393975fb5>(7)startswith()
+   -> for i in range(len(srcstr)): # check all characters of srcstr
+   (Pdb) h
+
+   Documented commands (type help <topic>):
+   ========================================
+   EOF    c          d        h         list      q        rv       undisplay
+   a      cl         debug    help      ll        quit     s        unt      
+   alias  clear      disable  ignore    longlist  r        source   until    
+   args   commands   display  interact  n         restart  step     up       
+   b      condition  down     j         next      return   tbreak   w        
+   break  cont       enable   jump      p         retval   u        whatis   
+   bt     continue   exit     l         pp        run      unalias  where    
+
+   Miscellaneous help topics:
+   ==========================
+   exec  pdb
+
+The first line tells which function and line execution have been
+stopped. When ``h`` or ``help`` is typed, the following help lines are
+displayed. Single-two letter commands are abbreviated forms of the
+longer ones (e.g. ``a`` for ``args``, ``b`` for ``break``, ``c`` for
+``cont``, ``cl`` for ``clear``, …).
+
+After this point, you can use ``next`` (``n``) to execute the program
+line by line. If the current statement has a function call, you may
+choose to go into the function call using the ``step`` (``s``) command.
+Otherwise, ``next`` will call and return it in single step. During
+debugging, ``print`` (``p``) command can be used to print content of a
+variable. The following is a summary of the useful commands of the
+debugger:
+
++---------------------+------------------------------------------------+
+| Command             | Description                                    |
++=====================+================================================+
+| ``next``            | Execute current line and stop at the next      |
+|                     | statement, jump over functions                 |
++---------------------+------------------------------------------------+
+| ``step``            | Execute current line, if there ise function go |
+|                     | into it                                        |
++---------------------+------------------------------------------------+
+| ``args``            | show arguments of the current function         |
++---------------------+------------------------------------------------+
+| ``break``           | Add a new breakpoint. Execution will stop at   |
+|                     | that line too                                  |
++---------------------+------------------------------------------------+
+| ``clear``           | Remove the breakpoint(s)                       |
++---------------------+------------------------------------------------+
+| ``cont``            | Continue execution until hitting a break point |
++---------------------+------------------------------------------------+
+| ``print``           | print current value of the variable            |
++---------------------+------------------------------------------------+
+| ``display``         | display variable value whenever it changes in  |
+|                     | current function                               |
++---------------------+------------------------------------------------+
+| ``list``            | list program in current line                   |
++---------------------+------------------------------------------------+
+| ``ll``              | list current function                          |
++---------------------+------------------------------------------------+
+| ``return``          | continue execution until current function      |
+|                     | returns                                        |
++---------------------+------------------------------------------------+
+| ``where``           | show currently active functions, which         |
+|                     | function calls brought code here               |
++---------------------+------------------------------------------------+
+
+The following is an example run (you may check the Colab link and run
+this interactive example):
+
+.. code:: python
+
+   import pdb
+
+   def startswith(srcstr, tarstr):
+       '''check if tarstr starts with srcstr
+         like srcstr="abra" tarstr="abracadabra" '''
+       pdb.set_trace()
+       for i in range(len(srcstr)): # check all characters of srcstr
+           if srcstr[i] != tarstr[i]:  # if does not match return False
+               return False
+       return True   # if False is not returned yet, it matches
+
+
+   def findstr(srcstr, tarstr):
+       '''Find position of srcstr in tarstr'''
+       for i in range(len(tarstr)):
+           # if scrstr is same as tarstr from i to rest
+           # return i
+           if startswith(srcstr, tarstr[i:]):     
+                   return i
+       return -1
+
+   print(findstr("aba", "abra"))
+
+which outputs the following when run:
+
+.. code:: python
+
+   > <ipython-input-18-bf80973a0bf6>(7)startswith()
+   -> for i in range(len(srcstr)): # check all characters of srcstr
+   (Pdb) cont
+   > <ipython-input-18-bf80973a0bf6>(7)startswith()
+   -> for i in range(len(srcstr)): # check all characters of srcstr
+   (Pdb) help
+
+   Documented commands (type help <topic>):
+   ========================================
+   EOF    c          d        h         list      q        rv       undisplay
+   a      cl         debug    help      ll        quit     s        unt      
+   alias  clear      disable  ignore    longlist  r        source   until    
+   args   commands   display  interact  n         restart  step     up       
+   b      condition  down     j         next      return   tbreak   w        
+   break  cont       enable   jump      p         retval   u        whatis   
+   bt     continue   exit     l         pp        run      unalias  where    
+
+   Miscellaneous help topics:
+   ==========================
+   exec  pdb
+
+   (Pdb) cont
+   > <ipython-input-18-bf80973a0bf6>(7)startswith()
+   -> for i in range(len(srcstr)): # check all characters of srcstr
+   (Pdb) cont
+   > <ipython-input-18-bf80973a0bf6>(7)startswith()
+   -> for i in range(len(srcstr)): # check all characters of srcstr
+   (Pdb) cont
+   ---------------------------------------------------------------------------
+   IndexError                                Traceback (most recent call last)
+   <ipython-input-18-bf80973a0bf6> in <module>()
+        20     return -1
+        21
+   ---> 22 print(findstr("aba", "abra"))
+
+   1 frames
+   <ipython-input-18-bf80973a0bf6> in findstr(srcstr, tarstr)
+        16         # if scrstr is same as tarstr from i to rest
+        17         # return i
+   ---> 18         if startswith(srcstr, tarstr[i:]):
+        19                 return i
+        20     return -1
+
+   <ipython-input-18-bf80973a0bf6> in startswith(srcstr, tarstr)
+         5       like srcstr="abra" tarstr="abracadabra" '''
+         6     pdb.set_trace()
+   ----> 7     for i in range(len(srcstr)): # check all characters of srcstr
+         8         if srcstr[i] != tarstr[i]:  # if does not match return False
+         9             return False
+
+   IndexError: string index out of range
+
+Debuggers are powerful tools especially when you have complex code
+interacting with many modules and functions. However, you need time to
+master and control it. The good news is if you use an integrated
+development interface, they are easier to control.
+
+Important Concepts
+------------------
+
+We would like our readers to have grasped the following crucial concepts
+and keywords from this chapter:
+
+-  Different types of errors: Syntax, type, run-time and logical errors.
+-  How to deal with errors.
+-  Exceptions and exception handling.
+-  Debugging by “printing” values, exception handling and a debugger.
+
+Further Reading
+---------------
+
+-  Python’s built-in exceptions:
+   https://docs.python.org/3/library/exceptions.html
+-  Python’s document on errors and exceptions:
+   https://docs.python.org/3/tutorial/errors.html

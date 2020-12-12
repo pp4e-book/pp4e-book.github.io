@@ -24,3 +24,4 @@ Programming with Python for Engineers
    chapters/ch6_functions.md
    chapters/ch7_OOP.md
    chapters/ch8_file_handling.md
+   chapters/ch9_error_handling.md
