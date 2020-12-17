@@ -478,14 +478,14 @@ from scratch as an exercise:
     :class: output
 
     Random array M is:
-     [[-0.05554387 -0.8722245 ]
-     [-1.40294362  0.03280948]]
+     [[-0.56877038  1.00170652]
+     [ 0.92068828  0.66349907]]
     Random array N is:
-     [[ 0.72865849 -1.49168532  0.10400058]
-     [ 2.0362252   0.97739068 -0.00802782]]
+     [[-0.88665965 -0.16748474  0.13183396]
+     [-0.48784775  0.01422144 -0.68728732]]
     Horizontal stacking of M and N yields:
-     [[-0.05554387 -0.8722245   0.72865849 -1.49168532  0.10400058]
-     [-1.40294362  0.03280948  2.0362252   0.97739068 -0.00802782]]
+     [[-0.56877038  1.00170652 -0.88665965 -0.16748474  0.13183396]
+     [ 0.92068828  0.66349907 -0.48784775  0.01422144 -0.68728732]]
 
 
 Linear Algebra with NumPy
@@ -795,13 +795,13 @@ matrices.
     :class: output
 
     Our matmul_2D result: 
-     [[ 1.19187123  1.28738393 -0.24805811  2.25809771]
-     [-2.38502114 -1.90893993 -0.14708071 -1.79903831]]
+     [[-2.83827281  1.64901813 -2.25836803 -1.53685617]
+     [ 1.2463482   1.00175062  0.67909128 -2.34272096]]
     Correct result: 
-     [[ 1.19187123  1.28738393 -0.24805811  2.25809771]
-     [-2.38502114 -1.90893993 -0.14708071 -1.79903831]]
-    NumPy's matmul took  0.00030303001403808594 ms.
-    Our matmul_2D function took  1.2298030853271484 ms.
+     [[-2.83827281  1.64901813 -2.25836803 -1.53685617]
+     [ 1.2463482   1.00175062  0.67909128 -2.34272096]]
+    NumPy's matmul took  0.0003390312194824219 ms.
+    Our matmul_2D function took  1.0816540718078613 ms.
 
 
 Scientific Computing with SciPy
@@ -1520,7 +1520,7 @@ example:
 .. parsed-literal::
     :class: output
 
-    <matplotlib.legend.Legend at 0x12237d250>
+    <matplotlib.legend.Legend at 0x11fdc23a0>
 
 
 
@@ -1563,7 +1563,7 @@ figure or axes objects. This is illustrated in the following example:
 .. parsed-literal::
     :class: output
 
-    <matplotlib.legend.Legend at 0x1224eca30>
+    <matplotlib.legend.Legend at 0x11ff0fa30>
 
 
 
