@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     
-    <title>10. Scientific and Engineering Libraries &#8212; Programming with Python for Engineers 0.0.1 @ All rights reserved! documentation</title>
+    <title>10. Scientific and Engineering Libraries &#8212; Programming with Python for Engineers 0.0.1 documentation</title>
 
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -345,9 +345,9 @@ have the same shape.</p>
 </div>
 <p>Note here that these operations create a new array whose elements are
 the results of applying the operation. Therefore, the original arrays
-are not modified. If are interested in-place operations that modify an
-existing array during the operation, you can use combined statements
-such as <code class="docutils literal notranslate"><span class="pre">+=</span></code>, <code class="docutils literal notranslate"><span class="pre">-=</span></code>, <code class="docutils literal notranslate"><span class="pre">*=</span></code>.</p>
+are not modified. If you are interested in in-place operations that
+modify an existing array during the operation, you can use combined
+statements such as <code class="docutils literal notranslate"><span class="pre">+=</span></code>, <code class="docutils literal notranslate"><span class="pre">-=</span></code>, <code class="docutils literal notranslate"><span class="pre">*=</span></code>.</p>
 <p>Relational and membership operations are also applied elementwise and we
 can easily anticipate the outcomes of such operations, e.g. as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">&lt;</span> <span class="n">B</span>
@@ -550,14 +550,14 @@ from scratch as an exercise:</p>
 </pre></div>
 </div>
 <div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Random</span> <span class="n">array</span> <span class="n">M</span> <span class="ow">is</span><span class="p">:</span>
- <span class="p">[[</span><span class="o">-</span><span class="mf">0.56877038</span>  <span class="mf">1.00170652</span><span class="p">]</span>
- <span class="p">[</span> <span class="mf">0.92068828</span>  <span class="mf">0.66349907</span><span class="p">]]</span>
+ <span class="p">[[</span> <span class="mf">0.54965651</span>  <span class="mf">0.70737526</span><span class="p">]</span>
+ <span class="p">[</span><span class="o">-</span><span class="mf">1.87466353</span>  <span class="mf">2.33506349</span><span class="p">]]</span>
 <span class="n">Random</span> <span class="n">array</span> <span class="n">N</span> <span class="ow">is</span><span class="p">:</span>
- <span class="p">[[</span><span class="o">-</span><span class="mf">0.88665965</span> <span class="o">-</span><span class="mf">0.16748474</span>  <span class="mf">0.13183396</span><span class="p">]</span>
- <span class="p">[</span><span class="o">-</span><span class="mf">0.48784775</span>  <span class="mf">0.01422144</span> <span class="o">-</span><span class="mf">0.68728732</span><span class="p">]]</span>
+ <span class="p">[[</span> <span class="mf">0.20260959</span>  <span class="mf">1.13357897</span> <span class="o">-</span><span class="mf">0.61941002</span><span class="p">]</span>
+ <span class="p">[</span><span class="o">-</span><span class="mf">1.38165447</span> <span class="o">-</span><span class="mf">0.38921228</span> <span class="o">-</span><span class="mf">0.60587704</span><span class="p">]]</span>
 <span class="n">Horizontal</span> <span class="n">stacking</span> <span class="n">of</span> <span class="n">M</span> <span class="ow">and</span> <span class="n">N</span> <span class="n">yields</span><span class="p">:</span>
- <span class="p">[[</span><span class="o">-</span><span class="mf">0.56877038</span>  <span class="mf">1.00170652</span> <span class="o">-</span><span class="mf">0.88665965</span> <span class="o">-</span><span class="mf">0.16748474</span>  <span class="mf">0.13183396</span><span class="p">]</span>
- <span class="p">[</span> <span class="mf">0.92068828</span>  <span class="mf">0.66349907</span> <span class="o">-</span><span class="mf">0.48784775</span>  <span class="mf">0.01422144</span> <span class="o">-</span><span class="mf">0.68728732</span><span class="p">]]</span>
+ <span class="p">[[</span> <span class="mf">0.54965651</span>  <span class="mf">0.70737526</span>  <span class="mf">0.20260959</span>  <span class="mf">1.13357897</span> <span class="o">-</span><span class="mf">0.61941002</span><span class="p">]</span>
+ <span class="p">[</span><span class="o">-</span><span class="mf">1.87466353</span>  <span class="mf">2.33506349</span> <span class="o">-</span><span class="mf">1.38165447</span> <span class="o">-</span><span class="mf">0.38921228</span> <span class="o">-</span><span class="mf">0.60587704</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -654,7 +654,7 @@ focus, we will omit their explanations:</p>
 <td><p><code class="docutils literal notranslate"><span class="pre">np.linalg.cond(A)</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p>Trace (<span class="math notranslate nohighlight">\(tr(A)\)</span>)</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">np.linalg.trace(A)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">np.trace(A)</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -833,13 +833,13 @@ matrices.</p>
 </pre></div>
 </div>
 <div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Our</span> <span class="n">matmul_2D</span> <span class="n">result</span><span class="p">:</span>
- <span class="p">[[</span><span class="o">-</span><span class="mf">2.83827281</span>  <span class="mf">1.64901813</span> <span class="o">-</span><span class="mf">2.25836803</span> <span class="o">-</span><span class="mf">1.53685617</span><span class="p">]</span>
- <span class="p">[</span> <span class="mf">1.2463482</span>   <span class="mf">1.00175062</span>  <span class="mf">0.67909128</span> <span class="o">-</span><span class="mf">2.34272096</span><span class="p">]]</span>
+ <span class="p">[[</span><span class="o">-</span><span class="mf">0.88742271</span> <span class="o">-</span><span class="mf">0.03051293</span>  <span class="mf">0.02114446</span>  <span class="mf">1.31486907</span><span class="p">]</span>
+ <span class="p">[</span><span class="o">-</span><span class="mf">0.06035816</span>  <span class="mf">0.06966196</span>  <span class="mf">0.19980342</span> <span class="o">-</span><span class="mf">0.61547773</span><span class="p">]]</span>
 <span class="n">Correct</span> <span class="n">result</span><span class="p">:</span>
- <span class="p">[[</span><span class="o">-</span><span class="mf">2.83827281</span>  <span class="mf">1.64901813</span> <span class="o">-</span><span class="mf">2.25836803</span> <span class="o">-</span><span class="mf">1.53685617</span><span class="p">]</span>
- <span class="p">[</span> <span class="mf">1.2463482</span>   <span class="mf">1.00175062</span>  <span class="mf">0.67909128</span> <span class="o">-</span><span class="mf">2.34272096</span><span class="p">]]</span>
-<span class="n">NumPy</span><span class="s1">&#39;s matmul took  0.0003390312194824219 ms.</span>
-<span class="n">Our</span> <span class="n">matmul_2D</span> <span class="n">function</span> <span class="n">took</span>  <span class="mf">1.0816540718078613</span> <span class="n">ms</span><span class="o">.</span>
+ <span class="p">[[</span><span class="o">-</span><span class="mf">0.88742271</span> <span class="o">-</span><span class="mf">0.03051293</span>  <span class="mf">0.02114446</span>  <span class="mf">1.31486907</span><span class="p">]</span>
+ <span class="p">[</span><span class="o">-</span><span class="mf">0.06035816</span>  <span class="mf">0.06966196</span>  <span class="mf">0.19980342</span> <span class="o">-</span><span class="mf">0.61547773</span><span class="p">]]</span>
+<span class="n">NumPy</span><span class="s1">&#39;s matmul took  0.0003371238708496094 ms.</span>
+<span class="n">Our</span> <span class="n">matmul_2D</span> <span class="n">function</span> <span class="n">took</span>  <span class="mf">1.0152552127838135</span> <span class="n">ms</span><span class="o">.</span>
 </pre></div>
 </div>
 </div>
@@ -1246,8 +1246,8 @@ might not be reflected on the original <code class="docutils literal notranslate
 <span class="go">Jack     40.2   20</span>
 <span class="go">Amanda   30.0   25</span>
 <span class="go">Mary     60.2   19</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Amanda&#39;</span><span class="p">,</span><span class="s1">&#39;Grade&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">45</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Amanda&#39;</span><span class="p">,</span><span class="s1">&#39;Grade&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">45</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">30</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 <span class="go">        Grade  Age</span>
 <span class="go">Jack     40.2   20</span>
@@ -1345,16 +1345,19 @@ minimum (using <code class="docutils literal notranslate"><span class="pre">.max
 largest or smallest n values (using <code class="docutils literal notranslate"><span class="pre">.nsmallest()</span></code> or <code class="docutils literal notranslate"><span class="pre">.nlargest()</span></code>
 functions:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Maximum grade is: &quot;</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Grade&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Records sorted according to age:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Top two grades are:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Grade&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Records sorted according to age:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;Age&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Top two grades are:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Grade&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
 <div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Maximum</span> <span class="n">grade</span> <span class="ow">is</span><span class="p">:</span>  <span class="mf">60.2</span>
+
 <span class="n">Records</span> <span class="nb">sorted</span> <span class="n">according</span> <span class="n">to</span> <span class="n">age</span><span class="p">:</span>
- <span class="n">Mary</span>      <span class="mi">19</span>
-<span class="n">Jack</span>      <span class="mi">20</span>
-<span class="n">Amanda</span>    <span class="mi">25</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">Age</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
+         <span class="n">Grade</span>  <span class="n">Age</span>
+<span class="n">Mary</span>     <span class="mf">60.2</span>   <span class="mi">19</span>
+<span class="n">Jack</span>     <span class="mf">40.2</span>   <span class="mi">20</span>
+<span class="n">Amanda</span>   <span class="mf">30.0</span>   <span class="mi">25</span>
+
+
 <span class="n">Top</span> <span class="n">two</span> <span class="n">grades</span> <span class="n">are</span><span class="p">:</span>
  <span class="n">Mary</span>    <span class="mf">60.2</span>
 <span class="n">Jack</span>    <span class="mf">40.2</span>
@@ -1477,7 +1480,7 @@ example:</p>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">Legend</span> <span class="n">at</span> <span class="mh">0x11fdc23a0</span><span class="o">&gt;</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">Legend</span> <span class="n">at</span> <span class="mh">0x103288190</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <div class="figure align-default">
@@ -1510,7 +1513,7 @@ figure or axes objects. This is illustrated in the following example:</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">Legend</span> <span class="n">at</span> <span class="mh">0x11ff0fa30</span><span class="o">&gt;</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">Legend</span> <span class="n">at</span> <span class="mh">0x118572970</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <div class="figure align-default">

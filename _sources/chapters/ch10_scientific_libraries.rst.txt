@@ -247,9 +247,9 @@ Let us see some examples for arithmetic operations:
 
 Note here that these operations create a new array whose elements are
 the results of applying the operation. Therefore, the original arrays
-are not modified. If are interested in-place operations that modify an
-existing array during the operation, you can use combined statements
-such as ``+=``, ``-=``, ``*=``.
+are not modified. If you are interested in in-place operations that
+modify an existing array during the operation, you can use combined
+statements such as ``+=``, ``-=``, ``*=``.
 
 Relational and membership operations are also applied elementwise and we
 can easily anticipate the outcomes of such operations, e.g. as follows:
@@ -478,14 +478,14 @@ from scratch as an exercise:
     :class: output
 
     Random array M is:
-     [[-0.56877038  1.00170652]
-     [ 0.92068828  0.66349907]]
+     [[ 0.54965651  0.70737526]
+     [-1.87466353  2.33506349]]
     Random array N is:
-     [[-0.88665965 -0.16748474  0.13183396]
-     [-0.48784775  0.01422144 -0.68728732]]
+     [[ 0.20260959  1.13357897 -0.61941002]
+     [-1.38165447 -0.38921228 -0.60587704]]
     Horizontal stacking of M and N yields:
-     [[-0.56877038  1.00170652 -0.88665965 -0.16748474  0.13183396]
-     [ 0.92068828  0.66349907 -0.48784775  0.01422144 -0.68728732]]
+     [[ 0.54965651  0.70737526  0.20260959  1.13357897 -0.61941002]
+     [-1.87466353  2.33506349 -1.38165447 -0.38921228 -0.60587704]]
 
 
 Linear Algebra with NumPy
@@ -590,7 +590,7 @@ Determinant (:math:`|A|` or :math:`det(A)`) ``np.linalg.det(A)``
 Norm (:math:`||A||`)                        ``np.linalg.norm(A)``
 Rank (:math:`rank(A)`)                      ``np.linalg.matrix_rank(A)``
 Condition number (:math:`\kappa(A)`)        ``np.linalg.cond(A)``
-Trace (:math:`tr(A)`)                       ``np.linalg.trace(A)``
+Trace (:math:`tr(A)`)                       ``np.trace(A)``
 =========================================== ============================
 
 **Dot Product, Inner Product, Outer Product, Matrix Multiplication**
@@ -795,13 +795,13 @@ matrices.
     :class: output
 
     Our matmul_2D result: 
-     [[-2.83827281  1.64901813 -2.25836803 -1.53685617]
-     [ 1.2463482   1.00175062  0.67909128 -2.34272096]]
+     [[-0.88742271 -0.03051293  0.02114446  1.31486907]
+     [-0.06035816  0.06966196  0.19980342 -0.61547773]]
     Correct result: 
-     [[-2.83827281  1.64901813 -2.25836803 -1.53685617]
-     [ 1.2463482   1.00175062  0.67909128 -2.34272096]]
-    NumPy's matmul took  0.0003390312194824219 ms.
-    Our matmul_2D function took  1.0816540718078613 ms.
+     [[-0.88742271 -0.03051293  0.02114446  1.31486907]
+     [-0.06035816  0.06966196  0.19980342 -0.61547773]]
+    NumPy's matmul took  0.0003371238708496094 ms.
+    Our matmul_2D function took  1.0152552127838135 ms.
 
 
 Scientific Computing with SciPy
@@ -1190,8 +1190,8 @@ Instead, you should use a single access operation as illustrated below
    Jack     40.2   20
    Amanda   30.0   25
    Mary     60.2   19
-   >>> df['Amanda','Grade'] = 45
-   >>> df[1,1] = 30
+   >>> df.loc['Amanda','Grade'] = 45
+   >>> df.iloc[1,1] = 30
    >>> print(df)
            Grade  Age
    Jack     40.2   20
@@ -1306,19 +1306,22 @@ functions:
 .. code:: python
 
     print("Maximum grade is: ", df['Grade'].max())
-    print("Records sorted according to age:\n", df['Age'].sort_values())
-    print("Top two grades are:\n", df['Grade'].nlargest(2))
+    print("\nRecords sorted according to age:\n", df.sort_values(by="Age"))
+    print("\n\nTop two grades are:\n", df['Grade'].nlargest(2))
 
 
 .. parsed-literal::
     :class: output
 
     Maximum grade is:  60.2
+    
     Records sorted according to age:
-     Mary      19
-    Jack      20
-    Amanda    25
-    Name: Age, dtype: int64
+             Grade  Age
+    Mary     60.2   19
+    Jack     40.2   20
+    Amanda   30.0   25
+    
+    
     Top two grades are:
      Mary    60.2
     Jack    40.2
@@ -1520,7 +1523,7 @@ example:
 .. parsed-literal::
     :class: output
 
-    <matplotlib.legend.Legend at 0x11fdc23a0>
+    <matplotlib.legend.Legend at 0x103288190>
 
 
 
@@ -1563,7 +1566,7 @@ figure or axes objects. This is illustrated in the following example:
 .. parsed-literal::
     :class: output
 
-    <matplotlib.legend.Legend at 0x11ff0fa30>
+    <matplotlib.legend.Legend at 0x118572970>
 
 
 
