@@ -478,14 +478,14 @@ from scratch as an exercise:
     :class: output
 
     Random array M is:
-     [[ 0.54965651  0.70737526]
-     [-1.87466353  2.33506349]]
+     [[-0.33772497  0.05537517]
+     [ 1.07810644 -0.2671183 ]]
     Random array N is:
-     [[ 0.20260959  1.13357897 -0.61941002]
-     [-1.38165447 -0.38921228 -0.60587704]]
+     [[ 2.49022565  0.17307437 -0.97234029]
+     [-0.60551753 -1.17650759 -0.35408642]]
     Horizontal stacking of M and N yields:
-     [[ 0.54965651  0.70737526  0.20260959  1.13357897 -0.61941002]
-     [-1.87466353  2.33506349 -1.38165447 -0.38921228 -0.60587704]]
+     [[-0.33772497  0.05537517  2.49022565  0.17307437 -0.97234029]
+     [ 1.07810644 -0.2671183  -0.60551753 -1.17650759 -0.35408642]]
 
 
 Linear Algebra with NumPy
@@ -795,13 +795,13 @@ matrices.
     :class: output
 
     Our matmul_2D result: 
-     [[-0.88742271 -0.03051293  0.02114446  1.31486907]
-     [-0.06035816  0.06966196  0.19980342 -0.61547773]]
+     [[ 0.73752452  0.38602804 -0.37411065 -0.95826847]
+     [-1.15132734  0.54424373 -0.64808086  2.78034696]]
     Correct result: 
-     [[-0.88742271 -0.03051293  0.02114446  1.31486907]
-     [-0.06035816  0.06966196  0.19980342 -0.61547773]]
-    NumPy's matmul took  0.0003371238708496094 ms.
-    Our matmul_2D function took  1.0152552127838135 ms.
+     [[ 0.73752452  0.38602804 -0.37411065 -0.95826847]
+     [-1.15132734  0.54424373 -0.64808086  2.78034696]]
+    NumPy's matmul took  0.00026226043701171875 ms.
+    Our matmul_2D function took  1.060380220413208 ms.
 
 
 Scientific Computing with SciPy
@@ -1090,6 +1090,28 @@ DataFrame looks different):
     Mary     60.2   19
 
 
+Alternatively, we can obtain a DataFrame from a dictionary, which might
+be easier for us to create data column-wise – note that the column names
+are obtained from the keys of the dictionary:
+
+.. code:: python
+
+    d = {'Grade': [40.2, 30, 60.2],
+          'Age': [20, 25, 19]}
+    names = ['Jack', 'Amanda', 'Mary']
+    df = pd.DataFrame(data = d, index=names)
+    print(df)
+
+
+.. parsed-literal::
+    :class: output
+
+            Grade  Age
+    Jack     40.2   20
+    Amanda   30.0   25
+    Mary     60.2   19
+
+
 Accessing Data with DataFrames
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1355,7 +1377,7 @@ Matplotlib which we will see next.
 
 
 
-.. figure:: output_ch10_scientific_libraries_ea0544_37_1.png
+.. figure:: output_ch10_scientific_libraries_ea0544_39_1.png
 
 
 .. code:: python
@@ -1374,7 +1396,7 @@ Matplotlib which we will see next.
 
 
 
-.. figure:: output_ch10_scientific_libraries_ea0544_38_1.png
+.. figure:: output_ch10_scientific_libraries_ea0544_40_1.png
 
 
 Plotting data with Matplotlib
@@ -1523,12 +1545,12 @@ example:
 .. parsed-literal::
     :class: output
 
-    <matplotlib.legend.Legend at 0x103288190>
+    <matplotlib.legend.Legend at 0x11cb313d0>
 
 
 
 
-.. figure:: output_ch10_scientific_libraries_ea0544_42_1.png
+.. figure:: output_ch10_scientific_libraries_ea0544_44_1.png
 
 
 **2. Drawing in a Pyplot Style**. In the Pyplot style, we directly call
@@ -1566,12 +1588,12 @@ figure or axes objects. This is illustrated in the following example:
 .. parsed-literal::
     :class: output
 
-    <matplotlib.legend.Legend at 0x118572970>
+    <matplotlib.legend.Legend at 0x11cc81a60>
 
 
 
 
-.. figure:: output_ch10_scientific_libraries_ea0544_44_1.png
+.. figure:: output_ch10_scientific_libraries_ea0544_46_1.png
 
 
 Drawing Multiple Plots in a Figure
@@ -1609,7 +1631,40 @@ example below:
 
 
 
-.. figure:: output_ch10_scientific_libraries_ea0544_46_0.png
+.. figure:: output_ch10_scientific_libraries_ea0544_48_0.png
+
+
+It is possible to do this in the PyPlot style as well, as illustrated
+below:
+
+.. code:: python
+
+    # Plot (1,1) 
+    plt.subplot(2, 2, 1)
+    plt.plot(x, x) 
+    plt.title('$y=x$')
+    
+    # Plot (1,2)
+    plt.subplot(2, 2, 2)
+    plt.plot(x, x**2) 
+    plt.title('$y=x^2$')
+    
+    # Plot (2,1)
+    plt.subplot(2, 2, 3)
+    plt.plot(x, x**3) 
+    plt.title('$y=x^3$')
+    
+    # Plot (2,2)
+    plt.subplot(2, 2, 4)
+    plt.plot(x, x**4)
+    plt.title('$y=x^4$')
+    
+    # Adjust vertical space between rows
+    plt.subplots_adjust(hspace=0.5)
+
+
+
+.. figure:: output_ch10_scientific_libraries_ea0544_50_0.png
 
 
 Changing elements of a plot
