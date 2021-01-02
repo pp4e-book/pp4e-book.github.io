@@ -2,6 +2,11 @@
 A Broad Look at Programming and Programming Languages
 =====================================================
 
+*(C) Copyright Notice: This chapter is part of the book available
+at*\ https://pp4e-book.github.io/\ *and copying, distributing, modifying
+it requires explicit permission from the authors. See the book page for
+details:*\ https://pp4e-book.github.io/
+
 The previous chapter provided a closer look at how a modern computer
 works. In this chapter, we will first look at how we generally solve
 problems with such computers. Then, we will see that a programmer does

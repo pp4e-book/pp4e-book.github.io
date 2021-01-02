@@ -2,6 +2,11 @@
 Functions
 =========
 
+*(C) Copyright Notice: This chapter is part of the book available
+at*\ https://pp4e-book.github.io/\ *and copying, distributing, modifying
+it requires explicit permission from the authors. See the book page for
+details:*\ https://pp4e-book.github.io/
+
 A *function* (or sometimes synonymously referred to as subroutine,
 procedure or sub-program) is a grouping of actions under a given name
 that performs a specific task. ``len()``, ``print()``, ``abs()``,

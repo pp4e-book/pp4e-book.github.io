@@ -2,6 +2,11 @@
 Representation of Data
 ======================
 
+*(C) Copyright Notice: This chapter is part of the book available
+at*\ https://pp4e-book.github.io/\ *and copying, distributing, modifying
+it requires explicit permission from the authors. See the book page for
+details:*\ https://pp4e-book.github.io/
+
 As we discussed in detail in Chapter 2, when we want to solve a world
 problem using a computer, we have to find what data is involved in this
 problem and how we can process this data (i.e. determine the algorithm)

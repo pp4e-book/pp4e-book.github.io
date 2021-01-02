@@ -2,6 +2,11 @@
 Error Handling and Debugging
 ============================
 
+*(C) Copyright Notice: This chapter is part of the book available
+at*\ https://pp4e-book.github.io/\ *and copying, distributing, modifying
+it requires explicit permission from the authors. See the book page for
+details:*\ https://pp4e-book.github.io/
+
 As Turkish song says “*There is no servant without fault, love me with
 the faults I have*”, we all make mistakes and programming is far from
 being an exception to this. It is a highly technical, error-intolerant

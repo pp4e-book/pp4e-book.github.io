@@ -2,6 +2,11 @@
 Dive into Python
 ================
 
+*(C) Copyright Notice: This chapter is part of the book available
+at*\ https://pp4e-book.github.io/\ *and copying, distributing, modifying
+it requires explicit permission from the authors. See the book page for
+details:*\ https://pp4e-book.github.io/
+
 After having covered some background on how a computer works, how we
 solve problems with computers and how we can represent data in binary,
 we are ready to interact with Python and to learn representing data and
@@ -1817,10 +1822,10 @@ assigning them to variables. First consider the following code:
 .. parsed-literal::
     :class: output
 
-    address of 5:  4331944624
-    address of a:  4331944624
-    address of b:  4331944624
-    address of a:  4331944560
+    address of 5:  4380465840
+    address of a:  4380465840
+    address of b:  4380465840
+    address of a:  4380465776
     b is:  5
 
 
@@ -1851,9 +1856,9 @@ Now keep the task the same but change the data from integer to a list:
 .. parsed-literal::
     :class: output
 
-    addresses of a and b:  4367145344 4367145344
+    addresses of a and b:  4411372864 4411372864
     b is:  [5, 1, 7]
-    addresses of a and b:  4367265024 4367145344
+    addresses of a and b:  4414271936 4411372864
     b is:  [5, 1, 7]
 
 
@@ -1876,9 +1881,9 @@ But now, consider the following slightly different example:
 .. parsed-literal::
     :class: output
 
-    addresses of a and b:  4367265472 4367265472
+    addresses of a and b:  4414272384 4414272384
     b is:  [5, 1, 7]
-    addresses of a and b:  4367265472 4367265472
+    addresses of a and b:  4414272384 4414272384
     b is:  [3, 1, 7]
 
 

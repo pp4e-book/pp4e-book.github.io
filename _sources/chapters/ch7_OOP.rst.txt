@@ -2,6 +2,11 @@
 A Gentle Introduction to Object-Oriented Programming
 ====================================================
 
+*(C) Copyright Notice: This chapter is part of the book available
+at*\ https://pp4e-book.github.io/\ *and copying, distributing, modifying
+it requires explicit permission from the authors. See the book page for
+details:*\ https://pp4e-book.github.io/
+
 At this stage of programming, you must have realized that programming
 possesses some idiosyncrasies:
 

@@ -2,6 +2,11 @@
 File Handling
 =============
 
+*(C) Copyright Notice: This chapter is part of the book available
+at*\ https://pp4e-book.github.io/\ *and copying, distributing, modifying
+it requires explicit permission from the authors. See the book page for
+details:*\ https://pp4e-book.github.io/
+
 All variables used in a program are kept in the main memory and they are
 **volatile**, i.e., their values are lost when the program ends. Even if
 you write a program running forever, your data will be lost in case of a

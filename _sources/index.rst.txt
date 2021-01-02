@@ -27,3 +27,4 @@ Programming with Python for Engineers
    chapters/ch9_error_handling.md
    chapters/ch10_scientific_libraries.md
    chapters/ch11_application_optimization.md
+   chapters/ch12_regression.md

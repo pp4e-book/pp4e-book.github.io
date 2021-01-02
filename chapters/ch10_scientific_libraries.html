@@ -122,6 +122,7 @@ Show Source
 <li class="toctree-l1"><a class="reference internal" href="ch9_error_handling.html">9. Error Handling and Debugging</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">10. Scientific and Engineering Libraries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch11_application_optimization.html">11. An Application: Approximation and Optimisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch12_regression.html">12. An Application: Solving a Simple Regression Problem</a></li>
 </ul>
 
             </nav>
@@ -163,6 +164,7 @@ Show Source
 <li class="toctree-l1"><a class="reference internal" href="ch9_error_handling.html">9. Error Handling and Debugging</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">10. Scientific and Engineering Libraries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch11_application_optimization.html">11. An Application: Approximation and Optimisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch12_regression.html">12. An Application: Solving a Simple Regression Problem</a></li>
 </ul>
 
             </nav>
@@ -176,6 +178,10 @@ Show Source
         
   <div class="section" id="scientific-and-engineering-libraries">
 <h1><span class="section-number">10. </span>Scientific and Engineering Libraries<a class="headerlink" href="#scientific-and-engineering-libraries" title="Permalink to this headline">¶</a><a href="https://colab.research.google.com/github/pp4e-book/pp4e-book.github.io/blob/master/chapters/ch10_scientific_libraries.ipynb" onclick="captureOutboundLink('https://colab.research.google.com/github/['pp4e-book/pp4e-book.github.io']/blob/master/chapters/ch10_scientific_libraries.ipynb'); return false;"> <button style="float:right", id="Colab" class="mdl-button mdl-js-button mdl-button--primary mdl-js-ripple-effect"> <i class=" fas fa-external-link-alt"></i> Colab </button></a><div class="mdl-tooltip" data-mdl-for="Colab"> Open the notebook in Colab</div></h1>
+<p><em>(C) Copyright Notice: This chapter is part of the book available
+at</em><a class="reference external" href="https://pp4e-book.github.io/">https://pp4e-book.github.io/</a><em>and copying, distributing, modifying
+it requires explicit permission from the authors. See the book page for
+details:</em><a class="reference external" href="https://pp4e-book.github.io/">https://pp4e-book.github.io/</a></p>
 <p>In this chapter, we will cover several libraries that are very
 functional in scientific &amp; engineering-related computing problems. In
 order to keep our focus on the practical usages of these libraries and
@@ -553,14 +559,14 @@ from scratch as an exercise:</p>
 </pre></div>
 </div>
 <div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Random</span> <span class="n">array</span> <span class="n">M</span> <span class="ow">is</span><span class="p">:</span>
- <span class="p">[[</span><span class="o">-</span><span class="mf">0.33772497</span>  <span class="mf">0.05537517</span><span class="p">]</span>
- <span class="p">[</span> <span class="mf">1.07810644</span> <span class="o">-</span><span class="mf">0.2671183</span> <span class="p">]]</span>
+ <span class="p">[[</span> <span class="mf">0.87441013</span> <span class="o">-</span><span class="mf">0.46506587</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mf">0.43470365</span> <span class="o">-</span><span class="mf">1.09605215</span><span class="p">]]</span>
 <span class="n">Random</span> <span class="n">array</span> <span class="n">N</span> <span class="ow">is</span><span class="p">:</span>
- <span class="p">[[</span> <span class="mf">2.49022565</span>  <span class="mf">0.17307437</span> <span class="o">-</span><span class="mf">0.97234029</span><span class="p">]</span>
- <span class="p">[</span><span class="o">-</span><span class="mf">0.60551753</span> <span class="o">-</span><span class="mf">1.17650759</span> <span class="o">-</span><span class="mf">0.35408642</span><span class="p">]]</span>
+ <span class="p">[[</span><span class="o">-</span><span class="mf">0.74886418</span>  <span class="mf">0.9568392</span>  <span class="o">-</span><span class="mf">0.19811215</span><span class="p">]</span>
+ <span class="p">[</span><span class="o">-</span><span class="mf">0.06708416</span>  <span class="mf">1.68393368</span> <span class="o">-</span><span class="mf">1.03013149</span><span class="p">]]</span>
 <span class="n">Horizontal</span> <span class="n">stacking</span> <span class="n">of</span> <span class="n">M</span> <span class="ow">and</span> <span class="n">N</span> <span class="n">yields</span><span class="p">:</span>
- <span class="p">[[</span><span class="o">-</span><span class="mf">0.33772497</span>  <span class="mf">0.05537517</span>  <span class="mf">2.49022565</span>  <span class="mf">0.17307437</span> <span class="o">-</span><span class="mf">0.97234029</span><span class="p">]</span>
- <span class="p">[</span> <span class="mf">1.07810644</span> <span class="o">-</span><span class="mf">0.2671183</span>  <span class="o">-</span><span class="mf">0.60551753</span> <span class="o">-</span><span class="mf">1.17650759</span> <span class="o">-</span><span class="mf">0.35408642</span><span class="p">]]</span>
+ <span class="p">[[</span> <span class="mf">0.87441013</span> <span class="o">-</span><span class="mf">0.46506587</span> <span class="o">-</span><span class="mf">0.74886418</span>  <span class="mf">0.9568392</span>  <span class="o">-</span><span class="mf">0.19811215</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mf">0.43470365</span> <span class="o">-</span><span class="mf">1.09605215</span> <span class="o">-</span><span class="mf">0.06708416</span>  <span class="mf">1.68393368</span> <span class="o">-</span><span class="mf">1.03013149</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -836,13 +842,13 @@ matrices.</p>
 </pre></div>
 </div>
 <div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Our</span> <span class="n">matmul_2D</span> <span class="n">result</span><span class="p">:</span>
- <span class="p">[[</span> <span class="mf">0.73752452</span>  <span class="mf">0.38602804</span> <span class="o">-</span><span class="mf">0.37411065</span> <span class="o">-</span><span class="mf">0.95826847</span><span class="p">]</span>
- <span class="p">[</span><span class="o">-</span><span class="mf">1.15132734</span>  <span class="mf">0.54424373</span> <span class="o">-</span><span class="mf">0.64808086</span>  <span class="mf">2.78034696</span><span class="p">]]</span>
+ <span class="p">[[</span> <span class="mf">1.00870245</span>  <span class="mf">1.80029584</span>  <span class="mf">2.19231301</span>  <span class="mf">1.01315496</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mf">1.23248392</span> <span class="o">-</span><span class="mf">0.41201987</span>  <span class="mf">5.81237397</span>  <span class="mf">0.04080299</span><span class="p">]]</span>
 <span class="n">Correct</span> <span class="n">result</span><span class="p">:</span>
- <span class="p">[[</span> <span class="mf">0.73752452</span>  <span class="mf">0.38602804</span> <span class="o">-</span><span class="mf">0.37411065</span> <span class="o">-</span><span class="mf">0.95826847</span><span class="p">]</span>
- <span class="p">[</span><span class="o">-</span><span class="mf">1.15132734</span>  <span class="mf">0.54424373</span> <span class="o">-</span><span class="mf">0.64808086</span>  <span class="mf">2.78034696</span><span class="p">]]</span>
-<span class="n">NumPy</span><span class="s1">&#39;s matmul took  0.00026226043701171875 ms.</span>
-<span class="n">Our</span> <span class="n">matmul_2D</span> <span class="n">function</span> <span class="n">took</span>  <span class="mf">1.060380220413208</span> <span class="n">ms</span><span class="o">.</span>
+ <span class="p">[[</span> <span class="mf">1.00870245</span>  <span class="mf">1.80029584</span>  <span class="mf">2.19231301</span>  <span class="mf">1.01315496</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mf">1.23248392</span> <span class="o">-</span><span class="mf">0.41201987</span>  <span class="mf">5.81237397</span>  <span class="mf">0.04080299</span><span class="p">]]</span>
+<span class="n">NumPy</span><span class="s1">&#39;s matmul took  0.00021505355834960938 ms.</span>
+<span class="n">Our</span> <span class="n">matmul_2D</span> <span class="n">function</span> <span class="n">took</span>  <span class="mf">1.1434831619262695</span> <span class="n">ms</span><span class="o">.</span>
 </pre></div>
 </div>
 </div>
@@ -1499,7 +1505,7 @@ example:</p>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">Legend</span> <span class="n">at</span> <span class="mh">0x11cb313d0</span><span class="o">&gt;</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">Legend</span> <span class="n">at</span> <span class="mh">0x11daa03a0</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <div class="figure align-default">
@@ -1532,7 +1538,7 @@ figure or axes objects. This is illustrated in the following example:</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">Legend</span> <span class="n">at</span> <span class="mh">0x11cc81a60</span><span class="o">&gt;</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">Legend</span> <span class="n">at</span> <span class="mh">0x11dbf1a30</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <div class="figure align-default">

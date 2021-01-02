@@ -2,6 +2,11 @@
 Basic Computer Organization
 ===========================
 
+*(C) Copyright Notice: This chapter is part of the book available
+at*\ https://pp4e-book.github.io/\ *and copying, distributing, modifying
+it requires explicit permission from the authors. See the book page for
+details:*\ https://pp4e-book.github.io/
+
 In this chapter, we will provide an overview of the internals of a
 modern computer. To do so, we will first describe a general architecture
 on which modern computers are based. Then, we will study the main

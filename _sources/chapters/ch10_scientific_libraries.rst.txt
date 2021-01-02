@@ -2,6 +2,11 @@
 Scientific and Engineering Libraries
 ====================================
 
+*(C) Copyright Notice: This chapter is part of the book available
+at*\ https://pp4e-book.github.io/\ *and copying, distributing, modifying
+it requires explicit permission from the authors. See the book page for
+details:*\ https://pp4e-book.github.io/
+
 In this chapter, we will cover several libraries that are very
 functional in scientific & engineering-related computing problems. In
 order to keep our focus on the practical usages of these libraries and
@@ -478,14 +483,14 @@ from scratch as an exercise:
     :class: output
 
     Random array M is:
-     [[-0.33772497  0.05537517]
-     [ 1.07810644 -0.2671183 ]]
+     [[ 0.87441013 -0.46506587]
+     [ 0.43470365 -1.09605215]]
     Random array N is:
-     [[ 2.49022565  0.17307437 -0.97234029]
-     [-0.60551753 -1.17650759 -0.35408642]]
+     [[-0.74886418  0.9568392  -0.19811215]
+     [-0.06708416  1.68393368 -1.03013149]]
     Horizontal stacking of M and N yields:
-     [[-0.33772497  0.05537517  2.49022565  0.17307437 -0.97234029]
-     [ 1.07810644 -0.2671183  -0.60551753 -1.17650759 -0.35408642]]
+     [[ 0.87441013 -0.46506587 -0.74886418  0.9568392  -0.19811215]
+     [ 0.43470365 -1.09605215 -0.06708416  1.68393368 -1.03013149]]
 
 
 Linear Algebra with NumPy
@@ -795,13 +800,13 @@ matrices.
     :class: output
 
     Our matmul_2D result: 
-     [[ 0.73752452  0.38602804 -0.37411065 -0.95826847]
-     [-1.15132734  0.54424373 -0.64808086  2.78034696]]
+     [[ 1.00870245  1.80029584  2.19231301  1.01315496]
+     [ 1.23248392 -0.41201987  5.81237397  0.04080299]]
     Correct result: 
-     [[ 0.73752452  0.38602804 -0.37411065 -0.95826847]
-     [-1.15132734  0.54424373 -0.64808086  2.78034696]]
-    NumPy's matmul took  0.00026226043701171875 ms.
-    Our matmul_2D function took  1.060380220413208 ms.
+     [[ 1.00870245  1.80029584  2.19231301  1.01315496]
+     [ 1.23248392 -0.41201987  5.81237397  0.04080299]]
+    NumPy's matmul took  0.00021505355834960938 ms.
+    Our matmul_2D function took  1.1434831619262695 ms.
 
 
 Scientific Computing with SciPy
@@ -1545,7 +1550,7 @@ example:
 .. parsed-literal::
     :class: output
 
-    <matplotlib.legend.Legend at 0x11cb313d0>
+    <matplotlib.legend.Legend at 0x11daa03a0>
 
 
 
@@ -1588,7 +1593,7 @@ figure or axes objects. This is illustrated in the following example:
 .. parsed-literal::
     :class: output
 
-    <matplotlib.legend.Legend at 0x11cc81a60>
+    <matplotlib.legend.Legend at 0x11dbf1a30>
 
 
 
@@ -1639,19 +1644,19 @@ below:
 
 .. code:: python
 
-    # Plot (1,1) 
+    # Plot (1,1)
     plt.subplot(2, 2, 1)
-    plt.plot(x, x) 
+    plt.plot(x, x)
     plt.title('$y=x$')
     
     # Plot (1,2)
     plt.subplot(2, 2, 2)
-    plt.plot(x, x**2) 
+    plt.plot(x, x**2)
     plt.title('$y=x^2$')
     
     # Plot (2,1)
     plt.subplot(2, 2, 3)
-    plt.plot(x, x**3) 
+    plt.plot(x, x**3)
     plt.title('$y=x^3$')
     
     # Plot (2,2)

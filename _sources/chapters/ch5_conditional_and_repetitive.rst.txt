@@ -2,6 +2,11 @@
 Conditional and Repetitive Execution
 ====================================
 
+*(C) Copyright Notice: This chapter is part of the book available
+at*\ https://pp4e-book.github.io/\ *and copying, distributing, modifying
+it requires explicit permission from the authors. See the book page for
+details:*\ https://pp4e-book.github.io/
+
 Many circumstances require the execution to change its flow based on the
 truth value of a condition or to repeat a set of steps for a number of
 items or until a condition is not true any more. These two kinds of

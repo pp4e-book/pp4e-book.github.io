@@ -122,6 +122,7 @@ Show Source
 <li class="toctree-l1"><a class="reference internal" href="ch9_error_handling.html">9. Error Handling and Debugging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch10_scientific_libraries.html">10. Scientific and Engineering Libraries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch11_application_optimization.html">11. An Application: Approximation and Optimisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch12_regression.html">12. An Application: Solving a Simple Regression Problem</a></li>
 </ul>
 
             </nav>
@@ -163,6 +164,7 @@ Show Source
 <li class="toctree-l1"><a class="reference internal" href="ch9_error_handling.html">9. Error Handling and Debugging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch10_scientific_libraries.html">10. Scientific and Engineering Libraries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch11_application_optimization.html">11. An Application: Approximation and Optimisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch12_regression.html">12. An Application: Solving a Simple Regression Problem</a></li>
 </ul>
 
             </nav>
@@ -176,6 +178,10 @@ Show Source
         
   <div class="section" id="dive-into-python">
 <h1><span class="section-number">4. </span>Dive into Python<a class="headerlink" href="#dive-into-python" title="Permalink to this headline">¶</a><a href="https://colab.research.google.com/github/pp4e-book/pp4e-book.github.io/blob/master/chapters/ch4_dive_into_python.ipynb" onclick="captureOutboundLink('https://colab.research.google.com/github/['pp4e-book/pp4e-book.github.io']/blob/master/chapters/ch4_dive_into_python.ipynb'); return false;"> <button style="float:right", id="Colab" class="mdl-button mdl-js-button mdl-button--primary mdl-js-ripple-effect"> <i class=" fas fa-external-link-alt"></i> Colab </button></a><div class="mdl-tooltip" data-mdl-for="Colab"> Open the notebook in Colab</div></h1>
+<p><em>(C) Copyright Notice: This chapter is part of the book available
+at</em><a class="reference external" href="https://pp4e-book.github.io/">https://pp4e-book.github.io/</a><em>and copying, distributing, modifying
+it requires explicit permission from the authors. See the book page for
+details:</em><a class="reference external" href="https://pp4e-book.github.io/">https://pp4e-book.github.io/</a></p>
 <p>After having covered some background on how a computer works, how we
 solve problems with computers and how we can represent data in binary,
 we are ready to interact with Python and to learn representing data and
@@ -1789,10 +1795,10 @@ assigning them to variables. First consider the following code:</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b is: &quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">address</span> <span class="n">of</span> <span class="mi">5</span><span class="p">:</span>  <span class="mi">4331944624</span>
-<span class="n">address</span> <span class="n">of</span> <span class="n">a</span><span class="p">:</span>  <span class="mi">4331944624</span>
-<span class="n">address</span> <span class="n">of</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4331944624</span>
-<span class="n">address</span> <span class="n">of</span> <span class="n">a</span><span class="p">:</span>  <span class="mi">4331944560</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">address</span> <span class="n">of</span> <span class="mi">5</span><span class="p">:</span>  <span class="mi">4380465840</span>
+<span class="n">address</span> <span class="n">of</span> <span class="n">a</span><span class="p">:</span>  <span class="mi">4380465840</span>
+<span class="n">address</span> <span class="n">of</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4380465840</span>
+<span class="n">address</span> <span class="n">of</span> <span class="n">a</span><span class="p">:</span>  <span class="mi">4380465776</span>
 <span class="n">b</span> <span class="ow">is</span><span class="p">:</span>  <span class="mi">5</span>
 </pre></div>
 </div>
@@ -1815,9 +1821,9 @@ which is printed.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b is: &quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4367145344</span> <span class="mi">4367145344</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4411372864</span> <span class="mi">4411372864</span>
 <span class="n">b</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
-<span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4367265024</span> <span class="mi">4367145344</span>
+<span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4414271936</span> <span class="mi">4411372864</span>
 <span class="n">b</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -1833,9 +1839,9 @@ But now, consider the following slightly different example:</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b is: &quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4367265472</span> <span class="mi">4367265472</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4414272384</span> <span class="mi">4414272384</span>
 <span class="n">b</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
-<span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4367265472</span> <span class="mi">4367265472</span>
+<span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4414272384</span> <span class="mi">4414272384</span>
 <span class="n">b</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
 </pre></div>
 </div>
