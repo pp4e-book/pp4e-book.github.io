@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     
-    <title>11. An Application: Approximation and Optimisation &#8212; Programming with Python for Engineers 0.0.1 documentation</title>
+    <title>11. An Application: Approximation and Optimization &#8212; Programming with Python for Engineers 0.0.1 documentation</title>
 
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -35,7 +35,7 @@
     <div class="mdl-layout__header-row">
         
         <nav class="mdl-navigation breadcrumb">
-            <a class="mdl-navigation__link is-active"><span class="section-number">11. </span>An Application: Approximation and Optimisation</a>
+            <a class="mdl-navigation__link is-active"><span class="section-number">11. </span>An Application: Approximation and Optimization</a>
         </nav>
         <div class="mdl-layout-spacer"></div>
         <nav class="mdl-navigation">
@@ -121,7 +121,7 @@ Show Source
 <li class="toctree-l1"><a class="reference internal" href="ch8_file_handling.html">8. File Handling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch9_error_handling.html">9. Error Handling and Debugging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch10_scientific_libraries.html">10. Scientific and Engineering Libraries</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">11. An Application: Approximation and Optimisation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">11. An Application: Approximation and Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch12_regression.html">12. An Application: Solving a Simple Regression Problem</a></li>
 </ul>
 
@@ -163,7 +163,7 @@ Show Source
 <li class="toctree-l1"><a class="reference internal" href="ch8_file_handling.html">8. File Handling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch9_error_handling.html">9. Error Handling and Debugging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch10_scientific_libraries.html">10. Scientific and Engineering Libraries</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">11. An Application: Approximation and Optimisation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">11. An Application: Approximation and Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch12_regression.html">12. An Application: Solving a Simple Regression Problem</a></li>
 </ul>
 
@@ -176,8 +176,8 @@ Show Source
     <div class="document">
         <div class="page-content" role="main">
         
-  <div class="section" id="an-application-approximation-and-optimisation">
-<h1><span class="section-number">11. </span>An Application: Approximation and Optimisation<a class="headerlink" href="#an-application-approximation-and-optimisation" title="Permalink to this headline">¶</a><a href="https://colab.research.google.com/github/pp4e-book/pp4e-book.github.io/blob/master/chapters/ch11_application_optimization.ipynb" onclick="captureOutboundLink('https://colab.research.google.com/github/['pp4e-book/pp4e-book.github.io']/blob/master/chapters/ch11_application_optimization.ipynb'); return false;"> <button style="float:right", id="Colab" class="mdl-button mdl-js-button mdl-button--primary mdl-js-ripple-effect"> <i class=" fas fa-external-link-alt"></i> Colab </button></a><div class="mdl-tooltip" data-mdl-for="Colab"> Open the notebook in Colab</div></h1>
+  <div class="section" id="an-application-approximation-and-optimization">
+<h1><span class="section-number">11. </span>An Application: Approximation and Optimization<a class="headerlink" href="#an-application-approximation-and-optimization" title="Permalink to this headline">¶</a><a href="https://colab.research.google.com/github/pp4e-book/pp4e-book.github.io/blob/master/chapters/ch11_application_optimization.ipynb" onclick="captureOutboundLink('https://colab.research.google.com/github/['pp4e-book/pp4e-book.github.io']/blob/master/chapters/ch11_application_optimization.ipynb'); return false;"> <button style="float:right", id="Colab" class="mdl-button mdl-js-button mdl-button--primary mdl-js-ripple-effect"> <i class=" fas fa-external-link-alt"></i> Colab </button></a><div class="mdl-tooltip" data-mdl-for="Colab"> Open the notebook in Colab</div></h1>
 <p><em>(C) Copyright Notice: This chapter is part of the book available
 at</em><a class="reference external" href="https://pp4e-book.github.io/">https://pp4e-book.github.io/</a><em>and copying, distributing, modifying
 it requires explicit permission from the authors. See the book page for
@@ -388,8 +388,8 @@ first-order expansion of <span class="math notranslate nohighlight">\(f()\)</spa
 <p>which can be simplified by rewriting <span class="math notranslate nohighlight">\(x_{i+1}=x_i+\delta\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-chapters-ch11-application-optimization-6">
 <span class="eqno">(11.2.4)<a class="headerlink" href="#equation-chapters-ch11-application-optimization-6" title="Permalink to this equation">¶</a></span>\[f(x_{i}+\delta) \approx f(x_i) + \frac{f'(x_i)}{1!}\delta.\]</div>
-<p>We are interesting finding <span class="math notranslate nohighlight">\(\delta\)</span> such that the approximation is
-equal to zero, in other words:</p>
+<p>We are interested in finding <span class="math notranslate nohighlight">\(\delta\)</span> such that the approximation
+is equal to zero, in other words:</p>
 <div class="math notranslate nohighlight" id="equation-chapters-ch11-application-optimization-7">
 <span class="eqno">(11.2.5)<a class="headerlink" href="#equation-chapters-ch11-application-optimization-7" title="Permalink to this equation">¶</a></span>\[0 = f(x_i) + \frac{f'(x_i)}{1!}\delta,\]</div>
 <p>which yields the delta value for which the approximation is zero:</p>
@@ -502,14 +502,16 @@ an example function.</p>
   <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">trial</span> <span class="mi">0</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="o">-</span><span class="mf">2.0</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="mf">0.0</span>
-<span class="n">trial</span> <span class="mi">1</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="mf">2.0</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="mf">0.0</span>
-<span class="n">trial</span> <span class="mi">2</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="mf">2.0</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="mf">0.0</span>
-<span class="n">trial</span> <span class="mi">3</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="o">-</span><span class="mf">2.000000000000002</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="mf">8.881784197001252e-15</span>
-<span class="n">trial</span> <span class="mi">4</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="mf">2.000000000000002</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="mf">8.881784197001252e-15</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">trial</span> <span class="mi">0</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="o">-</span><span class="mf">2.000000000000002</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="mf">8.881784197001252e-15</span>
+<span class="n">trial</span> <span class="mi">1</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="mf">2.000000000000002</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="mf">8.881784197001252e-15</span>
+<span class="n">trial</span> <span class="mi">2</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="mf">2.000000000000002</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="mf">8.881784197001252e-15</span>
+<span class="n">trial</span> <span class="mi">3</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="o">-</span><span class="mf">2.000000000006711</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="mf">2.6844304557016585e-11</span>
+<span class="n">trial</span> <span class="mi">4</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="o">-</span><span class="mf">2.0</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="mf">0.0</span>
 <span class="n">trial</span> <span class="mi">5</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="o">-</span><span class="mf">2.000000000006711</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="mf">2.6844304557016585e-11</span>
-<span class="n">trial</span> <span class="mi">7</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="mf">2.000000000000002</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="mf">8.881784197001252e-15</span>
-<span class="n">trial</span> <span class="mi">8</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="o">-</span><span class="mf">2.000000000000002</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="mf">8.881784197001252e-15</span>
+<span class="n">trial</span> <span class="mi">6</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="mf">2.000000000000002</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="mf">8.881784197001252e-15</span>
+<span class="n">trial</span> <span class="mi">7</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="mf">2.0</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="mf">0.0</span>
+<span class="n">trial</span> <span class="mi">8</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="mf">2.000000000000002</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="mf">8.881784197001252e-15</span>
+<span class="n">trial</span> <span class="mi">9</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="mf">2.000000000000002</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="mf">8.881784197001252e-15</span>
 </pre></div>
 </div>
 <div class="figure align-default">
@@ -521,7 +523,7 @@ an example function.</p>
 <p>Let us see how we can use Newton’s method from the SciPy library (from
 Chapter 10) to find the roots of a function. Note that we do not need to
 provide the derivative of the function to SciPy. It used numerical
-differentiation to calculate it for us.</p>
+differentiation to calculate the derivative for us.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">newton</span>
 <span class="kn">import</span> <span class="nn">random</span>
 
@@ -534,16 +536,16 @@ differentiation to calculate it for us.</p>
   <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">trial</span> <span class="mi">0</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="mf">1.9999999996184186</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="o">-</span><span class="mf">1.5263257324704682e-09</span>
-<span class="n">trial</span> <span class="mi">1</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="mf">1.9999999996184186</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="o">-</span><span class="mf">1.5263257324704682e-09</span>
-<span class="n">trial</span> <span class="mi">2</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="mf">2.0000000032851974</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="mf">1.3140789789645169e-08</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">trial</span> <span class="mi">0</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="o">-</span><span class="mf">2.0</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="mf">0.0</span>
+<span class="n">trial</span> <span class="mi">1</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="mf">2.0</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="mf">0.0</span>
+<span class="n">trial</span> <span class="mi">2</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="mf">2.0</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="mf">0.0</span>
 <span class="n">trial</span> <span class="mi">3</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="o">-</span><span class="mf">2.0000000032851974</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="mf">1.3140789789645169e-08</span>
-<span class="n">trial</span> <span class="mi">4</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="mf">2.000000075022694</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="mf">3.000907806693931e-07</span>
-<span class="n">trial</span> <span class="mi">5</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="o">-</span><span class="mf">2.0000000003832255</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="mf">1.532901805489928e-09</span>
-<span class="n">trial</span> <span class="mi">6</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="o">-</span><span class="mf">2.0000000032851974</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="mf">1.3140789789645169e-08</span>
-<span class="n">trial</span> <span class="mi">7</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="mf">2.0000000032851974</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="mf">1.3140789789645169e-08</span>
-<span class="n">trial</span> <span class="mi">8</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="o">-</span><span class="mf">2.0000000003832255</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="mf">1.532901805489928e-09</span>
-<span class="n">trial</span> <span class="mi">9</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="mf">2.0000000032851974</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="mf">1.3140789789645169e-08</span>
+<span class="n">trial</span> <span class="mi">4</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="mf">1.9999999996184186</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="o">-</span><span class="mf">1.5263257324704682e-09</span>
+<span class="n">trial</span> <span class="mi">5</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="o">-</span><span class="mf">2.000000075022694</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="mf">3.000907806693931e-07</span>
+<span class="n">trial</span> <span class="mi">6</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="o">-</span><span class="mf">2.0</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="mf">0.0</span>
+<span class="n">trial</span> <span class="mi">7</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="mf">1.9999999996184186</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="o">-</span><span class="mf">1.5263257324704682e-09</span>
+<span class="n">trial</span> <span class="mi">8</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="mf">1.9999999996184186</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="o">-</span><span class="mf">1.5263257324704682e-09</span>
+<span class="n">trial</span> <span class="mi">9</span>  <span class="n">ended</span> <span class="k">with</span> <span class="n">root</span><span class="p">:</span>  <span class="mf">1.9999999996184186</span>  <span class="n">value</span> <span class="n">at</span> <span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>  <span class="o">-</span><span class="mf">1.5263257324704682e-09</span>
 </pre></div>
 </div>
 <div class="figure align-default">
@@ -554,7 +556,7 @@ differentiation to calculate it for us.</p>
 <div class="section" id="finding-a-minimum-of-functions">
 <h2><span class="section-number">11.3. </span>Finding a Minimum of Functions<a class="headerlink" href="#finding-a-minimum-of-functions" title="Permalink to this headline">¶</a></h2>
 <p>An important problem frequently encountered in many disciplines is
-optimisation. In such problems, as illustrated in
+optimization. In such problems, as illustrated in
 <a class="reference internal" href="#ch11-f-minimum"><span class="std std-numref">Fig. 11.3.1</span></a>, we have a function <span class="math notranslate nohighlight">\(f(x)\)</span> and we wish
 to find its minimum value (<span class="math notranslate nohighlight">\(f^*\)</span>):</p>
 <div class="math notranslate nohighlight" id="equation-chapters-ch11-application-optimization-10">
@@ -579,7 +581,7 @@ can take.</span><a class="headerlink" href="#id5" title="Permalink to this image
 </div>
 <div class="section" id="newtons-method-for-finding-the-minimum-of-a-function">
 <h3><span class="section-number">11.3.1. </span>Newton’s Method for Finding the Minimum of a Function<a class="headerlink" href="#newtons-method-for-finding-the-minimum-of-a-function" title="Permalink to this headline">¶</a></h3>
-<p>Similar to find the the root of a function explained in Section 11.2,
+<p>Similar to find the root of a function explained in Section 11.2,
 Newton’s method for finding a local minimum of a function <span class="math notranslate nohighlight">\(f()\)</span>
 works iteratively starting from an initial value <span class="math notranslate nohighlight">\(x_0\)</span> by using
 the <em>second-order expansion</em> of <span class="math notranslate nohighlight">\(f()\)</span> around <span class="math notranslate nohighlight">\(x_i\)</span> this
@@ -801,7 +803,7 @@ derivative.</p></li>
       <span class="caption-text">Table Of Contents</span>
     </p>
     <ul>
-<li><a class="reference internal" href="#">11. An Application: Approximation and Optimisation</a><ul>
+<li><a class="reference internal" href="#">11. An Application: Approximation and Optimization</a><ul>
 <li><a class="reference internal" href="#approximating-functions-with-taylor-series">11.1. Approximating Functions with Taylor Series</a><ul>
 <li><a class="reference internal" href="#taylor-series-example-in-python">11.1.1. Taylor Series Example in Python</a></li>
 </ul>
