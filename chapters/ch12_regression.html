@@ -378,17 +378,17 @@ df.dtypes
 
 The CSV file contains the following:
      Unnamed: 0          x          y
-0            0 -10.000000 -35.020355
-1            1  -9.797980 -21.122442
-2            2  -9.595960 -31.543661
-3            3  -9.393939 -27.497665
-4            4  -9.191919 -22.042869
+0            0 -10.000000 -25.541643
+1            1  -9.797980 -21.879656
+2            2  -9.595960 -30.961630
+3            3  -9.393939 -22.314965
+4            4  -9.191919 -28.890941
 ..         ...        ...        ...
-95          95   9.191919  22.925606
-96          96   9.393939  29.962959
-97          97   9.595960  35.192282
-98          98   9.797980  39.620097
-99          99  10.000000  32.549924
+95          95   9.191919  23.674962
+96          96   9.393939  30.717558
+97          97   9.595960  32.536789
+98          98   9.797980  29.463917
+99          99  10.000000  21.630870
 
 [100 rows x 3 columns]
 </pre></div>
@@ -444,7 +444,7 @@ Section 12.2.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The estimated solution is: y = </span><span class="si">%4f</span><span class="s2"> x + </span><span class="si">%4f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">a_estimated</span><span class="p">,</span> <span class="n">b_estimated</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">estimated</span> <span class="n">solution</span> <span class="ow">is</span><span class="p">:</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">2.990989</span> <span class="n">x</span> <span class="o">+</span> <span class="mf">0.641222</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">estimated</span> <span class="n">solution</span> <span class="ow">is</span><span class="p">:</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">2.962724</span> <span class="n">x</span> <span class="o">+</span> <span class="mf">0.109122</span>
 </pre></div>
 </div>
 </div>
@@ -483,7 +483,7 @@ confirm whether the solution looks acceptable.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">Legend</span> <span class="n">at</span> <span class="mh">0x12ba75f10</span><span class="o">&gt;</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">Legend</span> <span class="n">at</span> <span class="mh">0x132c77af0</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <div class="figure align-default">
@@ -572,9 +572,9 @@ obtained solution is even worse than the mean <span class="math notranslate nohi
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R-squared Error: &quot;</span><span class="p">,</span> <span class="n">R_squared</span><span class="p">(</span><span class="n">estimated_y</span><span class="p">,</span> <span class="n">correct_y</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MSE</span> <span class="n">Error</span><span class="p">:</span>  <span class="mf">16.66676947332701</span>
-<span class="n">RMSE</span> <span class="n">Error</span><span class="p">:</span>  <span class="mf">4.082495495812213</span>
-<span class="n">R</span><span class="o">-</span><span class="n">squared</span> <span class="n">Error</span><span class="p">:</span>  <span class="mf">0.9452156156750251</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MSE</span> <span class="n">Error</span><span class="p">:</span>  <span class="mf">14.421275615638306</span>
+<span class="n">RMSE</span> <span class="n">Error</span><span class="p">:</span>  <span class="mf">3.7975354660145446</span>
+<span class="n">R</span><span class="o">-</span><span class="n">squared</span> <span class="n">Error</span><span class="p">:</span>  <span class="mf">0.9516878523484535</span>
 </pre></div>
 </div>
 <p>We see that we have obtained very low errors. Especially the <span class="math notranslate nohighlight">\(R^2\)</span>
@@ -640,17 +640,17 @@ df.dtypes
 
 The CSV file contains the following:
      Unnamed: 0          x         y
-0            0 -10.000000  1.118155
-1            1  -9.797980  1.264978
-2            2  -9.595960  1.854589
-3            3  -9.393939  0.990386
-4            4  -9.191919  0.229681
+0            0 -10.000000  1.721089
+1            1  -9.797980  0.708420
+2            2  -9.595960  0.347027
+3            3  -9.393939  0.287755
+4            4  -9.191919  0.594612
 ..         ...        ...       ...
-95          95   9.191919  0.662630
-96          96   9.393939  0.913575
-97          97   9.595960  0.154981
-98          98   9.797980 -0.806106
-99          99  10.000000 -2.542845
+95          95   9.191919  1.280956
+96          96   9.393939 -0.629524
+97          97   9.595960 -0.004467
+98          98   9.797980  0.233133
+99          99  10.000000 -0.838783
 
 [100 rows x 3 columns]
 </pre></div>
@@ -660,6 +660,29 @@ The CSV file contains the following:
 <span class="n">y</span>             <span class="n">float64</span>
 <span class="n">dtype</span><span class="p">:</span> <span class="nb">object</span>
 </pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let us visualize the data</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">xs</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">][:]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">ys</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">][:]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># Plot y vs. x</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">)</span>
+
+<span class="c1"># Set the labels for x and y axes:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+
+<span class="c1"># Set the title of the figure</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;y vs x&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Text</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;y vs x&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="../_images/output_ch12_regression_608a18_15_1.png" src="../_images/output_ch12_regression_608a18_15_1.png" />
 </div>
 </div>
 <div class="section" id="fitting-a-non-linear-function-with-scipy">
@@ -678,7 +701,7 @@ which internally performs Non-linear Least-squares Regression.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The estimated solution is: &quot;</span><span class="p">,</span> <span class="n">solution</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">estimated</span> <span class="n">solution</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">[</span><span class="mf">3.08808887</span> <span class="mf">0.48450526</span><span class="p">]</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">estimated</span> <span class="n">solution</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">[</span><span class="mf">3.03810507</span> <span class="mf">0.56551062</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -708,11 +731,11 @@ qualitatively.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">Legend</span> <span class="n">at</span> <span class="mh">0x12bafadf0</span><span class="o">&gt;</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">Legend</span> <span class="n">at</span> <span class="mh">0x132d74d00</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <div class="figure align-default">
-<img alt="../_images/output_ch12_regression_608a18_18_1.png" src="../_images/output_ch12_regression_608a18_18_1.png" />
+<img alt="../_images/output_ch12_regression_608a18_19_1.png" src="../_images/output_ch12_regression_608a18_19_1.png" />
 </div>
 <p>Visually, it appears that our estimated solution is a very good fit for
 the data and it overlaps nicely with the correct function with which we
@@ -728,9 +751,9 @@ fit was:</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R-squared Error: &quot;</span><span class="p">,</span> <span class="n">R_squared</span><span class="p">(</span><span class="n">estimated_y</span><span class="p">,</span> <span class="n">correct_y</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MSE</span> <span class="n">Error</span><span class="p">:</span>  <span class="mf">0.45387919372778585</span>
-<span class="n">RMSE</span> <span class="n">Error</span><span class="p">:</span>  <span class="mf">0.673705569019424</span>
-<span class="n">R</span><span class="o">-</span><span class="n">squared</span> <span class="n">Error</span><span class="p">:</span>  <span class="mf">0.8999417919639431</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MSE</span> <span class="n">Error</span><span class="p">:</span>  <span class="mf">0.4719959515976198</span>
+<span class="n">RMSE</span> <span class="n">Error</span><span class="p">:</span>  <span class="mf">0.6870196151476461</span>
+<span class="n">R</span><span class="o">-</span><span class="n">squared</span> <span class="n">Error</span><span class="p">:</span>  <span class="mf">0.892495976237392</span>
 </pre></div>
 </div>
 <p>We see again that we have obtained low error values, despite the noise.

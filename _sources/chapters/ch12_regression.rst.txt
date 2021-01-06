@@ -253,17 +253,17 @@ can provide you the experience of a full data analysis pipeline.
     
     The CSV file contains the following:
          Unnamed: 0          x          y
-    0            0 -10.000000 -35.020355
-    1            1  -9.797980 -21.122442
-    2            2  -9.595960 -31.543661
-    3            3  -9.393939 -27.497665
-    4            4  -9.191919 -22.042869
+    0            0 -10.000000 -25.541643
+    1            1  -9.797980 -21.879656
+    2            2  -9.595960 -30.961630
+    3            3  -9.393939 -22.314965
+    4            4  -9.191919 -28.890941
     ..         ...        ...        ...
-    95          95   9.191919  22.925606
-    96          96   9.393939  29.962959
-    97          97   9.595960  35.192282
-    98          98   9.797980  39.620097
-    99          99  10.000000  32.549924
+    95          95   9.191919  23.674962
+    96          96   9.393939  30.717558
+    97          97   9.595960  32.536789
+    98          98   9.797980  29.463917
+    99          99  10.000000  21.630870
     
     [100 rows x 3 columns] 
     
@@ -342,7 +342,7 @@ Section 12.2.
 .. parsed-literal::
     :class: output
 
-    The estimated solution is: y = 2.990989 x + 0.641222
+    The estimated solution is: y = 2.962724 x + 0.109122
 
 
 Analyze the Solution
@@ -391,7 +391,7 @@ Let us do this for our example:
 .. parsed-literal::
     :class: output
 
-    <matplotlib.legend.Legend at 0x12ba75f10>
+    <matplotlib.legend.Legend at 0x132c77af0>
 
 
 
@@ -502,9 +502,9 @@ Now let us analyze our solution using these three metrics.
 .. parsed-literal::
     :class: output
 
-    MSE Error:  16.66676947332701
-    RMSE Error:  4.082495495812213
-    R-squared Error:  0.9452156156750251
+    MSE Error:  14.421275615638306
+    RMSE Error:  3.7975354660145446
+    R-squared Error:  0.9516878523484535
 
 
 We see that we have obtained very low errors. Especially the :math:`R^2`
@@ -584,17 +584,17 @@ can provide you the experience of a full data analysis pipeline.
     
     The CSV file contains the following:
          Unnamed: 0          x         y
-    0            0 -10.000000  1.118155
-    1            1  -9.797980  1.264978
-    2            2  -9.595960  1.854589
-    3            3  -9.393939  0.990386
-    4            4  -9.191919  0.229681
+    0            0 -10.000000  1.721089
+    1            1  -9.797980  0.708420
+    2            2  -9.595960  0.347027
+    3            3  -9.393939  0.287755
+    4            4  -9.191919  0.594612
     ..         ...        ...       ...
-    95          95   9.191919  0.662630
-    96          96   9.393939  0.913575
-    97          97   9.595960  0.154981
-    98          98   9.797980 -0.806106
-    99          99  10.000000 -2.542845
+    95          95   9.191919  1.280956
+    96          96   9.393939 -0.629524
+    97          97   9.595960 -0.004467
+    98          98   9.797980  0.233133
+    99          99  10.000000 -0.838783
     
     [100 rows x 3 columns] 
     
@@ -610,6 +610,38 @@ can provide you the experience of a full data analysis pipeline.
     y             float64
     dtype: object
 
+
+
+.. code:: python
+
+    # Let us visualize the data
+    import matplotlib.pyplot as plt
+    
+    xs = df['x'][:].values
+    ys = df['y'][:].values
+    
+    # Plot y vs. x
+    plt.scatter(xs, ys) 
+    
+    # Set the labels for x and y axes:
+    plt.xlabel('x') 
+    plt.ylabel('y')
+    
+    # Set the title of the figure
+    plt.title("y vs x")
+
+
+
+
+.. parsed-literal::
+    :class: output
+
+    Text(0.5, 1.0, 'y vs x')
+
+
+
+
+.. figure:: output_ch12_regression_608a18_15_1.png
 
 
 Fitting a Non-linear Function with SciPy
@@ -635,7 +667,7 @@ which internally performs Non-linear Least-squares Regression.
 .. parsed-literal::
     :class: output
 
-    The estimated solution is:  [3.08808887 0.48450526]
+    The estimated solution is:  [3.03810507 0.56551062]
 
 
 Analyzing the Solution
@@ -674,12 +706,12 @@ qualitatively.
 .. parsed-literal::
     :class: output
 
-    <matplotlib.legend.Legend at 0x12bafadf0>
+    <matplotlib.legend.Legend at 0x132d74d00>
 
 
 
 
-.. figure:: output_ch12_regression_608a18_18_1.png
+.. figure:: output_ch12_regression_608a18_19_1.png
 
 
 Visually, it appears that our estimated solution is a very good fit for
@@ -703,9 +735,9 @@ fit was:
 .. parsed-literal::
     :class: output
 
-    MSE Error:  0.45387919372778585
-    RMSE Error:  0.673705569019424
-    R-squared Error:  0.8999417919639431
+    MSE Error:  0.4719959515976198
+    RMSE Error:  0.6870196151476461
+    R-squared Error:  0.892495976237392
 
 
 We see again that we have obtained low error values, despite the noise.
