@@ -252,12 +252,13 @@ Python:
 | **FileNotFoundError**             | The target file of ``open()``     |
 |                                   | does not exist                    |
 +-----------------------------------+-----------------------------------+
-| **TypeError**                     | The operation is not supported    |
-|                                   | for the given types               |
+| **TypeError**                     | Wrong operand or parameter types, |
+|                                   | or wrong number of parameters for |
+|                                   | functions                         |
 +-----------------------------------+-----------------------------------+
-| **ValueError**                    | The number of parameters of a     |
-|                                   | function is invalid (i.e. less    |
-|                                   | than defined)                     |
+| **ValueError**                    | The given value has correct type  |
+|                                   | but the operation is not          |
+|                                   | supported for the given value     |
 +-----------------------------------+-----------------------------------+
 
 The following code illustrates each of these errors (except for the
@@ -283,7 +284,11 @@ user-generated ones):
    def f(x, y):
      return x*x+y
 
-   print(f(5))              # ValueError: Only one element is supplied instead of 2.
+   print(f(5))              # TypeError: Only one element is supplied instead of 2.
+    
+   print(int('thirtytwo'))  # ValueError: string value does not represent an integer
+    
+   a,b,c = [1,2,3,4]        # ValueError: too many values on the right hand side
 
 Logical Errors
 ~~~~~~~~~~~~~~

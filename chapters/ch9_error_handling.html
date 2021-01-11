@@ -413,13 +413,14 @@ End-of-Input by user</p></td>
 does not exist</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>TypeError</strong></p></td>
-<td><p>The operation is not supported
-for the given types</p></td>
+<td><p>Wrong operand or parameter types,
+or wrong number of parameters for
+functions</p></td>
 </tr>
 <tr class="row-even"><td><p><strong>ValueError</strong></p></td>
-<td><p>The number of parameters of a
-function is invalid (i.e. less
-than defined)</p></td>
+<td><p>The given value has correct type
+but the operation is not
+supported for the given value</p></td>
 </tr>
 </tbody>
 </table>
@@ -443,7 +444,11 @@ user-generated ones):</p>
 <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
   <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">y</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>              <span class="c1"># ValueError: Only one element is supplied instead of 2.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>              <span class="c1"># TypeError: Only one element is supplied instead of 2.</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="s1">&#39;thirtytwo&#39;</span><span class="p">))</span>  <span class="c1"># ValueError: string value does not represent an integer</span>
+
+<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>        <span class="c1"># ValueError: too many values on the right hand side</span>
 </pre></div>
 </div>
 </div>
