@@ -1125,31 +1125,36 @@ Programming Concepts with Case Studies in Python”:
 <h2><span class="section-number">5.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <p>We have provided many exercises throughout the chapter, please study and
 answer them as well.</p>
-<ul class="simple">
+<ul>
 <li><p>Implement the <code class="docutils literal notranslate"><span class="pre">while</span></code> statement examples in Section 5.2.2 using
-<code class="docutils literal notranslate"><span class="pre">for</span></code> statement:</p></li>
+<code class="docutils literal notranslate"><span class="pre">for</span></code> statement:</p>
+<ul class="simple">
 <li><p>Calculating the average of a list of numbers.</p></li>
 <li><p>Calculating the standard deviation of a list of numbers.</p></li>
 <li><p>Calculating the factorial of a number.</p></li>
 <li><p>Taylor series expansion of sin(x).</p></li>
+</ul>
+</li>
 <li><p>Implement the <code class="docutils literal notranslate"><span class="pre">for</span></code> statement examples in Section 5.2.4 using
-<code class="docutils literal notranslate"><span class="pre">while</span></code> statement:</p></li>
+<code class="docutils literal notranslate"><span class="pre">while</span></code> statement:</p>
+<ul class="simple">
 <li><p>Words with vowels and consonants.</p></li>
 <li><p>Run-length encoding.</p></li>
 <li><p>Permutation.</p></li>
 <li><p>List split.</p></li>
 <li><p>Matrix multiplication.</p></li>
-<li><p>What does the variable c hold after executing the following Python
-code?</p></li>
 </ul>
+</li>
+<li><p>What does the variable c hold after executing the following Python
+code?</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;address&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
-            <span class="n">c</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+  <span class="k">if</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
+      <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
+          <span class="n">c</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
-<ul class="simple">
+</li>
 <li><p>Write a Python code that removes duplicate items in a list. E.g.
 <code class="docutils literal notranslate"><span class="pre">[12,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">12]</span></code> should be changed to <code class="docutils literal notranslate"><span class="pre">[12,</span> <span class="pre">3,</span> <span class="pre">4]</span></code>. The order of
 items should not change.</p></li>

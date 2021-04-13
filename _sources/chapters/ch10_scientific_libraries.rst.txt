@@ -42,10 +42,13 @@ matrices. NumPy calls vectors and matrices as *arrays*.
 Installation Notes
 
 To be able to use the NumPy library, you will need to download it from
-numpy.org and install it on your computer. If you are using a Python
-package manager (e.g. pip), you can install it directly using:
-``$ pip install numpy``. Note that if you are using Colab or another
-Jupyter Notebook viewer, the platform may already have numpy installed.
+`numpy.org <http://www.numpy.org>`__ and install it on your computer. If
+you are using a Python package manager (e.g. pip), you can install it
+directly using: ``$ pip install numpy``. If you are using a Windows/Mac
+machine, you should install
+`anaconda <https://docs.anaconda.com/anaconda/install/>`__ first. If you
+are using Colab or another Jupyter Notebook viewer, the platform may
+already have numpy installed.
 
 .. raw:: html
 
@@ -483,14 +486,14 @@ from scratch as an exercise:
     :class: output
 
     Random array M is:
-     [[ 0.87441013 -0.46506587]
-     [ 0.43470365 -1.09605215]]
+     [[-2.10546692  0.34663509]
+     [ 0.74410531 -1.01666546]]
     Random array N is:
-     [[-0.74886418  0.9568392  -0.19811215]
-     [-0.06708416  1.68393368 -1.03013149]]
+     [[ 1.52216208 -1.03518177  0.22766494]
+     [-0.18706332  1.33567436 -0.40223736]]
     Horizontal stacking of M and N yields:
-     [[ 0.87441013 -0.46506587 -0.74886418  0.9568392  -0.19811215]
-     [ 0.43470365 -1.09605215 -0.06708416  1.68393368 -1.03013149]]
+     [[-2.10546692  0.34663509  1.52216208 -1.03518177  0.22766494]
+     [ 0.74410531 -1.01666546 -0.18706332  1.33567436 -0.40223736]]
 
 
 Linear Algebra with NumPy
@@ -800,13 +803,13 @@ matrices.
     :class: output
 
     Our matmul_2D result: 
-     [[ 1.00870245  1.80029584  2.19231301  1.01315496]
-     [ 1.23248392 -0.41201987  5.81237397  0.04080299]]
+     [[-1.3599126  -0.18054068  0.05767629 -0.21689193]
+     [-0.43781255  0.5702227   0.26801993 -0.63029105]]
     Correct result: 
-     [[ 1.00870245  1.80029584  2.19231301  1.01315496]
-     [ 1.23248392 -0.41201987  5.81237397  0.04080299]]
-    NumPy's matmul took  0.00021505355834960938 ms.
-    Our matmul_2D function took  1.1434831619262695 ms.
+     [[-1.3599126  -0.18054068  0.05767629 -0.21689193]
+     [-0.43781255  0.5702227   0.26801993 -0.63029105]]
+    NumPy's matmul took  0.00032806396484375 ms.
+    Our matmul_2D function took  1.0305368900299072 ms.
 
 
 Scientific Computing with SciPy
@@ -839,10 +842,13 @@ needs to be imported first to be able to use SciPy.
 Installation Notes
 
 To be able to use the SciPy library, you will need to download it from
-scipy.org and install it on your computer. If you are using a Python
-package manager (e.g. pip), you can install it directly using:
-``$ pip install scipy``. Note that if you are using Colab or another
-Jupyter Notebook viewer, the platform may already have scipy installed.
+`scipy.org <http://www.scipy.org>`__ and install it on your computer. If
+you are using a Python package manager (e.g. pip), you can install it
+directly using: ``$ pip install scipy``. If you are using a Windows/Mac
+machine, you should install
+`anaconda <https://docs.anaconda.com/anaconda/install/>`__ first. If you
+are using Colab or another Jupyter Notebook viewer, the platform may
+already have scipy installed.
 
 .. raw:: html
 
@@ -911,10 +917,13 @@ for other formats are very similar.
 Installation Notes
 
 To be able to use the Pandas library, you will need to download it from
-pandas.pydata.org and install it on your computer. If you are using a
-Python package manager (e.g. pip), you can install it directly using:
-``$ pip install pandas``. Note that if you are using Colab or another
-Jupyter Notebook viewer, the platform may already have pandas installed.
+`pandas.pydata.org <https://pandas.pydata.org/>`__ and install it on
+your computer. If you are using a Python package manager (e.g. pip), you
+can install it directly using: ``$ pip install pandas``. If you are
+using a Windows/Mac machine, you should install
+`anaconda <https://docs.anaconda.com/anaconda/install/>`__ first. If you
+are using Colab or another Jupyter Notebook viewer, the platform may
+already have pandas installed.
 
 .. raw:: html
 
@@ -1124,24 +1133,24 @@ We can access data columnwise or row-wise.
 
 **1. Columnwise access.**
 
-For columnwise access, you can use ``df['Name']``, which returns a
+For columnwise access, you can use ``df['Grade']``, which returns a
 sequence of values. To access a certain element in that sequence, you
-can either use an integer index (as in ``df['Name'][1]``) or named index
-if it has been defined (as in ``df['Name']['Amanda']``). The following
-example illustrates this for the example ``DataFrame`` we have created
-above:
+can either use an integer index (as in ``df['Grade'][1]``) or named
+index if it has been defined (as in ``df['Grade']['Amanda']``). The
+following example illustrates this for the example ``DataFrame`` we have
+created above:
 
 .. code:: python
 
    >>> print(df)
-           Grade  Age
+               Grade  Age
    Jack     40.2   20
    Amanda   30.0   25
    Mary     60.2   19
-   >>> print(df['Grade'][1])
-   30.0
-   >>> print(df['Grade']['Amanda'])
-   30.0
+       >>> print(df['Grade'][1])
+       30.0
+       >>> print(df['Grade']['Amanda'])
+       30.0
 
 **2. Rowwise access.**
 
@@ -1364,7 +1373,9 @@ Presenting Data in DataFrames
 Pandas provides a very easy mechanism for plotting your data via
 ``.plot()`` function. Examples are provided below to illustrate how you
 can plot your own data. This plotting facility is provided by the
-Matplotlib which we will see next.
+Matplotlib which we will see next. If you are not using Colab, you need
+to use the following method to show the plot:
+``df.plot().figure.show()``
 
 .. code:: python
 
@@ -1435,11 +1446,13 @@ together seamlessly.
 Installation Notes
 
 To be able to use the matplotlib library, you will need to download it
-from https://matplotlib.org/ and install it on your computer. If you are
-using a Python package manager (e.g. pip), you can install it directly
-using: ``$ pip install matplotlib``. Note that if you are using Colab or
-another Jupyter Notebook viewer, the platform may already have pandas
-installed.
+from `matplotlib.org <https://matplotlib.org/>`__ and install it on your
+computer. If you are using a Python package manager (e.g. pip), you can
+install it directly using: ``$ pip install matplotlib``. If you are
+using a Windows/Mac machine, you should install
+`anaconda <https://docs.anaconda.com/anaconda/install/>`__ first. If you
+are using Colab or another Jupyter Notebook viewer, the platform may
+already have matplotlib installed.
 
 .. raw:: html
 
@@ -1543,6 +1556,9 @@ example:
     
     # Create a legend
     ax.legend()
+    
+    # Show the plot
+    # fig.show() # Uncomment if not using Colab
 
 
 
@@ -1550,7 +1566,7 @@ example:
 .. parsed-literal::
     :class: output
 
-    <matplotlib.legend.Legend at 0x11daa03a0>
+    <matplotlib.legend.Legend at 0x1229e13a0>
 
 
 
@@ -1586,6 +1602,9 @@ figure or axes objects. This is illustrated in the following example:
     
     # Create a legend
     plt.legend()
+    
+    # Show the plot
+    #plt.show() # Uncomment if not using Colab
 
 
 
@@ -1593,7 +1612,7 @@ figure or axes objects. This is illustrated in the following example:
 .. parsed-literal::
     :class: output
 
-    <matplotlib.legend.Legend at 0x11dbf1a30>
+    <matplotlib.legend.Legend at 0x122b47a30>
 
 
 
@@ -1633,6 +1652,9 @@ example below:
     
     # Adjust vertical space between rows
     plt.subplots_adjust(hspace=0.5)
+    
+    # Show the plot
+    #fig.show() # Uncomment if not using Colab
 
 
 
@@ -1666,6 +1688,9 @@ below:
     
     # Adjust vertical space between rows
     plt.subplots_adjust(hspace=0.5)
+    
+    # Show the plot
+    #plt.show() # Uncomment if not using Colab
 
 
 
@@ -1707,6 +1732,8 @@ Further Reading
 -  SciPy documenation: https://docs.scipy.org/doc/scipy/reference/
 -  Pandas documentation: https://pandas.pydata.org/docs/
 -  Matplotlib documentation: https://matplotlib.org/2.1.1/contents.html
+-  Introduction to Algebra with Python:
+   https://pabloinsente.github.io/intro-linear-algebra
 
 Exercises
 ---------

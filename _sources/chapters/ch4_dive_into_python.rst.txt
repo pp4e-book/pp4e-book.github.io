@@ -12,7 +12,7 @@ solve problems with computers and how we can represent data in binary,
 we are ready to interact with Python and to learn representing data and
 performing actions in Python.
 
-The Python interpreter that we we introduced in Chapter 2 waits for our
+The Python interpreter that we introduced in Chapter 2 waits for our
 computational demands if not executing something already. Those demands
 that describe an algorithm have to be expressed in Python as a sequence
 of ‘actions’ where each action can serve two broad purposes:
@@ -1822,10 +1822,10 @@ assigning them to variables. First consider the following code:
 .. parsed-literal::
     :class: output
 
-    address of 5:  4380465840
-    address of a:  4380465840
-    address of b:  4380465840
-    address of a:  4380465776
+    address of 5:  4318804656
+    address of a:  4318804656
+    address of b:  4318804656
+    address of a:  4318804592
     b is:  5
 
 
@@ -1856,9 +1856,9 @@ Now keep the task the same but change the data from integer to a list:
 .. parsed-literal::
     :class: output
 
-    addresses of a and b:  4411372864 4411372864
+    addresses of a and b:  4352701376 4352701376
     b is:  [5, 1, 7]
-    addresses of a and b:  4414271936 4411372864
+    addresses of a and b:  4352701888 4352701376
     b is:  [5, 1, 7]
 
 
@@ -1881,9 +1881,9 @@ But now, consider the following slightly different example:
 .. parsed-literal::
     :class: output
 
-    addresses of a and b:  4414272384 4414272384
+    addresses of a and b:  4353281792 4353281792
     b is:  [5, 1, 7]
-    addresses of a and b:  4414272384 4414272384
+    addresses of a and b:  4353281792 4353281792
     b is:  [3, 1, 7]
 
 

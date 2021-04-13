@@ -186,7 +186,7 @@ details:</em><a class="reference external" href="https://pp4e-book.github.io/">h
 solve problems with computers and how we can represent data in binary,
 we are ready to interact with Python and to learn representing data and
 performing actions in Python.</p>
-<p>The Python interpreter that we we introduced in Chapter 2 waits for our
+<p>The Python interpreter that we introduced in Chapter 2 waits for our
 computational demands if not executing something already. Those demands
 that describe an algorithm have to be expressed in Python as a sequence
 of ‘actions’ where each action can serve two broad purposes:</p>
@@ -1795,10 +1795,10 @@ assigning them to variables. First consider the following code:</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b is: &quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">address</span> <span class="n">of</span> <span class="mi">5</span><span class="p">:</span>  <span class="mi">4380465840</span>
-<span class="n">address</span> <span class="n">of</span> <span class="n">a</span><span class="p">:</span>  <span class="mi">4380465840</span>
-<span class="n">address</span> <span class="n">of</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4380465840</span>
-<span class="n">address</span> <span class="n">of</span> <span class="n">a</span><span class="p">:</span>  <span class="mi">4380465776</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">address</span> <span class="n">of</span> <span class="mi">5</span><span class="p">:</span>  <span class="mi">4318804656</span>
+<span class="n">address</span> <span class="n">of</span> <span class="n">a</span><span class="p">:</span>  <span class="mi">4318804656</span>
+<span class="n">address</span> <span class="n">of</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4318804656</span>
+<span class="n">address</span> <span class="n">of</span> <span class="n">a</span><span class="p">:</span>  <span class="mi">4318804592</span>
 <span class="n">b</span> <span class="ow">is</span><span class="p">:</span>  <span class="mi">5</span>
 </pre></div>
 </div>
@@ -1821,9 +1821,9 @@ which is printed.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b is: &quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4411372864</span> <span class="mi">4411372864</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4352701376</span> <span class="mi">4352701376</span>
 <span class="n">b</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
-<span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4414271936</span> <span class="mi">4411372864</span>
+<span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4352701888</span> <span class="mi">4352701376</span>
 <span class="n">b</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -1839,9 +1839,9 @@ But now, consider the following slightly different example:</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b is: &quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4414272384</span> <span class="mi">4414272384</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4353281792</span> <span class="mi">4353281792</span>
 <span class="n">b</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
-<span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4414272384</span> <span class="mi">4414272384</span>
+<span class="n">addresses</span> <span class="n">of</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>  <span class="mi">4353281792</span> <span class="mi">4353281792</span>
 <span class="n">b</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
 </pre></div>
 </div>

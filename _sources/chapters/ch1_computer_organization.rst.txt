@@ -577,6 +577,12 @@ sequence:
    loads the content of the MBR into the memory and starts executing it.
    This program loads the actual operating system and then runs it.
 
+BIOS is nowadays replaced by Unified Extensible Firmware Interface
+(UEFI) which introduces more capabilities such as faster hardware check,
+better user interface and more security. With UEFI, MBR is replaced by
+GPT (Globally-unique-identifier Partition Table) to allow larger disks,
+larger partitions (drives) and better recovery options.
+
 The Operating System
 ~~~~~~~~~~~~~~~~~~~~
 
