@@ -1,0 +1,30 @@
+
+Programming with Python for Engineers
+=====================================
+
+
+
+.. raw:: html
+   :file: frontpage.html
+
+.. toctree::
+   :maxdepth: 2
+
+   chapters/ch0_preface.md
+
+.. toctree::
+   :maxdepth: 2
+   :numbered:
+
+   chapters/ch1_computer_organization.md
+   chapters/ch2_programming.md
+   chapters/ch3_data_representation.md
+   chapters/ch4_dive_into_python.md
+   chapters/ch5_conditional_and_repetitive.md
+   chapters/ch6_functions.md
+   chapters/ch7_OOP.md
+   chapters/ch8_file_handling.md
+   chapters/ch9_error_handling.md
+   chapters/ch10_scientific_libraries.md
+   chapters/ch11_application_optimization.md
+   chapters/ch12_regression.md

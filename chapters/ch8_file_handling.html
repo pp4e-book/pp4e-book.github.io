@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>8. File Handling &#8212; Programming with Python for Engineers 1.0 documentation</title>
+
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <link rel="stylesheet" href="../_static/material-design-lite-1.3.0/material.blue-deep_orange.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/d2l.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="9. Error Handling and Debugging" href="ch9_error_handling.html" />
+    <link rel="prev" title="7. A Gentle Introduction to Object-Oriented Programming" href="ch7_OOP.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link is-active"><span class="section-number">8. </span>File Handling</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/chapters/ch8_file_handling.rst.txt" rel="nofollow">
+  <i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+    <div class="mdl-layout__header-row header-links">
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+          
+              <a  class="mdl-navigation__link" href="https://pp4e-book.github.io/pp4e-book.pdf">
+                  <i class="fas fa-file-pdf"></i>
+                  PDF
+              </a>
+          
+              <a  class="mdl-navigation__link" href="https://github.com/pp4e-book/source">
+                  <i class="fab fa-github"></i>
+                  Github
+              </a>
+          
+              <a  class="mdl-navigation__link" href="https://pp4e-book.github.io/chapters/all_notebooks.zip">
+                  <i class="fas fa-download"></i>
+                  All Notebooks
+              </a>
+          
+              <a  class="mdl-navigation__link" href="https://ceng240.github.io/">
+                  <i class="fas fa-user-graduate"></i>
+                  Course
+              </a>
+      </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <img class="logo" src="../_static/logo-with-text.png" alt="Programming with Python for Engineers"/>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="ch0_preface.html">Preface</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ch1_computer_organization.html">1. Basic Computer Organization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch2_programming.html">2. A Broad Look at Programming and Programming Languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch3_data_representation.html">3. Representation of Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch4_dive_into_python.html">4. Dive into Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch5_conditional_and_repetitive.html">5. Conditional and Repetitive Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch6_functions.html">6. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch7_OOP.html">7. A Gentle Introduction to Object-Oriented Programming</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">8. File Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch9_error_handling.html">9. Error Handling and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch10_scientific_libraries.html">10. Scientific and Engineering Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch11_application_optimization.html">11. An Application: Approximation and Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch12_regression.html">12. An Application: Solving a Simple Regression Problem</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+
+	<script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js "></script>
+    <header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <img class="logo" src="../_static/logo-with-text.png" alt="Programming with Python for Engineers"/>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="ch0_preface.html">Preface</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ch1_computer_organization.html">1. Basic Computer Organization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch2_programming.html">2. A Broad Look at Programming and Programming Languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch3_data_representation.html">3. Representation of Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch4_dive_into_python.html">4. Dive into Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch5_conditional_and_repetitive.html">5. Conditional and Repetitive Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch6_functions.html">6. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch7_OOP.html">7. A Gentle Introduction to Object-Oriented Programming</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">8. File Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch9_error_handling.html">9. Error Handling and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch10_scientific_libraries.html">10. Scientific and Engineering Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch11_application_optimization.html">11. An Application: Approximation and Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch12_regression.html">12. An Application: Solving a Simple Regression Problem</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content" role="main">
+        
+  <div class="section" id="file-handling">
+<h1><span class="section-number">8. </span>File Handling<a class="headerlink" href="#file-handling" title="Permalink to this headline">¶</a><a href="https://colab.research.google.com/github/pp4e-book/pp4e-book.github.io/blob/master/chapters/ch8_file_handling.ipynb" onclick="captureOutboundLink('https://colab.research.google.com/github/['pp4e-book/pp4e-book.github.io']/blob/master/chapters/ch8_file_handling.ipynb'); return false;"> <button style="float:right", id="Colab" class="mdl-button mdl-js-button mdl-button--primary mdl-js-ripple-effect"> <i class=" fas fa-external-link-alt"></i> Colab </button></a><div class="mdl-tooltip" data-mdl-for="Colab"> Open the notebook in Colab</div></h1>
+<p><em>(C) Copyright Notice: This chapter is part of the book available
+at</em><a class="reference external" href="https://pp4e-book.github.io/">https://pp4e-book.github.io/</a><em>and copying, distributing, modifying
+it requires explicit permission from the authors. See the book page for
+details:</em><a class="reference external" href="https://pp4e-book.github.io/">https://pp4e-book.github.io/</a></p>
+<p>All variables used in a program are kept in the main memory and they are
+<strong>volatile</strong>, i.e., their values are lost when the program ends. Even if
+you write a program running forever, your data will be lost in case of a
+shutdown or a power failure.</p>
+<p>Another drawback of the main memory is the capacity limitation. In the
+extreme case, when you need more than a couple of gigabytes for your
+variables, it will be difficult to keep all of them in the main memory.
+Especially, infrequently required variables are better kept on an
+external storage device instead of the main memory.</p>
+<p><strong>Files</strong> provide a mechanism for storing data <strong>persistently</strong> in hard
+drives which provide significantly larger storage than the main memory.
+These devices are also called <em>secondary storage</em> devices. The data you
+put in a file will stay on the hard drive until someone overwrites or
+deletes the file (or when the hard drive fails, which is a sad but rare
+case).</p>
+<p>A <strong>File</strong> is a sequence of bytes stored on the secondary storage,
+typically hard drive (alternative secondary storage devices include CD,
+DVD, USB disk, tape drive). Data on a file has the following differences
+from data in memory (variables):</p>
+<ol class="arabic simple">
+<li><p>A file is just a sequence of bytes. Therefore, data in a file is
+unorganized, there is no data type, no variable boundaries.</p></li>
+<li><p>Data needs to be be accessed indirectly, using I/O functions. E.g.
+updating a value in a file requires reading it in memory, updating in
+memory, then writing it into the file back.</p></li>
+<li><p>Accessing and updating data is significantly slower since it is on an
+external device.</p></li>
+</ol>
+<p>Keeping data on a file instead of the main memory has the following use
+cases:</p>
+<ol class="arabic simple">
+<li><p>Data needs to be persistent. Data will be in the file when you
+restart your program, reboot your machine or when you find your
+ancient laptop in the basement 30 years later (Probably it will not
+be there when a 3000BC archeologist finds your laptop on an
+excavation site. Hard disks are not that durable. So, persistency is
+bounded).</p></li>
+<li><p>You need to exchange data with another program. Examples:</p>
+<ul class="simple">
+<li><p>You download data from web and your program gets it as input.</p></li>
+<li><p>You like to generate data in your program and put it on a
+spreadsheet for further processing.</p></li>
+</ul>
+</li>
+<li><p>You have large amount of data which does not fit in the main memory.
+In this case, you will probably use a library or software like a
+database management system to access data in a faster and organized
+way. Files are the most primitive, basic way of achieving it.</p></li>
+</ol>
+<p>In this chapter, we will talk about simple file access so that you will
+learn about simple file operations like open, close, read, write. The
+examples of the chapter will create and modify files when run – we
+strongly encourage you to check the contents of the created files using
+the file access mechanism at the left-hand side.</p>
+<div class="section" id="first-example">
+<h2><span class="section-number">8.1. </span>First Example<a class="headerlink" href="#first-example" title="Permalink to this headline">¶</a></h2>
+<p>Let us quickly look at a simple example to get a feeling for the
+different steps involved in working with files.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fpointer</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;firstexample.txt&#39;</span><span class="p">,</span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="n">fpointer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;hello</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">fpointer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;how are</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">fpointer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;you?</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">fpointer</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The program above will create a file in the current directory with
+filename <code class="docutils literal notranslate"><span class="pre">firstexample.txt</span></code>. You can open it with your favourite text
+editor (there are plenty of text editors for operating systems: notepad,
+wordpad, textedit, nano, vim) to see and edit it. The content will look
+like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>hello
+how are
+you?
+</pre></div>
+</div>
+<p>First line of the program is
+<code class="docutils literal notranslate"><span class="pre">fpointer</span> <span class="pre">=</span> <span class="pre">open('firstexample.txt',&quot;w&quot;)</span></code>. This line opens the file
+named <code class="docutils literal notranslate"><span class="pre">firstexample.txt</span></code> for writing to it. If the file exists, its
+content will be erased (it will be an empty file afterwards). The result
+of <code class="docutils literal notranslate"><span class="pre">open()</span></code> is a file object that we will use in the following lines.
+This object is assigned to variable <code class="docutils literal notranslate"><span class="pre">fpointer</span></code>.</p>
+<p>In the following lines, all functions we call with this file object
+<code class="docutils literal notranslate"><span class="pre">fpointer</span></code> will work on this file (i.e. <code class="docutils literal notranslate"><span class="pre">firstexample.txt</span></code>). This
+special <em>dot</em> notation helps us with calling functions in scope of the
+file. <code class="docutils literal notranslate"><span class="pre">fpointer.</span></code><em>functionname</em><code class="docutils literal notranslate"><span class="pre">()</span></code> will call the <em>functionname</em>
+function for this file. <code class="docutils literal notranslate"><span class="pre">write(string)</span></code> function will write the
+<code class="docutils literal notranslate"><span class="pre">string</span></code> content to the file. Each call to <code class="docutils literal notranslate"><span class="pre">write(string)</span></code> will
+append the <code class="docutils literal notranslate"><span class="pre">string</span></code> to the file and the file will grow. At the end,
+when we are done, we call <code class="docutils literal notranslate"><span class="pre">close()</span></code> to finish accessing the file so
+that your operating system will know and do necessary actions about it.
+All open files will be closed when your program terminates. However,
+calling <code class="docutils literal notranslate"><span class="pre">close()</span></code> after finishing writing is a good programming
+practice.</p>
+<p>Now, let us read this file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;firstexample.txt&quot;</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">content</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span>hello
+how are
+you?
+</pre></div>
+</div>
+<p>In this case, we called <code class="docutils literal notranslate"><span class="pre">open()</span></code> with argument <code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span></code> which tells
+that we are going to read the file (or use it as an input source). If
+you skip the second argument in <code class="docutils literal notranslate"><span class="pre">open()</span></code>, it is assumed to be <code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span></code>,
+so <code class="docutils literal notranslate"><span class="pre">open(&quot;firstexample.txt&quot;)</span></code> will be equivalent. The <code class="docutils literal notranslate"><span class="pre">read()</span></code> call
+gets an optional argument, which is the number of bytes to read. If you
+skip it, it will read the whole file content and return it as a string.
+Therefore, after the call, the <code class="docutils literal notranslate"><span class="pre">content</span></code> variable will be a string
+with the file content.</p>
+</div>
+<div class="section" id="files-and-sequential-access">
+<h2><span class="section-number">8.2. </span>Files and Sequential Access<a class="headerlink" href="#files-and-sequential-access" title="Permalink to this headline">¶</a></h2>
+<p>A file consists of bytes and <code class="docutils literal notranslate"><span class="pre">read/write</span></code> operations access those
+bytes <strong>sequentially</strong>. In sequential access, the current I/O operation
+updates the file state so that next I/O operation will resume from the
+end of the current I/O operation.</p>
+<p>Assume you have an old MP3 player that supports only <em>play me next 10
+seconds</em> operation on a button. Pressing it will play the next 10
+seconds of the song. When you press again, it will resume from where it
+is left and play another 10 seconds. This follows until the song is
+over. The sequential access is like this. A <em>file pointer</em> keeps the
+current offset of the file and each I/O operation advances it so that
+next call will read or write from this new offset – see
+<a class="reference internal" href="#ch8-file-handling"><span class="std std-numref">Fig. 8.2.1</span></a>.</p>
+<div class="figure align-default" id="id1">
+<span id="ch8-file-handling"></span><a class="reference internal image-reference" href="../_images/ch8_sequential_read.png"><img alt="../_images/ch8_sequential_read.png" src="../_images/ch8_sequential_read.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 8.2.1 </span><span class="caption-text">Sequential reading of a file.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>The following is a sample program illustrating sequential access:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;firstexample.txt&quot;</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="c1"># the example file we created above</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>          <span class="c1"># repeat 3 times</span>
+   <span class="n">content</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>     <span class="c1"># read 4 bytes in each step</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&gt; &quot;</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>     <span class="c1"># output 4 bytes preceded by &gt;</span>
+
+<span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span>  <span class="n">hell</span>
+<span class="o">&gt;</span>  <span class="n">o</span>
+<span class="n">ho</span>
+<span class="o">&gt;</span>  <span class="n">w</span> <span class="n">ar</span>
+</pre></div>
+</div>
+<p>The text in the file was:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>hello
+how are
+you?
+</pre></div>
+</div>
+<p>The first <code class="docutils literal notranslate"><span class="pre">read()</span></code> reads <code class="docutils literal notranslate"><span class="pre">'hell'</span></code>, the second reads <code class="docutils literal notranslate"><span class="pre">'o\nho'</span></code>
+(note that <code class="docutils literal notranslate"><span class="pre">\n</span></code> stands for a new line so that <code class="docutils literal notranslate"><span class="pre">ho</span></code> is printed on a
+new line), and the third reads <code class="docutils literal notranslate"><span class="pre">'w</span> <span class="pre">ar'</span></code>. After these operations, the
+file offset is left at a position so that the following reads will
+resume from content <code class="docutils literal notranslate"><span class="pre">'e\nyou\n'</span></code>.</p>
+<p>We provided the example with 4-byte read operations. However, for text
+files, the typical scenario is reading characters line by line instead
+of fixed size strings.</p>
+</div>
+<div class="section" id="data-conversion-and-parsing">
+<h2><span class="section-number">8.3. </span>Data Conversion and Parsing<a class="headerlink" href="#data-conversion-and-parsing" title="Permalink to this headline">¶</a></h2>
+<p>A file, specifically a text file, consists of strings. However,
+especially in engineering and science, we work with numbers. A number is
+represented in a text file as a sequence of characters including digits,
+a sign prefix (<code class="docutils literal notranslate"><span class="pre">'-'</span></code> and <code class="docutils literal notranslate"><span class="pre">'+'</span></code>) and at most one occurrence of a dot
+(<code class="docutils literal notranslate"><span class="pre">'.'</span></code>). That means in your Python program, you may use <span class="math notranslate nohighlight">\(\pi\)</span> as
+<code class="docutils literal notranslate"><span class="pre">3.1416</span></code> however, in the text file, you store <code class="docutils literal notranslate"><span class="pre">'3.1416'</span></code>, which is a
+string consisting of chars <code class="docutils literal notranslate"><span class="pre">'3','.','1','4','1','6'</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pi</span> <span class="o">=</span> <span class="mf">3.1416</span>
+<span class="n">pistr</span> <span class="o">=</span> <span class="s1">&#39;3.1416&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pi</span><span class="o">+</span><span class="n">pi</span><span class="p">,</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">pi</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pistr</span><span class="o">+</span><span class="n">pistr</span><span class="p">,</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">pistr</span> <span class="o">*</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">6.2832</span> <span class="p">:</span> <span class="mf">9.4248</span>
+<span class="mf">3.14163</span><span class="o">.</span><span class="mi">1416</span> <span class="p">:</span> <span class="mf">3.14163</span><span class="o">.</span><span class="mf">14163.1416</span>
+</pre></div>
+</div>
+<p>Funny, the second line of output above is a result of Python
+interpreting <code class="docutils literal notranslate"><span class="pre">+</span></code> operator as string concatenation, and <code class="docutils literal notranslate"><span class="pre">*</span></code> as
+adjoining multiple copies of a string. If we need to treat numbers as
+numbers, we need to convert them from string. There are two handy
+functions for this: <code class="docutils literal notranslate"><span class="pre">int()</span></code> and <code class="docutils literal notranslate"><span class="pre">float()</span></code> convert a string into an
+integer and a floating point value, respectively. Here is an
+illustration:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pistr</span> <span class="o">=</span> <span class="s1">&#39;  0.31416E01  &#39;</span>
+<span class="n">nstr</span> <span class="o">=</span> <span class="s1">&#39; 47 &#39;</span>
+
+<span class="c1"># Convert numbers in the strings into numerical data types:</span>
+<span class="n">piflt</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pistr</span><span class="p">)</span>
+<span class="n">nint</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">nstr</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">piflt</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="n">nint</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">6.2832</span> <span class="mi">94</span>
+</pre></div>
+</div>
+<p>Note that we cannot call <code class="docutils literal notranslate"><span class="pre">int('3.1416')</span></code> since the string is not a
+valid integer. That brings us another challenge of making sure that
+strings we need to convert are actually numbers. Obviously
+<code class="docutils literal notranslate"><span class="pre">int('hello')</span></code> and <code class="docutils literal notranslate"><span class="pre">float('one</span> <span class="pre">point</span> <span class="pre">five')</span></code> will not work. The ways
+of dealing with such errors are left for the next chapter. In this
+chapter, we assume that we have our data carefully created and all
+conversions work without any error.</p>
+<p>Our next challenge is having multiple numbers on a string separated by
+special characters or simply spaces as <code class="docutils literal notranslate"><span class="pre">'10.0</span> <span class="pre">5.0</span> <span class="pre">5.0'</span></code>. In this case,
+we need to decompose a string into string pieces representing numbers,
+so that we will have <code class="docutils literal notranslate"><span class="pre">'10.0','5.0','5.0'</span></code> for the above string. The
+next step will be converting them into numbers:</p>
+<p><code class="docutils literal notranslate"><span class="pre">'10.0</span> <span class="pre">5.0</span> <span class="pre">5.0'</span></code> <span class="math notranslate nohighlight">\(\overset{Step\ 1}{\longrightarrow}\)</span>
+[<code class="docutils literal notranslate"><span class="pre">'10.0','5.0','5.0'</span></code>] <span class="math notranslate nohighlight">\(\overset{Step\ 2}{\longrightarrow}\)</span>
+<code class="docutils literal notranslate"><span class="pre">[10.0,</span> <span class="pre">5.0,</span> <span class="pre">5.0]</span></code></p>
+<p>For the first step, we will use the <code class="docutils literal notranslate"><span class="pre">split()</span></code> method of a string.
+String, or the variable containing the string, is followed by
+<code class="docutils literal notranslate"><span class="pre">.split(delimiter)</span></code>, which returns a list of strings separated by the
+given delimiters. The delimiters are removed and all values in between
+are put in the list – for example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a:b:c&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hello darkness, my old friend&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a &lt;=&gt; b &lt;=&gt; c&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &lt;=&gt; &#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;multiple       spaces          are         tricky&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">))</span>
+<span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;10.0 5.0 5.0&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="p">[</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;darkness,&#39;</span><span class="p">,</span> <span class="s1">&#39;my&#39;</span><span class="p">,</span> <span class="s1">&#39;old&#39;</span><span class="p">,</span> <span class="s1">&#39;friend&#39;</span><span class="p">]</span>
+<span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="p">[</span><span class="s1">&#39;multiple&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;spaces&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;are&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;tricky&#39;</span><span class="p">]</span>
+<span class="p">[</span><span class="s1">&#39;10.0&#39;</span><span class="p">,</span> <span class="s1">&#39;5.0&#39;</span><span class="p">,</span> <span class="s1">&#39;5.0&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>For the second step, we will use the <code class="docutils literal notranslate"><span class="pre">float()</span></code> function on a list (or
+the <code class="docutils literal notranslate"><span class="pre">int()</span></code> function if you have a list of integers). We have couple
+of options for this. One is to start from an empty list and append the
+converted value at each step:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">instr</span> <span class="o">=</span> <span class="s1">&#39;10.0 5.0 5.0&#39;</span>
+<span class="n">outlst</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Go over each substring</span>
+<span class="k">for</span> <span class="n">substr</span> <span class="ow">in</span> <span class="n">instr</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">):</span>
+  <span class="n">outlst</span> <span class="o">+=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">substr</span><span class="p">)]</span>    <span class="c1"># Convert each element to float and append it to the list</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">outlst</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>A more practical and faster version will be list comprehension, which is
+the compact version of mapping a value into another as:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">instr</span> <span class="o">=</span> <span class="s1">&#39;10.0 5.0 5.0&#39;</span>
+
+<span class="n">outlst</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">float</span><span class="p">(</span><span class="n">substr</span><span class="p">)</span> <span class="k">for</span> <span class="n">substr</span> <span class="ow">in</span> <span class="n">instr</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">outlst</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>As we have explained in Chapter 3, the syntax is similar to set/list
+notation in Math:</p>
+<p><span class="math notranslate nohighlight">\(\left\{ float(s)\ \vert\ s \in S\right\}\)</span>
+vs. <code class="docutils literal notranslate"><span class="pre">[float(s)</span> <span class="pre">for</span> <span class="pre">s</span> <span class="pre">in</span> <span class="pre">S]</span></code></p>
+<p>If you need to have multiple spaces within the values, you can use
+<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">re</span></code> and call <code class="docutils literal notranslate"><span class="pre">re.split('</span> <span class="pre">+',</span> <span class="pre">inputstr)</span></code> instead of
+<code class="docutils literal notranslate"><span class="pre">inputstr.split('</span> <span class="pre">')</span></code>. This will split the
+<code class="docutils literal notranslate"><span class="pre">'multiple</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">spaces</span>&#160;&#160; <span class="pre">are</span>&#160;&#160;&#160; <span class="pre">tricky'</span></code> example above into 4 words
+without spaces. How it works is beyond the scope of the book. Curious
+readers can refer to <code class="docutils literal notranslate"><span class="pre">re</span></code> and <code class="docutils literal notranslate"><span class="pre">parse</span></code> modules for more advanced
+forms of input parsing. These are not trivial modules for beginners.</p>
+<p>Now, let us consider the reverse of the operation: Assume we have a list
+of integers and we like to convert that into string that can be written
+in a file:</p>
+<p><code class="docutils literal notranslate"><span class="pre">[10.0,</span> <span class="pre">5.0,</span> <span class="pre">5.0]</span></code> <span class="math notranslate nohighlight">\(\overset{Step\ 1}{\longrightarrow}\)</span>
+<code class="docutils literal notranslate"><span class="pre">10.0','5.0','5.0</span></code> <span class="math notranslate nohighlight">\(\overset{Step\ 2}{\longrightarrow}\)</span>
+<code class="docutils literal notranslate"><span class="pre">'10.0</span> <span class="pre">5.0</span> <span class="pre">5.0'</span></code></p>
+<p>The first step will be handled with the <code class="docutils literal notranslate"><span class="pre">str()</span></code> function which
+converts any Python value into a human readable string:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">inlst</span> <span class="o">=</span> <span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">]</span>
+
+<span class="n">outlst</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">inlst</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">outlst</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;10.0&#39;</span><span class="p">,</span> <span class="s1">&#39;5.0&#39;</span><span class="p">,</span> <span class="s1">&#39;5.0&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The next step is to join those elements with a delimiter, which is
+reverse of the <code class="docutils literal notranslate"><span class="pre">split()</span></code> operation. Not by accident, name of this
+operation is <code class="docutils literal notranslate"><span class="pre">join()</span></code>. <code class="docutils literal notranslate"><span class="pre">join()</span></code> is a method of the delimiter string
+and list is the argument of it.
+<code class="docutils literal notranslate"><span class="pre">':'.join(hello','how','are','you?)</span></code> returns
+<code class="docutils literal notranslate"><span class="pre">'hello:how:are:you?'</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">inlst</span> <span class="o">=</span> <span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">]</span>
+
+<span class="n">outlst</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">inlst</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">outlst</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">10.0</span> <span class="mf">5.0</span> <span class="mf">5.0</span>
+</pre></div>
+</div>
+<p>A more advanced way of converting values into strings is called
+<em>formatted output</em> and briefly introduced in a section below.</p>
+</div>
+<div class="section" id="accessing-text-files-line-by-line">
+<h2><span class="section-number">8.4. </span>Accessing Text Files Line by Line<a class="headerlink" href="#accessing-text-files-line-by-line" title="Permalink to this headline">¶</a></h2>
+<p>Files consisting of human readable strings are called <strong>text files</strong>.
+Text files consist of strings separated by the <em>end of line</em> character
+<code class="docutils literal notranslate"><span class="pre">'\n'</span></code>, also known as <em>new line</em>. The sequence of characters in a file
+contains the end-of-line characters so that a text editor will end the
+current line and show following characters on a new line. We use
+end-of-line characters so that logically relevant data is on the same
+line. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span>
+<span class="mf">10.0</span> <span class="mf">20.0</span>
+<span class="mf">15.5</span> <span class="mf">22.2</span>
+<span class="mi">3</span> <span class="mi">44</span>
+<span class="mi">10</span> <span class="mf">10.5</span>
+</pre></div>
+</div>
+<p>Let us assume the integer value <code class="docutils literal notranslate"><span class="pre">4</span></code> on the first line denotes how many
+lines will follow. Assume also that each of the following 4 lines have
+two real values denoting <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> values of a point. In
+this way, we can represent our input separated by end-of-line characters
+for each point and by space character for each value in a line.</p>
+<p>Let us create such a text file from a Python list. Please note that the
+file <code class="docutils literal notranslate"><span class="pre">read</span></code> function returns a string, the <code class="docutils literal notranslate"><span class="pre">write</span></code> function expects
+a string argument. I.e., calling <code class="docutils literal notranslate"><span class="pre">write(3.14)</span></code> will fail. In order to
+make the conversion, we use the <code class="docutils literal notranslate"><span class="pre">str()</span></code> function for numeric values
+and call <code class="docutils literal notranslate"><span class="pre">write(str(3.14))</span></code> instead. Another tricky point is that
+<code class="docutils literal notranslate"><span class="pre">write()</span></code> does not put end of line character automatically. You need
+to put it in the output string or call an extra <code class="docutils literal notranslate"><span class="pre">write(&quot;\n&quot;)</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pointlist</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">)]</span>
+
+<span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;pointlist.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>       <span class="c1"># open file for writing</span>
+<span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pointlist</span><span class="p">)))</span>         <span class="c1"># write list length</span>
+<span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Go over each point in the list</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="n">pointlist</span><span class="p">:</span>              <span class="c1"># for each x,y value in the list</span>
+  <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>                   <span class="c1"># write x</span>
+  <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>                      <span class="c1"># space as number separator</span>
+  <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>                   <span class="c1"># write y</span>
+  <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>                     <span class="c1"># \n as line separator</span>
+
+<span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># let us read the content to verify what we wrote</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;pointlist.txt&quot;</span><span class="p">)</span>           <span class="c1"># open for reading</span>
+<span class="n">content</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span>
+<span class="mi">0</span> <span class="mi">0</span>
+<span class="mi">10</span> <span class="mi">0</span>
+<span class="mi">10</span> <span class="mi">10</span>
+<span class="mi">0</span> <span class="mi">10</span>
+</pre></div>
+</div>
+<p>Using <code class="docutils literal notranslate"><span class="pre">read()</span></code> will get the whole content of the file; if the file is
+large, your program would use too much memory and processing the data
+will be difficult. Instead of that, we can access a text file line by
+line using the <code class="docutils literal notranslate"><span class="pre">readline()</span></code> function.</p>
+<p>Let us write a program to read and output the content of a text file. We
+need a loop to read the file line by line and output. But, when we are
+going to stop is another problem. Python’s <code class="docutils literal notranslate"><span class="pre">read()</span></code> and <code class="docutils literal notranslate"><span class="pre">readline()</span></code>
+functions return an empty string <code class="docutils literal notranslate"><span class="pre">''</span></code> when there is nothing left to
+read. We can use this to stop reading:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;pointlist.txt&quot;</span><span class="p">)</span>              <span class="c1"># open file for reading</span>
+
+<span class="n">nextline</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>                <span class="c1"># read the first line</span>
+<span class="k">while</span> <span class="n">nextline</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>                   <span class="c1"># while read is successful</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">nextline</span><span class="p">)</span>                       <span class="c1"># output the line</span>
+  <span class="n">nextline</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>              <span class="c1"># read the nextline</span>
+
+<span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>                              <span class="c1"># when nextline == &#39;&#39; loop terminates</span>
+</pre></div>
+</div>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span>
+
+<span class="mi">0</span> <span class="mi">0</span>
+
+<span class="mi">10</span> <span class="mi">0</span>
+
+<span class="mi">10</span> <span class="mi">10</span>
+
+<span class="mi">0</span> <span class="mi">10</span>
+</pre></div>
+</div>
+<p>Please note the empty lines between the each output line. This is due to
+<code class="docutils literal notranslate"><span class="pre">'\n'</span></code> character at the end of the string that <code class="docutils literal notranslate"><span class="pre">readline()</span></code> returns.
+In other words, <code class="docutils literal notranslate"><span class="pre">readline()</span></code> keeps the new line character it reads.
+<code class="docutils literal notranslate"><span class="pre">print()</span></code> puts an end of line after the output (this can bu suppressed
+by adding an <code class="docutils literal notranslate"><span class="pre">end=''</span></code> argument). As a result, we have extra
+end-of-line at the end of each line. In order to avoid it, you can call
+<code class="docutils literal notranslate"><span class="pre">rstrip('\n')</span></code> on the returned string to remove end of line. The new
+code will be:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;pointlist.txt&quot;</span><span class="p">)</span>              <span class="c1"># open file for reading</span>
+
+<span class="n">nextline</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>                <span class="c1"># read the first line</span>
+<span class="k">while</span> <span class="n">nextline</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>                   <span class="c1"># while read is successful</span>
+  <span class="n">nextline</span> <span class="o">=</span> <span class="n">nextline</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>      <span class="c1"># remove occurrences of &#39;\n&#39; at the end</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">nextline</span><span class="p">)</span>                       <span class="c1"># output the line</span>
+  <span class="n">nextline</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>              <span class="c1"># read the nextline</span>
+
+<span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span>
+<span class="mi">0</span> <span class="mi">0</span>
+<span class="mi">10</span> <span class="mi">0</span>
+<span class="mi">10</span> <span class="mi">10</span>
+<span class="mi">0</span> <span class="mi">10</span>
+</pre></div>
+</div>
+<p>Converting this file into the initial Python list
+<code class="docutils literal notranslate"><span class="pre">[(0,0),</span> <span class="pre">(10,0),</span> <span class="pre">(10,10),</span> <span class="pre">(0,10)]</span></code> is our next challenge. This
+requires conversion of a string as <code class="docutils literal notranslate"><span class="pre">&quot;0</span> <span class="pre">0\n&quot;</span></code> into <code class="docutils literal notranslate"><span class="pre">(0,0)</span></code>. The first
+one is of type <code class="docutils literal notranslate"><span class="pre">str</span></code> whereas the second is a tuple of numeric values.
+We can use <code class="docutils literal notranslate"><span class="pre">int()</span></code> or <code class="docutils literal notranslate"><span class="pre">float()</span></code> functions to convert strings into
+numbers. Note that the string should contain a valid representation of a
+Python numeric value: <code class="docutils literal notranslate"><span class="pre">int(&quot;hello&quot;)</span></code> will raise an error.</p>
+<p>The second issue is separating two numbers in the same string. We can
+use <code class="docutils literal notranslate"><span class="pre">split()</span></code> function followed by the separator string as in
+<code class="docutils literal notranslate"><span class="pre">nextline.split('</span> <span class="pre">')</span></code>. This call will return a sequence of strings
+from a string. If the separator does not occur in the string, it will
+return a list with one element, if there is one separator, it will
+return two elements. For <span class="math notranslate nohighlight">\(n\)</span> occurrences of the separator, it will
+return a list with <span class="math notranslate nohighlight">\(n-1\)</span> elements.</p>
+<p>Here is the solution in Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;pointlist.txt&quot;</span><span class="p">)</span>              <span class="c1"># open file for reading</span>
+
+<span class="n">pointlist</span> <span class="o">=</span> <span class="p">[]</span>                          <span class="c1"># start with empty list</span>
+
+<span class="n">nextline</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>                <span class="c1"># read the first line</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">nextline</span><span class="p">)</span>                       <span class="c1"># find number of lines to read</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>                      <span class="c1"># repeat n times</span>
+  <span class="n">nextline</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>              <span class="c1"># read the nextline</span>
+  <span class="n">nextline</span> <span class="o">=</span> <span class="n">nextline</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>      <span class="c1"># remove occurrences of &#39;\n&#39; at the end</span>
+  <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">=</span> <span class="n">nextline</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>          <span class="c1"># get x and y (note that they are still strings)</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>                          <span class="c1"># convert them into real values</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+  <span class="n">pointlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="p">)</span>             <span class="c1"># add tuple at the end</span>
+
+<span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pointlist</span><span class="p">)</span>                        <span class="c1"># output the resulting list</span>
+</pre></div>
+</div>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="termination-of-input">
+<h2><span class="section-number">8.5. </span>Termination of Input<a class="headerlink" href="#termination-of-input" title="Permalink to this headline">¶</a></h2>
+<p>There are two ways to stop reading input:</p>
+<ol class="arabic simple">
+<li><p>By reading a definite number of items.</p></li>
+<li><p>By the end of the file.</p></li>
+</ol>
+<p>In our previous examples, we read an integer that told us how many lines
+followed in the file. Then, we called <code class="docutils literal notranslate"><span class="pre">readline()</span></code> in a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop
+with the given number of lines. This is an example of the first case
+which provides a definite number of items.</p>
+<p>The alternative is to read lines in a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop until a termination
+condition arises. The termination condition is usually the <strong>end of
+file</strong>, the case where functions like <code class="docutils literal notranslate"><span class="pre">read()</span></code> and <code class="docutils literal notranslate"><span class="pre">readline()</span></code>
+return an empty string <code class="docutils literal notranslate"><span class="pre">''</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;pointlist.txt&quot;</span><span class="p">)</span>              <span class="c1"># open file for reading</span>
+
+<span class="n">pointlist</span> <span class="o">=</span> <span class="p">[]</span>                          <span class="c1"># start with empty list</span>
+<span class="n">nextline</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>                <span class="c1"># skip the first line (4) since we don&#39;t need it</span>
+
+<span class="n">nextline</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>                <span class="c1"># read the first line</span>
+<span class="k">while</span> <span class="n">nextline</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>                   <span class="c1"># until end of file</span>
+  <span class="n">nextline</span> <span class="o">=</span> <span class="n">nextline</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>      <span class="c1"># remove occurrences of &#39;\n&#39; at the end</span>
+  <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">=</span> <span class="n">nextline</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>          <span class="c1"># get x and y (note that they are still strings)</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>                          <span class="c1"># convert them into real values</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+  <span class="n">pointlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="p">)</span>             <span class="c1"># add tuple at the end</span>
+  <span class="n">nextline</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>              <span class="c1"># read the nextline</span>
+
+<span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pointlist</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>Note that the example above skips (reads and throws away) the first line
+so that the integer on the first line is ignored. When your input does
+not contain such an unnecessary value, you can delete this line.</p>
+<p>Sometimes termination can be marked explicitly by a <em>sentinel value</em>
+which is a value marking the end of values. This is especially useful
+when you have multiple objects to read:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># First, create a file named `twopointlists.txt`</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;twopointlists.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;3 0</span>
+<span class="s2">3.4 2.1</span>
+<span class="s2">5.1 3.2</span>
+<span class="s2">EOLIST</span>
+<span class="s2">1 1.5</span>
+<span class="s2">2.0 2.5&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This will create a sample file content as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="mi">0</span>
+<span class="mf">3.4</span> <span class="mf">2.1</span>
+<span class="mf">5.1</span> <span class="mf">3.2</span>
+<span class="n">EOLIST</span>
+<span class="mi">1</span> <span class="mf">1.5</span>
+<span class="mf">2.0</span> <span class="mf">2.5</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;twopointlists.txt&quot;</span><span class="p">)</span>
+<span class="n">pntlst1</span> <span class="o">=</span> <span class="p">[]</span>                            <span class="c1"># start with empty list</span>
+<span class="n">pntlst2</span> <span class="o">=</span> <span class="p">[]</span>                            <span class="c1"># start with empty list</span>
+
+<span class="n">nextline</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>                <span class="c1"># read the first line</span>
+<span class="k">while</span> <span class="n">nextline</span> <span class="o">!=</span> <span class="s1">&#39;EOLIST</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">:</span>             <span class="c1"># sentinel value</span>
+  <span class="n">nextline</span> <span class="o">=</span> <span class="n">nextline</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>      <span class="c1"># remove occurrences of &#39;\n&#39; at the end</span>
+  <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">=</span> <span class="n">nextline</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>          <span class="c1"># get x and y (note that they are still strings)</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>                          <span class="c1"># convert them into real values</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+  <span class="n">pntlst1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="p">)</span>               <span class="c1"># add tuple at the end</span>
+  <span class="n">nextline</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>              <span class="c1"># read the nextline</span>
+
+<span class="c1"># first list has been read, now continue with the second list from the same file</span>
+<span class="n">nextline</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="k">while</span> <span class="n">nextline</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>                   <span class="c1"># until end of file</span>
+  <span class="n">nextline</span> <span class="o">=</span> <span class="n">nextline</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>      <span class="c1"># remove occurrences of &#39;\n&#39; at the end</span>
+  <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">=</span> <span class="n">nextline</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>          <span class="c1"># get x and y (note that they are still strings)</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>                          <span class="c1"># convert them into real values</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+  <span class="n">pntlst2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="p">)</span>             <span class="c1"># add tuple at the end</span>
+  <span class="n">nextline</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>              <span class="c1"># read the nextline</span>
+
+<span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;List 1:&#39;</span><span class="p">,</span> <span class="n">pntlst1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;List 2:&#39;</span><span class="p">,</span> <span class="n">pntlst2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">List</span> <span class="mi">1</span><span class="p">:</span> <span class="p">[(</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">3.4</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">),</span> <span class="p">(</span><span class="mf">5.1</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">)]</span>
+<span class="n">List</span> <span class="mi">2</span><span class="p">:</span> <span class="p">[(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">),</span> <span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>The output will be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">List</span> <span class="mi">1</span><span class="p">:</span> <span class="p">[(</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">3.4</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">),</span> <span class="p">(</span><span class="mf">5.1</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">)]</span>
+<span class="n">List</span> <span class="mi">2</span><span class="p">:</span> <span class="p">[(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">),</span> <span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-processing-csv-files">
+<h2><span class="section-number">8.6. </span>Example: Processing CSV Files<a class="headerlink" href="#example-processing-csv-files" title="Permalink to this headline">¶</a></h2>
+<p><strong>CSV</strong> stands for <em>Comma Separated Value</em>; it is a text-based format
+for exporting/importing spreadsheet (i.e. Excel) data. Each row in a CSV
+file is separated by newlines and each column is separated by a comma
+<code class="docutils literal notranslate"><span class="pre">,</span></code>. Actually, the format is more complex but for the time being, let
+us ignore comma that might be appearing in strings and focus on a simple
+form as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Name</span><span class="p">,</span><span class="n">Surname</span><span class="p">,</span><span class="n">Grade</span>
+<span class="n">Han</span><span class="p">,</span><span class="n">Solo</span><span class="p">,</span><span class="mi">80</span>
+<span class="n">Luke</span><span class="p">,</span><span class="n">Skywalker</span><span class="p">,</span><span class="mi">90</span>
+<span class="n">Obi</span><span class="p">,</span><span class="n">Van</span> <span class="n">Kenobi</span><span class="p">,</span><span class="mi">88</span>
+<span class="n">Leya</span><span class="p">,</span><span class="n">Skywalker</span><span class="p">,</span><span class="mi">91</span>
+<span class="n">Anakin</span><span class="p">,</span><span class="n">Skywalker</span><span class="p">,</span><span class="mi">55</span>
+</pre></div>
+</div>
+<p>Usually first line is the names of the columns in a spreadsheet. Now,
+let us create this file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">content</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;Name,Surname,Grade</span>
+<span class="s1">Han,Solo,80</span>
+<span class="s1">Luke,Skywalker,90</span>
+<span class="s1">Obi,Van Kenobi,88</span>
+<span class="s1">Leya,Skywalker,91</span>
+<span class="s1">Anakin,Skywalker,55</span>
+<span class="s1">&#39;&#39;&#39;</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;first.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>    <span class="c1"># open for writing</span>
+<span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>              <span class="c1"># write in a single operation, practical for small files</span>
+<span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Our next task is to read this file in memory as a list of dictionary
+form, as: <code class="docutils literal notranslate"><span class="pre">[{&quot;Name&quot;:&quot;Han&quot;,</span> <span class="pre">&quot;Surname&quot;:&quot;Solo&quot;,&quot;Grade&quot;:&quot;80&quot;},...]</span></code></p>
+<p>We need to read the file line by line, extract the components using the
+<code class="docutils literal notranslate"><span class="pre">split()</span></code> function, then create the dictionary. Then, we can append it
+to resulting list. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;first.csv&quot;</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>              <span class="c1"># open for reading</span>
+
+<span class="n">line</span> <span class="o">=</span>  <span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>                   <span class="c1"># read column names</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>                <span class="c1"># get rid of new line</span>
+<span class="n">colnames</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>              <span class="c1"># list of column names</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>                             <span class="c1"># resulting list of dictionaries</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="k">while</span> <span class="n">line</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>                       <span class="c1"># end-of-file check</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">entry</span> <span class="o">=</span> <span class="p">{}</span>                          <span class="c1"># start with empty dictionary</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span>                               <span class="c1"># a counter to address column number</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">):</span>           <span class="c1"># in a loop process each column of the row</span>
+        <span class="n">entry</span><span class="p">[</span><span class="n">colnames</span><span class="p">[</span><span class="n">c</span><span class="p">]]</span> <span class="o">=</span> <span class="n">v</span>          <span class="c1"># column name is index, value is from current row</span>
+        <span class="n">c</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>                <span class="c1"># add dictionary to result</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>                <span class="c1"># read next line</span>
+
+<span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;list&#39;&gt;
+[{&#39;Name&#39;: &#39;Han&#39;, &#39;Surname&#39;: &#39;Solo&#39;, &#39;Grade&#39;: &#39;80&#39;}, {&#39;Name&#39;: &#39;Luke&#39;, &#39;Surname&#39;: &#39;Skywalker&#39;, &#39;Grade&#39;: &#39;90&#39;}, {&#39;Name&#39;: &#39;Obi&#39;, &#39;Surname&#39;: &#39;Van Kenobi&#39;, &#39;Grade&#39;: &#39;88&#39;}, {&#39;Name&#39;: &#39;Leya&#39;, &#39;Surname&#39;: &#39;Skywalker&#39;, &#39;Grade&#39;: &#39;91&#39;}, {&#39;Name&#39;: &#39;Anakin&#39;, &#39;Surname&#39;: &#39;Skywalker&#39;, &#39;Grade&#39;: &#39;55&#39;}]
+</pre></div>
+</div>
+<p>Let us improve this example by adding a column as a result of a
+computation. Let us calculate the grade average and show the difference
+from the average as a new column. We need to go over all grade values in
+the list, convert to them real values (so that we can do arithmetic on
+them), calculate the average, then go over all rows to add a new column.
+Then, go over the list again to export/write it into a new CSV file.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Calculate the average</span>
+<span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+  <span class="nb">sum</span> <span class="o">+=</span> <span class="nb">float</span><span class="p">(</span><span class="n">entry</span><span class="p">[</span><span class="s1">&#39;Grade&#39;</span><span class="p">])</span>
+  <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="n">average</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">/</span> <span class="n">n</span>
+
+<span class="c1"># Calculate the difference of each grade from the average</span>
+<span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+  <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;Avgdiff&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">entry</span><span class="p">[</span><span class="s1">&#39;Grade&#39;</span><span class="p">])</span> <span class="o">-</span> <span class="n">average</span><span class="p">)</span>
+
+<span class="c1"># Write the updated content into another CSV file</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;second.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">colnames</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>                <span class="c1"># this returns the keys (column names) of the CSV file</span>
+<span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">colnames</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>    <span class="c1"># write this as the first line with comma separated values</span>
+<span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span> <span class="c1"># Go over each row</span>
+  <span class="n">vals</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">colnames</span><span class="p">:</span> <span class="c1"># Write each column on this row</span>
+    <span class="n">vals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>            <span class="c1"># extract values of entry, entry.values() is a short version of this</span>
+  <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Finished, close the file</span>
+<span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">cat</span> <span class="n">second</span><span class="o">.</span><span class="n">csv</span>
+</pre></div>
+</div>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Name</span><span class="p">,</span><span class="n">Surname</span><span class="p">,</span><span class="n">Grade</span><span class="p">,</span><span class="n">Avgdiff</span>
+<span class="n">Han</span><span class="p">,</span><span class="n">Solo</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="o">-</span><span class="mf">0.7999999999999972</span>
+<span class="n">Luke</span><span class="p">,</span><span class="n">Skywalker</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mf">9.200000000000003</span>
+<span class="n">Obi</span><span class="p">,</span><span class="n">Van</span> <span class="n">Kenobi</span><span class="p">,</span><span class="mi">88</span><span class="p">,</span><span class="mf">7.200000000000003</span>
+<span class="n">Leya</span><span class="p">,</span><span class="n">Skywalker</span><span class="p">,</span><span class="mi">91</span><span class="p">,</span><span class="mf">10.200000000000003</span>
+<span class="n">Anakin</span><span class="p">,</span><span class="n">Skywalker</span><span class="p">,</span><span class="mi">55</span><span class="p">,</span><span class="o">-</span><span class="mf">25.799999999999997</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="formatting-files">
+<h2><span class="section-number">8.7. </span>Formatting Files<a class="headerlink" href="#formatting-files" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes readability is important for text files, especially if data is
+in a tabular form. For example, seeing all related data in a column
+start at the same position can improve readability significantly. The
+following shows the unformatted and formatted versions of the same data
+side by side:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Name</span><span class="p">,</span><span class="n">Surname</span><span class="p">,</span><span class="n">Grade</span><span class="p">,</span><span class="n">Avgdiff</span>                   <span class="n">Name</span>    <span class="p">,</span> <span class="n">Surname</span>       <span class="p">,</span> <span class="n">Grade</span><span class="p">,</span> <span class="n">Avgdiff</span>
+<span class="n">Han</span><span class="p">,</span><span class="n">Solo</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="o">-</span><span class="mf">0.7999999999999972</span>              <span class="n">Han</span>     <span class="p">,</span> <span class="n">Solo</span>          <span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.800</span>
+<span class="n">Luke</span><span class="p">,</span><span class="n">Skywalker</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mf">9.200000000000003</span>          <span class="n">Luke</span>    <span class="p">,</span> <span class="n">Skywalker</span><span class="p">,</span>    <span class="p">,</span> <span class="mi">90</span><span class="p">,</span>  <span class="mf">9.200</span>
+<span class="n">Obi</span><span class="p">,</span><span class="n">Van</span> <span class="n">Kenobi</span><span class="p">,</span><span class="mi">88</span><span class="p">,</span><span class="mf">7.200000000000003</span>          <span class="n">Obi</span>     <span class="p">,</span> <span class="n">Van</span> <span class="n">Kenobi</span>    <span class="p">,</span> <span class="mi">88</span><span class="p">,</span>  <span class="mf">7.200</span>
+<span class="n">Leya</span><span class="p">,</span><span class="n">Skywalker</span><span class="p">,</span><span class="mi">91</span><span class="p">,</span><span class="mf">10.200000000000003</span>         <span class="n">Leya</span>    <span class="p">,</span> <span class="n">Skywalker</span>     <span class="p">,</span> <span class="mi">91</span><span class="p">,</span> <span class="mf">10.200</span>
+<span class="n">Anakin</span><span class="p">,</span><span class="n">Skywalker</span><span class="p">,</span><span class="mi">55</span><span class="p">,</span><span class="o">-</span><span class="mf">25.799999999999997</span>      <span class="n">Anakin</span>  <span class="p">,</span> <span class="n">Skywalker</span>     <span class="p">,</span> <span class="mi">55</span><span class="p">,</span><span class="o">-</span><span class="mf">25.800</span>
+</pre></div>
+</div>
+<p>In order to achieve this, you can use the <code class="docutils literal notranslate"><span class="pre">format()</span></code> method of a
+template string as in</p>
+<p><code class="docutils literal notranslate"><span class="pre">'{:10},</span> <span class="pre">{:20},</span> <span class="pre">{:3d},</span> <span class="pre">{:f7.3}'.format('Han',</span> <span class="pre">'Solo',</span> <span class="pre">80,</span> <span class="pre">-0.2)'</span></code>.</p>
+<p>Each <code class="docutils literal notranslate"><span class="pre">{}</span></code> in the template matches a data value in the arguments. The
+value after <code class="docutils literal notranslate"><span class="pre">:</span></code> denotes the (minimum) width of the data. If data fits
+in a smaller number of characters, spaces are inserted on the right to
+make it have exactly given size (left-aligned). For integers, the number
+is followed by a <code class="docutils literal notranslate"><span class="pre">d</span></code> to format it as a decimal value spaced padded on
+the left (right aligned). For floating point values, this value can be
+followed by a ‘.’ and another number and an <code class="docutils literal notranslate"><span class="pre">f</span></code>. The second number
+denotes the size of the fraction, <code class="docutils literal notranslate"><span class="pre">f</span></code> marks this value as a float, and
+the fraction part is rounded to given number of digits.</p>
+<p>The detailed description of <code class="docutils literal notranslate"><span class="pre">format()</span></code> is out of the scope of this
+course and the document. For detailed description, please refer to
+Python reference manuals.</p>
+<p>Let us rewrite the output part of the code using formatted output:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:10}</span><span class="s1">, </span><span class="si">{:20}</span><span class="s1">, </span><span class="si">{:5d}</span><span class="s1">, </span><span class="si">{:7.3f}</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;third.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">colnames</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>                                                  <span class="c1"># this returns the keys of the CSV file</span>
+<span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:10}</span><span class="s1">, </span><span class="si">{:20}</span><span class="s1">, </span><span class="si">{:5}</span><span class="s1">, </span><span class="si">{:7}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">colnames</span><span class="p">)</span> <span class="p">)</span>                     <span class="c1"># write this as the first line with comma separated values</span>
+<span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+  <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">entry</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">],</span><span class="n">entry</span><span class="p">[</span><span class="s1">&#39;Surname&#39;</span><span class="p">],</span>                 <span class="c1"># convert strings to numbers to respect number formatting</span>
+                        <span class="nb">int</span><span class="p">(</span><span class="n">entry</span><span class="p">[</span><span class="s1">&#39;Grade&#39;</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">entry</span><span class="p">[</span><span class="s1">&#39;Avgdiff&#39;</span><span class="p">])))</span>
+<span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let us display the content of the file after formatting:</span>
+<span class="o">%</span><span class="n">cat</span> <span class="n">third</span><span class="o">.</span><span class="n">csv</span>
+</pre></div>
+</div>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Name</span>      <span class="p">,</span> <span class="n">Surname</span>             <span class="p">,</span> <span class="n">Grade</span><span class="p">,</span> <span class="n">Avgdiff</span>
+<span class="n">Han</span>       <span class="p">,</span> <span class="n">Solo</span>                <span class="p">,</span>    <span class="mi">80</span><span class="p">,</span>  <span class="o">-</span><span class="mf">0.800</span>
+<span class="n">Luke</span>      <span class="p">,</span> <span class="n">Skywalker</span>           <span class="p">,</span>    <span class="mi">90</span><span class="p">,</span>   <span class="mf">9.200</span>
+<span class="n">Obi</span>       <span class="p">,</span> <span class="n">Van</span> <span class="n">Kenobi</span>          <span class="p">,</span>    <span class="mi">88</span><span class="p">,</span>   <span class="mf">7.200</span>
+<span class="n">Leya</span>      <span class="p">,</span> <span class="n">Skywalker</span>           <span class="p">,</span>    <span class="mi">91</span><span class="p">,</span>  <span class="mf">10.200</span>
+<span class="n">Anakin</span>    <span class="p">,</span> <span class="n">Skywalker</span>           <span class="p">,</span>    <span class="mi">55</span><span class="p">,</span> <span class="o">-</span><span class="mf">25.800</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="binary-files">
+<h2><span class="section-number">8.8. </span>Binary Files<a class="headerlink" href="#binary-files" title="Permalink to this headline">¶</a></h2>
+<p>So far, we have only looked at text files where all values are
+represented as human readable text where all numerical values are
+represented as decimal strings. However, if you remember our early
+chapters, computers do not store and process numbers as decimal digit
+sequences. They store variables in binary format like Two’s Complement
+and the IEEE754 floating point standard. In order to process, read and
+write decimal data in text, programming language and libraries convert
+data. Even though you won’t notice the time spent in conversion, if you
+read 10 millions of numbers, you start spending significant amount of
+CPU time for converting data.</p>
+<p>Binary files, on the other hand, store numbers as they are stored in
+computer’s memory. They are still sequences of bytes, but in a more
+structured way. For example, a 4-byte integer is kept as a sequence of 4
+bytes, each byte is a part of the number in Two’s Complement form.
+Reading a binary file is simply copying data to memory, either no
+conversion is performed or only the order of bytes is changed.</p>
+<p>A floating point number <code class="docutils literal notranslate"><span class="pre">0</span></code> takes 1 byte in a text file, but the
+number <code class="docutils literal notranslate"><span class="pre">3.1415926535897932384626433832795028</span></code> takes 34 bytes. In a
+binary file, the total size of a number is fixed as the size of IEEE 754
+format, i.e. 4 bytes on a 32-bit computer. Both <code class="docutils literal notranslate"><span class="pre">0</span></code> and the
+<span class="math notranslate nohighlight">\(\pi\)</span> are stored in 4 bytes for single precision, 8 bytes for
+double precision, in a binary file.</p>
+<p>Keeping values in binary files has the following advantages:</p>
+<ol class="arabic simple">
+<li><p>It is more compact: Data occupies less space in the file.</p></li>
+<li><p>No decimal to binary conversion is required. More efficient in terms
+of CPU usage.</p></li>
+<li><p>Since sizes are fixed, randomly jumping to a location and reading
+relevant data is possible. In a text file, you have to start from the
+beginning and read all lines up to the relevant data. This kind of
+usage is a more advanced case and harder to understand for beginners.</p></li>
+</ol>
+<p>On the other hand, using text files has the following advantages:</p>
+<ol class="arabic simple">
+<li><p>Files are human readable and editable. User can change data using a
+standard editor. In binary files, special software should be used.</p></li>
+<li><p>File format is more flexible, using <code class="docutils literal notranslate"><span class="pre">variablename:</span> <span class="pre">value</span></code> patterns
+in the file, data can be stored in any order in a flexible way. This
+is why text files are often used as configuration files.</p></li>
+</ol>
+<p>Most of the special formats with <code class="docutils literal notranslate"><span class="pre">.exe</span></code>, <code class="docutils literal notranslate"><span class="pre">.xls</span></code>, <code class="docutils literal notranslate"><span class="pre">.zip</span></code>, <code class="docutils literal notranslate"><span class="pre">.pdf</span></code>
+extensions are binary file formats.</p>
+<p><strong>Note:</strong> Binary files are kept out of scope of this book. The following
+paragraphs give couple of pointers for curious readers.</p>
+<p>In order to use binary files:</p>
+<ol class="arabic simple">
+<li><p>You need to add <code class="docutils literal notranslate"><span class="pre">'b'</span></code> character in the second argument of
+<code class="docutils literal notranslate"><span class="pre">open()</span></code> method as: <code class="docutils literal notranslate"><span class="pre">open('test.bin','rb')</span></code> or
+<code class="docutils literal notranslate"><span class="pre">open('test.bin','wb')</span></code>.</p></li>
+<li><p>Binary I/O requires <code class="docutils literal notranslate"><span class="pre">bytes</span></code> typed values instead of <code class="docutils literal notranslate"><span class="pre">str</span></code> typed
+values. <code class="docutils literal notranslate"><span class="pre">bytes</span></code> is a sequence of bytes. Elements of a byte sequence
+are not printable in contrast to <code class="docutils literal notranslate"><span class="pre">str</span></code>.</p></li>
+<li><p>Python has <code class="docutils literal notranslate"><span class="pre">struct</span></code> module for converting any value into <code class="docutils literal notranslate"><span class="pre">bytes</span></code>
+value. <code class="docutils literal notranslate"><span class="pre">struct.pack(format,</span> <span class="pre">values)</span></code> converts values into
+<code class="docutils literal notranslate"><span class="pre">bytes</span></code>. However, this conversion is much more cheaper
+computationally than decimal to binary conversion.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">struct.unpack(format,</span> <span class="pre">bytesval)</span></code> can be used to convert <code class="docutils literal notranslate"><span class="pre">bytes</span></code>
+value into Python values. It is much cheaper than binary to decimal
+conversion.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read()</span></code>, <code class="docutils literal notranslate"><span class="pre">write()</span></code> can be used as usual. In <code class="docutils literal notranslate"><span class="pre">read(nbytes)</span></code>,
+data size should be given. <code class="docutils literal notranslate"><span class="pre">struct.calcsize(format)</span></code> can be used to
+calculate data size from format.</p></li>
+</ol>
+<p>The following is an example of binary I/O. Assume the binary file
+contains an integer <span class="math notranslate nohighlight">\(N\)</span>, for the number of points, and followed by
+<span class="math notranslate nohighlight">\(2 \times N\)</span> floating point values. Let us write and then read
+this data:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">struct</span>
+
+<span class="n">points</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">),</span> <span class="p">(</span><span class="mf">5.4</span><span class="p">,</span><span class="mf">3.3</span><span class="p">),</span> <span class="p">(</span><span class="mf">2.2</span><span class="p">,</span> <span class="mf">1.121</span><span class="p">)]</span>
+
+<span class="c1"># 1- Open and write the binary file</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;points.bin&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span>
+<span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)))</span>   <span class="c1"># &#39;i&#39; denotes a single integer value is converted into bytes</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="n">points</span><span class="p">:</span>
+  <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s1">&#39;dd&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>       <span class="c1"># &#39;dd&#39; denotes two double precision floating point values are converted into bytes</span>
+
+<span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># 2- Open and read the binary file</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;points.bin&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span>             <span class="c1"># open same file for reading</span>
+<span class="n">content</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">struct</span><span class="o">.</span><span class="n">calcsize</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">))</span>   <span class="c1"># read binary data with length sizeof integer bytes</span>
+<span class="p">(</span><span class="n">n</span><span class="p">,)</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>        <span class="c1"># unpack returns a tuple, 1tuple in this case</span>
+
+<span class="n">newpoints</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>                        <span class="c1"># n times</span>
+  <span class="n">content</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">struct</span><span class="o">.</span><span class="n">calcsize</span><span class="p">(</span><span class="s1">&#39;dd&#39;</span><span class="p">))</span>
+  <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s1">&#39;dd&#39;</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>    <span class="c1"># read two double precision floats</span>
+  <span class="n">newpoints</span> <span class="o">+=</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)]</span>                    <span class="c1"># append value at the end</span>
+
+<span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># 3- Print the read and converted values</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The read &amp; converted points are:&quot;</span><span class="p">,</span> <span class="n">newpoints</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is what binary data looks like:&quot;</span><span class="p">)</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;points.bin&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<pre class="output literal-block">The read &amp; converted points are: [(1.0, 1.0), (2.5, 3.4), (5.4, 3.3), (2.2, 1.121)]
+This is what binary data looks like:
+<a class="reference external" href="mailto:b'x04x00x00x00x00x00x00x00x00x00xf0?x00x00x00x00x00x00xf0?x00x00x00x00x00x00x04&#37;&#52;&#48;333333">b'x04x00x00x00x00x00x00x00x00x00xf0?x00x00x00x00x00x00xf0?x00x00x00x00x00x00x04<span>&#64;</span>333333</a><a class="reference external" href="mailto:x0b&#37;&#52;&#48;x9ax99x99x99x99x99">x0b<span>&#64;</span>x9ax99x99x99x99x99</a><a class="reference external" href="mailto:x15&#37;&#52;&#48;ffffff">x15<span>&#64;</span>ffffff</a><a class="reference external" href="mailto:n&#37;&#52;&#48;x9ax99x99x99x99x99">n<span>&#64;</span>x9ax99x99x99x99x99</a><a class="reference external" href="mailto:x01&#37;&#52;&#48;Vx0e-xb2x9dxefxf1">x01<span>&#64;</span>Vx0e-xb2x9dxefxf1</a>?'</pre>
+</div>
+<div class="section" id="note-on-files-directory-organization-and-paths">
+<h2><span class="section-number">8.9. </span>Note on Files, Directory Organization and Paths<a class="headerlink" href="#note-on-files-directory-organization-and-paths" title="Permalink to this headline">¶</a></h2>
+<p>Files are organized under directories so that you can put relevant files
+under same category together. Operating systems provide a <strong>filesystem
+hierarchy</strong> consisting of directories (some prefer word <strong>folder</strong>
+instead) and regular files.</p>
+<p>Directories can be arbitrarily nested. You may need to traverse <em>N</em>
+levels of directories to find your file. For example, your program can
+be in the <code class="docutils literal notranslate"><span class="pre">Homeworks</span></code> directory under the <code class="docutils literal notranslate"><span class="pre">Desktop</span></code> directory under
+the <code class="docutils literal notranslate"><span class="pre">user</span></code> directory under the <code class="docutils literal notranslate"><span class="pre">Desktop</span> <span class="pre">Users</span></code> directory under the
+root directory (<code class="docutils literal notranslate"><span class="pre">/</span></code>), which is the topmost level on your filesystem.
+The top-level directory and the seperator is backslash,<code class="docutils literal notranslate"><span class="pre">\</span></code> in MS
+Windows operating systems. However, ‘/’ works in Python for Windows too.</p>
+<p>In order to address a file, we use a <strong>path</strong> which is a sequence of
+directory names separated by <code class="docutils literal notranslate"><span class="pre">/</span></code>, ended by the name of the file. For
+example, <code class="docutils literal notranslate"><span class="pre">&quot;/Desktop</span> <span class="pre">Users/user/Desktop/Homeworks/homework1.py&quot;</span></code> is a
+path for the file named <code class="docutils literal notranslate"><span class="pre">&quot;homework1.py&quot;</span></code>.</p>
+<p>A path can be either <strong>full</strong> (absolute) or <strong>relative</strong>. In the former
+case, it starts with a slash (<code class="docutils literal notranslate"><span class="pre">/</span></code>). In the relative case, it is
+considered relative to the current working directory, i.e. the directory
+where you started your program. Full paths ignore your current directory
+whereas relative paths depend on it. For example, if you are currently
+in the <code class="docutils literal notranslate"><span class="pre">Desktop</span></code> directory, the path <code class="docutils literal notranslate"><span class="pre">&quot;Homeworks/homework1.py&quot;</span></code> will
+address the same full path above.</p>
+</div>
+<div class="section" id="list-of-file-class-member-functions">
+<h2><span class="section-number">8.10. </span>List of File Class Member Functions<a class="headerlink" href="#list-of-file-class-member-functions" title="Permalink to this headline">¶</a></h2>
+<p>For completeness, below you can find commonly used member functions of
+the <code class="docutils literal notranslate"><span class="pre">file</span></code> class.</p>
+<p>Assume <strong>F</strong> is a file. In the table below you will find some of the
+very frequently used member functions of files (in the <strong>Operation</strong>
+column anything in square brackets denotes that the content is optional
+– if you enter the optional content, do no type in the square brackets):</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 38%" />
+<col style="width: 62%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Operation</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>F</strong>
+<code class="docutils literal notranslate"><span class="pre">.seek(</span></code>*offset[,
+whence=0*]<code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
+<td><p>Set file <strong>F</strong>’s position, like stdio’s
+<code class="docutils literal notranslate"><span class="pre">fseek()</span></code>. <em>whence ≟</em> <code class="docutils literal notranslate"><span class="pre">0</span></code> then use
+absolute indexing (using <em>offset</em>).
+<em>whence ≟</em> <code class="docutils literal notranslate"><span class="pre">1</span></code> then <em>offset</em> relative
+to current pos. <em>whence ≟</em> <code class="docutils literal notranslate"><span class="pre">2</span></code> then
+<em>offset</em> relative to file end.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>F</strong><code class="docutils literal notranslate"><span class="pre">.tell()</span></code></p></td>
+<td><p>Return file <strong>F</strong>’s current position
+(byte offset).</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>F</strong><code class="docutils literal notranslate"><span class="pre">.trun</span>
+<span class="pre">cate(</span></code>[<em>size</em>]<code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
+<td><p>Truncate <strong>F</strong>’s size. If <em>size</em> is
+present, <strong>F</strong> is truncated to (at most)
+that size, otherwise <strong>F</strong> is truncated
+at current position (which remains
+unchanged).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>F</strong>`
+<cite>.write(`</cite><em>str</em><code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
+<td><p>Write string <em>str</em> to file <strong>F</strong>.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>F</strong><code class="docutils literal notranslate"><span class="pre">.writ</span>
+<span class="pre">elines(</span></code><em>list</em><code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
+<td><p>Write <em>list</em> of strings to file <strong>F</strong>. No
+<code class="docutils literal notranslate"><span class="pre">EOL</span></code> are added.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>F</strong><code class="docutils literal notranslate"><span class="pre">.close()</span></code></p></td>
+<td><p>Close file <strong>F</strong>.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>F</strong><code class="docutils literal notranslate"><span class="pre">.fileno()</span></code></p></td>
+<td><p>Get fileno (fd) for file <strong>F</strong>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>F</strong><code class="docutils literal notranslate"><span class="pre">.flush()</span></code></p></td>
+<td><p>Flush file <strong>F</strong>’s internal buffer.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>F</strong><code class="docutils literal notranslate"><span class="pre">.isatty()</span></code></p></td>
+<td><p>1 if file <strong>F</strong> is connected to a
+tty-like dev, else 0.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>F</strong><code class="docutils literal notranslate"><span class="pre">.next()</span></code></p></td>
+<td><p>Returns the next input line of file
+<strong>F</strong>, or raises <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code> when
+<code class="docutils literal notranslate"><span class="pre">EOF</span></code> is hit.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>F</strong><code class="docutils literal notranslate"><span class="pre">.</span>
+<span class="pre">read(</span></code>[<em>size</em>]<code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
+<td><p>Read at most <em>size</em> bytes from file <strong>F</strong>
+and return as a string object. If <em>size</em>
+omitted, read to <code class="docutils literal notranslate"><span class="pre">EOF</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>F</strong><code class="docutils literal notranslate"><span class="pre">.readline()</span></code></p></td>
+<td><p>Read one entire line from file <strong>F</strong>. The
+returned line has a trailing <code class="docutils literal notranslate"><span class="pre">\n</span></code>,
+except possibly at <code class="docutils literal notranslate"><span class="pre">EOF</span></code>. Return <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>
+on <code class="docutils literal notranslate"><span class="pre">EOF</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>F</strong><code class="docutils literal notranslate"><span class="pre">.readlines()</span></code></p></td>
+<td><p>Read until <code class="docutils literal notranslate"><span class="pre">EOF</span></code> with <code class="docutils literal notranslate"><span class="pre">readline()</span></code>
+and return a list of lines read.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="important-concepts">
+<h2><span class="section-number">8.11. </span>Important Concepts<a class="headerlink" href="#important-concepts" title="Permalink to this headline">¶</a></h2>
+<p>We would like our readers to have grasped the following crucial concepts
+and keywords from this chapter:</p>
+<ul class="simple">
+<li><p>Sequential access. File access.</p></li>
+<li><p>Text files. Reading and writing text files. Parsing a text file.</p></li>
+<li><p>End of file, new line.</p></li>
+<li><p>Formatting files.</p></li>
+<li><p>Binary files and binary file access.</p></li>
+</ul>
+</div>
+<div class="section" id="further-reading">
+<h2><span class="section-number">8.12. </span>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>String formatting in Python:
+<a class="reference external" href="https://docs.python.org/3.4/library/string.html#formatspec">https://docs.python.org/3.4/library/string.html#formatspec</a></p></li>
+<li><p>Working with binary data and files in Python:
+<a class="reference external" href="https://docs.python.org/3/library/binary.html">https://docs.python.org/3/library/binary.html</a></p></li>
+<li><p>Comma-Separated Values (CSV) file format:
+<a class="reference external" href="https://en.wikipedia.org/wiki/Comma-separated_values">https://en.wikipedia.org/wiki/Comma-separated_values</a></p></li>
+</ul>
+</div>
+<div class="section" id="exercises">
+<h2><span class="section-number">8.13. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Write a function that reads a text file with the following format
+(ignore characters following <code class="docutils literal notranslate"><span class="pre">#</span></code>):</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">N</span>                    <span class="c1"># Number of students</span>
+                     <span class="c1"># Empty line</span>
+<span class="n">Name</span> <span class="n">Surname</span>         <span class="c1"># Fist student</span>
+<span class="n">M</span>                    <span class="c1"># Number of courses that the student has taken</span>
+<span class="n">Coursename1</span><span class="p">:</span> <span class="n">Grade</span>   <span class="c1"># Grade is a real number</span>
+<span class="n">Coursename2</span><span class="p">:</span> <span class="n">Grade</span>
+<span class="n">Coursename3</span><span class="p">:</span> <span class="n">Grade</span>
+<span class="o">...</span>
+<span class="n">CoursenameM</span><span class="p">:</span> <span class="n">Grade</span>
+
+                     <span class="c1"># Empty line</span>
+<span class="n">Name</span> <span class="n">Surname</span>         <span class="c1"># Second student</span>
+<span class="n">P</span>                    <span class="c1"># Number of courses that the student has taken</span>
+<span class="n">Coursename1</span><span class="p">:</span> <span class="n">Grade</span>   <span class="c1"># Grade is a real number</span>
+<span class="n">Coursename2</span><span class="p">:</span> <span class="n">Grade</span>
+<span class="n">Coursename3</span><span class="p">:</span> <span class="n">Grade</span>
+<span class="o">...</span>
+<span class="n">CoursenameP</span><span class="p">:</span> <span class="n">Grade</span>
+<span class="o">...</span>
+<span class="o">...</span>
+<span class="o">...</span>
+                     <span class="c1"># Empty line</span>
+<span class="n">Name</span> <span class="n">Surname</span>         <span class="c1"># Last student</span>
+<span class="n">Z</span>                    <span class="c1"># Number of courses that the student has taken</span>
+<span class="n">Coursename1</span><span class="p">:</span> <span class="n">Grade</span>   <span class="c1"># Grade is a real number</span>
+<span class="n">Coursename2</span><span class="p">:</span> <span class="n">Grade</span>
+<span class="n">Coursename3</span><span class="p">:</span> <span class="n">Grade</span>
+<span class="o">...</span>
+<span class="n">CoursenameZ</span><span class="p">:</span> <span class="n">Grade</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Write a function that writes a list of dictionaries that have the
+following format into a text file. You may choose to write the number
+of elements at the top of the file.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Ankara&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;plate code&quot;</span><span class="p">:</span> <span class="s2">&quot;06&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;max temperature (C)&quot;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span>
+  <span class="s2">&quot;min temperature (C)&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">20</span><span class="p">,</span>
+  <span class="s2">&quot;population&quot;</span><span class="p">:</span> <span class="mi">5700000</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Write a function that reads a list of dictionaries from a file that
+you have written in the previous question.</p></li>
+<li><p>Write a function that read the text file given below, represent the
+same content in binary, save it in a binary file and read it back.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">0</span> <span class="pre">3.4</span> <span class="pre">2.1</span> <span class="pre">5.1</span> <span class="pre">3.2</span> <span class="pre">EOLIST</span> <span class="pre">1</span> <span class="pre">1.5</span> <span class="pre">2.0</span> <span class="pre">2.5</span></code></p>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">8. File Handling</a><ul>
+<li><a class="reference internal" href="#first-example">8.1. First Example</a></li>
+<li><a class="reference internal" href="#files-and-sequential-access">8.2. Files and Sequential Access</a></li>
+<li><a class="reference internal" href="#data-conversion-and-parsing">8.3. Data Conversion and Parsing</a></li>
+<li><a class="reference internal" href="#accessing-text-files-line-by-line">8.4. Accessing Text Files Line by Line</a></li>
+<li><a class="reference internal" href="#termination-of-input">8.5. Termination of Input</a></li>
+<li><a class="reference internal" href="#example-processing-csv-files">8.6. Example: Processing CSV Files</a></li>
+<li><a class="reference internal" href="#formatting-files">8.7. Formatting Files</a></li>
+<li><a class="reference internal" href="#binary-files">8.8. Binary Files</a></li>
+<li><a class="reference internal" href="#note-on-files-directory-organization-and-paths">8.9. Note on Files, Directory Organization and Paths</a></li>
+<li><a class="reference internal" href="#list-of-file-class-member-functions">8.10. List of File Class Member Functions</a></li>
+<li><a class="reference internal" href="#important-concepts">8.11. Important Concepts</a></li>
+<li><a class="reference internal" href="#further-reading">8.12. Further Reading</a></li>
+<li><a class="reference internal" href="#exercises">8.13. Exercises</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="ch7_OOP.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L fas fa-arrow-left fa-lg"></i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>7. A Gentle Introduction to Object-Oriented Programming</div>
+         </div>
+     </a>
+     <a id="button-next" href="ch9_error_handling.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+         <i class="pagenation-arrow-R fas fa-arrow-right fa-lg"></i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>9. Error Handling and Debugging</div>
+        </div>
+     </a>
+  </div>
+        
+        </main>
+    </div>
+  </body>
+</html>
