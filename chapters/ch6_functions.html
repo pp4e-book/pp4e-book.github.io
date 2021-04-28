@@ -792,9 +792,9 @@ zero. So, a more index-based formulation of the same formula would be:</p>
 <p>This is almost okay but not perfect. <code class="docutils literal notranslate"><span class="pre">len</span></code> is a built-in function that
 returns the element count of any container (string, list, tuple). As you
 have observed <code class="docutils literal notranslate"><span class="pre">len(S)</span></code> is calculated twice. This is inefficient.
-Function calls have a price, time-wise and space-wise and unnecessary
-calls should be avoided. To fix this, we change the code to do
-computation once and store the result for further usages.</p>
+Function calls have a price, time-wise and space-wise, and therefore,
+unnecessary calls should be avoided. To fix this, we change the code to
+do computation once and store the result for further usages.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">avg</span><span class="p">(</span><span class="n">S</span><span class="p">):</span>
   <span class="nb">sum</span> <span class="o">=</span> <span class="mf">0.0</span>
   <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
@@ -970,7 +970,7 @@ take a string as an argument, in which the missing digit is indicated by
 a (<code class="docutils literal notranslate"><span class="pre">?</span></code>) (question mark). We are expecting that a call of
 <code class="docutils literal notranslate"><span class="pre">find_q_mark(&quot;1?9503-7&quot;)</span></code> will recover the missing digit and return
 the demystified string: “169503-7”.</p>
-<p><em>(The ``checksum()`` definition of above is still effective)</em></p>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">checksum()</span></code> definition of above is still effective.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># places digit in the place of &#39;?&#39; in the string S</span>
 <span class="k">def</span> <span class="nf">replace_q_mark</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">digit</span><span class="p">):</span>
     <span class="n">new_S</span> <span class="o">=</span><span class="s2">&quot;&quot;</span>
@@ -991,12 +991,13 @@ the demystified string: “169503-7”.</p>
 <div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">167912</span><span class="o">-</span><span class="mi">5</span>
 </pre></div>
 </div>
-<p>A few notes about the code: * <code class="docutils literal notranslate"><span class="pre">replace_q_mark()</span></code> function is called
-by <code class="docutils literal notranslate"><span class="pre">find_q_mark()</span></code>. It is only called once, therefore its actions
-could have been migrated into <code class="docutils literal notranslate"><span class="pre">find_q_mark()</span></code>. Efficiency-wise there
-would be no change. But seperating it out, making it into a function and
-naming it accordingly makes the code more readable.</p>
+<p>A few notes about the code:</p>
 <ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">replace_q_mark()</span></code> function is called by <code class="docutils literal notranslate"><span class="pre">find_q_mark()</span></code>. It is
+only called once, therefore its actions could have been migrated into
+<code class="docutils literal notranslate"><span class="pre">find_q_mark()</span></code>. Efficiency-wise there would be no change. But
+seperating it out, making it into a function and naming it
+accordingly makes the code more readable.</p></li>
 <li><p>The first two lines that define <code class="docutils literal notranslate"><span class="pre">find_q_mark()</span></code> actions are merely
 dissecting the string into a student-id and a checkdigit part.</p></li>
 <li><p>What we do in the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop in <code class="docutils literal notranslate"><span class="pre">find_q_mark()</span></code> (on Lines 11-13)

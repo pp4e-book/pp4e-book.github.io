@@ -777,9 +777,9 @@ The following implements this definition:
 This is almost okay but not perfect. ``len`` is a built-in function that
 returns the element count of any container (string, list, tuple). As you
 have observed ``len(S)`` is calculated twice. This is inefficient.
-Function calls have a price, time-wise and space-wise and unnecessary
-calls should be avoided. To fix this, we change the code to do
-computation once and store the result for further usages.
+Function calls have a price, time-wise and space-wise, and therefore,
+unnecessary calls should be avoided. To fix this, we change the code to
+do computation once and store the result for further usages.
 
 .. code:: python
 
@@ -998,7 +998,7 @@ a (``?``) (question mark). We are expecting that a call of
 ``find_q_mark("1?9503-7")`` will recover the missing digit and return
 the demystified string: “169503-7”.
 
-*(The ``checksum()`` definition of above is still effective)*
+Note that the ``checksum()`` definition of above is still effective.
 
 .. code:: python
 
@@ -1025,11 +1025,13 @@ the demystified string: “169503-7”.
     167912-5
 
 
-A few notes about the code: \* ``replace_q_mark()`` function is called
-by ``find_q_mark()``. It is only called once, therefore its actions
-could have been migrated into ``find_q_mark()``. Efficiency-wise there
-would be no change. But seperating it out, making it into a function and
-naming it accordingly makes the code more readable.
+A few notes about the code:
+
+-  ``replace_q_mark()`` function is called by ``find_q_mark()``. It is
+   only called once, therefore its actions could have been migrated into
+   ``find_q_mark()``. Efficiency-wise there would be no change. But
+   seperating it out, making it into a function and naming it
+   accordingly makes the code more readable.
 
 -  The first two lines that define ``find_q_mark()`` actions are merely
    dissecting the string into a student-id and a checkdigit part.
