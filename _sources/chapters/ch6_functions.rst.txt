@@ -409,28 +409,22 @@ A variable occurrence has different meanings for different positions in
 the program:
 
 1. First time occurrence of the variable at the left-hand side of an
-   assignment:
-
-This tells Python to declare a variable in the current scope, the
-current function or the global scope. If there is a variable with the
-same name in an outer scope, it is hidden as long as the new variable is
-active. This declaration will be active for the scope it is created in
-including statements preceding it.
+   assignment: This tells Python to declare a variable in the current
+   scope, the current function or the global scope. If there is a
+   variable with the same name in an outer scope, it is hidden as long
+   as the new variable is active. This declaration will be active for
+   the scope it is created in including statements preceding it.
 
 2. Second and later occurrences of the variable at the left-hand side of
-   an assignment:
-
-They simply update the previously declared variable.
+   an assignment: They simply update the previously declared variable.
 
 3. Occurrences of the variable at the right-hand side of an assignment
-   or any other place in an expression:
-
-Python places value (content) of the variable in the expression
-position. Variable is searched in all scopes from inner to outer (local,
-then enclosing, then global, then built-in) and the first found variable
-is used. If the declaration of the variable is after its reference in
-current scope, Python will raise the error
-``'Reference before assignment'``.
+   or any other place in an expression: Python places value (content) of
+   the variable in the expression position. Variable is searched in all
+   scopes from inner to outer (local, then enclosing, then global, then
+   built-in) and the first found variable is used. If the declaration of
+   the variable is after its reference in current scope, Python will
+   raise the error ``'Reference before assignment'``.
 
 Note that ``global`` declaration changes the behaviour above. It makes
 all occurrences to refer to the global variable and does not declare a

@@ -484,28 +484,21 @@ demo on scope of variables.</p>
 the program:</p>
 <ol class="arabic simple">
 <li><p>First time occurrence of the variable at the left-hand side of an
-assignment:</p></li>
-</ol>
-<p>This tells Python to declare a variable in the current scope, the
-current function or the global scope. If there is a variable with the
-same name in an outer scope, it is hidden as long as the new variable is
-active. This declaration will be active for the scope it is created in
-including statements preceding it.</p>
-<ol class="arabic simple" start="2">
+assignment: This tells Python to declare a variable in the current
+scope, the current function or the global scope. If there is a
+variable with the same name in an outer scope, it is hidden as long
+as the new variable is active. This declaration will be active for
+the scope it is created in including statements preceding it.</p></li>
 <li><p>Second and later occurrences of the variable at the left-hand side of
-an assignment:</p></li>
-</ol>
-<p>They simply update the previously declared variable.</p>
-<ol class="arabic simple" start="3">
+an assignment: They simply update the previously declared variable.</p></li>
 <li><p>Occurrences of the variable at the right-hand side of an assignment
-or any other place in an expression:</p></li>
+or any other place in an expression: Python places value (content) of
+the variable in the expression position. Variable is searched in all
+scopes from inner to outer (local, then enclosing, then global, then
+built-in) and the first found variable is used. If the declaration of
+the variable is after its reference in current scope, Python will
+raise the error <code class="docutils literal notranslate"><span class="pre">'Reference</span> <span class="pre">before</span> <span class="pre">assignment'</span></code>.</p></li>
 </ol>
-<p>Python places value (content) of the variable in the expression
-position. Variable is searched in all scopes from inner to outer (local,
-then enclosing, then global, then built-in) and the first found variable
-is used. If the declaration of the variable is after its reference in
-current scope, Python will raise the error
-<code class="docutils literal notranslate"><span class="pre">'Reference</span> <span class="pre">before</span> <span class="pre">assignment'</span></code>.</p>
 <p>Note that <code class="docutils literal notranslate"><span class="pre">global</span></code> declaration changes the behaviour above. It makes
 all occurrences to refer to the global variable and does not declare a
 variable in the current scope with the globally defined names.</p>
