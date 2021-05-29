@@ -351,11 +351,11 @@ notation in Math:
 vs. ``[float(s) for s in S]``
 
 If you need to have multiple spaces within the values, you can use
-``import re`` and call ``re.split(' +', inputstr)`` instead of
-``inputstr.split(' ')``. This will split the
+“``import re``” and call “``re.split(' +', inputstr)``” instead of
+“``inputstr.split(' ')``”. This will split the
 ``'multiple        spaces   are    tricky'`` example above into 4 words
 without spaces. How it works is beyond the scope of the book. Curious
-readers can refer to ``re`` and ``parse`` modules for more advanced
+readers can refer to “``re``” and “``parse``” modules for more advanced
 forms of input parsing. These are not trivial modules for beginners.
 
 Now, let us consider the reverse of the operation: Assume we have a list
@@ -363,8 +363,8 @@ of integers and we like to convert that into string that can be written
 in a file:
 
 ``[10.0, 5.0, 5.0]`` :math:`\overset{Step\ 1}{\longrightarrow}`
-``['10.0','5.0','5.0']`` :math:`\overset{Step\ 2}{\longrightarrow}`
-``'10.0 5.0 5.0'``
+``["10.0","5.0","5.0"]`` :math:`\overset{Step\ 2}{\longrightarrow}`
+``"10.0 5.0 5.0"``
 
 The first step will be handled with the ``str()`` function which
 converts any Python value into a human readable string:
@@ -857,7 +857,7 @@ side by side:
 In order to achieve this, you can use the ``format()`` method of a
 template string as in
 
-``'{:10}, {:20}, {:3d}, {:f7.3}'.format('Han', 'Solo', 80, -0.2)'``.
+``'{:10}, {:20}, {:3d}, {:7.3f}'.format('Han', 'Solo', 80, -0.2)'``.
 
 Each ``{}`` in the template matches a data value in the arguments. The
 value after ``:`` denotes the (minimum) width of the data. If data fits
@@ -1074,51 +1074,50 @@ column anything in square brackets denotes that the content is optional
 +--------------------------+-------------------------------------------+
 | Operation                | Result                                    |
 +==========================+===========================================+
-| **F**                    | Set file **F**\ ’s position, like stdio’s |
-| \ ``.seek(``\ \*offset[, | ``fseek()``. *whence ≟* ``0`` then use    |
-| whence=0*]\ ``)``        | absolute indexing (using *offset*).       |
+| ``F.se                   | Set file *F*\ ’s position, like stdio’s   |
+| ek(offset[, whence=0])`` | ``fseek()``. *whence ≟* ``0`` then use    |
+|                          | absolute indexing (using *offset*).       |
 |                          | *whence ≟* ``1`` then *offset* relative   |
 |                          | to current pos. *whence ≟* ``2`` then     |
 |                          | *offset* relative to file end.            |
 +--------------------------+-------------------------------------------+
-| **F**\ ``.tell()``       | Return file **F**\ ’s current position    |
+| ``F.tell()``             | Return file *F*\ ’s current position      |
 |                          | (byte offset).                            |
 +--------------------------+-------------------------------------------+
-| **F**\ ``.trun           | Truncate **F**\ ’s size. If *size* is     |
-| cate(``\ [*size*]\ ``)`` | present, **F** is truncated to (at most)  |
-|                          | that size, otherwise **F** is truncated   |
-|                          | at current position (which remains        |
+| ``F.truncate([size])``   | Truncate *F*\ ’s size. If *size* is       |
+|                          | present, *F* is truncated to (at most)    |
+|                          | that size, otherwise *F* is truncated at  |
+|                          | current position (which remains           |
 |                          | unchanged).                               |
 +--------------------------+-------------------------------------------+
-| **F**\ `                 | Write string *str* to file **F**.         |
-| `.write(``\ *str*\ ``)`` |                                           |
+| ``F.write(str)``         | Write string *str* to file *F*.           |
 +--------------------------+-------------------------------------------+
-| **F**\ ``.writ           | Write *list* of strings to file **F**. No |
-| elines(``\ *list*\ ``)`` | ``EOL`` are added.                        |
+| ``F.writelines(list)``   | Write *list* of strings to file *F*. No   |
+|                          | ``EOL`` are added.                        |
 +--------------------------+-------------------------------------------+
-| **F**\ ``.close()``      | Close file **F**.                         |
+| ``F.close()``            | Close file *F*.                           |
 +--------------------------+-------------------------------------------+
-| **F**\ ``.fileno()``     | Get fileno (fd) for file **F**.           |
+| ``F.fileno()``           | Get fileno (fd) for file *F*.             |
 +--------------------------+-------------------------------------------+
-| **F**\ ``.flush()``      | Flush file **F**\ ’s internal buffer.     |
+| ``F.flush()``            | Flush file *F*\ ’s internal buffer.       |
 +--------------------------+-------------------------------------------+
-| **F**\ ``.isatty()``     | 1 if file **F** is connected to a         |
-|                          | tty-like dev, else 0.                     |
+| ``F.isatty()``           | 1 if file *F* is connected to a tty-like  |
+|                          | dev, else 0.                              |
 +--------------------------+-------------------------------------------+
-| **F**\ ``.next()``       | Returns the next input line of file       |
-|                          | **F**, or raises ``StopIteration`` when   |
-|                          | ``EOF`` is hit.                           |
+| ``F.next()``             | Returns the next input line of file *F*,  |
+|                          | or raises ``StopIteration`` when ``EOF``  |
+|                          | is hit.                                   |
 +--------------------------+-------------------------------------------+
-| **F**\ ``.               | Read at most *size* bytes from file **F** |
-| read(``\ [*size*]\ ``)`` | and return as a string object. If *size*  |
+| ``F.read([size])``       | Read at most *size* bytes from file *F*   |
+|                          | and return as a string object. If *size*  |
 |                          | omitted, read to ``EOF``.                 |
 +--------------------------+-------------------------------------------+
-| **F**\ ``.readline()``   | Read one entire line from file **F**. The |
+| ``F.readline()``         | Read one entire line from file *F*. The   |
 |                          | returned line has a trailing ``\n``,      |
 |                          | except possibly at ``EOF``. Return ``""`` |
 |                          | on ``EOF``.                               |
 +--------------------------+-------------------------------------------+
-| **F**\ ``.readlines()``  | Read until ``EOF`` with ``readline()``    |
+| ``F.readlines()``        | Read until ``EOF`` with ``readline()``    |
 |                          | and return a list of lines read.          |
 +--------------------------+-------------------------------------------+
 

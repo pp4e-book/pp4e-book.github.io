@@ -453,18 +453,18 @@ notation in Math:</p>
 <p><span class="math notranslate nohighlight">\(\left\{ float(s)\ \vert\ s \in S\right\}\)</span>
 vs. <code class="docutils literal notranslate"><span class="pre">[float(s)</span> <span class="pre">for</span> <span class="pre">s</span> <span class="pre">in</span> <span class="pre">S]</span></code></p>
 <p>If you need to have multiple spaces within the values, you can use
-<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">re</span></code> and call <code class="docutils literal notranslate"><span class="pre">re.split('</span> <span class="pre">+',</span> <span class="pre">inputstr)</span></code> instead of
-<code class="docutils literal notranslate"><span class="pre">inputstr.split('</span> <span class="pre">')</span></code>. This will split the
+“<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">re</span></code>” and call “<code class="docutils literal notranslate"><span class="pre">re.split('</span> <span class="pre">+',</span> <span class="pre">inputstr)</span></code>” instead of
+“<code class="docutils literal notranslate"><span class="pre">inputstr.split('</span> <span class="pre">')</span></code>”. This will split the
 <code class="docutils literal notranslate"><span class="pre">'multiple</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">spaces</span>&#160;&#160; <span class="pre">are</span>&#160;&#160;&#160; <span class="pre">tricky'</span></code> example above into 4 words
 without spaces. How it works is beyond the scope of the book. Curious
-readers can refer to <code class="docutils literal notranslate"><span class="pre">re</span></code> and <code class="docutils literal notranslate"><span class="pre">parse</span></code> modules for more advanced
+readers can refer to “<code class="docutils literal notranslate"><span class="pre">re</span></code>” and “<code class="docutils literal notranslate"><span class="pre">parse</span></code>” modules for more advanced
 forms of input parsing. These are not trivial modules for beginners.</p>
 <p>Now, let us consider the reverse of the operation: Assume we have a list
 of integers and we like to convert that into string that can be written
 in a file:</p>
 <p><code class="docutils literal notranslate"><span class="pre">[10.0,</span> <span class="pre">5.0,</span> <span class="pre">5.0]</span></code> <span class="math notranslate nohighlight">\(\overset{Step\ 1}{\longrightarrow}\)</span>
-<code class="docutils literal notranslate"><span class="pre">10.0','5.0','5.0</span></code> <span class="math notranslate nohighlight">\(\overset{Step\ 2}{\longrightarrow}\)</span>
-<code class="docutils literal notranslate"><span class="pre">'10.0</span> <span class="pre">5.0</span> <span class="pre">5.0'</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">[&quot;10.0&quot;,&quot;5.0&quot;,&quot;5.0&quot;]</span></code> <span class="math notranslate nohighlight">\(\overset{Step\ 2}{\longrightarrow}\)</span>
+<code class="docutils literal notranslate"><span class="pre">&quot;10.0</span> <span class="pre">5.0</span> <span class="pre">5.0&quot;</span></code></p>
 <p>The first step will be handled with the <code class="docutils literal notranslate"><span class="pre">str()</span></code> function which
 converts any Python value into a human readable string:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">inlst</span> <span class="o">=</span> <span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">]</span>
@@ -871,7 +871,7 @@ side by side:</p>
 </div>
 <p>In order to achieve this, you can use the <code class="docutils literal notranslate"><span class="pre">format()</span></code> method of a
 template string as in</p>
-<p><code class="docutils literal notranslate"><span class="pre">'{:10},</span> <span class="pre">{:20},</span> <span class="pre">{:3d},</span> <span class="pre">{:f7.3}'.format('Han',</span> <span class="pre">'Solo',</span> <span class="pre">80,</span> <span class="pre">-0.2)'</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">'{:10},</span> <span class="pre">{:20},</span> <span class="pre">{:3d},</span> <span class="pre">{:7.3f}'.format('Han',</span> <span class="pre">'Solo',</span> <span class="pre">80,</span> <span class="pre">-0.2)'</span></code>.</p>
 <p>Each <code class="docutils literal notranslate"><span class="pre">{}</span></code> in the template matches a data value in the arguments. The
 value after <code class="docutils literal notranslate"><span class="pre">:</span></code> denotes the (minimum) width of the data. If data fits
 in a smaller number of characters, spaces are inserted on the right to
@@ -1060,68 +1060,63 @@ column anything in square brackets denotes that the content is optional
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><strong>F</strong>
-<code class="docutils literal notranslate"><span class="pre">.seek(</span></code>*offset[,
-whence=0*]<code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
-<td><p>Set file <strong>F</strong>’s position, like stdio’s
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">F.se</span>
+<span class="pre">ek(offset[,</span> <span class="pre">whence=0])</span></code></p></td>
+<td><p>Set file <em>F</em>’s position, like stdio’s
 <code class="docutils literal notranslate"><span class="pre">fseek()</span></code>. <em>whence ≟</em> <code class="docutils literal notranslate"><span class="pre">0</span></code> then use
 absolute indexing (using <em>offset</em>).
 <em>whence ≟</em> <code class="docutils literal notranslate"><span class="pre">1</span></code> then <em>offset</em> relative
 to current pos. <em>whence ≟</em> <code class="docutils literal notranslate"><span class="pre">2</span></code> then
 <em>offset</em> relative to file end.</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>F</strong><code class="docutils literal notranslate"><span class="pre">.tell()</span></code></p></td>
-<td><p>Return file <strong>F</strong>’s current position
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">F.tell()</span></code></p></td>
+<td><p>Return file <em>F</em>’s current position
 (byte offset).</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>F</strong><code class="docutils literal notranslate"><span class="pre">.trun</span>
-<span class="pre">cate(</span></code>[<em>size</em>]<code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
-<td><p>Truncate <strong>F</strong>’s size. If <em>size</em> is
-present, <strong>F</strong> is truncated to (at most)
-that size, otherwise <strong>F</strong> is truncated
-at current position (which remains
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">F.truncate([size])</span></code></p></td>
+<td><p>Truncate <em>F</em>’s size. If <em>size</em> is
+present, <em>F</em> is truncated to (at most)
+that size, otherwise <em>F</em> is truncated at
+current position (which remains
 unchanged).</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>F</strong>`
-<cite>.write(`</cite><em>str</em><code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
-<td><p>Write string <em>str</em> to file <strong>F</strong>.</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">F.write(str)</span></code></p></td>
+<td><p>Write string <em>str</em> to file <em>F</em>.</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>F</strong><code class="docutils literal notranslate"><span class="pre">.writ</span>
-<span class="pre">elines(</span></code><em>list</em><code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
-<td><p>Write <em>list</em> of strings to file <strong>F</strong>. No
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">F.writelines(list)</span></code></p></td>
+<td><p>Write <em>list</em> of strings to file <em>F</em>. No
 <code class="docutils literal notranslate"><span class="pre">EOL</span></code> are added.</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>F</strong><code class="docutils literal notranslate"><span class="pre">.close()</span></code></p></td>
-<td><p>Close file <strong>F</strong>.</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">F.close()</span></code></p></td>
+<td><p>Close file <em>F</em>.</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>F</strong><code class="docutils literal notranslate"><span class="pre">.fileno()</span></code></p></td>
-<td><p>Get fileno (fd) for file <strong>F</strong>.</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">F.fileno()</span></code></p></td>
+<td><p>Get fileno (fd) for file <em>F</em>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>F</strong><code class="docutils literal notranslate"><span class="pre">.flush()</span></code></p></td>
-<td><p>Flush file <strong>F</strong>’s internal buffer.</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">F.flush()</span></code></p></td>
+<td><p>Flush file <em>F</em>’s internal buffer.</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>F</strong><code class="docutils literal notranslate"><span class="pre">.isatty()</span></code></p></td>
-<td><p>1 if file <strong>F</strong> is connected to a
-tty-like dev, else 0.</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">F.isatty()</span></code></p></td>
+<td><p>1 if file <em>F</em> is connected to a tty-like
+dev, else 0.</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>F</strong><code class="docutils literal notranslate"><span class="pre">.next()</span></code></p></td>
-<td><p>Returns the next input line of file
-<strong>F</strong>, or raises <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code> when
-<code class="docutils literal notranslate"><span class="pre">EOF</span></code> is hit.</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">F.next()</span></code></p></td>
+<td><p>Returns the next input line of file <em>F</em>,
+or raises <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code> when <code class="docutils literal notranslate"><span class="pre">EOF</span></code>
+is hit.</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>F</strong><code class="docutils literal notranslate"><span class="pre">.</span>
-<span class="pre">read(</span></code>[<em>size</em>]<code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
-<td><p>Read at most <em>size</em> bytes from file <strong>F</strong>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">F.read([size])</span></code></p></td>
+<td><p>Read at most <em>size</em> bytes from file <em>F</em>
 and return as a string object. If <em>size</em>
 omitted, read to <code class="docutils literal notranslate"><span class="pre">EOF</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>F</strong><code class="docutils literal notranslate"><span class="pre">.readline()</span></code></p></td>
-<td><p>Read one entire line from file <strong>F</strong>. The
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">F.readline()</span></code></p></td>
+<td><p>Read one entire line from file <em>F</em>. The
 returned line has a trailing <code class="docutils literal notranslate"><span class="pre">\n</span></code>,
 except possibly at <code class="docutils literal notranslate"><span class="pre">EOF</span></code>. Return <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>
 on <code class="docutils literal notranslate"><span class="pre">EOF</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>F</strong><code class="docutils literal notranslate"><span class="pre">.readlines()</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">F.readlines()</span></code></p></td>
 <td><p>Read until <code class="docutils literal notranslate"><span class="pre">EOF</span></code> with <code class="docutils literal notranslate"><span class="pre">readline()</span></code>
 and return a list of lines read.</p></td>
 </tr>
