@@ -304,7 +304,7 @@ Let us have a look at a simple example:
 In this example, you should notice the following crucial points:
 
 -  We can call a function without providing any value for the parameters
-   that have default values (``CASE 1``, .., ``CASE 5``).
+   that have default values (``CASE 1``, .., ``CASE 4``).
 
 -  We can swap the order of default parameters when we are calling the
    function (``CASE 5`` and ``CASE 6``).
@@ -610,7 +610,7 @@ recursive mathematical definition of the factorial would be:
 .. code:: python
 
    def factorial(N):
-       if N = 0: return 1
+       if N == 0: return 1
        else: return N * factorial(N-1)
 
 High-level languages are designed so that each call to the ``factorial``
@@ -996,7 +996,7 @@ For this purpose we will write a function ``find_q_mark()`` that will
 take a string as an argument, in which the missing digit is indicated by
 a (``?``) (question mark). We are expecting that a call of
 ``find_q_mark("1?9503-7")`` will recover the missing digit and return
-the demystified string: “169503-7”.
+the demystified string: “139503-7”.
 
 Note that the ``checksum()`` definition of above is still effective.
 
@@ -1084,7 +1084,7 @@ we go over. Here is the algorithm:
    ----------------------------
    Step 1: Create a variable named Index with initial value 0
    Step 2: Create a variable named N with value length(L)
-   Step 3: While Index < N is True, execute Steps 3 and 4:
+   Step 3: While Index < N is True, execute Steps 4 and 5:
    Step 4:    If x is equal to L[Index], then return True as the result
    Step 5:    Index = Index + 1
    Step 6: Return False as the result
@@ -1252,7 +1252,7 @@ Here is the pseudocode that describes this algorithm:
    ----------------------------
    Step 1: If length(L) is zero then return False since the list is empty
    Step 2: Create a variable Mid_index with value length(L)/2
-   Step 3: If length(L) is 1 then return False since the only item in L is not equal to x
+   Step 3: If x = L[Mid_Index], return True, we found the item
    Step 4: If x < L[Mid_index] then make recursive call with L[0:Mid_index] and return its answer
    Step 5: Otherwise (x > L[Mid_index]) then make a recursive call with L[Mid_index+1:] and return its answer
 

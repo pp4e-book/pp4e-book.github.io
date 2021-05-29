@@ -245,7 +245,7 @@ Namely, we have a sequence of digits, each of which can be either 0 or
 <div class="math notranslate nohighlight" id="equation-chapters-ch3-data-representation-0">
 <span class="eqno">(3.1.1)<a class="headerlink" href="#equation-chapters-ch3-data-representation-0" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{array}{ccccccc}
 Position: &amp; n &amp; n-1 &amp; ... &amp; 2 &amp; 1 &amp; 0 \\
-Meaning: &amp; 2^n &amp; 2{n-1} &amp; ... &amp; 2^2 &amp; 2^1 &amp; 2^0\\
+Meaning: &amp; 2^n &amp; 2^{n-1} &amp; ... &amp; 2^2 &amp; 2^1 &amp; 2^0\\
 \end{array} \nonumber\end{split}\]</div>
 <p>The following is an example for expressing the integer <strong>181</strong> in
 base-2:</p>
@@ -385,7 +385,7 @@ range is <span class="math notranslate nohighlight">\([-128,127]\)</span>):</p>
 \hline
 -18 &amp; {\tt 11101110}   &amp;  Negative   &amp; magnitude &amp; {\tt 00010010} \\
 &amp; &amp; &amp;   inverse &amp; {\tt 11101101} \\
-&amp; &amp; &amp;  +1 &amp; {\tt 11101101}     \\
+&amp; &amp; &amp;  +1 &amp; {\tt 11101110}     \\
 \hline
 -47 &amp; {\tt 11010001}   &amp;  Negative   &amp; magnitude &amp; {\tt 00101111} \\
 &amp; &amp; &amp;   inverse &amp; {\tt 11010000} \\
@@ -1260,9 +1260,7 @@ organizations are name <em>Data Structures</em> in Computer Science. So, string
 is a data structure. As far as Python is concerned, there are several
 other data structures. They are coined in Python as <em>containers</em>. In
 addition to strings Python provide lists, tuples, sets and dictionaries
-as containers. Except strings, which is introduced above, the others
-have more complex data structures which will not be covered, because it
-falls outside of the scope of this book.</p>
+as containers.</p>
 </div>
 <div class="section" id="representing-truth-values-booleans">
 <h2><span class="section-number">3.6. </span>Representing truth values (Booleans)<a class="headerlink" href="#representing-truth-values-booleans" title="Permalink to this headline">¶</a></h2>

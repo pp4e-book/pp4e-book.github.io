@@ -951,7 +951,7 @@ the item to be inserted.
    >>> L.extend([777, 888])
    [111, 222, 333, 444, 555, 666, 777, 888]
 
-3- *Data creation with ``tuple()`` and ``str()`` functions*: Similar to
+3- *Data creation with ``tuple()`` and ``list()`` functions*: Similar to
 other data types, tuple and list data types provide two functions for
 creating data from other data types.
 
@@ -1822,10 +1822,10 @@ assigning them to variables. First consider the following code:
 .. parsed-literal::
     :class: output
 
-    address of 5:  4318804656
-    address of a:  4318804656
-    address of b:  4318804656
-    address of a:  4318804592
+    address of 5:  4400147120
+    address of a:  4400147120
+    address of b:  4400147120
+    address of a:  4400147056
     b is:  5
 
 
@@ -1856,9 +1856,9 @@ Now keep the task the same but change the data from integer to a list:
 .. parsed-literal::
     :class: output
 
-    addresses of a and b:  4352701376 4352701376
+    addresses of a and b:  4434051840 4434051840
     b is:  [5, 1, 7]
-    addresses of a and b:  4352701888 4352701376
+    addresses of a and b:  4434517632 4434051840
     b is:  [5, 1, 7]
 
 
@@ -1881,9 +1881,9 @@ But now, consider the following slightly different example:
 .. parsed-literal::
     :class: output
 
-    addresses of a and b:  4353281792 4353281792
+    addresses of a and b:  4432991232 4432991232
     b is:  [5, 1, 7]
-    addresses of a and b:  4353281792 4353281792
+    addresses of a and b:  4432991232 4432991232
     b is:  [3, 1, 7]
 
 
@@ -2311,8 +2311,7 @@ can execute those statements from a terminal window as follows:
 
    $ cat test.py
    print("This is a Python program that reads two numbers from the user, adds the numbers and prints the result\n\n")
-   s = input("Enter a list of two numbers [a, b]: ")
-   [a, b] = eval(s)
+   [a, b] = input("Enter two numbers: ")
    print("You have provided: ", a, b)
    result = a + b
    print("The sum is: ", result)

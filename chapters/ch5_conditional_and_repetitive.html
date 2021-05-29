@@ -583,10 +583,10 @@ formulating our solutions. <span class="math notranslate nohighlight">\(n!\)</sp
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">:</span> <span class="n">n</span>
 <span class="n">Output</span><span class="p">:</span> <span class="n">n_factorial</span>
 
-<span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">If</span> <span class="n">n</span> <span class="ow">is</span> <span class="n">negative</span><span class="p">,</span> <span class="n">n_factorial</span> <span class="ow">is</span> <span class="mf">1.</span> <span class="n">Return</span> <span class="n">n_factorial</span> <span class="ow">and</span> <span class="n">exit</span>
+<span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">If</span> <span class="n">n</span> <span class="ow">is</span> <span class="n">zero</span> <span class="ow">or</span> <span class="n">negative</span><span class="p">,</span> <span class="n">n_factorial</span> <span class="ow">is</span> <span class="mf">1.</span> <span class="n">Return</span> <span class="n">n_factorial</span> <span class="ow">and</span> <span class="n">exit</span>
 <span class="n">Step</span> <span class="mi">2</span><span class="p">:</span> <span class="n">Initialize</span> <span class="n">n_factorial</span> <span class="k">with</span> <span class="mi">1</span>
 <span class="n">Step</span> <span class="mi">3</span><span class="p">:</span> <span class="n">Initialize</span> <span class="n">an</span> <span class="n">index</span> <span class="n">variable</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="k">with</span> <span class="mi">1</span>
-<span class="n">Step</span> <span class="mi">4</span><span class="p">:</span> <span class="n">While</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">,</span> <span class="n">Execute</span> <span class="n">Steps</span> <span class="mi">4</span> <span class="n">an</span> <span class="mi">5</span><span class="p">:</span>
+<span class="n">Step</span> <span class="mi">4</span><span class="p">:</span> <span class="n">While</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">,</span> <span class="n">Execute</span> <span class="n">Steps</span> <span class="mi">5</span> <span class="ow">and</span> <span class="mi">6</span><span class="p">:</span>
 <span class="n">Step</span> <span class="mi">5</span><span class="p">:</span>     <span class="n">n_factorial</span> <span class="o">=</span> <span class="n">n_factorial</span> <span class="o">*</span> <span class="n">i</span>
 <span class="n">Step</span> <span class="mi">6</span><span class="p">:</span>     <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
 <span class="n">Step</span> <span class="mi">7</span><span class="p">:</span> <span class="n">The</span> <span class="n">result</span> <span class="ow">is</span> <span class="n">n_factorial</span>
@@ -596,7 +596,7 @@ formulating our solutions. <span class="math notranslate nohighlight">\(n!\)</sp
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let us choose an n value:</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
 
-<span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span> <span class="n">n_factorial</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># Step 1</span>
+<span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span> <span class="n">n_factorial</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># Step 1</span>
 <span class="k">elif</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>                <span class="c1"># Steps 2-6</span>
   <span class="n">n_factorial</span> <span class="o">=</span> <span class="mi">1</span>          <span class="c1"># Step 2</span>
   <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>                    <span class="c1"># Step 3</span>
@@ -613,7 +613,7 @@ formulating our solutions. <span class="math notranslate nohighlight">\(n!\)</sp
 <p><strong>Exercise</strong></p>
 <p>Modify our factorial implementation such that variable <code class="docutils literal notranslate"><span class="pre">i</span></code> starts from
 <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
-<p><strong>Example 3: Computing Sine with Taylor Expansion</strong></p>
+<p><strong>Example 4: Computing Sine with Taylor Expansion</strong></p>
 <p>Let us assume we want to compute <span class="math notranslate nohighlight">\(\sin(x)\)</span>, for a given value of
 <span class="math notranslate nohighlight">\(x\)</span>, up to a given precision. This is just for the sake of having
 an understandable example. Actually today’s CPUs have embedded math
@@ -1033,7 +1033,7 @@ statement changes the flow of execution.</p>
 <div class="figure align-default" id="id6">
 <span id="ch5-for-with-continue-break"></span><img alt="../_images/ch5_for-w-break-continue.png" src="../_images/ch5_for-w-break-continue.png" />
 <p class="caption"><span class="caption-number">Fig. 5.2.4 </span><span class="caption-text">How <code class="docutils literal notranslate"><span class="pre">continue</span></code> and <code class="docutils literal notranslate"><span class="pre">break</span></code> statements change execution in a
-<code class="docutils literal notranslate"><span class="pre">while</span></code> statement.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+<code class="docutils literal notranslate"><span class="pre">for</span></code> statement.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="set-and-list-comprehension">

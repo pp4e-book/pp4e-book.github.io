@@ -541,10 +541,10 @@ Let us first write down the algorithm:
    Input: n
    Output: n_factorial
 
-   Step 1: If n is negative, n_factorial is 1. Return n_factorial and exit
+   Step 1: If n is zero or negative, n_factorial is 1. Return n_factorial and exit
    Step 2: Initialize n_factorial with 1
    Step 3: Initialize an index variable, i, with 1
-   Step 4: While i <= n, Execute Steps 4 an 5:
+   Step 4: While i <= n, Execute Steps 5 and 6:
    Step 5:     n_factorial = n_factorial * i
    Step 6:     i = i + 1
    Step 7: The result is n_factorial
@@ -556,7 +556,7 @@ which can be implemented in Python as follows:
     # Let us choose an n value:
     n = 5
     
-    if n < 0: n_factorial = 1  # Step 1
+    if n <= 0: n_factorial = 1  # Step 1
     elif n > 0:                # Steps 2-6
       n_factorial = 1          # Step 2
       i = 1                    # Step 3
@@ -578,7 +578,7 @@ which can be implemented in Python as follows:
 Modify our factorial implementation such that variable ``i`` starts from
 ``n``.
 
-**Example 3: Computing Sine with Taylor Expansion**
+**Example 4: Computing Sine with Taylor Expansion**
 
 Let us assume we want to compute :math:`\sin(x)`, for a given value of
 :math:`x`, up to a given precision. This is just for the sake of having
@@ -1088,7 +1088,7 @@ statement changes the flow of execution.
 .. figure:: ../figures/ch5_for-w-break-continue.png
 
    How ``continue`` and ``break`` statements change execution in a
-   ``while`` statement.
+   ``for`` statement.
 
 
 Set and list comprehension

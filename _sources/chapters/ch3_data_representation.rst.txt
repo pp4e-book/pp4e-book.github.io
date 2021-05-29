@@ -79,7 +79,7 @@ Namely, we have a sequence of digits, each of which can be either 0 or
 
    \begin{array}{ccccccc}
    Position: & n & n-1 & ... & 2 & 1 & 0 \\  
-   Meaning: & 2^n & 2{n-1} & ... & 2^2 & 2^1 & 2^0\\
+   Meaning: & 2^n & 2^{n-1} & ... & 2^2 & 2^1 & 2^0\\
    \end{array} \nonumber
 
 The following is an example for expressing the integer **181** in
@@ -238,7 +238,7 @@ range is :math:`[-128,127]`):
    \hline
    -18 & {\tt 11101110}   &  Negative   & magnitude & {\tt 00010010} \\
    & & &   inverse & {\tt 11101101} \\
-   & & &  +1 & {\tt 11101101}     \\
+   & & &  +1 & {\tt 11101110}     \\
    \hline
    -47 & {\tt 11010001}   &  Negative   & magnitude & {\tt 00101111} \\
    & & &   inverse & {\tt 11010000} \\
@@ -901,9 +901,7 @@ organizations are name *Data Structures* in Computer Science. So, string
 is a data structure. As far as Python is concerned, there are several
 other data structures. They are coined in Python as *containers*. In
 addition to strings Python provide lists, tuples, sets and dictionaries
-as containers. Except strings, which is introduced above, the others
-have more complex data structures which will not be covered, because it
-falls outside of the scope of this book.
+as containers.
 
 Representing truth values (Booleans)
 ------------------------------------
