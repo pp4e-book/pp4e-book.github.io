@@ -486,14 +486,14 @@ from scratch as an exercise:
     :class: output
 
     Random array M is:
-     [[-2.10546692  0.34663509]
-     [ 0.74410531 -1.01666546]]
+     [[ 0.85900724 -1.80797026]
+     [-0.78720686  0.03860846]]
     Random array N is:
-     [[ 1.52216208 -1.03518177  0.22766494]
-     [-0.18706332  1.33567436 -0.40223736]]
+     [[-0.29678385  0.31982637  0.70872463]
+     [ 1.07001295  0.30698587 -0.15990494]]
     Horizontal stacking of M and N yields:
-     [[-2.10546692  0.34663509  1.52216208 -1.03518177  0.22766494]
-     [ 0.74410531 -1.01666546 -0.18706332  1.33567436 -0.40223736]]
+     [[ 0.85900724 -1.80797026 -0.29678385  0.31982637  0.70872463]
+     [-0.78720686  0.03860846  1.07001295  0.30698587 -0.15990494]]
 
 
 Linear Algebra with NumPy
@@ -803,13 +803,13 @@ matrices.
     :class: output
 
     Our matmul_2D result: 
-     [[-1.3599126  -0.18054068  0.05767629 -0.21689193]
-     [-0.43781255  0.5702227   0.26801993 -0.63029105]]
+     [[ 2.55420505  1.56010986 -1.71916732 -6.07824865]
+     [-0.77687014  1.52880056  0.85940175 -0.03245082]]
     Correct result: 
-     [[-1.3599126  -0.18054068  0.05767629 -0.21689193]
-     [-0.43781255  0.5702227   0.26801993 -0.63029105]]
-    NumPy's matmul took  0.00032806396484375 ms.
-    Our matmul_2D function took  1.0305368900299072 ms.
+     [[ 2.55420505  1.56010986 -1.71916732 -6.07824865]
+     [-0.77687014  1.52880056  0.85940175 -0.03245082]]
+    NumPy's matmul took  0.000396728515625 ms.
+    Our matmul_2D function took  1.0195331573486328 ms.
 
 
 Scientific Computing with SciPy
@@ -1049,17 +1049,17 @@ supported by Pandas, you can use its reader for directly obtaining a
 
 
 
-| Note the following critical details:
-| - ``read_csv`` file automatically understood that our CSV file had a
-  header (“Name Surname”, “Grade (over 100)” and “Age”). If your file
-  does not have a header, you can call ``read_csv`` with the ``header``
-  parameter set to ``None`` as follows:
-  ``pd.read_csv(filename, header=None)``.
+Note the following critical details:
+
+-  ``read_csv`` file automatically understood that our CSV file had a
+   header (“Name”, “Grade” and “Age”). If your file does not have a
+   header, you can call ``read_csv`` with the ``header`` parameter set
+   to ``None`` as follows: ``pd.read_csv(filename, header=None)``.
 
 -  ``read_csv`` read all columns in the CSV file. If you wish to load
-   only some of the columns (e.g. ‘Name Surname’, ‘Age’ in our example),
-   you can relay this using the ``names`` parameter as follows:
-   ``pd.read_csv(filename, names=['Name Surname', 'Age'])``.
+   only some of the columns (e.g. ‘Name’, ‘Age’ in our example), you can
+   relay this using the ``usecols`` parameter as follows:
+   ``pd.read_csv(filename, usecols=[ 'Name', 'Age'])``.
 
 **2. Convert Python data into a ``DataFrame``**. Alternatively, you can
 have already a Python data object which you can provide as argument to a
@@ -1133,24 +1133,24 @@ We can access data columnwise or row-wise.
 
 **1. Columnwise access.**
 
-For columnwise access, you can use ``df['Grade']``, which returns a
+For columnwise access, you can use ``df["Grade"]``, which returns a
 sequence of values. To access a certain element in that sequence, you
-can either use an integer index (as in ``df['Grade'][1]``) or named
-index if it has been defined (as in ``df['Grade']['Amanda']``). The
+can either use an integer index (as in ``df["Grade"][1]``) or named
+index if it has been defined (as in ``df["Grade"]["Amanda"]``). The
 following example illustrates this for the example ``DataFrame`` we have
 created above:
 
 .. code:: python
 
    >>> print(df)
-               Grade  Age
+            Grade  Age
    Jack     40.2   20
    Amanda   30.0   25
    Mary     60.2   19
-       >>> print(df['Grade'][1])
-       30.0
-       >>> print(df['Grade']['Amanda'])
-       30.0
+   >>> print(df['Grade'][1])
+   30.0
+   >>> print(df['Grade']['Amanda'])
+   30.0
 
 **2. Rowwise access.**
 
@@ -1566,7 +1566,7 @@ example:
 .. parsed-literal::
     :class: output
 
-    <matplotlib.legend.Legend at 0x1229e13a0>
+    <matplotlib.legend.Legend at 0x1270f0310>
 
 
 
@@ -1612,7 +1612,7 @@ figure or axes objects. This is illustrated in the following example:
 .. parsed-literal::
     :class: output
 
-    <matplotlib.legend.Legend at 0x122b47a30>
+    <matplotlib.legend.Legend at 0x12723d9a0>
 
 
 

@@ -553,7 +553,7 @@ user supplied ones. Checking all input values before starting a
 computation is called <strong>Input Sanitization</strong>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># CASE 1 with sanitization</span>
 <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
-<span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+<span class="k">if</span> <span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
   <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
 <span class="k">else</span><span class="p">:</span>
   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;n is not valid:&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
@@ -645,7 +645,7 @@ are handled in the same place.</p>
 </div>
 <p>You can try the above example with different inputs:</p>
 <ol class="arabic simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">-1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-3</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">'Obi'</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">'Han'</span> <span class="pre">-2</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">'Han'</span> <span class="pre">0</span></code></p></li>
