@@ -486,14 +486,16 @@ from scratch as an exercise:
     :class: output
 
     Random array M is:
-     [[ 0.85900724 -1.80797026]
-     [-0.78720686  0.03860846]]
+     [[ 0.39521366  1.41939618]
+     [-0.13770429  1.19319949]]
     Random array N is:
-     [[-0.29678385  0.31982637  0.70872463]
-     [ 1.07001295  0.30698587 -0.15990494]]
+     [[-1.61066212e-01  8.15354855e-01  7.19234023e-01]
+     [ 2.65985989e-04 -2.89111500e-01  4.52781848e-02]]
     Horizontal stacking of M and N yields:
-     [[ 0.85900724 -1.80797026 -0.29678385  0.31982637  0.70872463]
-     [-0.78720686  0.03860846  1.07001295  0.30698587 -0.15990494]]
+     [[ 3.95213656e-01  1.41939618e+00 -1.61066212e-01  8.15354855e-01
+       7.19234023e-01]
+     [-1.37704293e-01  1.19319949e+00  2.65985989e-04 -2.89111500e-01
+       4.52781848e-02]]
 
 
 Linear Algebra with NumPy
@@ -803,13 +805,13 @@ matrices.
     :class: output
 
     Our matmul_2D result: 
-     [[ 2.55420505  1.56010986 -1.71916732 -6.07824865]
-     [-0.77687014  1.52880056  0.85940175 -0.03245082]]
+     [[-0.24208963  1.18790239 -1.5397112  -1.14521578]
+     [-2.00697411  4.23675778 -3.74909068 -0.23854542]]
     Correct result: 
-     [[ 2.55420505  1.56010986 -1.71916732 -6.07824865]
-     [-0.77687014  1.52880056  0.85940175 -0.03245082]]
-    NumPy's matmul took  0.000396728515625 ms.
-    Our matmul_2D function took  1.0195331573486328 ms.
+     [[-0.24208963  1.18790239 -1.5397112  -1.14521578]
+     [-2.00697411  4.23675778 -3.74909068 -0.23854542]]
+    NumPy's matmul took  0.00040411949157714844 ms.
+    Our matmul_2D function took  1.0593342781066895 ms.
 
 
 Scientific Computing with SciPy
@@ -1019,7 +1021,16 @@ supported by Pandas, you can use its reader for directly obtaining a
 .. parsed-literal::
     :class: output
 
-    File ‘ch10_example.csv’ already there; not retrieving.
+    --2021-06-21 20:22:24--  https://raw.githubusercontent.com/sinankalkan/CENG240/master/figures/ch10_example.csv
+    Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.110.133, 185.199.108.133, ...
+    Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.
+    HTTP request sent, awaiting response... 200 OK
+    Length: 162 [text/plain]
+    Saving to: ‘ch10_example.csv’
+    
+    ch10_example.csv    100%[===================>]     162  --.-KB/s    in 0s      
+    
+    2021-06-21 20:22:25 (2.53 MB/s) - ‘ch10_example.csv’ saved [162/162]
     
     The CSV file contains the following:
            Name  Grade  Age
@@ -1566,7 +1577,7 @@ example:
 .. parsed-literal::
     :class: output
 
-    <matplotlib.legend.Legend at 0x1270f0310>
+    <matplotlib.legend.Legend at 0x125532250>
 
 
 
@@ -1612,7 +1623,7 @@ figure or axes objects. This is illustrated in the following example:
 .. parsed-literal::
     :class: output
 
-    <matplotlib.legend.Legend at 0x12723d9a0>
+    <matplotlib.legend.Legend at 0x1256ab9a0>
 
 
 

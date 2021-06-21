@@ -186,11 +186,12 @@ Create Artificial Data
 ~~~~~~~~~~~~~~~~~~~~~~
 
 To keep things simple, let us generate some artificial data in Python
-and save it in a file called ``ch12_linear_data.csv``. We have already
-run this code and saved this CSV file on web – in the following steps,
-we will continue with this file on the web. However, you can change the
-following code the generate data in different forms and with different
-noise levels and observe how the different regression methods perform.
+and save it in a file called ``ch12_linear_data_example.csv``. We have
+already run this code and saved this CSV file on web – in the following
+steps, we will continue with this file on the web. However, you can
+change the following code the generate data in different forms and with
+different noise levels and observe how the different regression methods
+perform.
 
 .. code:: python
 
@@ -211,7 +212,7 @@ noise levels and observe how the different regression methods perform.
     ys = line_func(xs, 3, 0.5) + np.random.normal(0, 4, xs.size) # add random noise
     
     df = pd.DataFrame({'x': xs, 'y': ys})
-    df.to_csv("ch12_linear_data.csv")
+    df.to_csv("ch12_linear_data_example.csv")
     
     print("Created {0} many data points and saved them into CSV file.".format(xs.size))
 
@@ -249,21 +250,30 @@ can provide you the experience of a full data analysis pipeline.
 .. parsed-literal::
     :class: output
 
-    File ‘ch12_linear_data.csv’ already there; not retrieving.
+    --2021-06-21 20:22:34--  https://raw.githubusercontent.com/sinankalkan/CENG240/master/figures/ch12_linear_data.csv
+    Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.110.133, 185.199.108.133, 185.199.109.133, ...
+    Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... connected.
+    HTTP request sent, awaiting response... 200 OK
+    Length: 4049 (4.0K) [text/plain]
+    Saving to: ‘ch12_linear_data.csv’
+    
+    ch12_linear_data.cs 100%[===================>]   3.95K  --.-KB/s    in 0.002s  
+    
+    2021-06-21 20:22:35 (2.56 MB/s) - ‘ch12_linear_data.csv’ saved [4049/4049]
     
     The CSV file contains the following:
          Unnamed: 0          x          y
-    0            0 -10.000000 -25.541643
-    1            1  -9.797980 -21.879656
-    2            2  -9.595960 -30.961630
-    3            3  -9.393939 -22.314965
-    4            4  -9.191919 -28.890941
+    0            0 -10.000000 -29.198799
+    1            1  -9.797980 -33.379918
+    2            2  -9.595960 -25.661456
+    3            3  -9.393939 -24.037193
+    4            4  -9.191919 -25.264474
     ..         ...        ...        ...
-    95          95   9.191919  23.674962
-    96          96   9.393939  30.717558
-    97          97   9.595960  32.536789
-    98          98   9.797980  29.463917
-    99          99  10.000000  21.630870
+    95          95   9.191919  27.905021
+    96          96   9.393939  24.494575
+    97          97   9.595960  32.212389
+    98          98   9.797980  28.511129
+    99          99  10.000000  33.593768
     
     [100 rows x 3 columns] 
     
@@ -342,7 +352,7 @@ Section 12.2.
 .. parsed-literal::
     :class: output
 
-    The estimated solution is: y = 2.962724 x + 0.109122
+    The estimated solution is: y = 2.963812 x + 0.442237
 
 
 Analyze the Solution
@@ -391,7 +401,7 @@ Let us do this for our example:
 .. parsed-literal::
     :class: output
 
-    <matplotlib.legend.Legend at 0x132c77af0>
+    <matplotlib.legend.Legend at 0x12e6d8d30>
 
 
 
@@ -502,9 +512,9 @@ Now let us analyze our solution using these three metrics.
 .. parsed-literal::
     :class: output
 
-    MSE Error:  14.421275615638306
-    RMSE Error:  3.7975354660145446
-    R-squared Error:  0.9516878523484535
+    MSE Error:  14.710406962785715
+    RMSE Error:  3.835414835814467
+    R-squared Error:  0.950755415581623
 
 
 We see that we have obtained very low errors. Especially the :math:`R^2`
@@ -521,12 +531,12 @@ Create Artificial Data
 ~~~~~~~~~~~~~~~~~~~~~~
 
 To keep things simple, let us generate some artificial data in Python
-and save it in a file called ``ch12_nonlinear_data.csv``. We have
-already run this code and saved this CSV file on web – in the following
-steps, we will continue with this file on the web. However, you can
-change the following code the generate data in different forms and with
-different noise levels and observe how the different regression methods
-perform.
+and save it in a file called ``ch12_nonlinear_data_example.csv``. We
+have already run this code and saved this CSV file on web – in the
+following steps, we will continue with this file on the web. However,
+you can change the following code the generate data in different forms
+and with different noise levels and observe how the different regression
+methods perform.
 
 .. code:: python
 
@@ -542,7 +552,7 @@ perform.
     ys = nonlinear_f(xs, params=(3, 0.5)) + np.random.normal(0, 0.7, xs.size) # add random noise
     
     df = pd.DataFrame({'x': xs, 'y': ys})
-    df.to_csv("ch12_nonlinear_data.csv")
+    df.to_csv("ch12_nonlinear_data_example.csv")
     
     print("Created {0} many data points and saved them into CSV file.".format(xs.size))
 
@@ -580,21 +590,30 @@ can provide you the experience of a full data analysis pipeline.
 .. parsed-literal::
     :class: output
 
-    File ‘ch12_nonlinear_data.csv’ already there; not retrieving.
+    --2021-06-21 20:22:36--  https://raw.githubusercontent.com/sinankalkan/CENG240/master/figures/ch12_nonlinear_data.csv
+    Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.109.133, 185.199.110.133, ...
+    Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
+    HTTP request sent, awaiting response... 200 OK
+    Length: 4064 (4.0K) [text/plain]
+    Saving to: ‘ch12_nonlinear_data.csv’
+    
+    ch12_nonlinear_data 100%[===================>]   3.97K  --.-KB/s    in 0.001s  
+    
+    2021-06-21 20:22:37 (3.44 MB/s) - ‘ch12_nonlinear_data.csv’ saved [4064/4064]
     
     The CSV file contains the following:
          Unnamed: 0          x         y
-    0            0 -10.000000  1.721089
-    1            1  -9.797980  0.708420
-    2            2  -9.595960  0.347027
-    3            3  -9.393939  0.287755
-    4            4  -9.191919  0.594612
+    0            0 -10.000000  3.911998
+    1            1  -9.797980  1.781296
+    2            2  -9.595960  1.125093
+    3            3  -9.393939  0.738523
+    4            4  -9.191919 -0.343199
     ..         ...        ...       ...
-    95          95   9.191919  1.280956
-    96          96   9.393939 -0.629524
-    97          97   9.595960 -0.004467
-    98          98   9.797980  0.233133
-    99          99  10.000000 -0.838783
+    95          95   9.191919  0.667528
+    96          96   9.393939 -0.729794
+    97          97   9.595960  0.643281
+    98          98   9.797980 -1.533940
+    99          99  10.000000 -0.760156
     
     [100 rows x 3 columns] 
     
@@ -667,7 +686,7 @@ which internally performs Non-linear Least-squares Regression.
 .. parsed-literal::
     :class: output
 
-    The estimated solution is:  [3.03810507 0.56551062]
+    The estimated solution is:  [3.11746172 0.48206522]
 
 
 Analyzing the Solution
@@ -706,7 +725,7 @@ qualitatively.
 .. parsed-literal::
     :class: output
 
-    <matplotlib.legend.Legend at 0x132d74d00>
+    <matplotlib.legend.Legend at 0x12e7b9b80>
 
 
 
@@ -735,9 +754,9 @@ fit was:
 .. parsed-literal::
     :class: output
 
-    MSE Error:  0.4719959515976198
-    RMSE Error:  0.6870196151476461
-    R-squared Error:  0.892495976237392
+    MSE Error:  0.6748838046926273
+    RMSE Error:  0.8215131190021419
+    R-squared Error:  0.8540114575179684
 
 
 We see again that we have obtained low error values, despite the noise.

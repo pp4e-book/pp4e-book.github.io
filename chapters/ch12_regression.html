@@ -323,11 +323,12 @@ regressed line to analyze some properties of our data.</p>
 <div class="section" id="create-artificial-data">
 <h3><span class="section-number">12.3.1. </span>Create Artificial Data<a class="headerlink" href="#create-artificial-data" title="Permalink to this headline">¶</a></h3>
 <p>To keep things simple, let us generate some artificial data in Python
-and save it in a file called <code class="docutils literal notranslate"><span class="pre">ch12_linear_data.csv</span></code>. We have already
-run this code and saved this CSV file on web – in the following steps,
-we will continue with this file on the web. However, you can change the
-following code the generate data in different forms and with different
-noise levels and observe how the different regression methods perform.</p>
+and save it in a file called <code class="docutils literal notranslate"><span class="pre">ch12_linear_data_example.csv</span></code>. We have
+already run this code and saved this CSV file on web – in the following
+steps, we will continue with this file on the web. However, you can
+change the following code the generate data in different forms and with
+different noise levels and observe how the different regression methods
+perform.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -345,7 +346,7 @@ noise levels and observe how the different regression methods perform.</p>
 <span class="n">ys</span> <span class="o">=</span> <span class="n">line_func</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">xs</span><span class="o">.</span><span class="n">size</span><span class="p">)</span> <span class="c1"># add random noise</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">xs</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">ys</span><span class="p">})</span>
-<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;ch12_linear_data.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;ch12_linear_data_example.csv&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Created </span><span class="si">{0}</span><span class="s2"> many data points and saved them into CSV file.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">xs</span><span class="o">.</span><span class="n">size</span><span class="p">))</span>
 </pre></div>
@@ -374,21 +375,30 @@ print(&quot;The CSV file contains the following:\n&quot;, df, &quot;\n&quot;)
 df.dtypes
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span>File ‘ch12_linear_data.csv’ already there; not retrieving.
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span>--2021-06-21 20:22:34--  https://raw.githubusercontent.com/sinankalkan/CENG240/master/figures/ch12_linear_data.csv
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.110.133, 185.199.108.133, 185.199.109.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 4049 (4.0K) [text/plain]
+Saving to: ‘ch12_linear_data.csv’
+
+ch12_linear_data.cs 100%[===================&gt;]   3.95K  --.-KB/s    in 0.002s
+
+2021-06-21 20:22:35 (2.56 MB/s) - ‘ch12_linear_data.csv’ saved [4049/4049]
 
 The CSV file contains the following:
      Unnamed: 0          x          y
-0            0 -10.000000 -25.541643
-1            1  -9.797980 -21.879656
-2            2  -9.595960 -30.961630
-3            3  -9.393939 -22.314965
-4            4  -9.191919 -28.890941
+0            0 -10.000000 -29.198799
+1            1  -9.797980 -33.379918
+2            2  -9.595960 -25.661456
+3            3  -9.393939 -24.037193
+4            4  -9.191919 -25.264474
 ..         ...        ...        ...
-95          95   9.191919  23.674962
-96          96   9.393939  30.717558
-97          97   9.595960  32.536789
-98          98   9.797980  29.463917
-99          99  10.000000  21.630870
+95          95   9.191919  27.905021
+96          96   9.393939  24.494575
+97          97   9.595960  32.212389
+98          98   9.797980  28.511129
+99          99  10.000000  33.593768
 
 [100 rows x 3 columns]
 </pre></div>
@@ -444,7 +454,7 @@ Section 12.2.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The estimated solution is: y = </span><span class="si">%4f</span><span class="s2"> x + </span><span class="si">%4f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">a_estimated</span><span class="p">,</span> <span class="n">b_estimated</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">estimated</span> <span class="n">solution</span> <span class="ow">is</span><span class="p">:</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">2.962724</span> <span class="n">x</span> <span class="o">+</span> <span class="mf">0.109122</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">estimated</span> <span class="n">solution</span> <span class="ow">is</span><span class="p">:</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">2.963812</span> <span class="n">x</span> <span class="o">+</span> <span class="mf">0.442237</span>
 </pre></div>
 </div>
 </div>
@@ -483,7 +493,7 @@ confirm whether the solution looks acceptable.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">Legend</span> <span class="n">at</span> <span class="mh">0x132c77af0</span><span class="o">&gt;</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">Legend</span> <span class="n">at</span> <span class="mh">0x12e6d8d30</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <div class="figure align-default">
@@ -572,9 +582,9 @@ obtained solution is even worse than the mean <span class="math notranslate nohi
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R-squared Error: &quot;</span><span class="p">,</span> <span class="n">R_squared</span><span class="p">(</span><span class="n">estimated_y</span><span class="p">,</span> <span class="n">correct_y</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MSE</span> <span class="n">Error</span><span class="p">:</span>  <span class="mf">14.421275615638306</span>
-<span class="n">RMSE</span> <span class="n">Error</span><span class="p">:</span>  <span class="mf">3.7975354660145446</span>
-<span class="n">R</span><span class="o">-</span><span class="n">squared</span> <span class="n">Error</span><span class="p">:</span>  <span class="mf">0.9516878523484535</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MSE</span> <span class="n">Error</span><span class="p">:</span>  <span class="mf">14.710406962785715</span>
+<span class="n">RMSE</span> <span class="n">Error</span><span class="p">:</span>  <span class="mf">3.835414835814467</span>
+<span class="n">R</span><span class="o">-</span><span class="n">squared</span> <span class="n">Error</span><span class="p">:</span>  <span class="mf">0.950755415581623</span>
 </pre></div>
 </div>
 <p>We see that we have obtained very low errors. Especially the <span class="math notranslate nohighlight">\(R^2\)</span>
@@ -589,12 +599,12 @@ noisy, it was not possible to obtain <span class="math notranslate nohighlight">
 <div class="section" id="id1">
 <h3><span class="section-number">12.4.1. </span>Create Artificial Data<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>To keep things simple, let us generate some artificial data in Python
-and save it in a file called <code class="docutils literal notranslate"><span class="pre">ch12_nonlinear_data.csv</span></code>. We have
-already run this code and saved this CSV file on web – in the following
-steps, we will continue with this file on the web. However, you can
-change the following code the generate data in different forms and with
-different noise levels and observe how the different regression methods
-perform.</p>
+and save it in a file called <code class="docutils literal notranslate"><span class="pre">ch12_nonlinear_data_example.csv</span></code>. We
+have already run this code and saved this CSV file on web – in the
+following steps, we will continue with this file on the web. However,
+you can change the following code the generate data in different forms
+and with different noise levels and observe how the different regression
+methods perform.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -607,7 +617,7 @@ perform.</p>
 <span class="n">ys</span> <span class="o">=</span> <span class="n">nonlinear_f</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="n">xs</span><span class="o">.</span><span class="n">size</span><span class="p">)</span> <span class="c1"># add random noise</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">xs</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">ys</span><span class="p">})</span>
-<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;ch12_nonlinear_data.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;ch12_nonlinear_data_example.csv&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Created </span><span class="si">{0}</span><span class="s2"> many data points and saved them into CSV file.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">xs</span><span class="o">.</span><span class="n">size</span><span class="p">))</span>
 </pre></div>
@@ -636,21 +646,30 @@ print(&quot;The CSV file contains the following:\n&quot;, df, &quot;\n&quot;)
 df.dtypes
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span>File ‘ch12_nonlinear_data.csv’ already there; not retrieving.
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span>--2021-06-21 20:22:36--  https://raw.githubusercontent.com/sinankalkan/CENG240/master/figures/ch12_nonlinear_data.csv
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.109.133, 185.199.110.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 4064 (4.0K) [text/plain]
+Saving to: ‘ch12_nonlinear_data.csv’
+
+ch12_nonlinear_data 100%[===================&gt;]   3.97K  --.-KB/s    in 0.001s
+
+2021-06-21 20:22:37 (3.44 MB/s) - ‘ch12_nonlinear_data.csv’ saved [4064/4064]
 
 The CSV file contains the following:
      Unnamed: 0          x         y
-0            0 -10.000000  1.721089
-1            1  -9.797980  0.708420
-2            2  -9.595960  0.347027
-3            3  -9.393939  0.287755
-4            4  -9.191919  0.594612
+0            0 -10.000000  3.911998
+1            1  -9.797980  1.781296
+2            2  -9.595960  1.125093
+3            3  -9.393939  0.738523
+4            4  -9.191919 -0.343199
 ..         ...        ...       ...
-95          95   9.191919  1.280956
-96          96   9.393939 -0.629524
-97          97   9.595960 -0.004467
-98          98   9.797980  0.233133
-99          99  10.000000 -0.838783
+95          95   9.191919  0.667528
+96          96   9.393939 -0.729794
+97          97   9.595960  0.643281
+98          98   9.797980 -1.533940
+99          99  10.000000 -0.760156
 
 [100 rows x 3 columns]
 </pre></div>
@@ -701,7 +720,7 @@ which internally performs Non-linear Least-squares Regression.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The estimated solution is: &quot;</span><span class="p">,</span> <span class="n">solution</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">estimated</span> <span class="n">solution</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">[</span><span class="mf">3.03810507</span> <span class="mf">0.56551062</span><span class="p">]</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">estimated</span> <span class="n">solution</span> <span class="ow">is</span><span class="p">:</span>  <span class="p">[</span><span class="mf">3.11746172</span> <span class="mf">0.48206522</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -731,7 +750,7 @@ qualitatively.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">Legend</span> <span class="n">at</span> <span class="mh">0x132d74d00</span><span class="o">&gt;</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">Legend</span> <span class="n">at</span> <span class="mh">0x12e7b9b80</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <div class="figure align-default">
@@ -751,9 +770,9 @@ fit was:</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R-squared Error: &quot;</span><span class="p">,</span> <span class="n">R_squared</span><span class="p">(</span><span class="n">estimated_y</span><span class="p">,</span> <span class="n">correct_y</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MSE</span> <span class="n">Error</span><span class="p">:</span>  <span class="mf">0.4719959515976198</span>
-<span class="n">RMSE</span> <span class="n">Error</span><span class="p">:</span>  <span class="mf">0.6870196151476461</span>
-<span class="n">R</span><span class="o">-</span><span class="n">squared</span> <span class="n">Error</span><span class="p">:</span>  <span class="mf">0.892495976237392</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MSE</span> <span class="n">Error</span><span class="p">:</span>  <span class="mf">0.6748838046926273</span>
+<span class="n">RMSE</span> <span class="n">Error</span><span class="p">:</span>  <span class="mf">0.8215131190021419</span>
+<span class="n">R</span><span class="o">-</span><span class="n">squared</span> <span class="n">Error</span><span class="p">:</span>  <span class="mf">0.8540114575179684</span>
 </pre></div>
 </div>
 <p>We see again that we have obtained low error values, despite the noise.

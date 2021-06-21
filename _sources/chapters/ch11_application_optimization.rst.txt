@@ -423,16 +423,16 @@ an example function.
 .. parsed-literal::
     :class: output
 
-    trial 0  ended with root:  -2.000000000000002  value at root, f(r):  8.881784197001252e-15
-    trial 1  ended with root:  2.000000000000002  value at root, f(r):  8.881784197001252e-15
-    trial 2  ended with root:  2.000000000000002  value at root, f(r):  8.881784197001252e-15
-    trial 3  ended with root:  -2.000000000006711  value at root, f(r):  2.6844304557016585e-11
-    trial 4  ended with root:  -2.0  value at root, f(r):  0.0
-    trial 5  ended with root:  -2.000000000006711  value at root, f(r):  2.6844304557016585e-11
-    trial 6  ended with root:  2.000000000000002  value at root, f(r):  8.881784197001252e-15
-    trial 7  ended with root:  2.0  value at root, f(r):  0.0
+    trial 0  ended with root:  2.000000000000002  value at root, f(r):  8.881784197001252e-15
+    trial 1  ended with root:  -2.000000000000002  value at root, f(r):  8.881784197001252e-15
+    trial 2  ended with root:  2.0  value at root, f(r):  0.0
+    trial 3  ended with root:  2.000000000026214  value at root, f(r):  1.0485656787295738e-10
+    trial 4  ended with root:  2.000000000026214  value at root, f(r):  1.0485656787295738e-10
+    trial 5  ended with root:  -2.000000000000002  value at root, f(r):  8.881784197001252e-15
+    trial 6  ended with root:  -2.000000000000002  value at root, f(r):  8.881784197001252e-15
+    trial 7  ended with root:  2.000000000026214  value at root, f(r):  1.0485656787295738e-10
     trial 8  ended with root:  2.000000000000002  value at root, f(r):  8.881784197001252e-15
-    trial 9  ended with root:  2.000000000000002  value at root, f(r):  8.881784197001252e-15
+    trial 9  ended with root:  2.0  value at root, f(r):  0.0
 
 
 
@@ -464,16 +464,15 @@ differentiation to calculate the derivative for us.
 .. parsed-literal::
     :class: output
 
-    trial 0  ended with root:  -2.0  value at root, f(r):  0.0
-    trial 1  ended with root:  2.0  value at root, f(r):  0.0
-    trial 2  ended with root:  2.0  value at root, f(r):  0.0
-    trial 3  ended with root:  -2.0000000032851974  value at root, f(r):  1.3140789789645169e-08
-    trial 4  ended with root:  1.9999999996184186  value at root, f(r):  -1.5263257324704682e-09
-    trial 5  ended with root:  -2.000000075022694  value at root, f(r):  3.000907806693931e-07
-    trial 6  ended with root:  -2.0  value at root, f(r):  0.0
-    trial 7  ended with root:  1.9999999996184186  value at root, f(r):  -1.5263257324704682e-09
-    trial 8  ended with root:  1.9999999996184186  value at root, f(r):  -1.5263257324704682e-09
-    trial 9  ended with root:  1.9999999996184186  value at root, f(r):  -1.5263257324704682e-09
+    trial 0  ended with root:  2.000000075022694  value at root, f(r):  3.000907806693931e-07
+    trial 1  ended with root:  -2.0000000032851974  value at root, f(r):  1.3140789789645169e-08
+    trial 2  ended with root:  2.000000075022694  value at root, f(r):  3.000907806693931e-07
+    trial 3  ended with root:  2.0000000032851974  value at root, f(r):  1.3140789789645169e-08
+    trial 5  ended with root:  -2.0  value at root, f(r):  0.0
+    trial 6  ended with root:  -2.0000000003832255  value at root, f(r):  1.532901805489928e-09
+    trial 7  ended with root:  2.000000075022694  value at root, f(r):  3.000907806693931e-07
+    trial 8  ended with root:  -2.0000000003832255  value at root, f(r):  1.532901805489928e-09
+    trial 9  ended with root:  -2.0000000032851974  value at root, f(r):  1.3140789789645169e-08
 
 
 

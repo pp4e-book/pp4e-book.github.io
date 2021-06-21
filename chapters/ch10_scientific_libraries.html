@@ -562,14 +562,16 @@ from scratch as an exercise:</p>
 </pre></div>
 </div>
 <div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Random</span> <span class="n">array</span> <span class="n">M</span> <span class="ow">is</span><span class="p">:</span>
- <span class="p">[[</span> <span class="mf">0.85900724</span> <span class="o">-</span><span class="mf">1.80797026</span><span class="p">]</span>
- <span class="p">[</span><span class="o">-</span><span class="mf">0.78720686</span>  <span class="mf">0.03860846</span><span class="p">]]</span>
+ <span class="p">[[</span> <span class="mf">0.39521366</span>  <span class="mf">1.41939618</span><span class="p">]</span>
+ <span class="p">[</span><span class="o">-</span><span class="mf">0.13770429</span>  <span class="mf">1.19319949</span><span class="p">]]</span>
 <span class="n">Random</span> <span class="n">array</span> <span class="n">N</span> <span class="ow">is</span><span class="p">:</span>
- <span class="p">[[</span><span class="o">-</span><span class="mf">0.29678385</span>  <span class="mf">0.31982637</span>  <span class="mf">0.70872463</span><span class="p">]</span>
- <span class="p">[</span> <span class="mf">1.07001295</span>  <span class="mf">0.30698587</span> <span class="o">-</span><span class="mf">0.15990494</span><span class="p">]]</span>
+ <span class="p">[[</span><span class="o">-</span><span class="mf">1.61066212e-01</span>  <span class="mf">8.15354855e-01</span>  <span class="mf">7.19234023e-01</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mf">2.65985989e-04</span> <span class="o">-</span><span class="mf">2.89111500e-01</span>  <span class="mf">4.52781848e-02</span><span class="p">]]</span>
 <span class="n">Horizontal</span> <span class="n">stacking</span> <span class="n">of</span> <span class="n">M</span> <span class="ow">and</span> <span class="n">N</span> <span class="n">yields</span><span class="p">:</span>
- <span class="p">[[</span> <span class="mf">0.85900724</span> <span class="o">-</span><span class="mf">1.80797026</span> <span class="o">-</span><span class="mf">0.29678385</span>  <span class="mf">0.31982637</span>  <span class="mf">0.70872463</span><span class="p">]</span>
- <span class="p">[</span><span class="o">-</span><span class="mf">0.78720686</span>  <span class="mf">0.03860846</span>  <span class="mf">1.07001295</span>  <span class="mf">0.30698587</span> <span class="o">-</span><span class="mf">0.15990494</span><span class="p">]]</span>
+ <span class="p">[[</span> <span class="mf">3.95213656e-01</span>  <span class="mf">1.41939618e+00</span> <span class="o">-</span><span class="mf">1.61066212e-01</span>  <span class="mf">8.15354855e-01</span>
+   <span class="mf">7.19234023e-01</span><span class="p">]</span>
+ <span class="p">[</span><span class="o">-</span><span class="mf">1.37704293e-01</span>  <span class="mf">1.19319949e+00</span>  <span class="mf">2.65985989e-04</span> <span class="o">-</span><span class="mf">2.89111500e-01</span>
+   <span class="mf">4.52781848e-02</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -845,13 +847,13 @@ matrices.</p>
 </pre></div>
 </div>
 <div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Our</span> <span class="n">matmul_2D</span> <span class="n">result</span><span class="p">:</span>
- <span class="p">[[</span> <span class="mf">2.55420505</span>  <span class="mf">1.56010986</span> <span class="o">-</span><span class="mf">1.71916732</span> <span class="o">-</span><span class="mf">6.07824865</span><span class="p">]</span>
- <span class="p">[</span><span class="o">-</span><span class="mf">0.77687014</span>  <span class="mf">1.52880056</span>  <span class="mf">0.85940175</span> <span class="o">-</span><span class="mf">0.03245082</span><span class="p">]]</span>
+ <span class="p">[[</span><span class="o">-</span><span class="mf">0.24208963</span>  <span class="mf">1.18790239</span> <span class="o">-</span><span class="mf">1.5397112</span>  <span class="o">-</span><span class="mf">1.14521578</span><span class="p">]</span>
+ <span class="p">[</span><span class="o">-</span><span class="mf">2.00697411</span>  <span class="mf">4.23675778</span> <span class="o">-</span><span class="mf">3.74909068</span> <span class="o">-</span><span class="mf">0.23854542</span><span class="p">]]</span>
 <span class="n">Correct</span> <span class="n">result</span><span class="p">:</span>
- <span class="p">[[</span> <span class="mf">2.55420505</span>  <span class="mf">1.56010986</span> <span class="o">-</span><span class="mf">1.71916732</span> <span class="o">-</span><span class="mf">6.07824865</span><span class="p">]</span>
- <span class="p">[</span><span class="o">-</span><span class="mf">0.77687014</span>  <span class="mf">1.52880056</span>  <span class="mf">0.85940175</span> <span class="o">-</span><span class="mf">0.03245082</span><span class="p">]]</span>
-<span class="n">NumPy</span><span class="s1">&#39;s matmul took  0.000396728515625 ms.</span>
-<span class="n">Our</span> <span class="n">matmul_2D</span> <span class="n">function</span> <span class="n">took</span>  <span class="mf">1.0195331573486328</span> <span class="n">ms</span><span class="o">.</span>
+ <span class="p">[[</span><span class="o">-</span><span class="mf">0.24208963</span>  <span class="mf">1.18790239</span> <span class="o">-</span><span class="mf">1.5397112</span>  <span class="o">-</span><span class="mf">1.14521578</span><span class="p">]</span>
+ <span class="p">[</span><span class="o">-</span><span class="mf">2.00697411</span>  <span class="mf">4.23675778</span> <span class="o">-</span><span class="mf">3.74909068</span> <span class="o">-</span><span class="mf">0.23854542</span><span class="p">]]</span>
+<span class="n">NumPy</span><span class="s1">&#39;s matmul took  0.00040411949157714844 ms.</span>
+<span class="n">Our</span> <span class="n">matmul_2D</span> <span class="n">function</span> <span class="n">took</span>  <span class="mf">1.0593342781066895</span> <span class="n">ms</span><span class="o">.</span>
 </pre></div>
 </div>
 </div>
@@ -1112,7 +1114,16 @@ print(&quot;The CSV file contains the following:\n&quot;, df, &quot;\n&quot;)
 df.dtypes
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span>File ‘ch10_example.csv’ already there; not retrieving.
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span>--2021-06-21 20:22:24--  https://raw.githubusercontent.com/sinankalkan/CENG240/master/figures/ch10_example.csv
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.110.133, 185.199.108.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 162 [text/plain]
+Saving to: ‘ch10_example.csv’
+
+ch10_example.csv    100%[===================&gt;]     162  --.-KB/s    in 0s
+
+2021-06-21 20:22:25 (2.53 MB/s) - ‘ch10_example.csv’ saved [162/162]
 
 The CSV file contains the following:
        Name  Grade  Age
@@ -1518,7 +1529,7 @@ example:</p>
 <span class="c1"># fig.show() # Uncomment if not using Colab</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">Legend</span> <span class="n">at</span> <span class="mh">0x1270f0310</span><span class="o">&gt;</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">Legend</span> <span class="n">at</span> <span class="mh">0x125532250</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <div class="figure align-default">
@@ -1554,7 +1565,7 @@ figure or axes objects. This is illustrated in the following example:</p>
 <span class="c1">#plt.show() # Uncomment if not using Colab</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">Legend</span> <span class="n">at</span> <span class="mh">0x12723d9a0</span><span class="o">&gt;</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">Legend</span> <span class="n">at</span> <span class="mh">0x1256ab9a0</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <div class="figure align-default">
