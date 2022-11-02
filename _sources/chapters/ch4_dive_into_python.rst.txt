@@ -1822,10 +1822,10 @@ assigning them to variables. First consider the following code:
 .. parsed-literal::
     :class: output
 
-    address of 5:  4311538352
-    address of a:  4311538352
-    address of b:  4311538352
-    address of a:  4311538288
+    address of 5:  4333935280
+    address of a:  4333935280
+    address of b:  4333935280
+    address of a:  4333935216
     b is:  5
 
 
@@ -1856,9 +1856,9 @@ Now keep the task the same but change the data from integer to a list:
 .. parsed-literal::
     :class: output
 
-    addresses of a and b:  4344021184 4344021184
+    addresses of a and b:  4364549568 4364549568
     b is:  [5, 1, 7]
-    addresses of a and b:  4345519360 4344021184
+    addresses of a and b:  4364490688 4364549568
     b is:  [5, 1, 7]
 
 
@@ -1881,9 +1881,9 @@ But now, consider the following slightly different example:
 .. parsed-literal::
     :class: output
 
-    addresses of a and b:  4345520000 4345520000
+    addresses of a and b:  4364489280 4364489280
     b is:  [5, 1, 7]
-    addresses of a and b:  4345520000 4345520000
+    addresses of a and b:  4364489280 4364489280
     b is:  [3, 1, 7]
 
 
@@ -2299,7 +2299,7 @@ extension in the filename as follows:
 .. code:: python
 
    print("This is a Python program that reads two numbers from the user, adds the numbers and prints the result\n\n")
-   [a, b] = input("Enter two numbers: ")
+   [a, b] = eval(input("Enter a list of two numbers as [a, b]: "))
    print("You have provided: ", a, b)
    result = a + b
    print("The sum is: ", result)
@@ -2311,7 +2311,7 @@ can execute those statements from a terminal window as follows:
 
    $ cat test.py
    print("This is a Python program that reads two numbers from the user, adds the numbers and prints the result\n\n")
-   [a, b] = input("Enter two numbers: ")
+   [a, b] = eval(input("Enter a list of two numbers as [a, b]: "))
    print("You have provided: ", a, b)
    result = a + b
    print("The sum is: ", result)
@@ -2319,7 +2319,7 @@ can execute those statements from a terminal window as follows:
    This is a Python program that reads two numbers from the user, adds the numbers and prints the result
 
 
-   Enter a list of two numbers [a, b]: [3, 4]
+   Enter a list of two numbers as [a, b]: [3, 4]
    You have provided:  3 4
    The sum is:  7
 
