@@ -212,8 +212,8 @@ This is a legitimate piece of code that performs the following in order:
    to be evaluated and boiled down to a value. So, in a left-to-right
    order the arguments are evaluated:
 
-   -  ``Q+S``\ is evaluated, and the result is stored into ``m_1``.
-   -  ``Q-S``\ is evaluated, and the result is stored into ``m_2``.
+   -  ``Q+S`` is evaluated, and the result is stored into ``m_1``.
+   -  ``Q-S`` is evaluated, and the result is stored into ``m_2``.
    -  Euclidean distance,
       :math:`\scriptstyle\mathtt{\sqrt{(504.3-66.1)^2+(351.1-7.7)^2}}`,
       is evaluated and the result is stored into ``r``.
