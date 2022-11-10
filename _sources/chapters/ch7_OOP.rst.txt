@@ -892,7 +892,7 @@ In summary, the code below performs the following:
    was defined in the base class, ``displace`` locates the correct
    ``draw`` (the draw of the rectangle) and performs the job.
 
-:math:`\textbf{\textrm{Please use the Colab link at the top to see the interactive demo.}}`
+:math:`\textbf{Please use the Colab link at the top to see the interactive demo.}`
 
 Useful Short Notes on Python’s OOP
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
