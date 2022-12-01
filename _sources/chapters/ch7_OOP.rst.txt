@@ -347,14 +347,14 @@ First, a piece of jargon:
 -  **Class:** A prescription that defines a particular object. The
    blueprint of an object.
 
--  **Class Instance**\ $;:raw-latex:`\equiv`; $\ **Object:** A
-   computational structure that has functions and data fields built
-   according the blueprint, namely the class. Similar to the
-   construction of buildings according to an architectural blueprint, in
-   Python we can create *objects* (more than one) conforming to a class
-   definition. Each of these objects will have their own data space and
-   in some cases customized functions. Objects are equivalently called
-   *Class instances*. Each object provides the following:
+-  **Class Instance** :math:`\equiv` **Object:** A computational
+   structure that has functions and data fields built according the
+   blueprint, namely the class. Similar to the construction of buildings
+   according to an architectural blueprint, in Python we can create
+   *objects* (more than one) conforming to a class definition. Each of
+   these objects will have their own data space and in some cases
+   customized functions. Objects are equivalently called *Class
+   instances*. Each object provides the following:
 
    -  **Methods:** Functions that belong to the object.
    -  **Sending a message to an object:** Calling a method of the
@@ -956,41 +956,41 @@ column, anything in square brackets denotes that the content is optional
 +---------------------------------+------------------------------------+
 | Operation                       | Result                             |
 +=================================+====================================+
-| ``S.capitalize()``              | Returns a copy of ``S`` with its   |
+| :math:`\texttt{S.capitalize()}` | Returns a copy of ``S`` with its   |
 |                                 | first character capitalized, and   |
 |                                 | the rest of the characters         |
 |                                 | lowercased.                        |
 +---------------------------------+------------------------------------+
-| ``S                             | Returns the number of occurrences  |
-| .count(sub [, start [, end]])`` | of substring ``sub`` in string     |
+| :math:`\texttt{S                | Returns the number of occurrences  |
+| .count(sub [, start [, end]])}` | of substring ``sub`` in string     |
 |                                 | ``S``.                             |
 +---------------------------------+------------------------------------+
-| ``                              | Returns the lowest index in ``S``  |
-| S.find(sub [, start [, end]])`` | where substring sub is found.      |
+| :math:`\texttt{                 | Returns the lowest index in ``S``  |
+| S.find(sub [, start [, end]])}` | where substring sub is found.      |
 |                                 | Returns ``-1`` if sub is not       |
 |                                 | found.                             |
 +---------------------------------+------------------------------------+
-| ``S.isalnum()``                 | Returns ``True`` if all characters |
+| :math:`\texttt{S.isalnum()}`    | Returns ``True`` if all characters |
 |                                 | in ``S`` are alphanumeric,         |
 |                                 | ``False`` otherwise.               |
 +---------------------------------+------------------------------------+
-| ``S.isalpha()``                 | Returns ``True`` if all characters |
+| :math:`\texttt{S.isalpha()}`    | Returns ``True`` if all characters |
 |                                 | in ``S`` are alphabetic, ``False`` |
 |                                 | otherwise.                         |
 +---------------------------------+------------------------------------+
-| ``S.isdigit()``                 | Returns ``True`` if all characters |
+| :math:`\texttt{S.isdigit()}`    | Returns ``True`` if all characters |
 |                                 | in ``S`` are digit characters,     |
 |                                 | ``False`` otherwise.               |
 +---------------------------------+------------------------------------+
-| ``S.islower()``                 | Returns ``True`` if all characters |
+| :math:`\texttt{S.islower()}`    | Returns ``True`` if all characters |
 |                                 | in ``S`` are lowercase, ``False``  |
 |                                 | otherwise.                         |
 +---------------------------------+------------------------------------+
-| ``S.isspace()``                 | Returns ``True`` if all characters |
+| :math:`\texttt{S.isspace()}`    | Returns ``True`` if all characters |
 |                                 | in ``S`` are whitespace            |
 |                                 | characters, ``False`` otherwise.   |
 +---------------------------------+------------------------------------+
-| ``S.isupper()``                 | Returns ``True`` if all characters |
+| :math:`\texttt{S.isupper()}`    | Returns ``True`` if all characters |
 |                                 | in ``S`` are uppercase, ``False``  |
 |                                 | otherwise.                         |
 +---------------------------------+------------------------------------+
@@ -998,16 +998,16 @@ column, anything in square brackets denotes that the content is optional
 |                                 | strings in the sequence ``seq``,   |
 |                                 | separated by string ``separator``, |
 |                                 | e.g.:                              |
-|                                 | ``"#".join(["a","bb","ccc"``])     |
-|                                 | returns ``"a#bb#ccc"``             |
+|                                 | ``"#".join(["a","bb","ccc"])``     |
+|                                 | returns ``"a#bb#ccc"``.            |
 +---------------------------------+------------------------------------+
-| ``S.ljust/rjust/c               | Returns ``S``, left/right          |
-| enter(width [, fillChar=' '])`` | justified/centered in a string of  |
-|                                 | length width. surrounded by the    |
+| ``S.ljust/rju                   | Returns ``S``, left/right          |
+| st/center(width [, fillChar])`` | justified/centered in a string of  |
+|                                 | length width, surrounded by the    |
 |                                 | appropriate number of ``fillChar`` |
 |                                 | characters.                        |
 +---------------------------------+------------------------------------+
-| ``S.lower()``                   | Returns a copy of ``S`` converted  |
+| :math:`\texttt{S.lower()}`      | Returns a copy of ``S`` converted  |
 |                                 | to lowercase.                      |
 +---------------------------------+------------------------------------+
 | ``S.lstrip([chars])``           | Returns a copy of ``S`` with       |
@@ -1021,22 +1021,22 @@ column, anything in square brackets denotes that the content is optional
 |                                 | separator itself, and the part     |
 |                                 | after it.                          |
 +---------------------------------+------------------------------------+
-| ``S.replac                      | Returns a copy of ``S`` with the   |
-| e(old, new [, maxCount = -1])`` | first ``maxCount`` (``-1``:        |
+| :math:`\texttt{S.replac         | Returns a copy of ``S`` with the   |
+| e(old, new [, maxCount = -1])}` | first ``maxCount`` (``-1``:        |
 |                                 | unlimited) occurrences of          |
 |                                 | substring ``old`` replaced by      |
 |                                 | ``new``.                           |
 +---------------------------------+------------------------------------+
-| ``S.sp                          | Returns a list of the words in     |
-| lit([separator [, maxsplit]])`` | ``S``, using ``separator`` as the  |
+| :math:`\texttt{S.sp             | Returns a list of the words in     |
+| lit([separator [, maxsplit]])}` | ``S``, using ``separator`` as the  |
 |                                 | delimiter string.                  |
 +---------------------------------+------------------------------------+
 | ``S.splitlines([keepends])``    | Returns a list of the lines in     |
 |                                 | ``S``, breaking at line            |
 |                                 | boundaries.                        |
 +---------------------------------+------------------------------------+
-| ``S.startsw                     | Returns ``True`` if ``S`` starts   |
-| ith(prefix [, start [, end]])`` | with the specified prefix,         |
+| :math:`\texttt{S.startsw        | Returns ``True`` if ``S`` starts   |
+| ith(prefix [, start [, end]])}` | with the specified prefix,         |
 |                                 | otherwise returns ``False``.       |
 |                                 | Negative numbers may be used for   |
 |                                 | ``start`` and ``end``. Prefix can  |
@@ -1046,11 +1046,11 @@ column, anything in square brackets denotes that the content is optional
 |                                 | leading and trailing ``chars``     |
 |                                 | (default: blank chars) removed.    |
 +---------------------------------+------------------------------------+
-| ``S.swapcase()``                | Returns a copy of ``S`` with       |
+| :math:`\texttt{S.swapcase()}`   | Returns a copy of ``S`` with       |
 |                                 | uppercase characters converted to  |
 |                                 | lowercase and vice versa.          |
 +---------------------------------+------------------------------------+
-| ``S.upper()``                   | Returns a copy of ``S`` converted  |
+| :math:`\texttt{S.upper()}`      | Returns a copy of ``S`` converted  |
 |                                 | to uppercase.                      |
 +---------------------------------+------------------------------------+
 
@@ -1065,21 +1065,21 @@ column, anything in square brackets denotes that the content is optional
 | Operation                         | Result                            |
 +===================================+===================================+
 | ``L.append(x)``                   | same as                           |
-|                                   | ``L[len(L) : len(L)] = [x]``      |
+|                                   | ``L[len(L) : len(L)] = [x]``.     |
 +-----------------------------------+-----------------------------------+
 | ``L.extend(x)``                   | same as                           |
-|                                   | ``L[len(L) : len(L)] = x``        |
+|                                   | ``L[len(L) : len(L)] = x``.       |
 +-----------------------------------+-----------------------------------+
 | ``L.count(x)``                    | returns number of ``i``\ ’s for   |
-|                                   | which ``L[i] == x``               |
+|                                   | which ``L[i] == x``.              |
 +-----------------------------------+-----------------------------------+
-| `                                 | returns smallest ``i`` such that  |
-| `L.index(x [, start [, stop ]])`` | ``L[i] == x``. ``start`` and      |
+| :math:`\texttt                    | returns smallest ``i`` such that  |
+| {L.index(x [, start [, stop ]])}` | ``L[i] == x``. ``start`` and      |
 |                                   | ``stop`` limit search to only     |
 |                                   | part of the list.                 |
 +-----------------------------------+-----------------------------------+
 | ``L.insert(i, x)``                | same as ``L[i:i] = [x]`` if       |
-|                                   | ``i_≥ 0``. if ``i ≟ -1``, inserts |
+|                                   | ``i ≥ 0``. if ``i ≟ -1``, inserts |
 |                                   | before the last element.          |
 +-----------------------------------+-----------------------------------+
 | ``L.remove(x)``                   | same as ``del L[L.index(x)]``     |
@@ -1192,14 +1192,14 @@ optional content, do no type in the square brackets):
 |                                | set (in the method ``T2, T3, ...``  |
 |                                | can be any iterable)                |
 +--------------------------------+-------------------------------------+
-| ``                             | Synonym to ``(T1 - T2)``. Returns a |
-| T1.difference(T2 [, T3 ...])`` | new Set with elements in ``T1`` but |
+| :math:`\texttt{                | Synonym to ``(T1 - T2)``. Returns a |
+| T1.difference(T2 [, T3 ...])}` | new Set with elements in ``T1`` but |
 |                                | not in any of ``T2, T3, ..`` (in    |
 |                                | the method ``T2, T3, ...`` can be   |
 |                                | any iterable)                       |
 +--------------------------------+-------------------------------------+
-| `                              | Synonym to ``(T1 ^ T2)``. Returns a |
-| `T1.symmetric_difference(T2)`` | new Set with elements from either   |
+| :math:`\texttt                 | Synonym to ``(T1 ^ T2)``. Returns a |
+| {T1.symmetric_difference(T2)}` | new Set with elements from either   |
 |                                | of two sets but not in their        |
 |                                | intersection                        |
 +--------------------------------+-------------------------------------+
